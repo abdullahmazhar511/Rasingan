@@ -1,18 +1,34 @@
 import torch
 import torch.nn as nn
-from transformers import AutoModelForCausalLM, AutoConfig
+from transformers import AutoModelForCausalLM, AutoConfig, AutoTokenizer
 from peft import get_peft_model, LoraConfig, TaskType
+import pandas as pd
+from sentence_transformers import SentenceTransformer
+from sentence_transformers.util import cos_sim
+from sentence_transformers.util import cos_sim
+import numpy as np
+import os
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 dtype_str = "bfloat16" if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else "float16"
 torch_dtype = torch.bfloat16 if dtype_str == "bfloat16" else torch.float16
-import numpy as np
 
+CONFIG = {
+    # Two different models
+    "explainer_model_id": "Qwen/Qwen3-4B-Instruct-2507", 
+    "classifier_model_id": "Qwen/Qwen3-4B-Instruct-2507",
+    "classifier_weights": "classification_output_stable_v4",
+    "embedding_model": "all-MiniLM-L6-v2",
+}
 
 LABEL_TO_IDX = {-2: 0, -1: 1, 0: 2, 1: 3, 2: 4}
 IDX_TO_LABEL = {0: -2, 1: -1, 2: 0, 3: 1, 4: 2}
 NUM_CLASSES = 5
-
+CARE_LABELS=[
+    "Non-Judgmental Language", "Warmth and Encouragement", 
+    "Respect for Autonomy", "Active Listening", 
+    "Reflecting Feelings", "Situational Appropriateness"
+]
 
 class AttentionPooling(nn.Module):
     def __init__(self, hidden_size):
@@ -119,13 +135,106 @@ class QwenHierarchicalClassifier(nn.Module):
 
 class CareModel:
     def __init__(self):
-        self.tokenizer=None
+        self.tokenizer = AutoTokenizer.from_pretrained(CONFIG["classifier_model_id"], trust_remote_code=True)
+        self.tokenizer.pad_token = self.tokenizer.eos_token
+
+        self.model = QwenHierarchicalClassifier(CONFIG["classifier_model_id"]) 
+        self.model.load_state_dict(torch.load(os.path.join(CONFIG["classifier_weights"], "best_classifier.pt")))
+        self.model.to(device)
+        self.model.eval()
+    
         self.max_length=None
-        self.model=None
         self.analysis_labels = None
+        
+        #load explanations
+        self.explanations=pd.read_csv("explanations\explanations.csv.csv")
+        self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5")
+        
+        self.init_explanations()
+
+    def init_explanations(self):
+        # Organize samples by dimension with positive (Polarity='positive') and negative (Polarity='negative') samples
+        self.dimension_samples = {}
+        for dimension in self.explanations['Dimension'].unique():
+            dim_data = self.explanations[self.explanations['Dimension'] == dimension]
+            positive_samples = dim_data[dim_data['Polarity'] == 'positive']
+            negative_samples = dim_data[dim_data['Polarity'] == 'negative']
+            
+            # Store one positive and one negative sample with their embeddings
+            pos_text = positive_samples['Therapist Response'].iloc[0] if len(positive_samples) > 0 else ""
+            neg_text = negative_samples['Therapist Response'].iloc[0] if len(negative_samples) > 0 else ""
+            
+            pos_embedding = self.embedding_model.encode(pos_text, convert_to_tensor=True) if pos_text else None
+            neg_embedding = self.embedding_model.encode(neg_text, convert_to_tensor=True) if neg_text else None
+            
+            self.dimension_samples[dimension] = {
+                'positive': {
+                    'text': pos_text,
+                    'embedding': pos_embedding,
+                    'row': positive_samples.iloc[0] if len(positive_samples) > 0 else None
+                },
+                'negative': {
+                    'text': neg_text,
+                    'embedding': neg_embedding,
+                    'row': negative_samples.iloc[0] if len(negative_samples) > 0 else None
+                }
+            }
 
     def get_analysis(self, context, utterance):
-        pass
+
+        explanations = self.get_explanations(utterance)
+        analysis = ""
+        for lbl in CARE_LABELS:
+            # row = str(explanations.get(lbl, "")).strip() or "No info."
+            analysis += f"{lbl}:\n"
+            for polarity in ['positive', 'negative']:
+                expl_text = explanations.get(lbl, {}).get(polarity, {}).get('explanation', "No info.")
+                expl_text = str(expl_text).strip() or "No info."
+                expl_text = f"{polarity.capitalize()}: {expl_text}"
+                analysis += f"{lbl}: {expl_text}\n"
+            analysis += "\n"
+        return analysis
+    
+    def get_explanations(self, text):
+        """
+        Match input text with positive and negative samples for each dimension.
+        Returns similarity scores for each dimension with one positive and one negative sample.
+        
+        Args:
+            text: Input text to match against samples
+            
+        Returns:
+            dict: Dictionary with dimension -> {'positive': {'similarity': float, 'row': pd.Series}, 
+                                              'negative': {'similarity': float, 'row': pd.Series}}
+        """
+        # Encode input text
+        text_embedding = self.embedding_model.encode(text, convert_to_tensor=True)
+        
+        results = {}
+        for dimension, samples in self.dimension_samples.items():
+            results[dimension] = {}
+            
+            # Calculate similarity with positive sample
+            if samples['positive']['embedding'] is not None:
+                pos_similarity = cos_sim(text_embedding, samples['positive']['embedding']).item()
+                results[dimension]['positive'] = {
+                    'similarity': pos_similarity,
+                    'explanation': samples['positive']['row']['Explanation']
+                }
+            else:
+                results[dimension]['positive'] = {'similarity': None, 'row': None}
+            
+            # Calculate similarity with negative sample
+            if samples['negative']['embedding'] is not None:
+                neg_similarity = cos_sim(text_embedding, samples['negative']['embedding']).item()
+                results[dimension]['negative'] = {
+                    'similarity': neg_similarity,
+                    'explanation': samples['negative']['row']['Explanation']
+                }
+            else:
+                results[dimension]['negative'] = {'similarity': None, 'row': None}
+        print(results)
+        return results
 
     def predict(self, context, utterance):
         analysis = self.get_analysis(context, utterance)
@@ -135,23 +244,26 @@ class CareModel:
             f"Analysis:\n{analysis}\n"
             "Classify the clinical traits."
         )
-        tokenized_input = self.tokenizer(
-            text_input,
-            max_length=self.max_length,
-            padding="max_length",
-            truncation=True,
-            return_tensors="pt"
-        ).to(device)
-        with torch.no_grad():
-            all_preds_idx = []
-
-            loss,logits,binary_logits = self.model(
-                input_ids=tokenized_input.input_ids,
-                attention_mask=tokenized_input.attention_mask
-            )
-            preds = torch.argmax(logits, dim=2)
-            all_preds_idx.extend(preds.cpu().numpy())
-
-            all_preds_idx = np.array(all_preds_idx)
-            all_preds_real = np.vectorize(IDX_TO_LABEL.get)(all_preds_idx)
+        print(text_input)
         
+        # tokenized_input = self.tokenizer(
+        #     text_input,
+        #     max_length=self.max_length,
+        #     padding="max_length",
+        #     truncation=True,
+        #     return_tensors="pt"
+        # ).to(device)
+        # with torch.no_grad():
+        #     all_preds_idx = []
+
+        #     loss,logits,binary_logits = self.model(
+        #         input_ids=tokenized_input.input_ids,
+        #         attention_mask=tokenized_input.attention_mask
+        #     )
+        #     preds = torch.argmax(logits, dim=2)
+        #     all_preds_idx.extend(preds.cpu().numpy())
+
+        #     all_preds_idx = np.array(all_preds_idx)
+        #     all_preds_real = np.vectorize(IDX_TO_LABEL.get)(all_preds_idx)
+
+
