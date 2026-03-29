@@ -1,3 +1,8 @@
+# Force IPv4 for HuggingFace Hub and other network connections
+import socket
+_orig_getaddrinfo = socket.getaddrinfo
+socket.getaddrinfo = lambda host, port, family=0, type=0, proto=0, flags=0: _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+
 import torch
 import torch.nn as nn
 from transformers import AutoModelForCausalLM, AutoConfig, AutoTokenizer
@@ -8,6 +13,7 @@ from sentence_transformers.util import cos_sim
 from sentence_transformers.util import cos_sim
 import numpy as np
 import os
+import sys
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 dtype_str = "bfloat16" if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else "float16"
@@ -17,7 +23,7 @@ CONFIG = {
     # Two different models
     "explainer_model_id": "Qwen/Qwen3-4B-Instruct-2507", 
     "classifier_model_id": "Qwen/Qwen3-4B-Instruct-2507",
-    "classifier_weights": "classification_output_stable_v4",
+    "classifier_weights": "/home/umairai/faith/faith/classification_output_stable_v5",
     "embedding_model": "all-MiniLM-L6-v2",
 }
 
@@ -57,7 +63,6 @@ class QwenHierarchicalClassifier(nn.Module):
             torch_dtype=torch_dtype, 
             trust_remote_code=True
         )
-        
         peft_config = LoraConfig(
             task_type=TaskType.FEATURE_EXTRACTION, 
             r=16, lora_alpha=32, lora_dropout=0.1, 
@@ -138,16 +143,22 @@ class CareModel:
         self.tokenizer = AutoTokenizer.from_pretrained(CONFIG["classifier_model_id"], trust_remote_code=True)
         self.tokenizer.pad_token = self.tokenizer.eos_token
 
-        self.model = QwenHierarchicalClassifier(CONFIG["classifier_model_id"]) 
-        self.model.load_state_dict(torch.load(os.path.join(CONFIG["classifier_weights"], "best_classifier.pt")))
-        self.model.to(device)
+        self.model = QwenHierarchicalClassifier(CONFIG["classifier_model_id"])
+        print("Loading model weights...")
+        state_dict = torch.load(
+            os.path.join(CONFIG["classifier_weights"], "best_classifier.pt"),
+            map_location=device
+        )
+        self.model.load_state_dict(state_dict)
+
+        self.model.to(device, dtype=torch.float16)
         self.model.eval()
     
         self.max_length=None
         self.analysis_labels = None
         
         #load explanations
-        self.explanations=pd.read_csv("explanations\explanations.csv.csv")
+        self.explanations=pd.read_csv("explanations/explanations.csv")
         self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5")
         
         self.init_explanations()
@@ -266,4 +277,7 @@ class CareModel:
         #     all_preds_idx = np.array(all_preds_idx)
         #     all_preds_real = np.vectorize(IDX_TO_LABEL.get)(all_preds_idx)
 
-
+model=CareModel()
+train_data=pd.read_csv("/home/umairai/faith_data/train.csv")
+print(train_data.columns)
+print(train_data.head())
