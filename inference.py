@@ -14,7 +14,6 @@ from sentence_transformers.util import cos_sim
 import numpy as np
 import os
 import sys
-from utils.hfDataset import MHCoPilot_Dataset 
 
 
 # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
