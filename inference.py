@@ -1,15 +1,24 @@
+# Force IPv4 for HuggingFace Hub and other network connections
+import socket
+_orig_getaddrinfo = socket.getaddrinfo
+socket.getaddrinfo = lambda host, port, family=0, type=0, proto=0, flags=0: _orig_getaddrinfo(host, port, socket.AF_INET, type, proto, flags)
+
 import torch
 import torch.nn as nn
+from torch.cuda.amp import autocast
 from transformers import AutoModelForCausalLM, AutoConfig, AutoTokenizer
 from peft import get_peft_model, LoraConfig, TaskType
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import cos_sim
-from sentence_transformers.util import cos_sim
 import numpy as np
 import os
+import sys
+from utils.hfDataset import MHCoPilot_Dataset 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device="cuda:0"
 dtype_str = "bfloat16" if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else "float16"
 torch_dtype = torch.bfloat16 if dtype_str == "bfloat16" else torch.float16
 
@@ -17,7 +26,7 @@ CONFIG = {
     # Two different models
     "explainer_model_id": "Qwen/Qwen3-4B-Instruct-2507", 
     "classifier_model_id": "Qwen/Qwen3-4B-Instruct-2507",
-    "classifier_weights": "classification_output_stable_v4",
+    "classifier_weights": "/home/umairai/faith/faith/classification_output_stable_v5",
     "embedding_model": "all-MiniLM-L6-v2",
 }
 
@@ -53,11 +62,10 @@ class QwenHierarchicalClassifier(nn.Module):
         self.config = AutoConfig.from_pretrained(model_id, trust_remote_code=True)
         base_model = AutoModelForCausalLM.from_pretrained(
             model_id,
-            device_map="auto",
+            device_map={"": "cuda:0"},  # Load on single GPU instead of auto
             torch_dtype=torch_dtype, 
             trust_remote_code=True
         )
-        
         peft_config = LoraConfig(
             task_type=TaskType.FEATURE_EXTRACTION, 
             r=16, lora_alpha=32, lora_dropout=0.1, 
@@ -87,10 +95,12 @@ class QwenHierarchicalClassifier(nn.Module):
             ))
             
         self._init_head_weights()
-        self.pooler.to(device=device, dtype=torch.float32)
-        self.norm.to(device=device, dtype=torch.float32)
-        self.main_heads.to(device=device, dtype=torch.float32)
-        self.binary_heads.to(device=device, dtype=torch.float32)
+        # Move all components to the appropriate device and dtype
+        self.backbone.to(device=device, dtype=torch_dtype)
+        self.pooler.to(device=device, dtype=torch_dtype)
+        self.norm.to(device=device, dtype=torch_dtype)
+        self.main_heads.to(device=device, dtype=torch_dtype)
+        self.binary_heads.to(device=device, dtype=torch_dtype)
         
         self.class_weights = class_weights
         self.binary_weights = binary_weights
@@ -106,7 +116,7 @@ class QwenHierarchicalClassifier(nn.Module):
     def forward(self, input_ids, attention_mask, labels=None):
         outputs = self.backbone(input_ids=input_ids, attention_mask=attention_mask, output_hidden_states=True)
         last_hidden = outputs.hidden_states[-1]
-        pooled = self.pooler(last_hidden.to(dtype=torch.float32), attention_mask)
+        pooled = self.pooler(last_hidden, attention_mask)
         pooled = self.norm(pooled)
         
         main_logits_list = []
@@ -138,17 +148,29 @@ class CareModel:
         self.tokenizer = AutoTokenizer.from_pretrained(CONFIG["classifier_model_id"], trust_remote_code=True)
         self.tokenizer.pad_token = self.tokenizer.eos_token
 
-        self.model = QwenHierarchicalClassifier(CONFIG["classifier_model_id"]) 
-        self.model.load_state_dict(torch.load(os.path.join(CONFIG["classifier_weights"], "best_classifier.pt")))
-        self.model.to(device)
-        self.model.eval()
+        with torch.no_grad():
+            self.model = QwenHierarchicalClassifier(CONFIG["classifier_model_id"])
+            print("Loading model weights...")
+            state_dict = torch.load(
+                os.path.join(CONFIG["classifier_weights"], "best_classifier.pt"),
+                map_location=device
+            )
+            self.model.load_state_dict(state_dict)
+            self.model.to(device, dtype=torch.float16)
+            self.model.eval()
+        
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
     
-        self.max_length=None
+        self.max_length = 2048 # Set reasonable max length to avoid OOM
         self.analysis_labels = None
         
-        #load explanations
-        self.explanations=pd.read_csv("explanations\explanations.csv.csv")
-        self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5")
+        #load explanations - use absolute path
+        explanations_path = "/home/umairai/faithfulness_emnlp/Rasingan/explanations/explanations_16.csv"
+        self.explanations=pd.read_csv(explanations_path)
+        # Load embedding model on GPU for faster inference
+        embedding_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=embedding_device)
         
         self.init_explanations()
 
@@ -164,6 +186,7 @@ class CareModel:
             pos_text = positive_samples['Therapist Response'].iloc[0] if len(positive_samples) > 0 else ""
             neg_text = negative_samples['Therapist Response'].iloc[0] if len(negative_samples) > 0 else ""
             
+            # Encode embeddings on GPU for faster computation
             pos_embedding = self.embedding_model.encode(pos_text, convert_to_tensor=True) if pos_text else None
             neg_embedding = self.embedding_model.encode(neg_text, convert_to_tensor=True) if neg_text else None
             
@@ -195,6 +218,57 @@ class CareModel:
             analysis += "\n"
         return analysis
     
+    def _get_analysis_batch(self, contexts, utterances):
+        """
+        Efficiently generate analysis for multiple utterances in parallel.
+        Returns list of analysis strings.
+        """
+        # Batch encode utterances for similarity computation
+        text_embeddings = self.embedding_model.encode(utterances, convert_to_tensor=True)
+        
+        all_explanations = []
+        for text_embedding in text_embeddings:
+            results = {}
+            for dimension, samples in self.dimension_samples.items():
+                results[dimension] = {}
+                
+                # Calculate similarity with positive sample
+                if samples['positive']['embedding'] is not None:
+                    pos_similarity = cos_sim(text_embedding, samples['positive']['embedding']).item()
+                    results[dimension]['positive'] = {
+                        'similarity': pos_similarity,
+                        'explanation': samples['positive']['row']['Explanation']
+                    }
+                else:
+                    results[dimension]['positive'] = {'similarity': None, 'row': None}
+                
+                # Calculate similarity with negative sample
+                if samples['negative']['embedding'] is not None:
+                    neg_similarity = cos_sim(text_embedding, samples['negative']['embedding']).item()
+                    results[dimension]['negative'] = {
+                        'similarity': neg_similarity,
+                        'explanation': samples['negative']['row']['Explanation']
+                    }
+                else:
+                    results[dimension]['negative'] = {'similarity': None, 'row': None}
+            all_explanations.append(results)
+        
+        # Generate analysis strings for each sample
+        analyses = []
+        for explanations in all_explanations:
+            analysis = ""
+            for lbl in CARE_LABELS:
+                analysis += f"{lbl}:\n"
+                for polarity in ['positive', 'negative']:
+                    expl_text = explanations.get(lbl, {}).get(polarity, {}).get('explanation', "No info.")
+                    expl_text = str(expl_text).strip() or "No info."
+                    expl_text = f"{polarity.capitalize()}: {expl_text}"
+                    analysis += f"{lbl}: {expl_text}\n"
+                analysis += "\n"
+            analyses.append(analysis)
+        
+        return analyses
+    
     def get_explanations(self, text):
         """
         Match input text with positive and negative samples for each dimension.
@@ -207,7 +281,7 @@ class CareModel:
             dict: Dictionary with dimension -> {'positive': {'similarity': float, 'row': pd.Series}, 
                                               'negative': {'similarity': float, 'row': pd.Series}}
         """
-        # Encode input text
+        # Encode input text on GPU
         text_embedding = self.embedding_model.encode(text, convert_to_tensor=True)
         
         results = {}
@@ -233,37 +307,138 @@ class CareModel:
                 }
             else:
                 results[dimension]['negative'] = {'similarity': None, 'row': None}
-        print(results)
+        # print(results)
         return results
 
-    def predict(self, context, utterance):
-        analysis = self.get_analysis(context, utterance)
+    def predict(self, context, utterance, include_analysis=True):
+        """
+        Single sample inference with optional analysis.
+        """
+        if include_analysis:
+            analysis = self.get_analysis(context, utterance)
+        else:
+            analysis = ""
+            
         text_input = (
             f"Context:\n{context}\n"
             f"Therapist: \"{utterance}\"\n"
             f"Analysis:\n{analysis}\n"
             "Classify the clinical traits."
         )
-        print(text_input)
         
-        # tokenized_input = self.tokenizer(
-        #     text_input,
-        #     max_length=self.max_length,
-        #     padding="max_length",
-        #     truncation=True,
-        #     return_tensors="pt"
-        # ).to(device)
-        # with torch.no_grad():
-        #     all_preds_idx = []
+        tokenized_input = self.tokenizer(
+            text_input,
+            max_length=self.max_length,
+            padding="longest",
+            truncation=True,
+            return_tensors="pt"
+        ).to(device)
+        
+        with torch.no_grad():
+            with autocast(dtype=torch.float16):
+                output = self.model(
+                    input_ids=tokenized_input.input_ids,
+                    attention_mask=tokenized_input.attention_mask
+                )
+            logits = output["logits"]
+            preds = torch.argmax(logits, dim=2)
+            preds_idx = preds.cpu().numpy()
+        
+        # Convert predictions to labels
+        preds_real = np.vectorize(IDX_TO_LABEL.get)(preds_idx)
+        
+        # Return predictions with labels
+        result = {}
+        for i, label in enumerate(CARE_LABELS):
+            result[label] = preds_real[0][i].item()
+        
+        return result
+    
+    def batch_predict(self, contexts, utterances, batch_size=8, include_analysis=True):
+        """
+        Batch inference for fast processing of multiple samples.
+        
+        Args:
+            contexts: List of context strings
+            utterances: List of utterance strings
+            batch_size: Number of samples to process at once
+            include_analysis: Whether to include analysis (slower but more accurate)
+        
+        Returns:
+            List of prediction dictionaries
+        """
+        assert len(contexts) == len(utterances), "contexts and utterances must have same length"
+        
+        all_results = []
+        num_samples = len(utterances)
+        
+        # Process analyses in batch if needed
+        if include_analysis:
+            all_analyses = self._get_analysis_batch(contexts, utterances)
+        else:
+            all_analyses = [""] * num_samples
+        
+        # Process predictions in batches
+        for batch_start in range(0, num_samples, batch_size):
+            batch_end = min(batch_start + batch_size, num_samples)
+            batch_contexts = contexts[batch_start:batch_end]
+            batch_utterances = utterances[batch_start:batch_end]
+            batch_analyses = all_analyses[batch_start:batch_end]
+            
+            # Build batch inputs
+            batch_inputs = []
+            for context, utterance, analysis in zip(batch_contexts, batch_utterances, batch_analyses):
+                text_input = (
+                    f"Context:\n{context}\n"
+                    f"Therapist: \"{utterance}\"\n"
+                    f"Analysis:\n{analysis}\n"
+                    "Classify the clinical traits."
+                )
+                batch_inputs.append(text_input)
+            
+            # Tokenize batch
+            tokenized_batch = self.tokenizer(
+                batch_inputs,
+                max_length=self.max_length,
+                padding="longest",
+                truncation=True,
+                return_tensors="pt"
+            ).to(device)
+            
+            # Inference with mixed precision
+            with torch.no_grad():
+                with autocast(dtype=torch.float16):
+                    output = self.model(
+                        input_ids=tokenized_batch.input_ids,
+                        attention_mask=tokenized_batch.attention_mask
+                    )
+                logits = output["logits"]
+                preds = torch.argmax(logits, dim=2)
+                preds_batch = preds.cpu().numpy()
+            
+            # Convert predictions to labels
+            preds_real = np.vectorize(IDX_TO_LABEL.get)(preds_batch)
+            
+            # Build results for this batch
+            for i in range(len(batch_inputs)):
+                result = {}
+                for j, label in enumerate(CARE_LABELS):
+                    result[label] = preds_real[i][j].item()
+                all_results.append(result)
+            
+            # Clear cache to avoid OOM
+            torch.cuda.empty_cache()
+        
+        return all_results
+        
+# Dataset = MHCoPilot_Dataset("/home/umairai/faith_data/")
+# Dataset.get_data()
+# train_dataset = Dataset.train_dataset
 
-        #     loss,logits,binary_logits = self.model(
-        #         input_ids=tokenized_input.input_ids,
-        #         attention_mask=tokenized_input.attention_mask
-        #     )
-        #     preds = torch.argmax(logits, dim=2)
-        #     all_preds_idx.extend(preds.cpu().numpy())
-
-        #     all_preds_idx = np.array(all_preds_idx)
-        #     all_preds_real = np.vectorize(IDX_TO_LABEL.get)(all_preds_idx)
+# model=CareModel()
 
 
+# print(train_dataset)
+# #print only utterance and type
+# # print(train_dataset[2])
+# model.predict(train_dataset[2]['context'], train_dataset[2]['Utterance'])

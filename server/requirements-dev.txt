@@ -1,0 +1,13 @@
+-r requirements_server.txt
+
+# Development & Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+locust==2.17.0  # For advanced load testing
+black==23.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Monitoring & Performance
+prometheus-client==0.19.0
