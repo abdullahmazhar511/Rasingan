@@ -31,6 +31,8 @@ class Faith_Dataset:
         
         # Load CSVs from the specified directory
         self.train_df = pd.read_csv(os.path.join(csv_dir, 'train.csv'))
+        #select only the first 1000 rows for faster processing during development
+        self.train_df = self.train_df.head(2000)
         self.val_df = pd.read_csv(os.path.join(csv_dir, 'val.csv'))
         self.test_df = pd.read_csv(os.path.join(csv_dir, 'test.csv'))
         
@@ -70,7 +72,6 @@ class Faith_Dataset:
             
             data = {
                 "data_source": data_source,
-                "agent_name": "tool_agent",
                 "prompt": [
                     {
                         "role": "system",
@@ -114,10 +115,10 @@ class Faith_Dataset:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--csv_dir", default="/home/umairai/faith_data/dataset", help="The directory containing CSV files (train.csv, val.csv, test.csv).")
+    parser.add_argument("--csv_dir", default="/home/umairai/faithfulness_emnlp/Rasingan/data", help="The directory containing CSV files (train.csv, val.csv, test.csv).")
     parser.add_argument("--hdfs_dir", default=None)
     parser.add_argument(
-        "--local_save_dir", default="../data", help="The save directory for the preprocessed dataset."
+        "--local_save_dir", default="/home/umairai/faithfulness_emnlp/Rasingan/verl/examples/faith/data", help="The save directory for the preprocessed dataset."
     )
     args = parser.parse_args()
     
@@ -132,6 +133,7 @@ if __name__ == "__main__":
     val_dataset.to_parquet(os.path.join(args.local_save_dir, "val.parquet"))
     test_dataset.to_parquet(os.path.join(args.local_save_dir, "test.parquet"))
 
+    print(f"Preprocessing complete! Datasets saved to: {args.local_save_dir}")
     if args.hdfs_dir is not None:
         makedirs(args.hdfs_dir)
         copy(src=args.local_save_dir, dst=args.hdfs_dir)

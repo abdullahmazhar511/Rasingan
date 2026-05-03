@@ -25,6 +25,7 @@ from verl.experimental.reward.reward_loop import register as register_loop
 from verl.experimental.reward.reward_loop.base import RewardLoopManagerBase
 from verl.utils.reward_score import default_compute_score
 from verl.workers.reward_manager import register as register_manager
+import math
 
 logger = logging.getLogger(__file__)
 
@@ -179,9 +180,9 @@ class AsyncTokenBucket:
                 await asyncio.sleep(wait_time)
 
 
-@register_loop("rate_limited")
-@register_manager("rate_limited")
-class RateLimitedRewardLoopManager(RewardLoopManagerBase):
+@register_loop("care")
+@register_manager("care")
+class CareRewardLoopManager(RewardLoopManagerBase):
     """Reward loop manager with rate limiting for API-based reward functions.
 
     This manager implements a sophisticated three-layer rate limiting system
@@ -331,7 +332,7 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
             response = await self.loop.run_in_executor(
                 None,
                 lambda: requests.post(
-                    f"{self.reward_router_address}/predict",
+                    f"http://localhost:8001/predict",
                     json={
                         "context": context,
                         "utterance": utterance,
@@ -345,11 +346,11 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
             predictions = result.get("predictions", {})
             return predictions
         except Exception as e:
-            logger.error(f"Error calling server at {self.reward_router_address}: {e}")
+            logger.error(f"Error calling server at http://localhost:8001: {e}")
             return {label: 0.0 for label in CARE_LABELS}
 
-    async def _compute_six_dim_reward(self, response_str: str, extra_info: dict) -> list:
-        """Compute 6-dimensional reward from server predictions."""
+    async def _compute_six_dim_reward(self, response_str: str, extra_info: dict) -> float:
+        """Compute single reward value from averaging 6-dimensional CARE labels."""
         try:
             context = extra_info.get("context", "")
             ground_truth = extra_info.get("ground_truth", {})
@@ -357,21 +358,26 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
             # Get predictions from server
             predictions = await self._get_server_predictions(context, response_str)
             
-            # Calculate reward for each label
-            rewards = []
+            # Calculate L2 norm from squared differences for each label
+            losses = []
             for label in CARE_LABELS:
                 pred_val = float(predictions.get(label, 0.0))
                 truth_val = float(ground_truth.get(label, 0.0))
                 
-                # Reward: 1 - MSE loss for this label
+                # Squared difference for this label (component of L2 norm)
                 loss = (pred_val - truth_val) ** 2
-                reward = max(0.0, 1.0 - loss)
-                rewards.append(reward)
+                losses.append(loss)
             
-            return rewards
+            # Return bounded reward: minimize L2 norm distance while maximizing reward
+            # reward = max(0, 1 - L2_norm) ensures reward is in [0, 1]
+            import math
+            l2_norm = math.sqrt(sum(losses)) if losses else 0.0
+            reward = max(0.0, 1.0 - l2_norm)
+            return reward
+        
         except Exception as e:
             logger.error(f"Error computing 6D reward: {e}")
-            return [0.0] * 6
+            return 0.0
 
     async def _compute_reward(
         self, data_source: str, solution_str: str, ground_truth: str, extra_info: dict
@@ -430,43 +436,19 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
 
         async with self._semaphore:
             try:
-                # Use 6D reward if server address is provided
-                if self.reward_router_address:
-                    rewards = await asyncio.wait_for(
-                        self._compute_six_dim_reward(response_str, extra_info),
-                        timeout=self.timeout,
-                    )
-                    reward_extra_info["method"] = "6_dimensional_labels"
-                    reward_extra_info["rewards_by_label"] = {label: float(r) for label, r in zip(CARE_LABELS, rewards)}
-                else:
-                    result = await asyncio.wait_for(
-                        self._compute_reward(
-                            data_source=data_source,
-                            solution_str=response_str,
-                            ground_truth=ground_truth,
-                            extra_info=extra_info,
-                        ),
-                        timeout=self.timeout,
-                    )
-
-                    score: float
-                    if isinstance(result, dict):
-                        score = result["score"]
-                        for key, value in result.items():
-                            reward_extra_info[key] = value
-                    else:
-                        score = result
-                        reward_extra_info["acc"] = score
-                    
-                    # Convert single score to 6D for consistency
-                    rewards = [score] * 6
+                # Compute single reward value (averaged across 6 CARE dimensions)
+                reward_score = await asyncio.wait_for(
+                    self._compute_six_dim_reward(response_str, extra_info),
+                    timeout=self.timeout,
+                )
+                reward_extra_info["method"] = "averaged_6_dimensional_labels"
 
             except asyncio.TimeoutError:
                 logger.warning(
                     f"Reward computation timed out after {self.timeout}s for data_source={data_source}. "
                     f"Response preview: {response_str[:100]}..."
                 )
-                rewards = [0.0] * 6
+                reward_score = 0.0
                 reward_extra_info["timeout"] = True
                 reward_extra_info["acc"] = 0.0
 
@@ -475,11 +457,11 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
                     f"Reward computation failed for data_source={data_source}: {e}. "
                     f"Response preview: {response_str[:100]}..."
                 )
-                rewards = [0.0] * 6
+                reward_score = 0.0
                 reward_extra_info["error"] = str(e)
                 reward_extra_info["acc"] = 0.0
 
-        return {"reward_scores": rewards, "reward_extra_info": reward_extra_info}
+        return {"reward_score": reward_score, "reward_extra_info": reward_extra_info}
 
     def __call__(self, data: DataProto, return_dict: bool = False):
         """Make the manager callable like traditional reward managers.
@@ -493,8 +475,8 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
                                If False, return only the reward_tensor. Defaults to False.
 
         Returns:
-            torch.Tensor | dict: If return_dict is False, returns a tensor of shape [batch_size, response_length, 6]
-                                with 6-dimensional rewards. If return_dict is True, returns a dict with:
+            torch.Tensor | dict: If return_dict is False, returns a tensor of shape [batch_size, response_length]
+                                with single scalar reward values. If return_dict is True, returns a dict with:
                                 - reward_tensor: The reward tensor
                                 - reward_extra_info: Dict containing extra information about rewards
         """
@@ -511,10 +493,10 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
             else:
                 return data.batch["rm_scores"]
 
-        # Initialize reward tensor with 6 dimensions
+        # Initialize reward tensor with single dimension
         batch_size = data.batch["responses"].shape[0]
         response_length = data.batch["responses"].shape[1]
-        reward_tensor = torch.zeros((batch_size, response_length, 6), dtype=torch.float32)
+        reward_tensor = torch.zeros((batch_size, response_length), dtype=torch.float32)
         reward_extra_info = defaultdict(list)
 
         # Process each data item through the async event loop
@@ -538,8 +520,8 @@ class RateLimitedRewardLoopManager(RewardLoopManagerBase):
             response_length = response_ids.shape[-1]
             valid_response_length = data_item.batch["attention_mask"][-response_length:].sum()
 
-            rewards = result["reward_scores"]  # Now a list of 6 values
-            reward_tensor[i, valid_response_length - 1, :] = torch.tensor(rewards, dtype=torch.float32)
+            reward_score = result["reward_score"]  # Single scalar value
+            reward_tensor[i, valid_response_length - 1] = reward_score
 
             # Collect extra info
             if "reward_extra_info" in result:

@@ -540,8 +540,9 @@ class RayPPOTrainer:
         sample_turns = []
         sample_uids = []
 
-        for test_data in self.val_dataloader:
+        for test_data in tqdm(self.val_dataloader,total=len(self.val_dataloader), desc="Validation"):
             test_batch = DataProto.from_single_dict(test_data)
+            # print("test_batch before generation:", test_batch)
 
             if "uid" not in test_batch.non_tensor_batch:
                 test_batch.non_tensor_batch["uid"] = np.array(

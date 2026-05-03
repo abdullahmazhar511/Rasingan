@@ -40,7 +40,7 @@ class SingleTurnAgentLoop(AgentLoopBase):
 
         metrics = {}
         request_id = uuid4().hex
-
+        print(f"Running single turn agent loop with request_id: {request_id}")
         # Use processor if available for multimodal support
         if self.processor is not None:
             raw_prompt = await self.loop.run_in_executor(
@@ -61,6 +61,10 @@ class SingleTurnAgentLoop(AgentLoopBase):
                     messages, add_generation_prompt=True, tokenize=True, **self.apply_chat_template_kwargs
                 ),
             )
+            # print("prompt: ", await self.loop.run_in_executor(
+            #     None,
+            #     lambda: self.tokenizer.decode(prompt_ids),
+            # ))
 
         with simple_timer("generate_sequences", metrics):
             output = await self.server_manager.generate(
