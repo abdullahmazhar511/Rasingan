@@ -14,11 +14,11 @@ class MHCoPilot_Dataset():
         self.train_df=pd.read_csv(os.path.join(path, 'train.csv'))
         self.val_df=pd.read_csv(os.path.join(path, 'val.csv'))
         self.test_df=pd.read_csv(os.path.join(path, 'test.csv'))
-        self.context_window=4
-        
-        self.train_df['Utterance'].fillna('',inplace=True)
-        self.val_df['Utterance'].fillna('',inplace=True)
-        self.test_df['Utterance'].fillna('',inplace=True)
+        self.context_window=8
+
+        self.train_df['Utterance'] = self.train_df['Utterance'].fillna('')
+        self.val_df['Utterance'] = self.val_df['Utterance'].fillna('')
+        self.test_df['Utterance'] = self.test_df['Utterance'].fillna('')
         
         cols_dict={
             "Non-Judgmental Language":0,
@@ -34,14 +34,24 @@ class MHCoPilot_Dataset():
         self.test_df.fillna(cols_dict, inplace=True)
         
     def preprocess(self,df):
-        for i in tqdm(range(1,len(df))): 
-            df.at[i, 'context'] = '\n'.join(
-                df.loc[max(0, i - self.context_window):i - 1]
-                .apply(lambda row: f"{role_dict[row['Type']]}: {row['Utterance']}", axis=1)
-                .tolist()
-            )
-        df = df[df['Type'] == 'T']
-        df=Dataset.from_pandas(df[1:])
+        df = df.copy()
+        # Keep context within the same conversation; IDs are like <conv_id>_<turn_id>.
+        df['base_conv_id'] = df['ID'].astype(str).str.replace(r'_\d+$', '', regex=True)
+        df['context'] = ''
+
+        for i in tqdm(range(len(df))):
+            if i == 0:
+                continue
+            start = max(0, i - self.context_window)
+            prev = df.iloc[start:i]
+            same_conv_prev = prev[prev['base_conv_id'] == df.at[i, 'base_conv_id']]
+            context_lines = []
+            for row in same_conv_prev.itertuples(index=False):
+                context_lines.append(f"{role_dict.get(row.Type, row.Type)}: {row.Utterance}")
+            df.at[i, 'context'] = '\n'.join(context_lines)
+
+        df = df[df['Type'] == 'T'].drop(columns=['base_conv_id'])
+        df = Dataset.from_pandas(df)
         return df
     
     def get_data(self):

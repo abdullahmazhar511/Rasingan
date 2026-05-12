@@ -20,20 +20,50 @@ def parse_args():
     parser.add_argument("--data_dir", type=str, default="/home/umairai/faith_data/dataset")
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--max_new_tokens", type=int, default=128)
+    parser.add_argument("--max_input_length", type=int, default=512, help="Max input length; should match train max_length")
+    parser.add_argument("--do_sample", action="store_true", help="Enable sampling (disabled by default for stable eval metrics)")
+    parser.add_argument("--temperature", type=float, default=0.7)
+    parser.add_argument("--top_p", type=float, default=0.9)
     parser.add_argument("--device", type=str, default="1", help="CUDA device index")
     return parser.parse_args()
+
+def context_to_chat_messages(context):
+    messages = []
+    for raw_line in str(context).splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if line.startswith("Patient:"):
+            content = line[len("Patient:"):].strip()
+            if content:
+                messages.append({"role": "user", "content": content})
+        elif line.startswith("Therapist:"):
+            content = line[len("Therapist:"):].strip()
+            if content:
+                messages.append({"role": "assistant", "content": content})
+    return messages
 
 def main():
     args = parse_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = args.device
-    
-    print(f"Loading Tokenizer: {args.base_model}...")
-    tokenizer = AutoTokenizer.from_pretrained(args.base_model, trust_remote_code=True)
+
+    tokenizer_source = args.base_model
+    if args.adapter_path and os.path.isdir(args.adapter_path):
+        adapter_has_tokenizer = any(
+            os.path.exists(os.path.join(args.adapter_path, f))
+            for f in ["tokenizer.json", "tokenizer_config.json", "special_tokens_map.json"]
+        )
+        if adapter_has_tokenizer:
+            tokenizer_source = args.adapter_path
+
+    print(f"Loading Tokenizer: {tokenizer_source}...")
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_source, trust_remote_code=True)
     if "<|finetune_right_pad_id|>" in tokenizer.get_vocab():
         tokenizer.pad_token = "<|finetune_right_pad_id|>"
     elif tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "left"
+    tokenizer.truncation_side = "left"
 
     print(f"Loading Base Model: {args.base_model}...")
     model = AutoModelForCausalLM.from_pretrained(
@@ -87,23 +117,39 @@ Task: Write the next therapist response."""
         
         prompts = []
         for context in batch['context']:
-            input_text_content = f"Context: {context}\nTherapist:"
-            messages = [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": input_text_content}
-            ]
+            history_messages = context_to_chat_messages(context)
+            if not history_messages or history_messages[-1]["role"] != "user":
+                history_messages.append({"role": "user", "content": "Please continue the session."})
+            messages = [{"role": "system", "content": system_prompt}] + history_messages
             prompts.append(tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True))
 
-        inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=1024).to("cuda")
+        inputs = tokenizer(
+            prompts,
+            return_tensors="pt",
+            padding=True,
+            truncation=True,
+            max_length=args.max_input_length,
+        )
+        # Move inputs to model device (handles multi-GPU setup)
+        device = next(model.parameters()).device
+        inputs = {k: v.to(device) for k, v in inputs.items()}
         
         with torch.no_grad():
+            gen_kwargs = {
+                "max_new_tokens": args.max_new_tokens,
+                "do_sample": args.do_sample,
+                "repetition_penalty": 1.2,
+                "pad_token_id": tokenizer.pad_token_id,
+                "eos_token_id": tokenizer.eos_token_id,
+            }
+            if args.do_sample:
+                gen_kwargs.update({
+                    "temperature": args.temperature,
+                    "top_p": args.top_p,
+                })
             outputs = model.generate(
                 **inputs, 
-                max_new_tokens=args.max_new_tokens,
-                temperature=0.7,
-                repetition_penalty=1.2,
-                pad_token_id=tokenizer.pad_token_id,
-                eos_token_id=tokenizer.eos_token_id
+                **gen_kwargs,
             )
         
         generated_texts = tokenizer.batch_decode(outputs[:, inputs['input_ids'].shape[1]:], skip_special_tokens=True)
@@ -118,7 +164,8 @@ Task: Write the next therapist response."""
 
     rouge_results = rouge.compute(predictions=predictions, references=references)
     meteor_results = meteor.compute(predictions=predictions, references=references)
-    bleu_results = bleu.compute(predictions=predictions, references=references)
+    # BLEU expects references as list of lists
+    bleu_results = bleu.compute(predictions=predictions, references=[[ref] for ref in references])
     bert_results = bertscore.compute(predictions=predictions, references=references, lang="en", model_type="distilbert-base-uncased", device="cuda")
 
     print("\n--- FINAL TEST METRICS ---")

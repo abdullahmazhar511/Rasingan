@@ -1,19 +1,26 @@
 import argparse
 import os
-# os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import LoraConfig
 from trl import SFTTrainer, SFTConfig
 import sys
 import torch
 import wandb
+from huggingface_hub import login
+from patch_llama_chat_template import patch_tokenizer_chat_template
 
 print(torch.cuda.is_available())
 # Add Rasingan utils to path
-sys.path.insert(0, '/raid/home/pushpendra/asbah/EMNLP_RESPAIR/utils')
+sys.path.insert(0, '../utils')
 from hfDataset import MHCoPilot_Dataset
 
-WANDB_API_KEY = "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"
+
+WANDB_API_KEY = os.getenv("WANDB_API_KEY")
+HF_TOKEN = os.getenv("HF_TOKEN")
+# Login to Hugging Face Hub
+login(token=HF_TOKEN)
+
 
 SYSTEM_PROMPT = """You are a compassionate, client-centered therapist.
 
@@ -36,25 +43,43 @@ Task: Write the next therapist response."""
 def parse_args():
     parser = argparse.ArgumentParser(description="LoRA SFT Training for mental health language models")
     parser.add_argument("--model_name_or_path", type=str, default="meta-llama/Llama-3.2-1B-Instruct")
-    parser.add_argument("--data_dir", type=str, default="/raid/home/pushpendra/asbah/EMNLP_RESPAIR/sft_training/respair_mhcopilot_format")
-    parser.add_argument("--output_dir", type=str, default="/raid/home/pushpendra/asbah/EMNLP_RESPAIR/sft_training/results/llama3.2-1b-sft-respair")
-    parser.add_argument("--batch_size", type=int, default=64, help="Per device batch size - optimized for 8x A100 40GB GPUs")
-    parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--learning_rate", type=float, default=2e-4)
+    parser.add_argument("--data_dir", type=str, default="../sft_training/respair_mhcopilot_format")
+    parser.add_argument("--output_dir", type=str, default="../sft_training/results/llama3.2-1b-sft-respair-4")
+    parser.add_argument("--batch_size", type=int, default=40, help="Per-device batch size")
+    parser.add_argument("--epochs", type=int, default=4)
+    parser.add_argument("--learning_rate", type=float, default=1e-5)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=1)
     parser.add_argument("--max_length", type=int, default=1024)
     parser.add_argument("--eval_steps", type=int, default=100)
     return parser.parse_args()
 
+def context_to_chat_messages(context):
+    messages = []
+    for raw_line in str(context).splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if line.startswith("Patient:"):
+            content = line[len("Patient:"):].strip()
+            if content:
+                messages.append({"role": "user", "content": content})
+        elif line.startswith("Therapist:"):
+            content = line[len("Therapist:"):].strip()
+            if content:
+                messages.append({"role": "assistant", "content": content})
+    return messages
+
 def format_to_messages(example):
     """Convert dataset example to chat messages format for SFTTrainer."""
-    context_str = f"Context: {example['context']}\nTherapist:"
     output_text = example['Utterance'].strip()
-    
+
+    history_messages = context_to_chat_messages(example.get('context', ''))
+    # Ensure there is always a user turn before generating assistant target.
+    if not history_messages or history_messages[-1]["role"] != "user":
+        history_messages.append({"role": "user", "content": "Please continue the session."})
+
     return {
-        "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": context_str},
+        "messages": [{"role": "system", "content": SYSTEM_PROMPT}] + history_messages + [
             {"role": "assistant", "content": output_text}
         ]
     }
@@ -82,6 +107,7 @@ def main():
     
     print(f"Loading tokenizer and model for {args.model_name_or_path}...")
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, trust_remote_code=True)
+    tokenizer = patch_tokenizer_chat_template(tokenizer)
     tokenizer.padding_side = "right"
     # Use dedicated pad token - DO NOT use eos_token as pad_token
     if "<|finetune_right_pad_id|>" in tokenizer.get_vocab():
@@ -95,6 +121,7 @@ def main():
         torch_dtype=torch.bfloat16,
         attn_implementation="flash_attention_2"
     )
+    model.config.use_cache = False
     
     # Configure LoRA
     peft_config = LoraConfig(
@@ -118,32 +145,26 @@ def main():
     # SFTConfig - optimized for 8x A100 40GB GPUs with DDP
     training_args = SFTConfig(
         output_dir=args.output_dir,
-        eval_strategy="steps",
-        eval_steps=args.eval_steps,
+        eval_strategy="epoch",
         learning_rate=args.learning_rate,
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
         num_train_epochs=args.epochs,
         weight_decay=0.01,
-        save_strategy="steps",
-        save_steps=args.eval_steps,
-        save_total_limit=3,
+        save_strategy="epoch",
+        # save_total_limit=2,
         load_best_model_at_end=True,
         metric_for_best_model="eval_loss",
         report_to="wandb",
         bf16=True,
-        tf32=True,
         logging_steps=10,
-        warmup_ratio=0.1,
-        lr_scheduler_type="cosine",
+        warmup_steps=100,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
-        dataloader_num_workers=4,
-        dataloader_pin_memory=True,
+        gradient_checkpointing=True,
         # SFT-specific settings
         max_length=args.max_length,
-        packing=True,
-        # DDP settings
-        ddp_find_unused_parameters=False,
+        packing=False,
+        assistant_only_loss=True
     )
         
     trainer = SFTTrainer(
