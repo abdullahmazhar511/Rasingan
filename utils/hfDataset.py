@@ -10,11 +10,11 @@ role_dict={
     "P":"Patient"
 }
 class MHCoPilot_Dataset():
-    def __init__(self, path):
+    def __init__(self, path, context_window=8):
         self.train_df=pd.read_csv(os.path.join(path, 'train.csv'))
         self.val_df=pd.read_csv(os.path.join(path, 'val.csv'))
         self.test_df=pd.read_csv(os.path.join(path, 'test.csv'))
-        self.context_window=8
+        self.context_window=context_window
 
         self.train_df['Utterance'] = self.train_df['Utterance'].fillna('')
         self.val_df['Utterance'] = self.val_df['Utterance'].fillna('')

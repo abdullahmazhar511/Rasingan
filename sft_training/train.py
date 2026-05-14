@@ -1,6 +1,6 @@
 import argparse
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import LoraConfig
 from trl import SFTTrainer, SFTConfig
@@ -10,7 +10,17 @@ import wandb
 from huggingface_hub import login
 from patch_llama_chat_template import patch_tokenizer_chat_template
 
-print(torch.cuda.is_available())
+
+def is_main_process() -> bool:
+    return int(os.environ.get("RANK", "0")) == 0
+
+
+def rank_id() -> int:
+    return int(os.environ.get("RANK", "0"))
+
+
+if is_main_process():
+    print(torch.cuda.is_available())
 # Add Rasingan utils to path
 sys.path.insert(0, '../utils')
 from hfDataset import MHCoPilot_Dataset
@@ -18,8 +28,6 @@ from hfDataset import MHCoPilot_Dataset
 
 WANDB_API_KEY = os.getenv("WANDB_API_KEY")
 HF_TOKEN = os.getenv("HF_TOKEN")
-# Login to Hugging Face Hub
-login(token=HF_TOKEN)
 
 
 SYSTEM_PROMPT = """You are a compassionate, client-centered therapist.
@@ -42,14 +50,15 @@ Task: Write the next therapist response."""
 
 def parse_args():
     parser = argparse.ArgumentParser(description="LoRA SFT Training for mental health language models")
-    parser.add_argument("--model_name_or_path", type=str, default="meta-llama/Llama-3.2-1B-Instruct")
+    parser.add_argument("--model_name_or_path", type=str, default="Qwen/Qwen3-4B-Instruct-2507")
     parser.add_argument("--data_dir", type=str, default="../sft_training/respair_mhcopilot_format")
-    parser.add_argument("--output_dir", type=str, default="../sft_training/results/llama3.2-1b-sft-respair-4")
-    parser.add_argument("--batch_size", type=int, default=40, help="Per-device batch size")
-    parser.add_argument("--epochs", type=int, default=4)
+    parser.add_argument("--output_dir", type=str, default="../sft_training/results/llama3.2-1b-sft-respair-new-1")
+    parser.add_argument("--batch_size", type=int, default=16, help="Per-device batch size")
+    parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--learning_rate", type=float, default=1e-5)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=1)
-    parser.add_argument("--max_length", type=int, default=1024)
+    parser.add_argument("--max_length", type=int, default=768)
+    parser.add_argument("--context_window", type=int, default=6)
     parser.add_argument("--eval_steps", type=int, default=100)
     return parser.parse_args()
 
@@ -86,34 +95,43 @@ def format_to_messages(example):
 
 def main():
     args = parse_args()
+    main_process = is_main_process()
+    rank = rank_id()
+
+    # Avoid side-effectful auth calls at import time and across all ranks.
+    if main_process and HF_TOKEN:
+        login(token=HF_TOKEN)
     
-    # Login to wandb
-    wandb.login(key=WANDB_API_KEY)
+    if main_process:
+        # Login to wandb
+        wandb.login(key=WANDB_API_KEY)
+
+        # Initialize wandb
+        model_name_short = args.model_name_or_path.split("/")[-1]
+        wandb.init(
+            project="rasingan",
+            name=f"{model_name_short}-sft",
+            entity="abdullahm-indraprastha-institute-of-information-technolo",
+            config={
+                "model": args.model_name_or_path,
+                "batch_size": args.batch_size,
+                "epochs": args.epochs,
+                "learning_rate": args.learning_rate,
+                "data_dir": args.data_dir,
+                "context_window": args.context_window,
+            }
+        )
     
-    # Initialize wandb
-    model_name_short = args.model_name_or_path.split("/")[-1]
-    wandb.init(
-        project="rasingan",
-        name=f"{model_name_short}-sft",
-        entity="abdullahm-indraprastha-institute-of-information-technolo",
-        config={
-            "model": args.model_name_or_path,
-            "batch_size": args.batch_size,
-            "epochs": args.epochs,
-            "learning_rate": args.learning_rate,
-            "data_dir": args.data_dir,
-        }
-    )
-    
-    print(f"Loading tokenizer and model for {args.model_name_or_path}...")
+    print(f"[rank {rank}] Loading tokenizer and model for {args.model_name_or_path}...")
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, trust_remote_code=True)
-    tokenizer = patch_tokenizer_chat_template(tokenizer)
+    # tokenizer = patch_tokenizer_chat_template(tokenizer)
     tokenizer.padding_side = "right"
+    tokenizer.truncation_side = "left"
     # Use dedicated pad token - DO NOT use eos_token as pad_token
     if "<|finetune_right_pad_id|>" in tokenizer.get_vocab():
         tokenizer.pad_token = "<|finetune_right_pad_id|>"
-    elif tokenizer.pad_token is None:
-        tokenizer.add_special_tokens({"pad_token": "<|pad|>"})
+    # elif tokenizer.pad_token is None:
+    #     tokenizer.add_special_tokens({"pad_token": "<|pad|>"})
         
     model = AutoModelForCausalLM.from_pretrained(
         args.model_name_or_path, 
@@ -133,8 +151,8 @@ def main():
         target_modules=["q_proj", "v_proj", "k_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
     )
     
-    print("Loading datasets...")
-    mhcopilot = MHCoPilot_Dataset(args.data_dir)
+    print(f"[rank {rank}] Loading datasets...")
+    mhcopilot = MHCoPilot_Dataset(args.data_dir, context_window=args.context_window)
     mhcopilot.get_data()
     
     # Convert to chat messages format
@@ -153,18 +171,17 @@ def main():
         weight_decay=0.01,
         save_strategy="epoch",
         # save_total_limit=2,
-        load_best_model_at_end=True,
+        # load_best_model_at_end=True,
         metric_for_best_model="eval_loss",
-        report_to="wandb",
+        report_to="wandb" if main_process else "none",
         bf16=True,
         logging_steps=10,
         warmup_steps=100,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
-        gradient_checkpointing=True,
         # SFT-specific settings
         max_length=args.max_length,
         packing=False,
-        assistant_only_loss=True
+        assistant_only_loss=False
     )
         
     trainer = SFTTrainer(
@@ -178,13 +195,16 @@ def main():
     
     trainer.model.print_trainable_parameters()
     
-    print("Starting training...")
+    print(f"[rank {rank}] Starting training...")
     trainer.train()
     
-    print("Saving model adapter...")
-    trainer.model.save_pretrained(args.output_dir)
-    tokenizer.save_pretrained(args.output_dir)
-    print("Training complete!")
+    # if main_process:
+    #     print(f"[rank {rank}] Saving model adapter...")
+    #     trainer.model.save_pretrained(args.output_dir)
+    #     tokenizer.save_pretrained(args.output_dir)
+    #     print(f"[rank {rank}] Training complete!")
+    # else:
+    #     print(f"[rank {rank}] Training complete (save skipped on non-main rank).")
 
     # print("Evaluating on test data...")
     # test_results = trainer.evaluate(test_dataset, metric_key_prefix="test")
@@ -192,7 +212,8 @@ def main():
     
     # # Log final metrics to wandb
     # wandb.log({"test_results": test_results})
-    wandb.finish()
+    if main_process:
+        wandb.finish()
 
 if __name__ == "__main__":
     main()

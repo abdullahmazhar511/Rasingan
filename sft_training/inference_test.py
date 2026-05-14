@@ -10,7 +10,9 @@ import sys
 import numpy as np
 
 # Add Rasingan utils to path for hfDataset
-sys.path.insert(0, '/home/umairai/faithfulness_emnlp/Rasingan/utils')
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+UTILS_DIR = os.path.normpath(os.path.join(CURRENT_DIR, "..", "utils"))
+sys.path.insert(0, UTILS_DIR)
 from hfDataset import MHCoPilot_Dataset
 
 def parse_args():

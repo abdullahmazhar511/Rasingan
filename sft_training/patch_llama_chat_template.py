@@ -8,12 +8,13 @@ def make_trl_assistant_template(original_template: str) -> str:
     We only change the plain text assistant rendering branch to wrap assistant
     content in `{% generation %}` markers and keep all other original logic.
     """
-    old_block = (
+    # Llama-style template
+    llama_old_block = (
         "{%- if not (message.role == 'ipython' or message.role == 'tool' or 'tool_calls' in message) %}\n"
         "        {{- '<|start_header_id|>' + message['role'] + '<|end_header_id|>\\n\\n'+ message['content'] | trim + '<|eot_id|>' }}"
     )
 
-    new_block = (
+    llama_new_block = (
         "{%- if not (message.role == 'ipython' or message.role == 'tool' or 'tool_calls' in message) %}\n"
         "        {%- if message['role'] == 'assistant' %}\n"
         "            {{- '<|start_header_id|>assistant<|end_header_id|>\\n\\n' }}\n"
@@ -24,11 +25,25 @@ def make_trl_assistant_template(original_template: str) -> str:
         "        {%- endif %}"
     )
 
-    if old_block not in original_template:
-        raise ValueError("Could not locate expected assistant text rendering block in original template")
+    # Qwen-style template assistant branch
+    qwen_old_block = (
+        "    {%- elif message.role == \"assistant\" %}\n"
+        "        {{- '<|im_start|>' + message.role + '\\n' + content }}"
+    )
 
-    patched = original_template.replace(old_block, new_block)
-    return patched
+    qwen_new_block = (
+        "    {%- elif message.role == \"assistant\" %}\n"
+        "        {{- '<|im_start|>' + message.role + '\\n' }}\n"
+        "        {% generation %}{{- content }}{% endgeneration %}"
+    )
+
+    if llama_old_block in original_template:
+        return original_template.replace(llama_old_block, llama_new_block)
+
+    if qwen_old_block in original_template:
+        return original_template.replace(qwen_old_block, qwen_new_block)
+
+    raise ValueError("Could not locate a supported assistant rendering block in chat template")
 
 
 def patch_tokenizer_chat_template(tokenizer):

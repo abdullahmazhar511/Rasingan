@@ -12,7 +12,10 @@ def merge_respair_to_mhcopilot_format(respair_dir, output_dir):
     RESPAIR: individual files in train/, val/, test/ directories
     MHCoPilot: single train.csv, val.csv, test.csv files
     """
+    print(os.path.abspath(respair_dir))
+    print(os.path.abspath(output_dir))
     os.makedirs(output_dir, exist_ok=True)
+
     
     for split in ['train', 'val', 'test']:
         split_dir = os.path.join(respair_dir, split)
@@ -79,7 +82,7 @@ def merge_respair_to_mhcopilot_format(respair_dir, output_dir):
     print("Ready to use with MHCoPilot_Dataset!")
 
 if __name__ == "__main__":
-    respair_dir = "/raid/home/pushpendra/asbah/EMNLP_RESPAIR/care_v2/faith_data/RESPAIR"
-    output_dir = "/raid/home/pushpendra/asbah/EMNLP_RESPAIR/sft_training/respair_mhcopilot_format"
+    respair_dir = "../care_v2/faith_data/RESPAIR"
+    output_dir = "./respair_mhcopilot_format"
     
     merge_respair_to_mhcopilot_format(respair_dir, output_dir)
