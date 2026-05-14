@@ -141,7 +141,7 @@ Task: Write the next therapist response."""
             gen_kwargs = {
                 "max_new_tokens": args.max_new_tokens,
                 "do_sample": args.do_sample,
-                "repetition_penalty": 1.2,
+                "repetition_penalty": 1.0,
                 "pad_token_id": tokenizer.pad_token_id,
                 "eos_token_id": tokenizer.eos_token_id,
             }

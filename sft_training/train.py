@@ -52,10 +52,10 @@ def parse_args():
     parser = argparse.ArgumentParser(description="LoRA SFT Training for mental health language models")
     parser.add_argument("--model_name_or_path", type=str, default="Qwen/Qwen3-4B-Instruct-2507")
     parser.add_argument("--data_dir", type=str, default="../sft_training/respair_mhcopilot_format")
-    parser.add_argument("--output_dir", type=str, default="../sft_training/results/llama3.2-1b-sft-respair-new-1")
+    parser.add_argument("--output_dir", type=str, default="../sft_training/results/llama3.2-1b-sft-respair-new-3")
     parser.add_argument("--batch_size", type=int, default=16, help="Per-device batch size")
     parser.add_argument("--epochs", type=int, default=3)
-    parser.add_argument("--learning_rate", type=float, default=1e-5)
+    parser.add_argument("--learning_rate", type=float, default=2e-4)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=1)
     parser.add_argument("--max_length", type=int, default=768)
     parser.add_argument("--context_window", type=int, default=6)
@@ -144,7 +144,7 @@ def main():
     # Configure LoRA
     peft_config = LoraConfig(
         r=32,
-        lora_alpha=32,
+        lora_alpha=64,
         lora_dropout=0.05,
         bias="none",
         task_type="CAUSAL_LM",
@@ -176,7 +176,7 @@ def main():
         report_to="wandb" if main_process else "none",
         bf16=True,
         logging_steps=10,
-        warmup_steps=100,
+        warmup_steps=20,
         gradient_accumulation_steps=args.gradient_accumulation_steps,
         # SFT-specific settings
         max_length=args.max_length,
