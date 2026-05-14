@@ -1,6 +1,6 @@
 import argparse
 import os
-# os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import LoraConfig
 from trl import SFTTrainer, SFTConfig
@@ -143,7 +143,7 @@ def main():
     
     # Configure LoRA
     peft_config = LoraConfig(
-        r=16,
+        r=32,
         lora_alpha=32,
         lora_dropout=0.05,
         bias="none",

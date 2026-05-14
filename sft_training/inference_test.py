@@ -20,9 +20,10 @@ def parse_args():
     parser.add_argument("--base_model", type=str, required=True, help="Base model name or path")
     parser.add_argument("--adapter_path", type=str, required=False, help="Path to the saved LoRA adapter")
     parser.add_argument("--data_dir", type=str, default="/home/umairai/faith_data/dataset")
+    parser.add_argument("--context_window", type=int, default=8, help="Number of prior turns to include when building HF dataset context")
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--max_new_tokens", type=int, default=128)
-    parser.add_argument("--max_input_length", type=int, default=512, help="Max input length; should match train max_length")
+    parser.add_argument("--max_input_length", type=int, default=768, help="Max input length; should match train max_length")
     parser.add_argument("--do_sample", action="store_true", help="Enable sampling (disabled by default for stable eval metrics)")
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top_p", type=float, default=0.9)
@@ -87,7 +88,7 @@ def main():
     model.eval()
 
     print("Loading Test Dataset...")
-    mhcopilot = MHCoPilot_Dataset(args.data_dir)
+    mhcopilot = MHCoPilot_Dataset(args.data_dir, context_window=args.context_window)
     mhcopilot.get_data()
     test_data = mhcopilot.test_dataset
 
