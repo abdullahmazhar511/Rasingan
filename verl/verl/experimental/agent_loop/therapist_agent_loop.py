@@ -27,14 +27,16 @@ from verl.experimental.agent_loop.agent_loop import (
 from verl.utils.profiler import simple_timer
 
 # Import shared config from final_pipeline
-_PIPELINE_DIR = os.path.join(os.path.dirname(__file__), "../../../../faithfulness_emnlp/Rasingan/final_pipeline")
-if os.path.isdir(_PIPELINE_DIR):
-    sys.path.insert(0, _PIPELINE_DIR)
-else:
-    # Fallback: try home-relative path
-    _PIPELINE_DIR = os.path.expanduser("~/faithfulness_emnlp/Rasingan/final_pipeline")
-    if os.path.isdir(_PIPELINE_DIR):
-        sys.path.insert(0, _PIPELINE_DIR)
+_HERE = os.path.dirname(__file__)
+_ROOT = os.path.abspath(os.path.join(_HERE, "../../../.."))
+_PIPELINE_CANDIDATES = [
+    os.getenv("RASINGAN_FINAL_PIPELINE", ""),
+    os.path.join(_ROOT, "final_pipeline"),
+]
+for _candidate in _PIPELINE_CANDIDATES:
+    if _candidate and os.path.isdir(_candidate):
+        sys.path.insert(0, _candidate)
+        break
 
 from shared_config import (
     EXTRACTION_CHECKLIST,

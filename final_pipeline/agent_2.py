@@ -11,13 +11,12 @@ from pathlib import Path
 from transformers import pipeline
 from typing import Dict, List, Optional
 
-from shared_config import (
-    EXTRACTION_CHECKLIST,
-    EXTRACTION_PRIORITY_ORDER,
-    get_supervisor_system_prompt,
-    init_extraction_status,
-    compute_extraction_summary,
-    format_extraction_status,
+from shared_config import get_supervisor_system_prompt
+from checklists import (
+    get_checklist,
+    init_status,
+    compute_summary,
+    format_status,
     get_pending_items,
     get_next_priority,
 )
@@ -30,27 +29,34 @@ class Agent2_SeniorTherapist:
     must obtain from the patient, and tracks progress toward completing it.
     """
     
-    def __init__(self, model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct", load_model: bool = True, 
-                 session_id: Optional[str] = None, progress_dir: Optional[Path] = None):
+    def __init__(self, model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct", load_model: bool = True,
+                 session_id: Optional[str] = None, progress_dir: Optional[Path] = None,
+                 checklist_name: str = "combined"):
         """
         Initialize senior therapist supervisor.
-        
+
         Args:
             model_name: LLM model to use for generating feedback
             load_model: If False, skip loading the HF model (for data prep / vLLM mode)
             session_id: Unique ID for this supervision session (for tracking progress)
             progress_dir: Directory to save checklist progress (default: ./supervisor_progress/)
+            checklist_name: Which checklist to track — "phq9", "gad7", or "combined" (default)
         """
         self.model_name = model_name
         self.feedback_history = []
         self._pipeline = None
-        
+
         # Progress tracking
         self.session_id = session_id or time.strftime("%Y%m%d_%H%M%S")
         self.progress_dir = Path(progress_dir or "./supervisor_progress")
         self.progress_dir.mkdir(parents=True, exist_ok=True)
-        
-        self.extraction_status = init_extraction_status()
+
+        bundle = get_checklist(checklist_name)
+        self.checklist_name = checklist_name
+        self.checklist = bundle["checklist"]
+        self.priority_order = bundle["priority_order"]
+        self.instrument_label = bundle.get("instrument", checklist_name)
+        self.extraction_status = init_status(self.checklist)
         self.progress_log_path = self.progress_dir / f"session_{self.session_id}_checklist.json"
         self._load_progress()
         
@@ -90,7 +96,7 @@ class Agent2_SeniorTherapist:
             "timestamp": time.time(),
             "extraction_status": self.extraction_status,
             "feedback_history": self.feedback_history,
-            "extraction_summary": compute_extraction_summary(self.extraction_status)
+            "extraction_summary": compute_summary(self.extraction_status)
         }
         with open(self.progress_log_path, 'w') as f:
             json.dump(progress_data, f, indent=2)
@@ -119,7 +125,7 @@ class Agent2_SeniorTherapist:
                 pending_items[data["name"]] = pending
         
         if not pending_items:
-            return compute_extraction_summary(self.extraction_status)
+            return compute_summary(self.extraction_status)
         
         pending_text = ""
         for cat_name, items in pending_items.items():
@@ -187,7 +193,7 @@ If nothing new was covered, respond: {{"covered_items": []}}<|eot_id|><|start_he
             pass  # If parsing fails, extraction status stays unchanged
         
         self._save_progress()
-        return compute_extraction_summary(self.extraction_status)
+        return compute_summary(self.extraction_status)
     
     def get_evaluation_prompt(self, patient_message: str, therapist_response: str, session_context: str = "") -> str:
         """
@@ -201,12 +207,12 @@ If nothing new was covered, respond: {{"covered_items": []}}<|eot_id|><|start_he
         Returns:
             Formatted prompt for evaluation
         """
-        extraction_text = format_extraction_status(self.extraction_status)
-        next_pri = get_next_priority(self.extraction_status)
+        extraction_text = format_status(self.extraction_status)
+        next_pri = get_next_priority(self.extraction_status, self.priority_order)
         
         return f"""You are an experienced senior therapist/clinical supervisor reviewing a therapy session.
 A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist
-is making progress on the information extraction checklist.
+is making progress on the {self.instrument_label} information extraction checklist.
 
 INFORMATION EXTRACTION CHECKLIST (what the therapist still needs to obtain from the patient):
 {extraction_text}
@@ -232,7 +238,7 @@ Format your feedback clearly and constructively. Focus on coaching, not criticis
     
     def _format_extraction_status(self) -> str:
         """Format extraction checklist showing covered vs pending items."""
-        return format_extraction_status(self.extraction_status)
+        return format_status(self.extraction_status)
     
     def evaluate_response(self, patient_message: str, therapist_response: str, 
                          session_context: str = "", turn_number: Optional[int] = None) -> Dict:
@@ -312,8 +318,9 @@ You are a compassionate senior therapist supervisor. Provide constructive, actio
         """Get a formatted progress report of all evaluations."""
         report = {
             "session_id": self.session_id,
+            "checklist": self.instrument_label,
             "evaluations_completed": len(self.feedback_history),
-            "extraction_summary": compute_extraction_summary(self.extraction_status),
+            "extraction_summary": compute_summary(self.extraction_status),
             "recent_feedback": self.feedback_history[-3:] if self.feedback_history else [],
             "progress_log_path": str(self.progress_log_path)
         }
@@ -327,6 +334,7 @@ You are a compassionate senior therapist supervisor. Provide constructive, actio
         print("SUPERVISOR PROGRESS REPORT")
         print("="*60)
         print(f"Session ID: {report['session_id']}")
+        print(f"Checklist: {report.get('checklist', 'n/a')}")
         print(f"Evaluations Completed: {report['evaluations_completed']}")
         
         extraction = report.get('extraction_summary', {})

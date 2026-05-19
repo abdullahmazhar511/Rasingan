@@ -82,7 +82,7 @@ def merge_respair_to_mhcopilot_format(respair_dir, output_dir):
     print("Ready to use with MHCoPilot_Dataset!")
 
 if __name__ == "__main__":
-    respair_dir = "../care_v2/faith_data/RESPAIR"
+    respair_dir = "../RESPAIR"
     output_dir = "./respair_mhcopilot_format"
     
     merge_respair_to_mhcopilot_format(respair_dir, output_dir)

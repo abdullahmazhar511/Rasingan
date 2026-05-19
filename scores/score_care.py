@@ -7,11 +7,12 @@ import sys
 import argparse
 
 # Load Rasingan path for CareModel
-RASINGAN_PATH = "/home/umairai/faithfulness_emnlp/Rasingan"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RASINGAN_PATH = os.path.dirname(SCRIPT_DIR)
 sys.path.append(RASINGAN_PATH)
 from inference import CareModel, CARE_LABELS
 
-EVAL_ROOT = os.environ.get("EVAL_ROOT", "/home/umairai/faith_data/evaluation_pipeline")
+EVAL_ROOT = os.environ.get("EVAL_ROOT", os.path.join(RASINGAN_PATH, "evaluation_pipeline"))
 MODELS_CONFIG = os.path.join(EVAL_ROOT, "models_config.json")
 
 def score_model_folder(model_cfg, care_model, eval_root):

@@ -5,7 +5,6 @@ from typing import List, Dict, Optional
 import torch
 import asyncio
 import time
-from functools import lru_cache
 from collections import defaultdict
 import logging
 import sys
@@ -30,7 +29,6 @@ batch_processor_task = None
 # Caching parameters
 BATCH_SIZE = 8
 BATCH_TIMEOUT = 2.0  # Max wait time in seconds before processing smaller batch
-MAX_CACHE_SIZE = 1000
 
 
 # Pydantic models
@@ -63,32 +61,9 @@ class HealthResponse(BaseModel):
     model_loaded: bool
 
 
-# Caching decorator for embedding similarities
-@lru_cache(maxsize=MAX_CACHE_SIZE)
-def cached_embedding_similarity(utterance: str, polarity: str, dimension: str) -> float:
-    """Cache embedding similarity computations"""
-    if model is None:
-        return 0.0
-    
-    from sentence_transformers.util import cos_sim
-    text_embedding = model.embedding_model.encode(utterance, convert_to_tensor=True)
-    
-    if dimension not in model.dimension_samples:
-        return 0.0
-    
-    samples = model.dimension_samples[dimension]
-    sample = samples.get(polarity)
-    
-    if sample and sample.get('embedding') is not None:
-        similarity = cos_sim(text_embedding, sample['embedding']).item()
-        return similarity
-    
-    return 0.0
-
-
 def clear_embedding_cache():
-    """Clear the embedding cache"""
-    cached_embedding_similarity.cache_clear()
+    """Clear runtime caches (placeholder for compatibility)."""
+    return None
 
 
 @app.on_event("startup")
@@ -142,24 +117,36 @@ async def batch_processor():
             if should_process and any(pending_requests.values()):
                 for batch_size, requests in list(pending_requests.items()):
                     if len(requests) > 0:
-                        # Process this batch
-                        contexts = [r["context"] for r in requests]
-                        utterances = [r["utterance"] for r in requests]
+                        # Flatten queued batch requests, run one inference call, and split back per request.
+                        flat_contexts = []
+                        flat_utterances = []
+                        request_sizes = []
                         include_analysis = requests[0]["include_analysis"]
-                        
+
+                        for req in requests:
+                            req_contexts = req["contexts"]
+                            req_utterances = req["utterances"]
+                            req_size = len(req_utterances)
+                            request_sizes.append(req_size)
+                            flat_contexts.extend(req_contexts)
+                            flat_utterances.extend(req_utterances)
+
                         start_time = time.time()
-                        predictions = model.batch_predict(
-                            contexts, 
-                            utterances, 
+                        all_predictions = model.batch_predict(
+                            flat_contexts,
+                            flat_utterances,
                             batch_size=batch_size,
                             include_analysis=include_analysis
                         )
                         processing_time = time.time() - start_time
-                        
+
                         # Send results back to requests
-                        for req, pred in zip(requests, predictions):
+                        offset = 0
+                        for req, req_size in zip(requests, request_sizes):
+                            req_predictions = all_predictions[offset:offset + req_size]
+                            offset += req_size
                             req["future"].set_result({
-                                "predictions": pred,
+                                "predictions": req_predictions,
                                 "processing_time": processing_time
                             })
                         
@@ -257,8 +244,8 @@ async def batch_predict_async(request: BatchPredictRequest, background_tasks: Ba
         
         # Queue request
         await request_queue.put({
-            "context": request.contexts,
-            "utterance": request.utterances,
+            "contexts": request.contexts,
+            "utterances": request.utterances,
             "batch_size": request.batch_size,
             "include_analysis": request.include_analysis,
             "future": future

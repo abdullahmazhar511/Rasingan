@@ -1,0 +1,165 @@
+Few-shot inference + CARE scoring run: Mon May 18 12:04:34 PM UTC 2026
+Models: 4   K=3  seed=42
+
+================================================================
+[12:04:34] Llama-3.2-1B-Instruct
+  model: meta-llama/Llama-3.2-1B-Instruct    bs=32
+  predictions -> /home/asbahk/EMNLP_FINAL/fewshot/meta-llama_Llama-3.2-1B-Instruct_fewshot3_predictions.csv
+  care csv    -> /home/asbahk/EMNLP_FINAL/CARE/sft_CARE_output/Llama-3.2-1B-Instruct-fewshot.csv
+================================================================
+[OK] inference for Llama-3.2-1B-Instruct (took 00:01:52)
+    ROUGE-1: 0.1482
+    ROUGE-2: 0.0220
+    ROUGE-L: 0.1087
+    METEOR:  0.1840
+    BLEU:    0.0068
+    BERTScore P  (avg): 0.6921
+    BERTScore R  (avg): 0.7441
+    BERTScore F1 (avg): 0.7164
+[OK] CARE scoring for Llama-3.2-1B-Instruct (took 00:01:32)
+      NJ: +0.2609
+      WE: +0.3277
+      RA: -0.3892
+      AL: +0.7126
+      RF: +0.3637
+      SA: +1.7232
+      AVG: +0.4998
+
+================================================================
+[12:07:58] Qwen3-4B-Instruct-2507
+  model: Qwen/Qwen3-4B-Instruct-2507    bs=24
+  predictions -> /home/asbahk/EMNLP_FINAL/fewshot/Qwen_Qwen3-4B-Instruct-2507_fewshot3_predictions.csv
+  care csv    -> /home/asbahk/EMNLP_FINAL/CARE/sft_CARE_output/Qwen3-4B-Instruct-2507-fewshot.csv
+================================================================
+[OK] inference for Qwen3-4B-Instruct-2507 (took 00:05:27)
+    ROUGE-1: 0.1435
+    ROUGE-2: 0.0193
+    ROUGE-L: 0.1040
+    METEOR:  0.1880
+    BLEU:    0.0042
+    BERTScore P  (avg): 0.6900
+    BERTScore R  (avg): 0.7556
+    BERTScore F1 (avg): 0.7205
+[OK] CARE scoring for Qwen3-4B-Instruct-2507 (took 00:02:02)
+      NJ: +0.6310
+      WE: +0.5716
+      RA: +0.0774
+      AL: +0.8579
+      RF: +0.4825
+      SA: +1.8515
+      AVG: +0.7453
+
+================================================================
+[12:15:27] gemma-3-4b-it
+  model: google/gemma-3-4b-it    bs=24
+  predictions -> /home/asbahk/EMNLP_FINAL/fewshot/google_gemma-3-4b-it_fewshot3_predictions.csv
+  care csv    -> /home/asbahk/EMNLP_FINAL/CARE/sft_CARE_output/gemma-3-4b-it-fewshot.csv
+================================================================
+[OK] inference for gemma-3-4b-it (took 00:05:46)
+    ROUGE-1: 0.1502
+    ROUGE-2: 0.0198
+    ROUGE-L: 0.1077
+    METEOR:  0.1813
+    BLEU:    0.0058
+    BERTScore P  (avg): 0.6885
+    BERTScore R  (avg): 0.7527
+    BERTScore F1 (avg): 0.7185
+[OK] CARE scoring for gemma-3-4b-it (took 00:01:43)
+      NJ: +0.5429
+      WE: +0.4984
+      RA: -0.1156
+      AL: +0.7985
+      RF: +0.4348
+      SA: +1.8261
+      AVG: +0.6642
+
+================================================================
+[12:22:56] Ministral-8B-Instruct-2410
+  model: mistralai/Ministral-8B-Instruct-2410    bs=16
+  predictions -> /home/asbahk/EMNLP_FINAL/fewshot/mistralai_Ministral-8B-Instruct-2410_fewshot3_predictions.csv
+  care csv    -> /home/asbahk/EMNLP_FINAL/CARE/sft_CARE_output/Ministral-8B-Instruct-2410-fewshot.csv
+================================================================
+[OK] inference for Ministral-8B-Instruct-2410 (took 00:05:05)
+    ROUGE-1: 0.1685
+    ROUGE-2: 0.0236
+    ROUGE-L: 0.1319
+    METEOR:  0.1726
+    BLEU:    0.0100
+    BERTScore P  (avg): 0.7241
+    BERTScore R  (avg): 0.7391
+    BERTScore F1 (avg): 0.7307
+[OK] CARE scoring for Ministral-8B-Instruct-2410 (took 00:01:54)
+      NJ: +0.5292
+      WE: +0.5461
+      RA: +0.0573
+      AL: +0.7964
+      RF: +0.4072
+      SA: +1.8293
+      AVG: +0.6942
+
+================================================================
+All runs complete: Mon May 18 12:29:55 PM UTC 2026
+Per-job status:
+  OK          Llama-3.2-1B-Instruct  infer=00:01:52  care=00:01:32
+  OK          Qwen3-4B-Instruct-2507  infer=00:05:27  care=00:02:02
+  OK          gemma-3-4b-it  infer=00:05:46  care=00:01:43
+  OK          Ministral-8B-Instruct-2410  infer=00:05:05  care=00:01:54
+
+Final L2 leaderboard (includes the new few-shot rows):
+================================================================
+Loading gold scores: /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/respair_mhcopilot_format/test.csv
+  943 therapist rows with gold scores
+
+Evaluating GOLD_REFERENCE
+  rows matched: 943   overall L2=1.3240   overall L1=0.7531
+Evaluating Llama-3.2-1B-Instruct-fewshot
+  rows matched: 943   overall L2=1.3105   overall L1=0.7722
+Evaluating Llama-3.2-1B-Instruct-zeroshot
+  rows matched: 943   overall L2=1.1617   overall L1=0.7036
+Evaluating Llama-3.2-1B-Instruct
+  rows matched: 943   overall L2=1.4486   overall L1=0.8218
+Evaluating Ministral-8B-Instruct-2410-fewshot
+  rows matched: 943   overall L2=1.0161   overall L1=0.6428
+Evaluating Ministral-8B-Instruct-2410-zeroshot
+  rows matched: 943   overall L2=1.0027   overall L1=0.6340
+Evaluating Ministral-8B-Instruct-2410
+  rows matched: 943   overall L2=1.2876   overall L1=0.7489
+Evaluating Qwen3-4B-Instruct-2507-fewshot
+  rows matched: 943   overall L2=1.0191   overall L1=0.6419
+Evaluating Qwen3-4B-Instruct-2507-zeroshot
+  rows matched: 943   overall L2=0.9724   overall L1=0.6313
+Evaluating Qwen3-4B-Instruct-2507
+  rows matched: 943   overall L2=1.3984   overall L1=0.7907
+Evaluating gemma-3-4b-it-fewshot
+  rows matched: 943   overall L2=1.0776   overall L1=0.6608
+Evaluating gemma-3-4b-it-zeroshot
+  rows matched: 943   overall L2=1.1368   overall L1=0.6896
+Evaluating gemma-3-4b-it
+  rows matched: 943   overall L2=1.4433   overall L1=0.8098
+Evaluating gpt-5.4-mini-fewshot3
+  rows matched: 943   overall L2=1.1518   overall L1=0.6919
+Evaluating gpt-5.4-mini-zeroshot
+  rows matched: 943   overall L2=1.0866   overall L1=0.6621
+
+======================================================================================================
+LEADERBOARD — ranked by overall L2 (lower = closer to gold human profile)
+======================================================================================================
+rank  model                                   L2        L1   per-trait L2
+------------------------------------------------------------------------------------------------------
+   1  Qwen3-4B-Instruct-2507-zeroshot     0.9724    0.6313   NJ=1.012  WE=0.880  RA=2.278  AL=0.732  RF=0.730  SA=0.204
+   2  Ministral-8B-Instruct-2410-zeroshot    1.0027    0.6340   NJ=1.010  WE=0.867  RA=2.620  AL=0.695  RF=0.651  SA=0.173
+   3  Ministral-8B-Instruct-2410-fewshot    1.0161    0.6428   NJ=1.162  WE=0.876  RA=2.533  AL=0.688  RF=0.630  SA=0.207
+   4  Qwen3-4B-Instruct-2507-fewshot      1.0191    0.6419   NJ=1.016  WE=0.948  RA=2.522  AL=0.709  RF=0.718  SA=0.201
+   5  gemma-3-4b-it-fewshot               1.0776    0.6608   NJ=1.076  WE=0.907  RA=2.880  AL=0.731  RF=0.662  SA=0.210
+   6  gpt-5.4-mini-zeroshot               1.0866    0.6621   NJ=1.127  WE=0.919  RA=2.709  AL=0.747  RF=0.653  SA=0.364
+   7  gemma-3-4b-it-zeroshot              1.1368    0.6896   NJ=1.217  WE=0.903  RA=2.972  AL=0.775  RF=0.686  SA=0.266
+   8  gpt-5.4-mini-fewshot3               1.1518    0.6919   NJ=1.230  WE=0.980  RA=2.906  AL=0.775  RF=0.702  SA=0.318
+   9  Llama-3.2-1B-Instruct-zeroshot      1.1617    0.7036   NJ=1.170  WE=0.983  RA=3.130  AL=0.756  RF=0.714  SA=0.217
+  10  Ministral-8B-Instruct-2410          1.2876    0.7489   NJ=1.362  WE=1.046  RA=3.290  AL=0.967  RF=0.662  SA=0.400
+  11  Llama-3.2-1B-Instruct-fewshot       1.3105    0.7722   NJ=1.501  WE=1.077  RA=3.483  AL=0.800  RF=0.663  SA=0.340
+  12  GOLD_REFERENCE                      1.3240    0.7531   NJ=1.416  WE=1.097  RA=3.487  AL=0.941  RF=0.630  SA=0.374
+  13  Qwen3-4B-Instruct-2507              1.3984    0.7907   NJ=1.461  WE=1.094  RA=3.810  AL=0.999  RF=0.652  SA=0.373
+  14  gemma-3-4b-it                       1.4433    0.8098   NJ=1.608  WE=1.160  RA=3.870  AL=1.006  RF=0.642  SA=0.374
+  15  Llama-3.2-1B-Instruct               1.4486    0.8218   NJ=1.543  WE=1.189  RA=3.622  AL=1.188  RF=0.744  SA=0.405
+
+Saved comparison CSV: /home/asbahk/EMNLP_FINAL/CARE/sft_CARE_output/_comparison.csv

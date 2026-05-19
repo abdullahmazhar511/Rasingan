@@ -7,7 +7,9 @@ import numpy as np
 from tqdm import tqdm
 import argparse
 
-EVAL_ROOT = os.environ.get("EVAL_ROOT", "/home/umairai/faith_data/evaluation_pipeline")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RASINGAN_PATH = os.path.dirname(SCRIPT_DIR)
+EVAL_ROOT = os.environ.get("EVAL_ROOT", os.path.join(RASINGAN_PATH, "evaluation_pipeline"))
 MODELS_CONFIG = os.path.join(EVAL_ROOT, "models_config.json")
 
 def calculate_metrics(model_name, eval_root):
@@ -40,7 +42,7 @@ def calculate_metrics(model_name, eval_root):
     
     rouge_results = rouge.compute(predictions=all_preds, references=all_refs)
     meteor_results = meteor.compute(predictions=all_preds, references=all_refs)
-    bleu_results = bleu.compute(predictions=all_preds, references=all_refs)
+    bleu_results = bleu.compute(predictions=all_preds, references=[[ref] for ref in all_refs])
     # Using a light model for BERTScore to keep it fast
     bert_results = bertscore.compute(predictions=all_preds, references=all_refs, lang="en", model_type="distilbert-base-uncased", device="cuda")
     
@@ -92,14 +94,3 @@ if __name__ == "__main__":
     else:
         print(f"Warning: No models_config.json found at {models_config}")
         print("Please provide --model-name argument or ensure models_config.json exists")
-
-if __name__ == "__main__":
-    if not os.path.exists(MODELS_CONFIG):
-        print("Model config not found.")
-        exit(1)
-        
-    with open(MODELS_CONFIG, "r") as f:
-        models = json.load(f)
-        
-    for m in models:
-        calculate_metrics(m['name'])

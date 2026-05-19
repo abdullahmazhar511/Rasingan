@@ -5,7 +5,9 @@ import pandas as pd
 import numpy as np
 import argparse
 
-EVAL_ROOT = os.environ.get("EVAL_ROOT", "/home/umairai/faithfulness_emnlp/Rasingan/evaluation_pipeline")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+RASINGAN_PATH = os.path.dirname(SCRIPT_DIR)
+EVAL_ROOT = os.environ.get("EVAL_ROOT", os.path.join(RASINGAN_PATH, "evaluation_pipeline"))
 
 # Ground truth (full name) -> Model prediction (abbreviated) column mapping
 GT_TO_PRED = {

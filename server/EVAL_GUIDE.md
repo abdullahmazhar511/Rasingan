@@ -13,7 +13,7 @@ pip install -r requirements_server.txt
 
 ### Terminal 1: Start the server
 ```bash
-cd /home/umairai/faithfulness_emnlp/Rasingan/server
+cd <repo>/Rasingan/server
 ./server.sh dev
 ```
 
@@ -23,13 +23,13 @@ Wait for the message: `Application startup complete`
 
 ### Terminal 2: Run evaluation
 ```bash
-cd /home/umairai/faithfulness_emnlp/Rasingan/server
+cd <repo>/Rasingan/server
 python eval_server.py
 ```
 
 ## What Gets Tested
 
-- **Dataset**: `/home/umairai/faith_data/dataset/llm_test_annotated/`
+- **Dataset (default)**: `../respair_mhcopilot_format/test.csv`
 - **Samples**: All CSV files with therapist utterances (Type='T')
 - **Predictions**: Made via the FastAPI server
 - **Metrics**: F1 scores per label + overall F1

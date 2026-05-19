@@ -1,0 +1,64 @@
+Training run started: Sat May 16 12:26:39 PM UTC 2026
+Host: tih   CUDA_VISIBLE_DEVICES=0
+Models: 3
+
+================================================================
+[12:26:39] [1/3] Training: meta-llama/Llama-3.2-1B-Instruct
+  batch_size=16  max_length=768  epochs=3
+  output:    results/Llama-3.2-1B-Instruct-sft-respair-20260516_122639
+  log file:  /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/training_logs/Llama-3.2-1B-Instruct_20260516_122639.log
+================================================================
+[12:41:08] [OK]   meta-llama/Llama-3.2-1B-Instruct  (took 00:14:29)
+
+================================================================
+[12:41:08] [2/3] Training: Qwen/Qwen3-4B-Instruct-2507
+  batch_size=16  max_length=768  epochs=3
+  output:    results/Qwen3-4B-Instruct-2507-sft-respair-20260516_122639
+  log file:  /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/training_logs/Qwen3-4B-Instruct-2507_20260516_122639.log
+================================================================
+[13:26:26] [OK]   Qwen/Qwen3-4B-Instruct-2507  (took 00:45:18)
+
+================================================================
+[13:26:26] [3/3] Training: mistralai/Ministral-3-8B-Instruct-2512
+  batch_size=16  max_length=768  epochs=3
+  output:    results/Ministral-3-8B-Instruct-2512-sft-respair-20260516_122639
+  log file:  /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/training_logs/Ministral-3-8B-Instruct-2512_20260516_122639.log
+================================================================
+[13:26:39] [FAIL] mistralai/Ministral-3-8B-Instruct-2512  (exit=1, after 00:00:13) — continuing
+    --- last 25 lines of /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/training_logs/Ministral-3-8B-Instruct-2512_20260516_122639.log ---
+    Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+    Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+    wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/asbahk/.netrc.
+    wandb: Currently logged in as: karan21258 (karan912) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+    wandb: setting up run 0nazhwh6
+    wandb: Tracking run with wandb version 0.26.1
+    wandb: Run data is saved locally in /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/wandb/run-20260516_132633-0nazhwh6
+    wandb: Run `wandb offline` to turn off syncing.
+    wandb: Syncing run Ministral-3-8B-Instruct-2512-sft
+    wandb: ⭐️ View project at https://wandb.ai/abdullahm-indraprastha-institute-of-information-technolo/rasingan
+    wandb: 🚀 View run at https://wandb.ai/abdullahm-indraprastha-institute-of-information-technolo/rasingan/runs/0nazhwh6
+    True
+    [rank 0] Loading tokenizer and model for mistralai/Ministral-3-8B-Instruct-2512...
+    Traceback (most recent call last):
+      File "/home/asbahk/EMNLP_FINAL/Rasingan/sft_training/train.py", line 237, in <module>
+        main()
+      File "/home/asbahk/EMNLP_FINAL/Rasingan/sft_training/train.py", line 144, in main
+        tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, trust_remote_code=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 1122, in from_pretrained
+        raise ValueError(
+    ValueError: Tokenizer class TokenizersBackend does not exist or is not currently imported.
+    [1;34mwandb[0m: 
+    [1;34mwandb[0m: 🚀 View run [33mMinistral-3-8B-Instruct-2512-sft[0m at: [34mhttps://wandb.ai/abdullahm-indraprastha-institute-of-information-technolo/rasingan/runs/0nazhwh6[0m
+    [1;34mwandb[0m: Find logs at: [1;35mwandb/run-20260516_132633-0nazhwh6/logs[0m
+
+================================================================
+All runs finished: Sat May 16 01:26:39 PM UTC 2026
+Final status:
+  OK    meta-llama/Llama-3.2-1B-Instruct  00:14:29
+  OK    Qwen/Qwen3-4B-Instruct-2507  00:45:18
+  FAIL  mistralai/Ministral-3-8B-Instruct-2512  exit=1
+
+Per-run logs: /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/training_logs/
+Summary:      /home/asbahk/EMNLP_FINAL/Rasingan/sft_training/training_logs/summary_20260516_122639.txt
+================================================================

@@ -8,6 +8,7 @@ import glob
 from pathlib import Path
 from typing import Tuple, List, Dict
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -123,9 +124,9 @@ def load_test_data(data_path: str) -> Tuple[List[str], List[str], List[Dict]]:
 
 if __name__ == "__main__":
     # Test
-    contexts, utterances, ground_truths = load_test_data(
-        "/home/umairai/faith_data/dataset/test.csv"
-    )
+    server_dir = Path(os.path.dirname(os.path.abspath(__file__)))
+    default_test_csv = server_dir.parent / "respair_mhcopilot_format" / "test.csv"
+    contexts, utterances, ground_truths = load_test_data(str(default_test_csv))
     print(f"Loaded {len(utterances)} samples")
     print(f"First context: {contexts[0][:100]}...")
     print(f"First utterance: {utterances[0][:100]}...")

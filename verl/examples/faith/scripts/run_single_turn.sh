@@ -1,5 +1,4 @@
 # run on 8xH100
-# make sure your current working directory is the root of the project
 
 # Activate verl conda environment
 source "$(conda info --base)/etc/profile.d/conda.sh"
@@ -11,7 +10,7 @@ set -x
 export PATH=/usr/local/cuda-12.8/bin:$PATH
 export CUDA_HOME=/usr/local/cuda-12.8
 
-export CUDA_LAUNCH_BLOCKING=1
+# export CUDA_LAUNCH_BLOCKING=1
 # export CUDA_VISIBLE_DEVICES=1
 ulimit -n 65535
 
@@ -21,24 +20,34 @@ function now() {
 }
 
 EXPERIMENT_NAME="llama3.2_sft_$(now)"
-PROJECT_DIR="$(pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 CONFIG_PATH="$PROJECT_DIR/examples/faith/scripts/config"
 source "$PROJECT_DIR/examples/faith/scripts/api_key"
 SERVER_PORT=29500  # port for reward model
+CARE_SERVER_URL="${CARE_SERVER_URL:-http://127.0.0.1:8000}"
 
 SAVE_PATH="./checkpoints/${EXPERIMENT_NAME}"
 
-MODEL="/home/umairai/faithfulness_emnlp/Rasingan/sft_training/results/llama3.2-1b-sft-merged"
+MODEL="$PROJECT_DIR/../sft_training/results/Qwen3-4B-sft-respair-new-3-merged"
 RESUME_FROM_PATH=""
 TRAIN_BATCH_SIZE=16
 VAL_BATCH_SIZE=32
 PPO_MINI_BATCH_SIZE=4
-MAX_PROMPT_LENGTH=10000
-MAX_RESPONSE_LENGTH=10000
+MAX_PROMPT_LENGTH=1024
+MAX_RESPONSE_LENGTH=256
 
-TRAIN_FILES="$HOME/faithfulness_emnlp/Rasingan/verl/examples/faith/data/train.parquet"
-VAL_FILES="$HOME/faithfulness_emnlp/Rasingan/verl/examples/faith/data/val.parquet"
-TEST_FILES="$HOME/faithfulness_emnlp/Rasingan/verl/examples/faith/data/test.parquet"
+DATA_DIR="$PROJECT_DIR/examples/faith/data"
+TRAIN_FILES="$DATA_DIR/train.parquet"
+VAL_FILES="$DATA_DIR/val.parquet"
+TEST_FILES="$DATA_DIR/test.parquet"
+
+if [ ! -f "$TRAIN_FILES" ] || [ ! -f "$VAL_FILES" ] || [ ! -f "$TEST_FILES" ]; then
+    echo "Missing processed dataset parquet files in $DATA_DIR"
+    echo "Run preprocess first:"
+    echo "  python examples/faith/data_preprocess/preprocess_singleturn.py"
+    exit 1
+fi
 
 VAL_ONLY=False
 RESUME=False
@@ -46,7 +55,7 @@ RESUME=False
 if [ "$VAL_ONLY" = True ]; then
     EXTRA_FLAGS="trainer.val_only=True trainer.val_before_train=True"
 else
-    EXTRA_FLAGS="trainer.val_only=False trainer.val_before_train=False"
+    EXTRA_FLAGS="trainer.val_only=False trainer.val_before_train=True"
 fi
 
 if [ "$RESUME" = True ]; then
@@ -112,6 +121,7 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.rollout.free_cache_engine=True \
     algorithm.use_kl_in_reward=False \
     reward_model.reward_manager="care" \
+    +reward_model.care_server_url="$CARE_SERVER_URL" \
     trainer.critic_warmup=0 \
     trainer.logger='["console","wandb"]' \
     trainer.project_name='rasingan' \

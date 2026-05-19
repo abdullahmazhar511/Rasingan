@@ -5,6 +5,13 @@
 
 set -e
 
+# Activate conda environment used by CARE inference dependencies.
+CONDA_ENV_NAME="${CONDA_ENV_NAME:-verl}"
+CONDA_BASE="$(conda info --base)"
+# shellcheck disable=SC1090
+source "$CONDA_BASE/etc/profile.d/conda.sh"
+conda activate "$CONDA_ENV_NAME"
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PARENT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$SCRIPT_DIR"
@@ -62,18 +69,18 @@ check_dependencies() {
 # Run development server
 run_dev() {
     print_header "Starting Development Server"
-    print_info "Server will start on http://0.0.0.0:8001"
-    print_info "Swagger UI: http://localhost:8001/docs"
+    print_info "Server will start on http://0.0.0.0:8000"
+    print_info "Swagger UI: http://localhost:8000/docs"
     print_info "Press Ctrl+C to stop"
-    python3 -m uvicorn app:app --host 0.0.0.0 --port 8001 --reload
+    python3 -m uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 }
 
 # Run production server
 run_prod() {
     print_header "Starting Production Server (with Gunicorn)"
-    print_info "Server will start on http://0.0.0.0:8001"
+    print_info "Server will start on http://0.0.0.0:8000"
     print_info "Workers: 1 (for single GPU)"
-    python3 -m uvicorn app:app --host 0.0.0.0 --port 8001 --workers 1
+    python3 -m uvicorn app:app --host 0.0.0.0 --port 8000 --workers 1
 }
 
 # Test the server

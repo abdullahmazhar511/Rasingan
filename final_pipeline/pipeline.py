@@ -38,13 +38,16 @@ class TherapyPipeline:
         # Create output directory
         self.output_dir.mkdir(exist_ok=True)
         
+        # Session tracking — assigned before agents so the supervisor can share it
+        self.session_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+
         # Initialize agents
         self.patient = Patient(reddit_posts, patient_profile)
         self.therapist = Agent1_PrimaryTherapist()
-        self.supervisor = Agent2_SeniorTherapist()
-        
-        # Session tracking
-        self.session_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.supervisor = Agent2_SeniorTherapist(
+            session_id=self.session_id,
+            progress_dir=self.output_dir / "supervisor_progress",
+        )
         self.session_transcript = []
         self.supervisor_feedback = []
         self.session_metadata = {
@@ -187,16 +190,24 @@ class TherapyPipeline:
         """Save the session transcript and results."""
         timestamp = datetime.now().isoformat()
         
+        # Pull checklist coverage from the supervisor (already judged turn-by-turn during the session)
+        from checklists import compute_summary as _compute_summary  # local import to avoid cycles
+        extraction_status = getattr(self.supervisor, "extraction_status", {})
+        extraction_summary = _compute_summary(extraction_status) if extraction_status else {}
+
         # Prepare full session data
         session_data = {
             "metadata": {
                 **self.session_metadata,
                 "end_time": timestamp,
                 "duration_turns": len(self.session_transcript),
-                "supervisor_feedback_count": len(self.supervisor_feedback)
+                "supervisor_feedback_count": len(self.supervisor_feedback),
+                "checklist": getattr(self.supervisor, "instrument_label", None),
             },
             "transcript": self.session_transcript,
-            "supervisor_feedback": self.supervisor_feedback
+            "supervisor_feedback": self.supervisor_feedback,
+            "extraction_status": extraction_status,
+            "extraction_summary": extraction_summary,
         }
         
         # Save as JSON

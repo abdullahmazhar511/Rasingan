@@ -15,6 +15,7 @@
 import asyncio
 import inspect
 import logging
+import os
 import requests
 
 from omegaconf import DictConfig
@@ -38,6 +39,10 @@ CARE_LABELS = [
     "Reflecting Feelings",
     "Situational Appropriateness"
 ]
+
+# CARE predictions/labels are discrete in [-2, 2].
+CARE_LABEL_MIN = -2.0
+CARE_LABEL_MAX = 2.0
 
 
 class AsyncTokenBucket:
@@ -325,14 +330,19 @@ class CareRewardLoopManager(RewardLoopManagerBase):
         self.reward_router_address = reward_router_address
         self.reward_model_tokenizer = reward_model_tokenizer
         self.timeout = config.reward_model.get("timeout", 300.0)
+        self.care_server_url = (
+            config.reward_model.get("care_server_url", os.getenv("CARE_SERVER_URL", "http://127.0.0.1:8000"))
+            .rstrip("/")
+        )
 
     async def _get_server_predictions(self, context: str, utterance: str) -> dict:
         """Get predictions from the server for all 6 CARE labels."""
         try:
+            predict_url = f"{self.care_server_url}/predict"
             response = await self.loop.run_in_executor(
                 None,
                 lambda: requests.post(
-                    f"http://localhost:8001/predict",
+                    predict_url,
                     json={
                         "context": context,
                         "utterance": utterance,
@@ -346,38 +356,73 @@ class CareRewardLoopManager(RewardLoopManagerBase):
             predictions = result.get("predictions", {})
             return predictions
         except Exception as e:
-            logger.error(f"Error calling server at http://localhost:8001: {e}")
+            logger.error(f"Error calling server at {self.care_server_url}: {e}")
             return {label: 0.0 for label in CARE_LABELS}
 
-    async def _compute_six_dim_reward(self, response_str: str, extra_info: dict) -> float:
-        """Compute single reward value from averaging 6-dimensional CARE labels."""
+    def _extract_reference_response(
+        self, data_item, extra_info: dict, ground_truth_payload
+    ) -> str | None:
+        """Extract reference therapist response text for CARE-vs-CARE scoring."""
+        candidate_keys = [
+            "reference_response",
+            "ground_truth_response",
+            "target_response",
+            "target",
+            "answer",
+            "utterance",
+            "Utterance",
+        ]
+
+        for key in candidate_keys:
+            val = extra_info.get(key, None)
+            if isinstance(val, str) and val.strip():
+                return val.strip()
+
+        non_tensor = getattr(data_item, "non_tensor_batch", {})
+        if hasattr(non_tensor, "get"):
+            for key in candidate_keys:
+                val = non_tensor.get(key, None)
+                if isinstance(val, str) and val.strip():
+                    return val.strip()
+
+        # In some pipelines, ground_truth is the reference response string.
+        if isinstance(ground_truth_payload, str) and ground_truth_payload.strip():
+            return ground_truth_payload.strip()
+
+        return None
+
+    async def _compute_six_dim_reward(self, response_str: str, context: str, reference_response: str) -> float:
+        """Compute reward from CARE distance between model response and reference response."""
         try:
-            context = extra_info.get("context", "")
-            ground_truth = extra_info.get("ground_truth", {})
-            
-            # Get predictions from server
+            # Get CARE predictions for model response and reference response.
             predictions = await self._get_server_predictions(context, response_str)
+            reference_predictions = await self._get_server_predictions(context, reference_response)
             
-            # Calculate L2 norm from squared differences for each label
+            # Calculate per-label squared errors across the 6 CARE dimensions.
             losses = []
             for label in CARE_LABELS:
                 pred_val = float(predictions.get(label, 0.0))
-                truth_val = float(ground_truth.get(label, 0.0))
+                truth_val = float(reference_predictions.get(label, 0.0))
                 
                 # Squared difference for this label (component of L2 norm)
                 loss = (pred_val - truth_val) ** 2
                 losses.append(loss)
             
-            # Return bounded reward: minimize L2 norm distance while maximizing reward
-            # reward = max(0, 1 - L2_norm) ensures reward is in [0, 1]
-            import math
-            l2_norm = math.sqrt(sum(losses)) if losses else 0.0
-            reward = max(0.0, 1.0 - l2_norm)
-            return reward
+            # Use bound-aware normalization for reward scaling.
+            # With CARE labels in [-2, 2], max per-dim absolute error is 4,
+            # so normalized_l2_norm (RMSE-style) is in [0, 4].
+            raw_l2_norm = math.sqrt(sum(losses)) if losses else 0.0
+            normalized_l2_norm = math.sqrt(sum(losses) / len(losses)) if losses else 0.0
+
+            # Use a tighter denominator to increase reward spread for RL.
+            reward_scale = (CARE_LABEL_MAX - CARE_LABEL_MIN) / 1.5
+            reward = 1.0 - (normalized_l2_norm / reward_scale)
+            reward = max(0.0, min(1.0, reward))
+            return reward, normalized_l2_norm, raw_l2_norm
         
         except Exception as e:
             logger.error(f"Error computing 6D reward: {e}")
-            return 0.0
+            return 0.0, 0.0, 0.0
 
     async def _compute_reward(
         self, data_source: str, solution_str: str, ground_truth: str, extra_info: dict
@@ -437,11 +482,18 @@ class CareRewardLoopManager(RewardLoopManagerBase):
         async with self._semaphore:
             try:
                 # Compute single reward value (averaged across 6 CARE dimensions)
-                reward_score = await asyncio.wait_for(
-                    self._compute_six_dim_reward(response_str, extra_info),
+                context = str(extra_info.get("context", ""))
+                reference_response = self._extract_reference_response(data_item, extra_info, ground_truth)
+                if not reference_response:
+                    raise ValueError("Missing reference response text for CARE ground truth scoring")
+
+                reward_score, l2_norm, raw_l2_norm = await asyncio.wait_for(
+                    self._compute_six_dim_reward(response_str, context, reference_response),
                     timeout=self.timeout,
                 )
-                reward_extra_info["method"] = "averaged_6_dimensional_labels"
+                reward_extra_info["l2_norm"] = l2_norm
+                reward_extra_info["raw_l2_norm"] = raw_l2_norm
+                reward_extra_info["method"] = "care_vs_care_reference"
 
             except asyncio.TimeoutError:
                 logger.warning(

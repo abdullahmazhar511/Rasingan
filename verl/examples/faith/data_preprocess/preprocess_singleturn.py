@@ -1,134 +1,152 @@
 import argparse
 import os
-import re
-from tqdm import tqdm
-import pandas as pd
+import sys
+from pathlib import Path
 
-import datasets
+import pandas as pd
 from datasets import Dataset
 
 from verl.utils.hdfs_io import copy, makedirs
 
 
-role_dict = {
-    "T": "Therapist",
-    "P": "Patient"
+RASINGAN_ROOT = Path(__file__).resolve().parents[4]
+UTILS_DIR = RASINGAN_ROOT / "utils"
+sys.path.insert(0, str(UTILS_DIR))
+
+from hfDataset import MHCoPilot_Dataset
+
+
+SYSTEM_PROMPT = """You are a compassionate, client-centered therapist.
+
+Respond with empathy, warmth, and non-judgmental understanding. Reflect the
+client's emotions and perspective using reflective listening (e.g., \"It sounds like...\", 
+\"I hear that...\", \"You're feeling...\").
+
+Encourage gentle exploration through open-ended questions and support the
+client's autonomy.
+
+Guidelines:
+- Focus on the client's feelings and lived experience.
+- Be concise, calm, and emotionally attuned.
+- Do NOT give advice, instructions, or solutions.
+- Do NOT judge, confront, diagnose, or moralize.
+- Do NOT assume information not expressed by the client.
+
+Task: Write the next therapist response."""
+
+CARE_COLUMNS = {
+    "Non-Judgmental Language": 0,
+    "Warmth and Encouragement": 0,
+    "Respect for Autonomy": 0,
+    "Active Listening": 0,
+    "Reflecting Feelings": 0,
+    "Situational Appropriateness": 0,
 }
 
-cols_dict={
-    "Non-Judgmental Language":0,
-    "Warmth and Encouragement":0,
-    "Respect for Autonomy":0,
-    "Active Listening":0,
-    "Reflecting Feelings":0,
-    "Situational Appropriateness":0 
-}
 
-class Faith_Dataset:
-    def __init__(self, csv_dir):
-        self.csv_dir = csv_dir
-        self.context_window = 4
-        
-        # Load CSVs from the specified directory
-        self.train_df = pd.read_csv(os.path.join(csv_dir, 'train.csv'))
-        #select only the first 1000 rows for faster processing during development
-        self.train_df = self.train_df.head(2000)
-        self.val_df = pd.read_csv(os.path.join(csv_dir, 'val.csv'))
-        self.test_df = pd.read_csv(os.path.join(csv_dir, 'test.csv'))
-        
-        # Fill NaN utterances with empty string
-        self.train_df['Utterance'].fillna('', inplace=True)
-        self.val_df['Utterance'].fillna('', inplace=True)
-        self.test_df['Utterance'].fillna('', inplace=True)
-        
-        self.train_df.fillna(cols_dict, inplace=True)
-        self.val_df.fillna(cols_dict, inplace=True)
-        self.test_df.fillna(cols_dict, inplace=True)
-        
-        self.train_dataset = self.process_df(self.train_df)
-        self.val_dataset = self.process_df(self.val_df)
-        self.test_dataset = self.process_df(self.test_df)
-        
-    def process_df(self, df):
-        for i in tqdm(range(1,len(df))): 
-            df.at[i, 'context'] = '\n'.join(
-                df.loc[max(0, i - self.context_window):i - 1]
-                .apply(lambda row: f"{role_dict[row['Type']]}: {row['Utterance']}", axis=1)
-                .tolist()
-            )
-        df = df[df['Type'] == 'T']
-        df=Dataset.from_pandas(df[1:])
-        return df    
-    
-    def make_map_fn(self, split):
-        def process_fn(example, idx):
-            
-            # Extract context from the example
-            context = example.get('context', '')
-            
-            # Extract ground truth as dict of evaluation scores from cols_dict
-            ground_truth = {col: example.get(col, 0) for col in cols_dict.keys()}
-            data_source = example.get('data_source', 'faith_dataset')
-            
-            data = {
-                "data_source": data_source,
-                "prompt": [
-                    {
-                        "role": "system",
-                        "content": (
-                        "You are a compassionate, client-centered therapist.\n\n"
-                        "Respond with empathy, warmth, and non-judgmental understanding. Reflect the\n"
-                        "client’s emotions and perspective using reflective listening (e.g., “It sounds like…”, \n"
-                        "“I hear that…”, “You’re feeling…”).\n\n"
-                        "Encourage gentle exploration through open-ended questions and support the\n"
-                        "client’s autonomy.\n\n"
-                        "Guidelines:\n"
-                        "- Focus on the client’s feelings and lived experience.\n"
-                        "- Be concise, calm, and emotionally attuned.\n"
-                        "- Do NOT give advice, instructions, or solutions.\n"
-                        "- Do NOT judge, confront, diagnose, or moralize.\n"
-                        "- Do NOT assume information not expressed by the client."
-                        ),
-                    },
-                    {
-                        "role": "user",
-                        "content": f"Task: Write the next therapist response.\n\n Context: {context}\nTherapist:"
-                    },
-                ],
-                "ability": "dialogue",
-                "reward_model": {"style": "rule", "ground_truth": ground_truth},
-                "extra_info": {
-                    "split": split,
-                    "index": idx,
-                },
-            }
-            return data
-        
-        return process_fn
-    
-    def get_data(self):
-        # Apply the map function to transform the datasets
-        self.train_dataset = self.train_dataset.map(function=self.make_map_fn("train"), with_indices=True)
-        self.val_dataset = self.val_dataset.map(function=self.make_map_fn("val"), with_indices=True)
-        self.test_dataset = self.test_dataset.map(function=self.make_map_fn("test"), with_indices=True)
+def context_to_chat_messages(context):
+    messages = []
+    for raw_line in str(context).splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if line.startswith("Patient:"):
+            content = line[len("Patient:") :].strip()
+            if content:
+                messages.append({"role": "user", "content": content})
+        elif line.startswith("Therapist:"):
+            content = line[len("Therapist:") :].strip()
+            if content:
+                messages.append({"role": "assistant", "content": content})
+    return messages
 
 
-if __name__ == "__main__":
+def make_prompt_messages(example):
+    history_messages = context_to_chat_messages(example.get("context", ""))
+
+    # Match train.py formatting logic for strict chat templates.
+    while history_messages and history_messages[0]["role"] == "assistant":
+        history_messages.pop(0)
+
+    merged = []
+    for msg in history_messages:
+        if merged and merged[-1]["role"] == msg["role"]:
+            merged[-1]["content"] += "\n" + msg["content"]
+        else:
+            merged.append(dict(msg))
+    history_messages = merged
+
+    if not history_messages or history_messages[-1]["role"] != "user":
+        history_messages.append({"role": "user", "content": "Please continue the session."})
+
+    # Match train.py: fold system prompt into the first user turn.
+    history_messages[0]["content"] = f"{SYSTEM_PROMPT}\n\n{history_messages[0]['content']}"
+
+    return history_messages
+
+
+def map_dataset(split_name):
+    def process_fn(example, idx):
+        ground_truth = {col: example.get(col, 0) for col in CARE_COLUMNS.keys()}
+        data_source = example.get("data_source", "faith_dataset")
+        return {
+            "data_source": data_source,
+            "prompt": make_prompt_messages(example),
+            "ability": "dialogue",
+            "reward_model": {"style": "rule", "ground_truth": ground_truth},
+            "extra_info": {
+                "split": split_name,
+                "index": idx,
+                "id": example.get("ID", idx),
+            },
+        }
+
+    return process_fn
+
+
+def to_processed_dataset(hf_dataset, split_name):
+    return hf_dataset.map(function=map_dataset(split_name), with_indices=True)
+
+
+def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--csv_dir", default="/home/umairai/faithfulness_emnlp/Rasingan/data", help="The directory containing CSV files (train.csv, val.csv, test.csv).")
+    parser.add_argument(
+        "--csv_dir",
+        default=str(RASINGAN_ROOT / "respair_mhcopilot_format"),
+        help="Directory containing train.csv, val.csv, test.csv",
+    )
+    parser.add_argument("--context_window", type=int, default=6)
+    parser.add_argument(
+        "--train_csv",
+        default=str(RASINGAN_ROOT / "respair_mhcopilot_format" / "train_rl_single.csv"),
+        help="Path to training CSV file (defaults to curated train_rl_single.csv)",
+    )
     parser.add_argument("--hdfs_dir", default=None)
     parser.add_argument(
-        "--local_save_dir", default="/home/umairai/faithfulness_emnlp/Rasingan/verl/examples/faith/data", help="The save directory for the preprocessed dataset."
+        "--local_save_dir",
+        default=str(RASINGAN_ROOT / "verl" / "examples" / "faith" / "data"),
+        help="Local directory to save train/val/test parquet files",
     )
     args = parser.parse_args()
-    
-    dataset_processor = Faith_Dataset(args.csv_dir)
-    dataset_processor.get_data()
-    
-    train_dataset = dataset_processor.train_dataset
-    val_dataset = dataset_processor.val_dataset
-    test_dataset = dataset_processor.test_dataset
-    
+
+    mhcopilot = MHCoPilot_Dataset(args.csv_dir, context_window=args.context_window)
+    mhcopilot.get_data()
+
+    train_csv_path = Path(args.train_csv)
+    if not train_csv_path.exists():
+        raise FileNotFoundError(f"Train CSV not found: {train_csv_path}")
+
+    # Override only the train split with curated RL training conversations.
+    train_df = pd.read_csv(train_csv_path)
+    train_df["Utterance"] = train_df["Utterance"].fillna("")
+    train_df.fillna(CARE_COLUMNS, inplace=True)
+    mhcopilot.train_dataset = mhcopilot.preprocess(train_df)
+
+    train_dataset = to_processed_dataset(mhcopilot.train_dataset, "train")
+    val_dataset = to_processed_dataset(mhcopilot.val_dataset, "val")
+    test_dataset = to_processed_dataset(mhcopilot.test_dataset, "test")
+
+    os.makedirs(args.local_save_dir, exist_ok=True)
     train_dataset.to_parquet(os.path.join(args.local_save_dir, "train.parquet"))
     val_dataset.to_parquet(os.path.join(args.local_save_dir, "val.parquet"))
     test_dataset.to_parquet(os.path.join(args.local_save_dir, "test.parquet"))
@@ -137,3 +155,7 @@ if __name__ == "__main__":
     if args.hdfs_dir is not None:
         makedirs(args.hdfs_dir)
         copy(src=args.local_save_dir, dst=args.hdfs_dir)
+
+
+if __name__ == "__main__":
+    main()

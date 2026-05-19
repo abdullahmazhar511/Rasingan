@@ -54,7 +54,7 @@ def parse_args():
     parser.add_argument("--data_dir", type=str, default="../sft_training/respair_mhcopilot_format")
     parser.add_argument("--output_dir", type=str, default="../sft_training/results/llama3.2-1b-sft-respair-new-3")
     parser.add_argument("--batch_size", type=int, default=16, help="Per-device batch size")
-    parser.add_argument("--epochs", type=int, default=3)
+    parser.add_argument("--epochs", type=int, default=5)
     parser.add_argument("--learning_rate", type=float, default=2e-4)
     parser.add_argument("--gradient_accumulation_steps", type=int, default=1)
     parser.add_argument("--max_length", type=int, default=768)
@@ -83,12 +83,30 @@ def format_to_messages(example):
     output_text = example['Utterance'].strip()
 
     history_messages = context_to_chat_messages(example.get('context', ''))
+
+    # Drop leading assistant turns; strict templates (Gemma) require first role=user.
+    while history_messages and history_messages[0]["role"] == "assistant":
+        history_messages.pop(0)
+
+    # Merge consecutive same-role turns so the sequence strictly alternates.
+    merged = []
+    for msg in history_messages:
+        if merged and merged[-1]["role"] == msg["role"]:
+            merged[-1]["content"] += "\n" + msg["content"]
+        else:
+            merged.append(dict(msg))
+    history_messages = merged
+
     # Ensure there is always a user turn before generating assistant target.
     if not history_messages or history_messages[-1]["role"] != "user":
         history_messages.append({"role": "user", "content": "Please continue the session."})
 
+    # Fold system prompt into the first user turn for chat-template compatibility
+    # across models that do/don't support a "system" role (e.g., Gemma-3).
+    history_messages[0]["content"] = f"{SYSTEM_PROMPT}\n\n{history_messages[0]['content']}"
+
     return {
-        "messages": [{"role": "system", "content": SYSTEM_PROMPT}] + history_messages + [
+        "messages": history_messages + [
             {"role": "assistant", "content": output_text}
         ]
     }

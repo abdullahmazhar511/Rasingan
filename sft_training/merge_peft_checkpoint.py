@@ -11,9 +11,9 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 
 # Configuration
-BASE_MODEL_NAME = "meta-llama/Llama-3.2-1B-Instruct"
-CHECKPOINT_DIR = "/home/umairai/faithfulness_emnlp/Rasingan/sft_training/results/llama3.2-1b-sft/checkpoint-288"
-OUTPUT_DIR = "/home/umairai/faithfulness_emnlp/Rasingan/sft_training/results/llama3.2-1b-sft-merged"
+BASE_MODEL_NAME = "Qwen/Qwen3-4B-Instruct-2507"
+CHECKPOINT_DIR = "results/Qwen3-4B-sft-respair-new-3/checkpoint-425"
+OUTPUT_DIR = "results/Qwen3-4B-sft-respair-new-3-merged"
 
 def get_device():
     """Get the device to use for loading models."""

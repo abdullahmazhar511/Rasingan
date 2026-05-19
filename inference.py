@@ -5,19 +5,20 @@ socket.getaddrinfo = lambda host, port, family=0, type=0, proto=0, flags=0: _ori
 
 import torch
 import torch.nn as nn
-from torch.cuda.amp import autocast
 from transformers import AutoModelForCausalLM, AutoConfig, AutoTokenizer
 from peft import get_peft_model, LoraConfig, TaskType
-import pandas as pd
 from sentence_transformers import SentenceTransformer
-from sentence_transformers.util import cos_sim
+from sentence_transformers import util
 import numpy as np
 import os
+import json
 import sys
 
 
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device="cuda:0"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CARE_DIR = os.environ.get("CARE_DIR", os.path.join(BASE_DIR, "CARE"))
+
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
 dtype_str = "bfloat16" if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else "float16"
 torch_dtype = torch.bfloat16 if dtype_str == "bfloat16" else torch.float16
 
@@ -25,8 +26,12 @@ CONFIG = {
     # Two different models
     "explainer_model_id": "Qwen/Qwen3-4B-Instruct-2507", 
     "classifier_model_id": "Qwen/Qwen3-4B-Instruct-2507",
-    "classifier_weights": "/home/umairai/faith/faith/classification_output_stable_v5",
+    "classifier_weights": os.path.join(CARE_DIR, "care_checkpoint", "best_classifier.pt"),
     "embedding_model": "all-MiniLM-L6-v2",
+    "train_explanations_json": os.path.join(CARE_DIR, "rag_cache", "train_processed.json"),
+    "rag_index_cache": os.path.join(CARE_DIR, "rag_cache", "rag_index.pt"),
+    "top_k": 3,
+    "max_len": 1536,
 }
 
 LABEL_TO_IDX = {-2: 0, -1: 1, 0: 2, 1: 3, 2: 4}
@@ -61,9 +66,10 @@ class QwenHierarchicalClassifier(nn.Module):
         self.config = AutoConfig.from_pretrained(model_id, trust_remote_code=True)
         base_model = AutoModelForCausalLM.from_pretrained(
             model_id,
-            device_map={"": "cuda:0"},  # Load on single GPU instead of auto
+            device_map={"": device},
             torch_dtype=torch_dtype, 
-            trust_remote_code=True
+            trust_remote_code=True,
+            attn_implementation="flash_attention_2",
         )
         peft_config = LoraConfig(
             task_type=TaskType.FEATURE_EXTRACTION, 
@@ -96,10 +102,10 @@ class QwenHierarchicalClassifier(nn.Module):
         self._init_head_weights()
         # Move all components to the appropriate device and dtype
         self.backbone.to(device=device, dtype=torch_dtype)
-        self.pooler.to(device=device, dtype=torch_dtype)
-        self.norm.to(device=device, dtype=torch_dtype)
-        self.main_heads.to(device=device, dtype=torch_dtype)
-        self.binary_heads.to(device=device, dtype=torch_dtype)
+        self.pooler.to(device=device, dtype=torch.float32)
+        self.norm.to(device=device, dtype=torch.float32)
+        self.main_heads.to(device=device, dtype=torch.float32)
+        self.binary_heads.to(device=device, dtype=torch.float32)
         
         self.class_weights = class_weights
         self.binary_weights = binary_weights
@@ -115,7 +121,7 @@ class QwenHierarchicalClassifier(nn.Module):
     def forward(self, input_ids, attention_mask, labels=None):
         outputs = self.backbone(input_ids=input_ids, attention_mask=attention_mask, output_hidden_states=True)
         last_hidden = outputs.hidden_states[-1]
-        pooled = self.pooler(last_hidden, attention_mask)
+        pooled = self.pooler(last_hidden.to(dtype=torch.float32), attention_mask)
         pooled = self.norm(pooled)
         
         main_logits_list = []
@@ -150,163 +156,148 @@ class CareModel:
         with torch.no_grad():
             self.model = QwenHierarchicalClassifier(CONFIG["classifier_model_id"])
             print("Loading model weights...")
-            state_dict = torch.load(
-                os.path.join(CONFIG["classifier_weights"], "best_classifier.pt"),
-                map_location=device
-            )
+            state_dict = torch.load(CONFIG["classifier_weights"], map_location=device)
             self.model.load_state_dict(state_dict)
-            self.model.to(device, dtype=torch.float16)
+            self.model.to(device=device)
+            self.model.backbone.to(device=device, dtype=torch_dtype)
+            self.model.pooler.to(device=device, dtype=torch.float32)
+            self.model.norm.to(device=device, dtype=torch.float32)
+            self.model.main_heads.to(device=device, dtype=torch.float32)
+            self.model.binary_heads.to(device=device, dtype=torch.float32)
             self.model.eval()
         
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
     
-        self.max_length = 2048 # Set reasonable max length to avoid OOM
-        self.analysis_labels = None
-        
-        #load explanations - use absolute path
-        explanations_path = "/home/umairai/faithfulness_emnlp/Rasingan/explanations/explanations_16.csv"
-        self.explanations=pd.read_csv(explanations_path)
-        # Load embedding model on GPU for faster inference
-        embedding_device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        self.embedding_model = SentenceTransformer("BAAI/bge-large-en-v1.5", device=embedding_device)
-        
-        self.init_explanations()
-
-    def init_explanations(self):
-        # Organize samples by dimension with positive (Polarity='positive') and negative (Polarity='negative') samples
+        self.max_length = CONFIG["max_len"]
+        self.analysis_labels = CARE_LABELS
         self.dimension_samples = {}
-        for dimension in self.explanations['Dimension'].unique():
-            dim_data = self.explanations[self.explanations['Dimension'] == dimension]
-            positive_samples = dim_data[dim_data['Polarity'] == 'positive']
-            negative_samples = dim_data[dim_data['Polarity'] == 'negative']
-            
-            # Store one positive and one negative sample with their embeddings
-            pos_text = positive_samples['Therapist Response'].iloc[0] if len(positive_samples) > 0 else ""
-            neg_text = negative_samples['Therapist Response'].iloc[0] if len(negative_samples) > 0 else ""
-            
-            # Encode embeddings on GPU for faster computation
-            pos_embedding = self.embedding_model.encode(pos_text, convert_to_tensor=True) if pos_text else None
-            neg_embedding = self.embedding_model.encode(neg_text, convert_to_tensor=True) if neg_text else None
-            
-            self.dimension_samples[dimension] = {
-                'positive': {
-                    'text': pos_text,
-                    'embedding': pos_embedding,
-                    'row': positive_samples.iloc[0] if len(positive_samples) > 0 else None
-                },
-                'negative': {
-                    'text': neg_text,
-                    'embedding': neg_embedding,
-                    'row': negative_samples.iloc[0] if len(negative_samples) > 0 else None
-                }
-            }
+
+        embedding_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.embedding_model = SentenceTransformer(CONFIG["embedding_model"], device=embedding_device)
+        self.ideal_sets, self.train_embeddings, self.trait_explanations = self._load_or_build_rag_index()
+
+    def _load_or_build_rag_index(self):
+        cache_path = CONFIG["rag_index_cache"]
+        if os.path.exists(cache_path):
+            cache = torch.load(cache_path, weights_only=False, map_location="cpu")
+            embeddings = cache["embeddings"].to(device)
+            return cache["ideal_sets"], embeddings, cache["trait_explanations"]
+
+        train_json = CONFIG["train_explanations_json"]
+        if not os.path.exists(train_json):
+            raise FileNotFoundError(
+                f"Missing training explanations JSON at {train_json}. "
+                "Run CARE scoring setup to generate rag_cache assets first."
+            )
+
+        with open(train_json, "r") as f:
+            train_data = json.load(f)
+
+        utterances = [str(item.get("Utterance", "")) for item in train_data]
+        embeddings = self.embedding_model.encode(utterances, convert_to_tensor=True, show_progress_bar=True)
+
+        ideal_sets = {label: {"Pos": [], "Neg": []} for label in CARE_LABELS}
+        used_indices = set()
+        candidates = {}
+
+        for label in CARE_LABELS:
+            label_values = []
+            for item in train_data:
+                try:
+                    label_values.append(int(item.get(label, 0)))
+                except (TypeError, ValueError):
+                    label_values.append(0)
+            values_np = np.array(label_values)
+            pos_idxs = np.where(values_np > 0)[0].tolist()
+            neg_idxs = np.where(values_np < 0)[0].tolist()
+            pos_idxs.sort(key=lambda i: values_np[i], reverse=True)
+            neg_idxs.sort(key=lambda i: abs(values_np[i]), reverse=True)
+            candidates[label] = {"Pos": pos_idxs, "Neg": neg_idxs}
+
+        keep_going = True
+        while keep_going:
+            added_this_round = False
+            for label in CARE_LABELS:
+                for polarity in ("Pos", "Neg"):
+                    while candidates[label][polarity]:
+                        idx = candidates[label][polarity].pop(0)
+                        if idx not in used_indices:
+                            ideal_sets[label][polarity].append(idx)
+                            used_indices.add(idx)
+                            added_this_round = True
+                            break
+            if not added_this_round:
+                keep_going = False
+
+        trait_explanations = {}
+        for label in CARE_LABELS:
+            trait_explanations[label] = [
+                str((item.get("Explanations") or {}).get(label, "")).strip()
+                for item in train_data
+            ]
+
+        torch.save(
+            {
+                "ideal_sets": ideal_sets,
+                "embeddings": embeddings.cpu(),
+                "trait_explanations": trait_explanations,
+            },
+            cache_path,
+        )
+
+        return ideal_sets, embeddings.to(device), trait_explanations
+
+    def _retrieve_trait_texts(self, query_embedding, trait_label, polarity):
+        pool_idxs = self.ideal_sets.get(trait_label, {}).get(polarity, [])
+        if not pool_idxs:
+            return []
+
+        pool_embeddings = self.train_embeddings[pool_idxs]
+        scores = util.cos_sim(query_embedding, pool_embeddings)[0]
+        k = min(CONFIG["top_k"], len(pool_idxs))
+        _, topk_inds = torch.topk(scores, k=k)
+
+        texts = []
+        for j in topk_inds.detach().cpu().numpy().tolist():
+            idx = pool_idxs[int(j)]
+            expl = self.trait_explanations[trait_label][idx]
+            if expl:
+                texts.append(expl)
+        return texts
 
     def get_analysis(self, context, utterance):
-
         explanations = self.get_explanations(utterance)
         analysis = ""
         for lbl in CARE_LABELS:
-            # row = str(explanations.get(lbl, "")).strip() or "No info."
-            analysis += f"{lbl}:\n"
-            for polarity in ['positive', 'negative']:
-                expl_text = explanations.get(lbl, {}).get(polarity, {}).get('explanation', "No info.")
-                expl_text = str(expl_text).strip() or "No info."
-                expl_text = f"{polarity.capitalize()}: {expl_text}"
-                analysis += f"{lbl}: {expl_text}\n"
-            analysis += "\n"
+            expl_text = str(explanations.get(lbl, "")).strip() or "No info."
+            analysis += f"{lbl}: {expl_text}\n"
         return analysis
     
     def _get_analysis_batch(self, contexts, utterances):
-        """
-        Efficiently generate analysis for multiple utterances in parallel.
-        Returns list of analysis strings.
-        """
-        # Batch encode utterances for similarity computation
         text_embeddings = self.embedding_model.encode(utterances, convert_to_tensor=True)
-        
-        all_explanations = []
+
+        all_analyses = []
         for text_embedding in text_embeddings:
-            results = {}
-            for dimension, samples in self.dimension_samples.items():
-                results[dimension] = {}
-                
-                # Calculate similarity with positive sample
-                if samples['positive']['embedding'] is not None:
-                    pos_similarity = cos_sim(text_embedding, samples['positive']['embedding']).item()
-                    results[dimension]['positive'] = {
-                        'similarity': pos_similarity,
-                        'explanation': samples['positive']['row']['Explanation']
-                    }
-                else:
-                    results[dimension]['positive'] = {'similarity': None, 'row': None}
-                
-                # Calculate similarity with negative sample
-                if samples['negative']['embedding'] is not None:
-                    neg_similarity = cos_sim(text_embedding, samples['negative']['embedding']).item()
-                    results[dimension]['negative'] = {
-                        'similarity': neg_similarity,
-                        'explanation': samples['negative']['row']['Explanation']
-                    }
-                else:
-                    results[dimension]['negative'] = {'similarity': None, 'row': None}
-            all_explanations.append(results)
-        
-        # Generate analysis strings for each sample
-        analyses = []
-        for explanations in all_explanations:
             analysis = ""
-            for lbl in CARE_LABELS:
-                analysis += f"{lbl}:\n"
-                for polarity in ['positive', 'negative']:
-                    expl_text = explanations.get(lbl, {}).get(polarity, {}).get('explanation', "No info.")
-                    expl_text = str(expl_text).strip() or "No info."
-                    expl_text = f"{polarity.capitalize()}: {expl_text}"
-                    analysis += f"{lbl}: {expl_text}\n"
-                analysis += "\n"
-            analyses.append(analysis)
-        
-        return analyses
+            for label in CARE_LABELS:
+                pos_texts = self._retrieve_trait_texts(text_embedding, label, "Pos")
+                neg_texts = self._retrieve_trait_texts(text_embedding, label, "Neg")
+                expl_text = "\n".join(pos_texts + neg_texts).strip() or "No info."
+                analysis += f"{label}: {expl_text}\n"
+            all_analyses.append(analysis)
+
+        return all_analyses
     
     def get_explanations(self, text):
-        """
-        Match input text with positive and negative samples for each dimension.
-        Returns similarity scores for each dimension with one positive and one negative sample.
-        
-        Args:
-            text: Input text to match against samples
-            
-        Returns:
-            dict: Dictionary with dimension -> {'positive': {'similarity': float, 'row': pd.Series}, 
-                                              'negative': {'similarity': float, 'row': pd.Series}}
-        """
-        # Encode input text on GPU
         text_embedding = self.embedding_model.encode(text, convert_to_tensor=True)
-        
+
         results = {}
-        for dimension, samples in self.dimension_samples.items():
-            results[dimension] = {}
-            
-            # Calculate similarity with positive sample
-            if samples['positive']['embedding'] is not None:
-                pos_similarity = cos_sim(text_embedding, samples['positive']['embedding']).item()
-                results[dimension]['positive'] = {
-                    'similarity': pos_similarity,
-                    'explanation': samples['positive']['row']['Explanation']
-                }
-            else:
-                results[dimension]['positive'] = {'similarity': None, 'row': None}
-            
-            # Calculate similarity with negative sample
-            if samples['negative']['embedding'] is not None:
-                neg_similarity = cos_sim(text_embedding, samples['negative']['embedding']).item()
-                results[dimension]['negative'] = {
-                    'similarity': neg_similarity,
-                    'explanation': samples['negative']['row']['Explanation']
-                }
-            else:
-                results[dimension]['negative'] = {'similarity': None, 'row': None}
-        # print(results)
+        for label in CARE_LABELS:
+            pos_texts = self._retrieve_trait_texts(text_embedding, label, "Pos")
+            neg_texts = self._retrieve_trait_texts(text_embedding, label, "Neg")
+            results[label] = "\n".join(pos_texts + neg_texts).strip() or "No info."
+
         return results
 
     def predict(self, context, utterance, include_analysis=True):
@@ -328,17 +319,16 @@ class CareModel:
         tokenized_input = self.tokenizer(
             text_input,
             max_length=self.max_length,
-            padding="longest",
+            padding="max_length",
             truncation=True,
             return_tensors="pt"
         ).to(device)
         
         with torch.no_grad():
-            with autocast(dtype=torch.float16):
-                output = self.model(
-                    input_ids=tokenized_input.input_ids,
-                    attention_mask=tokenized_input.attention_mask
-                )
+            output = self.model(
+                input_ids=tokenized_input.input_ids,
+                attention_mask=tokenized_input.attention_mask
+            )
             logits = output["logits"]
             preds = torch.argmax(logits, dim=2)
             preds_idx = preds.cpu().numpy()
@@ -399,18 +389,17 @@ class CareModel:
             tokenized_batch = self.tokenizer(
                 batch_inputs,
                 max_length=self.max_length,
-                padding="longest",
+                padding="max_length",
                 truncation=True,
                 return_tensors="pt"
             ).to(device)
             
             # Inference with mixed precision
             with torch.no_grad():
-                with autocast(dtype=torch.float16):
-                    output = self.model(
-                        input_ids=tokenized_batch.input_ids,
-                        attention_mask=tokenized_batch.attention_mask
-                    )
+                output = self.model(
+                    input_ids=tokenized_batch.input_ids,
+                    attention_mask=tokenized_batch.attention_mask
+                )
                 logits = output["logits"]
                 preds = torch.argmax(logits, dim=2)
                 preds_batch = preds.cpu().numpy()

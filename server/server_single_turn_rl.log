@@ -1,0 +1,48 @@
+[0;32m==================================[0m
+[0;32mChecking Dependencies[0m
+[0;32m==================================[0m
+[0;32m✅ Python 3 found: Python 3.12.13[0m
+[0;32m✅ NVIDIA CUDA found[0m
+NVIDIA H200 NVL
+NVIDIA H200 NVL
+[0;32m✅ Required Python packages installed[0m
+[0;32m==================================[0m
+[0;32mStarting Production Server (with Gunicorn)[0m
+[0;32m==================================[0m
+[1;33mℹ️  Server will start on http://0.0.0.0:8000[0m
+[1;33mℹ️  Workers: 1 (for single GPU)[0m
+/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+INFO:     Started server process [1636497]
+INFO:     Waiting for application startup.
+INFO:app:Loading Care Model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.64it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.69it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.49it/s]
+ERROR:    Traceback (most recent call last):
+  File "/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/starlette/routing.py", line 694, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/fastapi/routing.py", line 241, in __aenter__
+    await self._router._startup()
+  File "/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/fastapi/routing.py", line 4884, in _startup
+    await handler()
+  File "/home/asbahk/EMNLP_FINAL/Rasingan/server/app.py", line 74, in startup_event
+    model = CareModel()
+            ^^^^^^^^^^^
+  File "/home/asbahk/EMNLP_FINAL/Rasingan/inference.py", line 160, in __init__
+    state_dict = torch.load(CONFIG["classifier_weights"], map_location=device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/serialization.py", line 1484, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/serialization.py", line 759, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/serialization.py", line 740, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/asbahk/EMNLP_FINAL/CARE/care_checkpoint/best_classifier.pt'
+
+ERROR:    Application startup failed. Exiting.
+Loading model weights...

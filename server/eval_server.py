@@ -21,6 +21,10 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from dataset_utils import load_test_data, CARE_LABELS
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+RASINGAN_DIR = SCRIPT_DIR.parent
+DEFAULT_DATA_PATH = RASINGAN_DIR / "respair_mhcopilot_format" / "test.csv"
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -32,9 +36,9 @@ class ServerTester:
         self.base_url = base_url.rstrip("/")
         # Support both file and directory paths
         if data_dir and data_dir.endswith('.csv'):
-            self.data_dir = data_dir
+            self.data_dir = Path(data_dir)
         else:
-            self.data_dir = Path(data_dir) if data_dir else Path("/home/umairai/faith_data/dataset/llm_test_annotated")
+            self.data_dir = Path(data_dir) if data_dir else DEFAULT_DATA_PATH
         self.results = {
             "total_samples": 0,
             "successful_predictions": 0,
@@ -266,7 +270,7 @@ def main():
     parser = argparse.ArgumentParser(description="Evaluate Care Model Server")
     parser.add_argument("--url", default="http://localhost:8000", help="Server base URL")
     parser.add_argument("--data-dir", 
-                       default="/home/umairai/faith_data/dataset",
+                       default=str(DEFAULT_DATA_PATH),
                        help="Path to data directory (uses MHCoPilot_Dataset by default)")
     parser.add_argument("--batch-size", type=int, default=16, help="Batch size for predictions")
     parser.add_argument("--output", default="evaluation_results.json", help="Output results file")

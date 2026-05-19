@@ -3,6 +3,12 @@ Configuration for Care Model FastAPI Server
 Adjust these settings for performance tuning
 """
 
+import os
+
+SERVER_DIR = os.path.dirname(os.path.abspath(__file__))
+RASINGAN_DIR = os.path.dirname(SERVER_DIR)
+CARE_DIR = os.environ.get("CARE_DIR", os.path.join(RASINGAN_DIR, "CARE"))
+
 # Server Configuration
 SERVER_HOST = "0.0.0.0"
 SERVER_PORT = 8000
@@ -21,8 +27,11 @@ CACHE_TTL = 3600  # Cache time-to-live in seconds (0 = infinite)
 
 # Model Configuration
 MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507"
-CLASSIFIER_WEIGHTS = "/home/umairai/faith/faith/classification_output_stable_v5"
-EMBEDDING_MODEL = "BAAI/bge-large-en-v1.5"
+CLASSIFIER_WEIGHTS = os.environ.get(
+  "CARE_CLASSIFIER_WEIGHTS",
+  os.path.join(CARE_DIR, "care_checkpoint", "best_classifier.pt"),
+)
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 # GPU Configuration
 GPU_DEVICE = "cuda:0"  # Which GPU to use

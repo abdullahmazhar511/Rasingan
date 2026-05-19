@@ -121,9 +121,26 @@ Task: Write the next therapist response."""
         prompts = []
         for context in batch['context']:
             history_messages = context_to_chat_messages(context)
+
+            # Drop leading assistant turns; strict templates (Gemma) require first role=user.
+            while history_messages and history_messages[0]["role"] == "assistant":
+                history_messages.pop(0)
+
+            # Merge consecutive same-role turns so the sequence strictly alternates.
+            merged = []
+            for msg in history_messages:
+                if merged and merged[-1]["role"] == msg["role"]:
+                    merged[-1]["content"] += "\n" + msg["content"]
+                else:
+                    merged.append(dict(msg))
+            history_messages = merged
+
             if not history_messages or history_messages[-1]["role"] != "user":
                 history_messages.append({"role": "user", "content": "Please continue the session."})
-            messages = [{"role": "system", "content": system_prompt}] + history_messages
+            # Fold system prompt into the first user turn for chat-template compatibility
+            # across models that do/don't support a "system" role (e.g., Gemma-3).
+            history_messages[0]["content"] = f"{system_prompt}\n\n{history_messages[0]['content']}"
+            messages = history_messages
             prompts.append(tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True))
 
         inputs = tokenizer(
@@ -177,7 +194,9 @@ Task: Write the next therapist response."""
     print(f"ROUGE-L: {rouge_results['rougeL']:.4f}")
     print(f"METEOR:  {meteor_results['meteor']:.4f}")
     print(f"BLEU:    {bleu_results['bleu']:.4f}")
-    print(f"BERTScore F1 (Avg): {np.mean(bert_results['f1']):.4f}")
+    print(f"BERTScore Precision (Avg): {np.mean(bert_results['precision']):.4f}")
+    print(f"BERTScore Recall    (Avg): {np.mean(bert_results['recall']):.4f}")
+    print(f"BERTScore F1        (Avg): {np.mean(bert_results['f1']):.4f}")
 
     # Optional: Save results to CSV
     if args.adapter_path:
