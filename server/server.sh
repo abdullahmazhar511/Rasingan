@@ -10,7 +10,15 @@ CONDA_ENV_NAME="${CONDA_ENV_NAME:-verl}"
 CONDA_BASE="$(conda info --base)"
 # shellcheck disable=SC1090
 source "$CONDA_BASE/etc/profile.d/conda.sh"
+# A pre-activated Python venv on PATH would shadow conda activate. Drop it first.
+if [ -n "${VIRTUAL_ENV:-}" ] && command -v deactivate &>/dev/null; then
+    deactivate 2>/dev/null || true
+fi
+unset VIRTUAL_ENV
 conda activate "$CONDA_ENV_NAME"
+# Pin python so the uvicorn entrypoint uses the conda env's python regardless
+# of any later PATH manipulation (e.g. ~/.bashrc re-activating a venv).
+CONDA_PY="$CONDA_PREFIX/bin/python"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PARENT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
@@ -46,11 +54,11 @@ check_dependencies() {
     print_header "Checking Dependencies"
     
     # Check Python
-    if ! command -v python3 &> /dev/null; then
+    if ! command -v "$CONDA_PY" &> /dev/null; then
         print_error "Python 3 not found"
         exit 1
     fi
-    print_success "Python 3 found: $(python3 --version)"
+    print_success "Python 3 found: $("$CONDA_PY" --version)"
     
     # Check CUDA
     if command -v nvidia-smi &> /dev/null; then
@@ -61,7 +69,7 @@ check_dependencies() {
     fi
     
     # Check pip packages
-    python3 -c "import fastapi; import uvicorn; import torch" 2>/dev/null && \
+    "$CONDA_PY" -c "import fastapi; import uvicorn; import torch" 2>/dev/null && \
         print_success "Required Python packages installed" || \
         (print_error "Required packages missing. Run: pip install -r requirements_server.txt"; exit 1)
 }
@@ -72,7 +80,7 @@ run_dev() {
     print_info "Server will start on http://0.0.0.0:8000"
     print_info "Swagger UI: http://localhost:8000/docs"
     print_info "Press Ctrl+C to stop"
-    python3 -m uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+    "$CONDA_PY" -m uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 }
 
 # Run production server
@@ -80,7 +88,7 @@ run_prod() {
     print_header "Starting Production Server (with Gunicorn)"
     print_info "Server will start on http://0.0.0.0:8000"
     print_info "Workers: 1 (for single GPU)"
-    python3 -m uvicorn app:app --host 0.0.0.0 --port 8000 --workers 1
+    "$CONDA_PY" -m uvicorn app:app --host 0.0.0.0 --port 8000 --workers 1
 }
 
 # Test the server
@@ -88,14 +96,14 @@ test_server() {
     print_header "Testing Server"
     
     print_info "Checking health endpoint..."
-    if ! curl -s http://localhost:8000/health | python3 -m json.tool; then
+    if ! curl -s http://localhost:8000/health | "$CONDA_PY" -m json.tool; then
         print_error "Server is not running"
         return 1
     fi
     print_success "Health check passed"
     
     print_info "Running client test..."
-    python3 client.py
+    "$CONDA_PY" client.py
     print_success "Client test completed"
 }
 

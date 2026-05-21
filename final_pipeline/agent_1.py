@@ -4,13 +4,11 @@ Engages with the patient and follows therapeutic best practices.
 Can be used standalone or integrated with VERL training pipeline.
 """
 
-import json
 import time
-import torch
-from transformers import pipeline
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 from shared_config import get_therapist_system_prompt
+from shared_vllm import DEFAULT_MODEL, SharedVLLM, get_shared_vllm
 
 
 class Agent1_PrimaryTherapist:
@@ -25,39 +23,32 @@ class Agent1_PrimaryTherapist:
         "planning": "Collaborate on next steps and coping strategies"
     }
     
-    def __init__(self, model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct", session_type: str = "counseling", load_model: bool = True):
+    def __init__(self, model_name: str = DEFAULT_MODEL, session_type: str = "counseling",
+                 load_model: bool = True, llm: Optional[SharedVLLM] = None):
         """
         Initialize primary therapist agent.
-        
+
         Args:
-            model_name: LLM model to use
+            model_name: HF model id used when no shared client is supplied
             session_type: Type of therapy session (counseling, crisis, assessment, etc.)
-            load_model: If False, skip loading the HF model (for data prep / vLLM mode)
+            load_model: If False, skip loading the LLM (for data prep / VERL mode)
+            llm: Pre-loaded shared vLLM client. When given, the agent reuses it
+                instead of loading its own model.
         """
         self.model_name = model_name
         self.session_type = session_type
-        self.conversation_history = []
+        self.conversation_history: List[Dict] = []
         self.turn_count = 0
-        self._pipeline = None
-        
-        if load_model:
-            self._load_pipeline()
-    
-    def _load_pipeline(self):
-        """Load the HF text-generation pipeline on demand."""
-        if self._pipeline is None:
-            self._pipeline = pipeline(
-                "text-generation",
-                model=self.model_name,
-                model_kwargs={"torch_dtype": torch.float16},
-                device_map="auto",
-            )
-    
+        self._llm = llm
+
+        if load_model and self._llm is None:
+            self._llm = get_shared_vllm(model_name)
+
     @property
-    def pipeline(self):
-        if self._pipeline is None:
-            self._load_pipeline()
-        return self._pipeline
+    def llm(self) -> SharedVLLM:
+        if self._llm is None:
+            self._llm = get_shared_vllm(self.model_name)
+        return self._llm
     
     def get_system_prompt(self, session_phase: str = "opening") -> str:
         """Generate system prompt for therapist based on session phase."""
@@ -66,25 +57,20 @@ class Agent1_PrimaryTherapist:
     def generate_opening(self) -> str:
         """Generate the opening of the therapy session."""
         self.turn_count += 1
-        
-        prompt = f"""<|start_header_id|>system<|end_header_id|>
 
-{self.get_system_prompt("opening")}<|eot_id|><|start_header_id|>user<|end_header_id|>
-
-You are beginning a new therapy session. Open the session warmly and ask the patient what brings them in today.<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-"""
-        
-        output = self.pipeline(
-            prompt,
-            max_new_tokens=150,
-            do_sample=True,
+        response = self.llm.chat(
+            [
+                {"role": "system", "content": self.get_system_prompt("opening")},
+                {"role": "user", "content": (
+                    "You are beginning a new therapy session. Open the session warmly "
+                    "and ask the patient what brings them in today."
+                )},
+            ],
+            max_tokens=150,
             temperature=0.7,
+            top_p=0.9,
         )
-        
-        response = output[0]["generated_text"].strip()
-        if "assistant<|end_header_id|>" in response:
-            response = response.split("assistant<|end_header_id|>")[-1].strip()
-        
+
         self.conversation_history.append({
             "role": "therapist",
             "message": response,
@@ -96,62 +82,62 @@ You are beginning a new therapy session. Open the session warmly and ask the pat
         return response
     
     def respond_to_patient(self, patient_message: str, session_phase: str = "assessment",
-                           supervisor_feedback: Optional[str] = None) -> str:
+                           supervisor_feedback: Optional[str] = None,
+                           transcript: Optional[List[Dict]] = None,
+                           context_window: int = 12) -> str:
         """
         Generate therapist's response to patient message.
-        
+
         Args:
-            patient_message: The patient's statement or response
+            patient_message: The patient's statement or response (the turn being responded to)
             session_phase: Current phase of therapy session
             supervisor_feedback: Optional feedback from the supervisor on the previous response
-            
+            transcript: Shared session transcript (entries with role + message). When
+                provided, this is used to build the full conversation context — this
+                is the source of truth and the preferred path. When None, falls back
+                to legacy therapist-only history (kept for back-compat).
+            context_window: How many trailing transcript entries to include.
+
         Returns:
             Therapist's response
         """
         self.turn_count += 1
-        
-        # Build conversation context from history
-        context_lines = []
-        for msg in self.conversation_history[-4:]:  # Use last 4 messages for context
-            role = "Therapist" if msg["role"] == "therapist" else "Patient"
-            context_lines.append(f"{role}: {msg['message']}")
-        
-        context_lines.append(f"Patient: {patient_message}")
-        context = "\n".join(context_lines)
-        
+
         system_prompt = self.get_system_prompt(session_phase)
-        
-        # Add supervisor guidance if available
-        supervisor_section = ""
         if supervisor_feedback:
-            supervisor_section = f"""
+            system_prompt += (
+                "\n\nSUPERVISOR GUIDANCE (use this to improve your next response):\n"
+                f"{supervisor_feedback}\n\n"
+                "Apply the supervisor's suggestions while responding naturally to the patient. "
+                "Do not mention the supervisor."
+            )
 
-SUPERVISOR GUIDANCE (use this to improve your next response):
-{supervisor_feedback}
+        # Build chat messages. LLM roleplays the therapist, so therapist turns
+        # map to "assistant" and patient turns map to "user".
+        messages: List[Dict[str, str]] = [{"role": "system", "content": system_prompt}]
 
-Apply the supervisor's suggestions while responding naturally to the patient. Do not mention the supervisor."""
-        
-        formatted_prompt = f"""<|start_header_id|>system<|end_header_id|>
+        source = transcript if transcript else self.conversation_history
+        for msg in source[-context_window:]:
+            text = (msg.get("message") or "").strip()
+            if not text:
+                continue
+            role = "assistant" if msg.get("role") == "therapist" else "user"
+            messages.append({"role": role, "content": text})
 
-{system_prompt}{supervisor_section}<|eot_id|><|start_header_id|>user<|end_header_id|>
+        # Ensure the latest patient utterance is the trailing user turn.
+        if (
+            len(messages) == 1
+            or messages[-1]["role"] != "user"
+            or messages[-1]["content"] != patient_message
+        ):
+            messages.append({"role": "user", "content": patient_message})
 
-Conversation so far:
-{context}
-
-Therapist:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-"""
-        
-        output = self.pipeline(
-            formatted_prompt,
-            max_new_tokens=200,
-            do_sample=True,
+        response = self.llm.chat(
+            messages,
+            max_tokens=200,
             temperature=0.7,
             top_p=0.9,
         )
-        
-        response = output[0]["generated_text"].strip()
-        if "assistant<|end_header_id|>" in response:
-            response = response.split("assistant<|end_header_id|>")[-1].strip()
         
         self.conversation_history.append({
             "role": "therapist",
@@ -311,7 +297,7 @@ Therapist:<|eot_id|><|start_header_id|>assistant<|end_header_id|>
         cls, 
         messages: List[Dict],
         session_type: str = "counseling",
-        model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+        model_name: str = DEFAULT_MODEL,
     ) -> "Agent1_PrimaryTherapist":
         """
         Create a therapist agent from VERL message format.

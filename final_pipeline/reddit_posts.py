@@ -3,6 +3,8 @@ Example reddit posts dataset for therapy simulation.
 These are anonymized and modified posts from Reddit that provide context for patient roleplay.
 """
 
+from typing import Dict, List
+
 REDDIT_POSTS = {
     "anxiety_workplace": [
         """I (28M) have been struggling with severe anxiety at work, particularly during meetings. 

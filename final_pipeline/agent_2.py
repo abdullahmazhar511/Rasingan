@@ -6,12 +6,11 @@ Tracks checklist progress over time for inference sessions.
 
 import json
 import time
-import torch
 from pathlib import Path
-from transformers import pipeline
 from typing import Dict, List, Optional
 
 from shared_config import get_supervisor_system_prompt
+from shared_vllm import DEFAULT_MODEL, SharedVLLM, get_shared_vllm
 from checklists import (
     get_checklist,
     init_status,
@@ -22,6 +21,14 @@ from checklists import (
 )
 
 
+# NOTE: the supervisor's per-turn judge now only asks the LLM to list which
+# pending items the *latest patient utterance* satisfied (returned as a JSON
+# array of item strings). No evidence quote, no transcript dump, no absence-
+# narration to filter — the response is just names matched back to the
+# pending list. Anything outside that list is silently rejected by the
+# substring match in update_extraction_status.
+
+
 class Agent2_SeniorTherapist:
     """Senior therapist agent that supervises and coaches Agent 1.
     
@@ -29,22 +36,24 @@ class Agent2_SeniorTherapist:
     must obtain from the patient, and tracks progress toward completing it.
     """
     
-    def __init__(self, model_name: str = "meta-llama/Meta-Llama-3.1-8B-Instruct", load_model: bool = True,
+    def __init__(self, model_name: str = DEFAULT_MODEL, load_model: bool = True,
                  session_id: Optional[str] = None, progress_dir: Optional[Path] = None,
-                 checklist_name: str = "combined"):
+                 checklist_name: str = "combined",
+                 llm: Optional[SharedVLLM] = None):
         """
         Initialize senior therapist supervisor.
 
         Args:
-            model_name: LLM model to use for generating feedback
-            load_model: If False, skip loading the HF model (for data prep / vLLM mode)
+            model_name: HF model id used when no shared client is supplied
+            load_model: If False, skip loading the LLM (for data prep / VERL mode)
             session_id: Unique ID for this supervision session (for tracking progress)
             progress_dir: Directory to save checklist progress (default: ./supervisor_progress/)
             checklist_name: Which checklist to track — "phq9", "gad7", or "combined" (default)
+            llm: Pre-loaded shared vLLM client (preferred — share one model with Patient)
         """
         self.model_name = model_name
         self.feedback_history = []
-        self._pipeline = None
+        self._llm = llm
 
         # Progress tracking
         self.session_id = session_id or time.strftime("%Y%m%d_%H%M%S")
@@ -59,25 +68,15 @@ class Agent2_SeniorTherapist:
         self.extraction_status = init_status(self.checklist)
         self.progress_log_path = self.progress_dir / f"session_{self.session_id}_checklist.json"
         self._load_progress()
-        
-        if load_model:
-            self._load_pipeline()
-    
-    def _load_pipeline(self):
-        """Load the HF text-generation pipeline on demand."""
-        if self._pipeline is None:
-            self._pipeline = pipeline(
-                "text-generation",
-                model=self.model_name,
-                model_kwargs={"torch_dtype": torch.float16},
-                device_map="auto",
-            )
-    
+
+        if load_model and self._llm is None:
+            self._llm = get_shared_vllm(model_name)
+
     @property
-    def pipeline(self):
-        if self._pipeline is None:
-            self._load_pipeline()
-        return self._pipeline
+    def llm(self) -> SharedVLLM:
+        if self._llm is None:
+            self._llm = get_shared_vllm(self.model_name)
+        return self._llm
     
     def _load_progress(self):
         """Load existing checklist progress from file if it exists."""
@@ -102,96 +101,93 @@ class Agent2_SeniorTherapist:
             json.dump(progress_data, f, indent=2)
     
     def update_extraction_status(self, conversation_history: List[Dict], turn_number: int) -> Dict:
-        """Ask the LLM to determine which extraction items were covered in the conversation.
-        
+        """Mark any pending checklist items the patient just disclosed.
+
+        Simple per-turn judge: look at the *latest patient utterance*, ask the
+        LLM which (if any) of the still-pending items it satisfies, return a
+        JSON list of item names. No evidence quote, no full transcript, no
+        absence-narration handling required — the LLM can only respond with
+        items from the pending list, and anything else is rejected by the
+        substring match.
+
         Args:
-            conversation_history: List of {"role": "therapist"/"patient", "message": "..."}
-            turn_number: Current turn number
-            
+            conversation_history: full session transcript
+            turn_number: current turn number
         Returns:
             Updated extraction summary
         """
-        # Build the conversation text
-        convo_text = ""
-        for msg in conversation_history:
-            role = "Therapist" if msg.get("role") == "therapist" else "Patient"
-            convo_text += f"{role}: {msg.get('message', '')}\n"
-        
-        # Build pending items list
-        pending_items = {}
-        for category, data in self.extraction_status.items():
-            pending = [item for item, status in data["items"].items() if not status["covered"]]
-            if pending:
-                pending_items[data["name"]] = pending
-        
-        if not pending_items:
+        # Find the latest patient utterance (what we want to judge against the checklist).
+        latest_patient = ""
+        for msg in reversed(conversation_history):
+            if msg.get("role") == "patient":
+                latest_patient = (msg.get("message") or "").strip()
+                break
+        if not latest_patient:
             return compute_summary(self.extraction_status)
-        
-        pending_text = ""
-        for cat_name, items in pending_items.items():
-            pending_text += f"\n{cat_name}:\n"
-            for item in items:
-                pending_text += f"  - {item}\n"
-        
-        prompt = f"""<|start_header_id|>system<|end_header_id|>
 
-You are a clinical supervisor tracking what information has been obtained from a patient during therapy.
-Respond ONLY in valid JSON format.<|eot_id|><|start_header_id|>user<|end_header_id|>
+        # Collect pending items as a flat list — that's all the LLM needs to see.
+        pending: List[str] = []
+        item_to_category: Dict[str, str] = {}
+        for category, data in self.extraction_status.items():
+            for item, status in data["items"].items():
+                if not status["covered"]:
+                    pending.append(item)
+                    item_to_category[item] = category
+        if not pending:
+            return compute_summary(self.extraction_status)
 
-CONVERSATION SO FAR:
-{convo_text}
+        pending_block = "\n".join(f"- {it}" for it in pending)
 
-CHECKLIST ITEMS STILL PENDING:
-{pending_text}
-
-Which of these pending items were covered (even partially) in the conversation above?
-For each covered item, provide a brief quote or evidence from the conversation.
-
-Respond in this exact JSON format:
-{{
-  "covered_items": [
-    {{"item": "exact item text from the list", "evidence": "brief quote from conversation"}}
-  ]
-}}
-
-If nothing new was covered, respond: {{"covered_items": []}}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-"""
-        
-        output = self.pipeline(
-            prompt,
-            max_new_tokens=500,
-            do_sample=True,
-            temperature=0.3,  # Low temp for structured output
+        user_prompt = (
+            f'PATIENT JUST SAID:\n"{latest_patient}"\n\n'
+            f"PENDING CHECKLIST ITEMS:\n{pending_block}\n\n"
+            "Which of these items did the patient just disclose in the statement above?\n"
+            "Reply with a JSON array of the exact item strings from the list, e.g.:\n"
+            '  ["Feeling down, depressed, or hopeless"]\n'
+            "If the patient did not disclose any of these items, reply: []"
         )
-        
-        response_text = output[0]["generated_text"].strip()
-        if "assistant<|end_header_id|>" in response_text:
-            response_text = response_text.split("assistant<|end_header_id|>")[-1].strip()
-        
-        # Parse JSON response
+
         try:
-            # Find JSON in response
-            start = response_text.find("{")
-            end = response_text.rfind("}") + 1
+            response_text = self.llm.chat(
+                [
+                    {"role": "system", "content": (
+                        "You are a clinical supervisor. Reply with a JSON array of "
+                        "checklist item strings the patient just disclosed. Nothing else."
+                    )},
+                    {"role": "user", "content": user_prompt},
+                ],
+                max_tokens=300,
+                temperature=0.1,
+                top_p=0.9,
+            )
+        except Exception as e:
+            print(f"[supervisor] update_extraction_status LLM call failed at turn {turn_number}: "
+                  f"{type(e).__name__}: {str(e)[:200]}", flush=True)
+            self._save_progress()
+            return compute_summary(self.extraction_status)
+
+        # Parse: find the first JSON array in the response.
+        try:
+            start = response_text.find("[")
+            end = response_text.rfind("]") + 1
             if start >= 0 and end > start:
-                result = json.loads(response_text[start:end])
-                covered = result.get("covered_items", [])
-                
-                for entry in covered:
-                    item_text = entry.get("item", "")
-                    evidence = entry.get("evidence", "")
-                    
-                    # Find and mark the item as covered
-                    for category, data in self.extraction_status.items():
-                        for item_key in data["items"]:
-                            if item_key.lower() in item_text.lower() or item_text.lower() in item_key.lower():
-                                data["items"][item_key]["covered"] = True
-                                data["items"][item_key]["turn_covered"] = turn_number
-                                data["items"][item_key]["evidence"] = evidence
+                covered_names = json.loads(response_text[start:end])
+                if isinstance(covered_names, list):
+                    for name in covered_names:
+                        if not isinstance(name, str) or not name.strip():
+                            continue
+                        # Substring match against pending items (either direction)
+                        n_low = name.lower()
+                        for item in pending:
+                            if item.lower() in n_low or n_low in item.lower():
+                                cat = item_to_category[item]
+                                self.extraction_status[cat]["items"][item]["covered"] = True
+                                self.extraction_status[cat]["items"][item]["turn_covered"] = turn_number
+                                self.extraction_status[cat]["items"][item]["evidence"] = latest_patient
                                 break
-        except (json.JSONDecodeError, KeyError) as e:
-            pass  # If parsing fails, extraction status stays unchanged
-        
+        except (json.JSONDecodeError, KeyError):
+            pass  # Parsing failed → keep current state.
+
         self._save_progress()
         return compute_summary(self.extraction_status)
     
@@ -256,25 +252,27 @@ Format your feedback clearly and constructively. Focus on coaching, not criticis
             Dictionary with evaluation results and suggestions
         """
         eval_prompt = self.get_evaluation_prompt(patient_message, therapist_response, session_context)
-        
-        formatted_prompt = f"""<|start_header_id|>system<|end_header_id|>
 
-You are a compassionate senior therapist supervisor. Provide constructive, actionable feedback.<|eot_id|><|start_header_id|>user<|end_header_id|>
-
-{eval_prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-"""
-        
-        output = self.pipeline(
-            formatted_prompt,
-            max_new_tokens=400,
-            do_sample=True,
-            temperature=0.7,
-            top_p=0.9,
-        )
-        
-        feedback_text = output[0]["generated_text"].strip()
-        if "assistant<|end_header_id|>" in feedback_text:
-            feedback_text = feedback_text.split("assistant<|end_header_id|>")[-1].strip()
+        # Graceful fallback: if the supervisor LLM call fails (context length,
+        # network, etc.) we still want the session to keep going. Record the
+        # failure as the "feedback" instead of crashing.
+        try:
+            feedback_text = self.llm.chat(
+                [
+                    {"role": "system", "content": (
+                        "You are a compassionate senior therapist supervisor. "
+                        "Provide constructive, actionable feedback."
+                    )},
+                    {"role": "user", "content": eval_prompt},
+                ],
+                max_tokens=400,
+                temperature=0.7,
+                top_p=0.9,
+            )
+        except Exception as e:
+            print(f"[supervisor] evaluate_response LLM call failed at turn {turn_number}: "
+                  f"{type(e).__name__}: {str(e)[:200]}", flush=True)
+            feedback_text = f"[supervisor unavailable: {type(e).__name__}]"
         
         feedback_dict = {
             "patient_message": patient_message,

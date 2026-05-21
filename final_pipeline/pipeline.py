@@ -6,48 +6,104 @@ and Agent 2 (Senior Therapist Supervisor).
 
 import json
 import time
+import uuid
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from pathlib import Path
+
+from tqdm.auto import tqdm
 
 from patient import Patient
 from agent_1 import Agent1_PrimaryTherapist
 from agent_2 import Agent2_SeniorTherapist
 from shared_config import get_session_phase, should_end_session
+from shared_vllm import DEFAULT_MODEL, RemoteVLLM, get_shared_vllm
+from hf_therapist import HFTherapist
 
 
 class TherapyPipeline:
     """Main pipeline orchestrating the three-way therapeutic interaction."""
     
     def __init__(self, reddit_posts: List[str], patient_profile: Optional[Dict] = None,
-                 output_dir: str = "sessions", max_turns: int = 10):
+                 output_dir: str = "sessions", max_turns: int = 10,
+                 enable_supervisor: bool = True,
+                 shared_model: str = DEFAULT_MODEL,
+                 therapist_model: str = "Qwen/Qwen3-4B-Instruct-2507",
+                 therapist_llm: Optional[HFTherapist] = None,
+                 supervisor_endpoint: Optional[str] = None,
+                 scenario_meta: Optional[Dict] = None):
         """
         Initialize the therapy pipeline.
-        
+
+        Backends per role:
+          Patient + Supervisor (Agent 2)  →  vLLM (in-process or RemoteVLLM)
+          Therapist (Agent 1)             →  HuggingFace transformers, in-process
+                                              (HFTherapist) — NO vLLM.
+
         Args:
-            reddit_posts: List of Reddit posts for patient to roleplay
-            patient_profile: Optional patient demographics
-            output_dir: Directory to save session transcripts
-            max_turns: Maximum number of conversation turns
+            reddit_posts:     Patient roleplay seed.
+            patient_profile:  Patient demographics.
+            output_dir:       Where to save session transcripts.
+            max_turns:        Max conversation turns.
+            enable_supervisor: If False, skip Agent 2 entirely.
+            shared_model:     HF id for Patient + Supervisor (one vLLM client).
+            therapist_model:  HF id or local dir for Agent 1. Stored for metadata
+                              only — the actual model has already been loaded
+                              into `therapist_llm` by the caller.
+            therapist_llm:    Pre-built HFTherapist instance. The caller (run.py)
+                              constructs ONE per process and passes it into every
+                              TherapyPipeline. If None, raises — we don't load
+                              the model lazily inside the pipeline anymore.
+            supervisor_endpoint: If set, route Patient+Supervisor through this
+                              vLLM HTTP server URL instead of an in-process load.
+            scenario_meta:    Extra fields written into the session metadata.
         """
+        if therapist_llm is None:
+            raise ValueError(
+                "TherapyPipeline requires a pre-built `therapist_llm` (HFTherapist). "
+                "Construct it once in run.py.main() and pass it in."
+            )
         self.reddit_posts = reddit_posts
         self.patient_profile = patient_profile
         self.output_dir = Path(output_dir)
         self.max_turns = max_turns
-        
+        self.enable_supervisor = enable_supervisor
+        self.shared_model = shared_model
+        self.therapist_model = therapist_model
+        self.scenario_meta = scenario_meta or {}
+
         # Create output directory
         self.output_dir.mkdir(exist_ok=True)
-        
-        # Session tracking — assigned before agents so the supervisor can share it
-        self.session_id = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        # Initialize agents
-        self.patient = Patient(reddit_posts, patient_profile)
-        self.therapist = Agent1_PrimaryTherapist()
-        self.supervisor = Agent2_SeniorTherapist(
-            session_id=self.session_id,
-            progress_dir=self.output_dir / "supervisor_progress",
+        # Session tracking — assigned before agents so the supervisor can share it.
+        # Includes microseconds + random suffix so concurrent sessions never collide.
+        self.session_id = (
+            datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+            + "_" + uuid.uuid4().hex[:6]
         )
+
+        # ---- LLM backends ---------------------------------------------------
+        # Patient + Supervisor share ONE vLLM client (in-process or RemoteVLLM
+        # when a supervisor_endpoint URL is supplied — the latter lets the
+        # supervisor model run in another Python env).
+        self.supervisor_endpoint = supervisor_endpoint
+        if supervisor_endpoint:
+            shared_llm = RemoteVLLM(base_url=supervisor_endpoint, model_name=shared_model)
+        else:
+            shared_llm = get_shared_vllm(shared_model)
+
+        # Therapist (Agent 1) uses the HFTherapist that the CALLER built once
+        # for the whole run.py process. We just hand it down to Agent 1.
+        self.patient = Patient(reddit_posts, patient_profile, llm=shared_llm)
+        self.therapist = Agent1_PrimaryTherapist(model_name=therapist_model, llm=therapist_llm)
+        if enable_supervisor:
+            self.supervisor = Agent2_SeniorTherapist(
+                session_id=self.session_id,
+                progress_dir=self.output_dir / "supervisor_progress",
+                llm=shared_llm,
+            )
+        else:
+            self.supervisor = None
         self.session_transcript = []
         self.supervisor_feedback = []
         self.session_metadata = {
@@ -56,23 +112,35 @@ class TherapyPipeline:
             "reddit_posts": reddit_posts,
             "patient_profile": patient_profile,
             "max_turns": max_turns,
-            "turn_count": 0
+            "turn_count": 0,
+            **self.scenario_meta,
         }
     
-    def run_session(self, enable_supervisor: bool = True, 
+    def run_session(self, enable_supervisor: Optional[bool] = None,
                    enable_suggestions: bool = True,
                    verbose: bool = True) -> Dict:
         """
         Run a complete therapy session.
-        
+
         Args:
-            enable_supervisor: Whether to enable supervisor feedback
+            enable_supervisor: Whether to use supervisor feedback this run.
+                Defaults to the pipeline's constructor setting. Cannot be True
+                if the pipeline was built with enable_supervisor=False (no
+                supervisor was instantiated).
             enable_suggestions: Whether to print suggestions in real-time
             verbose: Whether to print detailed output
-            
+
         Returns:
             Session results dictionary
         """
+        if enable_supervisor is None:
+            enable_supervisor = self.enable_supervisor
+        if enable_supervisor and self.supervisor is None:
+            raise RuntimeError(
+                "Pipeline was constructed with enable_supervisor=False; "
+                "supervisor was never instantiated. Re-create the pipeline "
+                "with enable_supervisor=True to enable feedback."
+            )
         if verbose:
             print("=" * 80)
             print(f"THERAPY SESSION: {self.session_id}")
@@ -93,14 +161,26 @@ class TherapyPipeline:
         
         time.sleep(0.5)  # Small delay to avoid rate limiting
         
-        # Main conversation loop
+        # Main conversation loop. tqdm shows progress in quiet mode; disabled
+        # in verbose mode where per-turn prints already provide narration.
         last_feedback = None  # Track supervisor feedback for next turn
-        for turn in range(1, self.max_turns + 1):
+        turn_bar = tqdm(
+            range(1, self.max_turns + 1),
+            desc=f"{self.session_id} turns",
+            unit="turn",
+            disable=verbose,
+            leave=False,
+        )
+        for turn in turn_bar:
             if verbose:
                 print(f"\n--- Turn {turn} ---")
             
-            # Patient responds
-            patient_response = self.patient.generate_response(therapist_opening if turn == 1 else therapist_response)
+            # Patient responds — pass the full session transcript so the patient stays consistent.
+            latest_therapist = therapist_opening if turn == 1 else therapist_response
+            patient_response = self.patient.generate_response(
+                latest_therapist,
+                transcript=self.session_transcript,
+            )
             if verbose:
                 print(f"[PATIENT]: {patient_response}\n")
             
@@ -113,11 +193,14 @@ class TherapyPipeline:
             
             time.sleep(0.5)
             
-            # Therapist responds (with supervisor feedback from previous turn)
+            # Therapist responds (with supervisor feedback from previous turn).
+            # The patient's just-spoken turn is already appended to session_transcript above,
+            # so passing it gives the therapist full bilateral conversation history.
             session_phase = self._get_session_phase(turn)
             therapist_response = self.therapist.respond_to_patient(
                 patient_response, session_phase,
-                supervisor_feedback=last_feedback
+                supervisor_feedback=last_feedback,
+                transcript=self.session_transcript,
             )
             
             if verbose:
@@ -190,9 +273,10 @@ class TherapyPipeline:
         """Save the session transcript and results."""
         timestamp = datetime.now().isoformat()
         
-        # Pull checklist coverage from the supervisor (already judged turn-by-turn during the session)
+        # Pull checklist coverage from the supervisor (already judged turn-by-turn during the session).
+        # When the supervisor is disabled, both fields stay empty.
         from checklists import compute_summary as _compute_summary  # local import to avoid cycles
-        extraction_status = getattr(self.supervisor, "extraction_status", {})
+        extraction_status = getattr(self.supervisor, "extraction_status", {}) if self.supervisor else {}
         extraction_summary = _compute_summary(extraction_status) if extraction_status else {}
 
         # Prepare full session data
@@ -202,7 +286,8 @@ class TherapyPipeline:
                 "end_time": timestamp,
                 "duration_turns": len(self.session_transcript),
                 "supervisor_feedback_count": len(self.supervisor_feedback),
-                "checklist": getattr(self.supervisor, "instrument_label", None),
+                "checklist": getattr(self.supervisor, "instrument_label", None) if self.supervisor else None,
+                "supervisor_enabled": self.enable_supervisor,
             },
             "transcript": self.session_transcript,
             "supervisor_feedback": self.supervisor_feedback,

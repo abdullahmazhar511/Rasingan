@@ -1,0 +1,800 @@
+[0;32m==================================[0m
+[0;32mChecking Dependencies[0m
+[0;32m==================================[0m
+[0;32m✅ Python 3 found: Python 3.12.13[0m
+[0;32m✅ NVIDIA CUDA found[0m
+NVIDIA H200 NVL
+NVIDIA H200 NVL
+[0;32m✅ Required Python packages installed[0m
+[0;32m==================================[0m
+[0;32mStarting Production Server (with Gunicorn)[0m
+[0;32m==================================[0m
+[1;33mℹ️  Server will start on http://0.0.0.0:8000[0m
+[1;33mℹ️  Workers: 1 (for single GPU)[0m
+/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+INFO:     Started server process [10795]
+INFO:     Waiting for application startup.
+INFO:app:Loading Care Model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.46it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.45it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.14it/s]
+INFO:sentence_transformers.base.model:Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+INFO:app:Model loaded successfully!
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+Loading model weights...
+INFO:     127.0.0.1:58106 - "GET /health HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.70it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s]
+INFO:     127.0.0.1:52994 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 269.33it/s]
+INFO:     127.0.0.1:53006 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 346.49it/s]
+INFO:     127.0.0.1:53008 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 269.92it/s]
+INFO:     127.0.0.1:53016 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 152.01it/s]
+INFO:     127.0.0.1:53020 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 371.41it/s]
+INFO:     127.0.0.1:53028 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 341.31it/s]
+INFO:     127.0.0.1:53032 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.97it/s]
+INFO:     127.0.0.1:53038 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 416.06it/s]
+INFO:     127.0.0.1:53054 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 415.77it/s]
+INFO:     127.0.0.1:53070 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 418.47it/s]
+INFO:     127.0.0.1:53074 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 438.14it/s]
+INFO:     127.0.0.1:53086 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 423.50it/s]
+INFO:     127.0.0.1:53096 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 406.35it/s]
+INFO:     127.0.0.1:53104 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 389.15it/s]
+INFO:     127.0.0.1:53108 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 425.56it/s]
+INFO:     127.0.0.1:53122 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 376.34it/s]
+INFO:     127.0.0.1:53134 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 379.68it/s]
+INFO:     127.0.0.1:53144 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 426.68it/s]
+INFO:     127.0.0.1:53156 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 356.57it/s]
+INFO:     127.0.0.1:53162 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 383.71it/s]
+INFO:     127.0.0.1:53164 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 362.73it/s]
+INFO:     127.0.0.1:53170 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 371.74it/s]
+INFO:     127.0.0.1:53176 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.80it/s]
+INFO:     127.0.0.1:53178 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 447.44it/s]
+INFO:     127.0.0.1:53194 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 398.21it/s]
+INFO:     127.0.0.1:53208 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 423.28it/s]
+INFO:     127.0.0.1:53214 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.73it/s]
+INFO:     127.0.0.1:53216 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 410.12it/s]
+INFO:     127.0.0.1:53224 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 346.04it/s]
+INFO:     127.0.0.1:53238 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.02it/s]
+INFO:     127.0.0.1:53240 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 93.74it/s]
+INFO:     127.0.0.1:53248 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 372.40it/s]
+INFO:     127.0.0.1:53256 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.33it/s]
+INFO:     127.0.0.1:53266 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 391.88it/s]
+INFO:     127.0.0.1:53272 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 434.37it/s]
+INFO:     127.0.0.1:53278 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 351.19it/s]
+INFO:     127.0.0.1:53286 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 450.27it/s]
+INFO:     127.0.0.1:53298 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.89it/s]
+INFO:     127.0.0.1:53306 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.51it/s]
+INFO:     127.0.0.1:53320 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 374.49it/s]
+INFO:     127.0.0.1:53330 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.79it/s]
+INFO:     127.0.0.1:53342 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.63it/s]
+INFO:     127.0.0.1:53344 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 372.40it/s]
+INFO:     127.0.0.1:53350 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 382.20it/s]
+INFO:     127.0.0.1:53362 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.27it/s]
+INFO:     127.0.0.1:53364 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 447.97it/s]
+INFO:     127.0.0.1:53366 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.86it/s]
+INFO:     127.0.0.1:53376 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 387.04it/s]
+INFO:     127.0.0.1:53390 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 374.39it/s]
+INFO:     127.0.0.1:53396 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 431.73it/s]
+INFO:     127.0.0.1:53400 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 367.79it/s]
+INFO:     127.0.0.1:53408 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 369.57it/s]
+INFO:     127.0.0.1:53410 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.83it/s]
+INFO:     127.0.0.1:53420 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.36it/s]
+INFO:     127.0.0.1:53434 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 377.12it/s]
+INFO:     127.0.0.1:53444 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 374.96it/s]
+INFO:     127.0.0.1:53458 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 376.07it/s]
+INFO:     127.0.0.1:53460 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 372.73it/s]
+INFO:     127.0.0.1:53476 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 368.57it/s]
+INFO:     127.0.0.1:53484 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 389.41it/s]
+INFO:     127.0.0.1:53494 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 397.72it/s]
+INFO:     127.0.0.1:53498 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.86it/s]
+INFO:     127.0.0.1:53502 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 392.47it/s]
+INFO:     127.0.0.1:53512 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 400.03it/s]
+INFO:     127.0.0.1:53528 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 399.04it/s]
+INFO:     127.0.0.1:53540 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 446.01it/s]
+INFO:     127.0.0.1:53550 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 411.25it/s]
+INFO:     127.0.0.1:53556 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 389.95it/s]
+INFO:     127.0.0.1:53566 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 443.04it/s]
+INFO:     127.0.0.1:53572 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 394.35it/s]
+INFO:     127.0.0.1:53584 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.44it/s]
+INFO:     127.0.0.1:53588 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 366.00it/s]
+INFO:     127.0.0.1:53590 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 418.84it/s]
+INFO:     127.0.0.1:53600 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 367.08it/s]
+INFO:     127.0.0.1:53606 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 376.58it/s]
+INFO:     127.0.0.1:53622 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 355.93it/s]
+INFO:     127.0.0.1:53628 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.92it/s]
+INFO:     127.0.0.1:53632 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 369.90it/s]
+INFO:     127.0.0.1:53634 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 367.28it/s]
+INFO:     127.0.0.1:53642 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 392.06it/s]
+INFO:     127.0.0.1:53654 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.59it/s]
+INFO:     127.0.0.1:53660 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 429.17it/s]
+INFO:     127.0.0.1:53672 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 383.39it/s]
+INFO:     127.0.0.1:53682 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 427.73it/s]
+INFO:     127.0.0.1:53686 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 367.21it/s]
+INFO:     127.0.0.1:53696 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 383.50it/s]
+INFO:     127.0.0.1:53698 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 382.80it/s]
+INFO:     127.0.0.1:53704 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 380.78it/s]
+INFO:     127.0.0.1:53716 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 377.70it/s]
+INFO:     127.0.0.1:53722 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 366.57it/s]
+INFO:     127.0.0.1:53724 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 334.34it/s]
+INFO:     127.0.0.1:53738 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 355.03it/s]
+INFO:     127.0.0.1:53750 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 354.19it/s]
+INFO:     127.0.0.1:53756 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 379.40it/s]
+INFO:     127.0.0.1:53766 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 354.40it/s]
+INFO:     127.0.0.1:53780 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 402.60it/s]
+INFO:     127.0.0.1:53790 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 372.66it/s]
+INFO:     127.0.0.1:53794 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 436.68it/s]
+INFO:     127.0.0.1:53800 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 353.77it/s]
+INFO:     127.0.0.1:53816 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.05it/s]
+INFO:     127.0.0.1:53820 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 364.31it/s]
+INFO:     127.0.0.1:53826 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 353.03it/s]
+INFO:     127.0.0.1:53836 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 392.61it/s]
+INFO:     127.0.0.1:53852 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 358.67it/s]
+INFO:     127.0.0.1:53860 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 403.80it/s]
+INFO:     127.0.0.1:53864 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 345.24it/s]
+INFO:     127.0.0.1:53876 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 333.36it/s]
+INFO:     127.0.0.1:53884 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 407.21it/s]
+INFO:     127.0.0.1:53896 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 327.32it/s]
+INFO:     127.0.0.1:53910 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 347.01it/s]
+INFO:     127.0.0.1:53920 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 369.28it/s]
+INFO:     127.0.0.1:53926 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 389.48it/s]
+INFO:     127.0.0.1:53934 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 417.09it/s]
+INFO:     127.0.0.1:53948 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 435.18it/s]
+INFO:     127.0.0.1:53952 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 391.59it/s]
+INFO:     127.0.0.1:53958 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.72it/s]
+INFO:     127.0.0.1:53966 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 364.09it/s]
+INFO:     127.0.0.1:53972 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.51it/s]
+INFO:     127.0.0.1:53980 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.33it/s]
+INFO:     127.0.0.1:53996 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.10it/s]
+INFO:     127.0.0.1:54012 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 421.62it/s]
+INFO:     127.0.0.1:54020 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 416.47it/s]
+INFO:     127.0.0.1:54032 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 358.61it/s]
+INFO:     127.0.0.1:54038 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 443.65it/s]
+INFO:     127.0.0.1:54052 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 367.24it/s]
+INFO:     127.0.0.1:54064 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 368.73it/s]
+INFO:     127.0.0.1:54076 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.51it/s]
+INFO:     127.0.0.1:54078 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 123.62it/s]
+INFO:     127.0.0.1:55204 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.43it/s]
+INFO:     127.0.0.1:55216 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 135.18it/s]
+INFO:     127.0.0.1:55232 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 138.81it/s]
+INFO:     127.0.0.1:55246 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 155.71it/s]
+INFO:     127.0.0.1:55252 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 274.60it/s]
+INFO:     127.0.0.1:55268 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 271.34it/s]
+INFO:     127.0.0.1:55284 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 268.14it/s]
+INFO:     127.0.0.1:55300 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 252.65it/s]
+INFO:     127.0.0.1:55308 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 367.53it/s]
+INFO:     127.0.0.1:55316 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.82it/s]
+INFO:     127.0.0.1:55322 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 377.76it/s]
+INFO:     127.0.0.1:55324 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 429.88it/s]
+INFO:     127.0.0.1:55334 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 440.76it/s]
+INFO:     127.0.0.1:55338 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 432.63it/s]
+INFO:     127.0.0.1:55340 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.66it/s]
+INFO:     127.0.0.1:55342 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 423.24it/s]
+INFO:     127.0.0.1:55350 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 434.37it/s]
+INFO:     127.0.0.1:55360 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 426.29it/s]
+INFO:     127.0.0.1:55372 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 425.52it/s]
+INFO:     127.0.0.1:55380 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 394.24it/s]
+INFO:     127.0.0.1:55396 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 442.53it/s]
+INFO:     127.0.0.1:55404 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.96it/s]
+INFO:     127.0.0.1:55406 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.73it/s]
+INFO:     127.0.0.1:55410 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 389.88it/s]
+INFO:     127.0.0.1:55424 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 429.30it/s]
+INFO:     127.0.0.1:55434 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.42it/s]
+INFO:     127.0.0.1:55442 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 440.95it/s]
+INFO:     127.0.0.1:55452 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 434.78it/s]
+INFO:     127.0.0.1:55456 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.89it/s]
+INFO:     127.0.0.1:55470 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 383.88it/s]
+INFO:     127.0.0.1:55460 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 388.29it/s]
+INFO:     127.0.0.1:55476 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 432.98it/s]
+INFO:     127.0.0.1:55478 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.47it/s]
+INFO:     127.0.0.1:55484 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 438.00it/s]
+INFO:     127.0.0.1:55488 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 407.97it/s]
+INFO:     127.0.0.1:55494 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 459.85it/s]
+INFO:     127.0.0.1:55510 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 450.23it/s]
+INFO:     127.0.0.1:55514 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 403.84it/s]
+INFO:     127.0.0.1:55518 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 393.35it/s]
+INFO:     127.0.0.1:55532 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 451.24it/s]
+INFO:     127.0.0.1:55544 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 449.26it/s]
+INFO:     127.0.0.1:55556 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.31it/s]
+INFO:     127.0.0.1:55562 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 447.15it/s]
+INFO:     127.0.0.1:55564 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 398.02it/s]
+INFO:     127.0.0.1:55576 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 399.76it/s]
+INFO:     127.0.0.1:55590 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 382.13it/s]
+INFO:     127.0.0.1:55602 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 448.16it/s]
+INFO:     127.0.0.1:55616 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 443.56it/s]
+INFO:     127.0.0.1:55626 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.43it/s]
+INFO:     127.0.0.1:55638 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.86it/s]
+INFO:     127.0.0.1:55652 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 410.88it/s]
+INFO:     127.0.0.1:55662 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 451.00it/s]
+INFO:     127.0.0.1:55668 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 407.06it/s]
+INFO:     127.0.0.1:55684 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 387.54it/s]
+INFO:     127.0.0.1:55696 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 398.70it/s]
+INFO:     127.0.0.1:55710 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 452.41it/s]
+INFO:     127.0.0.1:55724 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 436.82it/s]
+INFO:     127.0.0.1:55740 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 387.54it/s]
+INFO:     127.0.0.1:55744 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 205.10it/s]
+INFO:     127.0.0.1:55752 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 369.25it/s]
+INFO:     127.0.0.1:55766 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 397.60it/s]
+INFO:     127.0.0.1:55768 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 387.29it/s]
+INFO:     127.0.0.1:55774 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 449.50it/s]
+INFO:     127.0.0.1:55782 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.45it/s]
+INFO:     127.0.0.1:55790 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.32it/s]
+INFO:     127.0.0.1:55804 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 400.72it/s]
+INFO:     127.0.0.1:55818 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.88it/s]
+INFO:     127.0.0.1:55824 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.86it/s]
+INFO:     127.0.0.1:55832 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 365.36it/s]
+INFO:     127.0.0.1:55840 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 428.87it/s]
+INFO:     127.0.0.1:55844 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 393.87it/s]
+INFO:     127.0.0.1:55854 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 388.43it/s]
+INFO:     127.0.0.1:55860 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 400.11it/s]
+INFO:     127.0.0.1:55864 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 365.26it/s]
+INFO:     127.0.0.1:55872 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 391.48it/s]
+INFO:     127.0.0.1:55888 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 394.09it/s]
+INFO:     127.0.0.1:55890 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 352.64it/s]
+INFO:     127.0.0.1:55900 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 401.33it/s]
+INFO:     127.0.0.1:55904 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 371.18it/s]
+INFO:     127.0.0.1:55914 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 398.70it/s]
+INFO:     127.0.0.1:55922 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.10it/s]
+INFO:     127.0.0.1:55930 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 398.02it/s]
+INFO:     127.0.0.1:55946 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 374.49it/s]
+INFO:     127.0.0.1:55950 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 392.98it/s]
+INFO:     127.0.0.1:55954 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 394.76it/s]
+INFO:     127.0.0.1:55958 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 393.98it/s]
+INFO:     127.0.0.1:55964 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.71it/s]
+INFO:     127.0.0.1:55980 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 388.79it/s]
+INFO:     127.0.0.1:55982 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 387.82it/s]
+INFO:     127.0.0.1:55992 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.30it/s]
+INFO:     127.0.0.1:56006 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 430.32it/s]
+INFO:     127.0.0.1:56022 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 352.94it/s]
+INFO:     127.0.0.1:56032 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 340.86it/s]
+INFO:     127.0.0.1:56034 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.06it/s]
+INFO:     127.0.0.1:56044 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 329.12it/s]
+INFO:     127.0.0.1:56050 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 423.24it/s]
+INFO:     127.0.0.1:56052 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 373.59it/s]
+INFO:     127.0.0.1:56054 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 380.64it/s]
+INFO:     127.0.0.1:56062 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.41it/s]
+INFO:     127.0.0.1:56076 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 446.49it/s]
+INFO:     127.0.0.1:56082 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 377.15it/s]
+INFO:     127.0.0.1:56088 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 360.21it/s]
+INFO:     127.0.0.1:56090 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.09it/s]
+INFO:     127.0.0.1:56092 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 364.37it/s]
+INFO:     127.0.0.1:56096 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 351.99it/s]
+INFO:     127.0.0.1:56112 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 325.64it/s]
+INFO:     127.0.0.1:56120 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 378.89it/s]
+INFO:     127.0.0.1:56134 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.05it/s]
+INFO:     127.0.0.1:56138 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 335.81it/s]
+INFO:     127.0.0.1:56144 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 360.12it/s]
+INFO:     127.0.0.1:56154 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 376.27it/s]
+INFO:     127.0.0.1:56160 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.34it/s]
+INFO:     127.0.0.1:56168 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 430.32it/s]
+INFO:     127.0.0.1:56172 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 373.76it/s]
+INFO:     127.0.0.1:56178 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 387.86it/s]
+INFO:     127.0.0.1:56180 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 350.93it/s]
+INFO:     127.0.0.1:56186 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 437.32it/s]
+INFO:     127.0.0.1:56196 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 361.24it/s]
+INFO:     127.0.0.1:56206 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 397.83it/s]
+INFO:     127.0.0.1:56218 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 411.41it/s]
+INFO:     127.0.0.1:50260 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 388.00it/s]
+INFO:     127.0.0.1:50272 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.88it/s]
+INFO:     127.0.0.1:50286 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 382.69it/s]
+INFO:     127.0.0.1:50288 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.68it/s]
+INFO:     127.0.0.1:50300 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 394.09it/s]
+INFO:     127.0.0.1:50310 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 371.51it/s]
+INFO:     127.0.0.1:50324 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 406.15it/s]
+INFO:     127.0.0.1:50326 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 165.25it/s]
+INFO:     127.0.0.1:37702 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 146.68it/s]
+INFO:     127.0.0.1:37712 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 245.93it/s]
+INFO:     127.0.0.1:37714 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 260.27it/s]
+INFO:     127.0.0.1:37720 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 259.24it/s]
+INFO:     127.0.0.1:37724 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 305.64it/s]
+INFO:     127.0.0.1:37738 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 261.29it/s]
+INFO:     127.0.0.1:37740 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 267.39it/s]
+INFO:     127.0.0.1:37750 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 269.68it/s]
+INFO:     127.0.0.1:37766 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 266.54it/s]
+INFO:     127.0.0.1:37772 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 424.70it/s]
+INFO:     127.0.0.1:37776 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 435.50it/s]
+INFO:     127.0.0.1:37780 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.79it/s]
+INFO:     127.0.0.1:37788 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 344.59it/s]
+INFO:     127.0.0.1:37800 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 443.47it/s]
+INFO:     127.0.0.1:37812 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 453.39it/s]
+INFO:     127.0.0.1:37828 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 447.20it/s]
+INFO:     127.0.0.1:37830 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 415.40it/s]
+INFO:     127.0.0.1:37844 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 391.37it/s]
+INFO:     127.0.0.1:37850 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 443.98it/s]
+INFO:     127.0.0.1:37854 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 431.56it/s]
+INFO:     127.0.0.1:37856 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 399.19it/s]
+INFO:     127.0.0.1:37864 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.58it/s]
+INFO:     127.0.0.1:37868 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.20it/s]
+INFO:     127.0.0.1:37878 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 394.57it/s]
+INFO:     127.0.0.1:37880 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 424.52it/s]
+INFO:     127.0.0.1:37888 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 363.14it/s]
+INFO:     127.0.0.1:37900 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 432.14it/s]
+INFO:     127.0.0.1:37912 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 382.59it/s]
+INFO:     127.0.0.1:37920 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 410.08it/s]
+INFO:     127.0.0.1:37922 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 339.29it/s]
+INFO:     127.0.0.1:37926 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 439.06it/s]
+INFO:     127.0.0.1:37942 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.93it/s]
+INFO:     127.0.0.1:37944 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 392.03it/s]
+INFO:     127.0.0.1:37952 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 429.30it/s]
+INFO:     127.0.0.1:37956 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 408.84it/s]
+INFO:     127.0.0.1:37962 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.33it/s]
+INFO:     127.0.0.1:37966 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 450.18it/s]
+INFO:     127.0.0.1:37978 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 436.95it/s]
+INFO:     127.0.0.1:37986 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 388.36it/s]
+INFO:     127.0.0.1:37990 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.20it/s]
+INFO:     127.0.0.1:38006 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 444.26it/s]
+INFO:     127.0.0.1:38022 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 374.59it/s]
+INFO:     127.0.0.1:38024 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 416.68it/s]
+INFO:     127.0.0.1:38038 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 442.67it/s]
+INFO:     127.0.0.1:38054 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 396.96it/s]
+INFO:     127.0.0.1:38070 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 371.47it/s]
+INFO:     127.0.0.1:38078 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 406.58it/s]
+INFO:     127.0.0.1:38094 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 418.55it/s]
+INFO:     127.0.0.1:38106 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.29it/s]
+INFO:     127.0.0.1:38118 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 356.60it/s]
+INFO:     127.0.0.1:38132 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 444.22it/s]
+INFO:     127.0.0.1:38140 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 397.08it/s]
+INFO:     127.0.0.1:38156 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 440.95it/s]
+INFO:     127.0.0.1:38172 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 446.39it/s]
+INFO:     127.0.0.1:38182 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 380.54it/s]
+INFO:     127.0.0.1:38184 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 362.55it/s]
+INFO:     127.0.0.1:38192 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 401.29it/s]
+INFO:     127.0.0.1:38206 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 383.04it/s]
+INFO:     127.0.0.1:38210 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 432.71it/s]
+INFO:     127.0.0.1:38220 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 369.18it/s]
+INFO:     127.0.0.1:38224 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 396.55it/s]
+INFO:     127.0.0.1:38232 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 401.45it/s]
+INFO:     127.0.0.1:38248 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 379.03it/s]
+INFO:     127.0.0.1:38260 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 385.40it/s]
+INFO:     127.0.0.1:38274 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 440.62it/s]
+INFO:     127.0.0.1:38280 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 434.87it/s]
+INFO:     127.0.0.1:38286 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 390.71it/s]
+INFO:     127.0.0.1:38300 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.22it/s]
+INFO:     127.0.0.1:38304 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 397.08it/s]
+INFO:     127.0.0.1:38312 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.30it/s]
+INFO:     127.0.0.1:38324 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 329.33it/s]
+INFO:     127.0.0.1:38326 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 371.67it/s]
+INFO:     127.0.0.1:38332 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 380.75it/s]
+INFO:     127.0.0.1:38344 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 393.68it/s]
+INFO:     127.0.0.1:38360 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.09it/s]
+INFO:     127.0.0.1:38374 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 363.74it/s]
+INFO:     127.0.0.1:38390 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 395.88it/s]
+INFO:     127.0.0.1:38406 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.18it/s]
+INFO:     127.0.0.1:38422 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 355.48it/s]
+INFO:     127.0.0.1:38434 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 350.34it/s]
+INFO:     127.0.0.1:38450 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 338.77it/s]
+INFO:     127.0.0.1:38458 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 434.51it/s]
+INFO:     127.0.0.1:38472 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.83it/s]
+INFO:     127.0.0.1:38480 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.09it/s]
+INFO:     127.0.0.1:38494 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 389.55it/s]
+INFO:     127.0.0.1:38510 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.66it/s]
+INFO:     127.0.0.1:38516 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.50it/s]
+INFO:     127.0.0.1:38532 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 364.50it/s]
+INFO:     127.0.0.1:49528 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 381.93it/s]
+INFO:     127.0.0.1:49534 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 384.59it/s]
+INFO:     127.0.0.1:49538 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 334.42it/s]
+INFO:     127.0.0.1:49546 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 355.69it/s]
+INFO:     127.0.0.1:49562 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 387.29it/s]
+INFO:     127.0.0.1:49566 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 373.86it/s]
+INFO:     127.0.0.1:49580 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 360.58it/s]
+INFO:     127.0.0.1:49594 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 432.85it/s]
+INFO:     127.0.0.1:49610 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 335.95it/s]
+INFO:     127.0.0.1:49618 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 439.79it/s]
+INFO:     127.0.0.1:49620 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 423.07it/s]
+INFO:     127.0.0.1:49632 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 380.88it/s]
+INFO:     127.0.0.1:49634 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 392.76it/s]
+INFO:     127.0.0.1:49640 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 427.38it/s]
+INFO:     127.0.0.1:49646 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 400.76it/s]
+INFO:     127.0.0.1:49658 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 366.44it/s]
+INFO:     127.0.0.1:49670 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.13it/s]
+INFO:     127.0.0.1:49684 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 399.19it/s]
+INFO:     127.0.0.1:49698 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 324.49it/s]
+INFO:     127.0.0.1:49706 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 360.49it/s]
+INFO:     127.0.0.1:49718 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 383.32it/s]
+INFO:     127.0.0.1:49734 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 347.21it/s]
+INFO:     127.0.0.1:49746 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 329.15it/s]
+INFO:     127.0.0.1:49756 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 406.54it/s]
+INFO:     127.0.0.1:49772 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 432.85it/s]
+INFO:     127.0.0.1:49788 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 432.85it/s]
+INFO:     127.0.0.1:49798 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 357.54it/s]
+INFO:     127.0.0.1:49800 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 393.46it/s]
+INFO:     127.0.0.1:49802 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.43it/s]
+INFO:     127.0.0.1:49810 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 426.34it/s]
+INFO:     127.0.0.1:49816 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 388.51it/s]
+INFO:     127.0.0.1:49824 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 386.64it/s]
+INFO:     127.0.0.1:49826 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 431.56it/s]
+INFO:     127.0.0.1:49834 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 433.83it/s]
+INFO:     127.0.0.1:49850 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 389.73it/s]
+INFO:     127.0.0.1:49852 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 391.52it/s]
+INFO:     127.0.0.1:49858 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 461.42it/s]
+INFO:     127.0.0.1:49862 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 375.73it/s]
+INFO:     127.0.0.1:49868 - "POST /predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 376.20it/s]
+INFO:     127.0.0.1:49878 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:app:Model cleanup complete
+INFO:     Application shutdown complete.
+INFO:     Finished server process [10795]

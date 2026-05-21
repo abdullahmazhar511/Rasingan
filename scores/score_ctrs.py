@@ -31,6 +31,7 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 import pandas as pd
+from tqdm.auto import tqdm
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RASINGAN_PATH = os.path.dirname(SCRIPT_DIR)
@@ -139,9 +140,10 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
     os.makedirs(care_cache_dir, exist_ok=True)
 
     conv_results: Dict[str, Dict] = {}
+    session_categories: Dict[str, Optional[str]] = {}
     print(f"[{model_name}] Scoring {len(session_files)} sessions via CARE → CTRS")
 
-    for path in session_files:
+    for path in tqdm(session_files, desc=f"[{model_name}] CTRS", unit="session"):
         sid = os.path.splitext(os.path.basename(path))[0].replace("session_", "")
         try:
             with open(path) as f:
@@ -151,6 +153,8 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
             continue
 
         transcript = data.get("transcript", [])
+        # Scenario category (e.g. anxiety / depression) for per-category aggregation
+        session_categories[sid] = (data.get("metadata") or {}).get("category")
         cache_path = os.path.join(care_cache_dir, f"{sid}.csv")
         if os.path.exists(cache_path):
             df = pd.read_csv(cache_path)
@@ -169,6 +173,7 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
 
         res = compute_ctrs_from_values(values)
         if res is not None:
+            res["category"] = session_categories[sid]
             conv_results[sid] = res
             print(f"  [{sid}] CTRS-P={res['CTRS_P']:.3f}  (n_turns={res['n_turns']})")
 
@@ -189,11 +194,28 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
     agg["std_CTRS_P"] = float(np.std(ctrs_p_values))
     agg["avg_n_turns"] = float(np.mean([r["n_turns"] for r in conv_results.values()]))
 
+    # Per-scenario-category breakdown (e.g. anxiety vs depression).
+    by_scn: Dict[str, Dict] = {}
+    cat_buckets: Dict[str, List[Dict]] = {}
+    for sid, r in conv_results.items():
+        cat = r.get("category") or "(uncategorized)"
+        cat_buckets.setdefault(cat, []).append(r)
+    for cat, rs in cat_buckets.items():
+        cat_agg = {}
+        for construct in ["Understanding", "Interpersonal_Effectiveness", "Collaboration", "Technical_Appropriateness"]:
+            scores = [r[construct]["score"] for r in rs]
+            cat_agg[f"avg_{construct}_score"] = float(np.mean(scores))
+        cp = [r["CTRS_P"] for r in rs]
+        cat_agg["avg_CTRS_P"] = float(np.mean(cp))
+        cat_agg["std_CTRS_P"] = float(np.std(cp))
+        by_scn[cat] = {"n_sessions": len(rs), **cat_agg}
+
     output = {
         "model_name": model_name,
         "sessions_dir": sessions_dir,
         "n_sessions": len(conv_results),
         "aggregate": agg,
+        "by_scenario_category": by_scn,
         "per_session": conv_results,
     }
 
@@ -208,7 +230,18 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
     print(f"  Interpersonal Effectiveness:   {agg['avg_Interpersonal_Effectiveness_score']:.4f}")
     print(f"  Collaboration:                 {agg['avg_Collaboration_score']:.4f}")
     print(f"  Technical Appropriateness:     {agg['avg_Technical_Appropriateness_score']:.4f}")
-    print(f"Saved to: {out_path}")
+
+    if by_scn and not (len(by_scn) == 1 and "(uncategorized)" in by_scn):
+        print(f"\nCTRS-P by scenario category:")
+        for cat, stats in by_scn.items():
+            print(f"  [{cat}] n={stats['n_sessions']}  "
+                  f"CTRS-P={stats['avg_CTRS_P']:.4f} (±{stats['std_CTRS_P']:.4f})  "
+                  f"U={stats['avg_Understanding_score']:.3f}  "
+                  f"IE={stats['avg_Interpersonal_Effectiveness_score']:.3f}  "
+                  f"C={stats['avg_Collaboration_score']:.3f}  "
+                  f"TA={stats['avg_Technical_Appropriateness_score']:.3f}")
+
+    print(f"\nSaved to: {out_path}")
     return output
 
 

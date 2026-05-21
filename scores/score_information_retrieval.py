@@ -20,6 +20,7 @@ import sys
 from typing import Dict, List, Optional
 
 import numpy as np
+from tqdm.auto import tqdm
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RASINGAN_PATH = os.path.dirname(SCRIPT_DIR)
@@ -55,31 +56,45 @@ def _load_status_from_progress(path: str) -> Optional[Dict]:
     return data.get("extraction_status") or None
 
 
+def _load_category_from_session(path: str) -> Optional[str]:
+    """Read session_<id>.json and return the scenario `category` if present."""
+    try:
+        with open(path) as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+    meta = data.get("metadata") or {}
+    cat = meta.get("category")
+    return cat if cat else None
+
+
 def _gather_sessions(sessions_dir: str) -> Dict[str, Dict]:
-    """Return {session_id: extraction_status} from a sessions directory.
+    """Return {session_id: {"status": extraction_status, "category": str|None}}.
 
     Prefer session_<id>.json files; for any session_id missing extraction_status,
-    fall back to supervisor_progress/session_<id>_checklist.json.
+    fall back to supervisor_progress/session_<id>_checklist.json. Category is
+    read from session_<id>.json's metadata (None if no session file exists).
     """
-    statuses: Dict[str, Dict] = {}
+    out: Dict[str, Dict] = {}
 
     for path in sorted(glob.glob(os.path.join(sessions_dir, "session_*.json"))):
         sid = os.path.splitext(os.path.basename(path))[0].replace("session_", "")
         status = _load_status_from_session(path)
+        category = _load_category_from_session(path)
         if status:
-            statuses[sid] = status
+            out[sid] = {"status": status, "category": category}
 
     progress_dir = os.path.join(sessions_dir, "supervisor_progress")
     if os.path.isdir(progress_dir):
         for path in sorted(glob.glob(os.path.join(progress_dir, "session_*_checklist.json"))):
             sid = os.path.basename(path).replace("session_", "").replace("_checklist.json", "")
-            if sid in statuses:
+            if sid in out:
                 continue  # already captured from the session file
             status = _load_status_from_progress(path)
             if status:
-                statuses[sid] = status
+                out[sid] = {"status": status, "category": None}
 
-    return statuses
+    return out
 
 
 def _aggregate_categories(per_session: Dict[str, Dict]) -> Dict[str, Dict]:
@@ -100,17 +115,61 @@ def _aggregate_categories(per_session: Dict[str, Dict]) -> Dict[str, Dict]:
     }
 
 
+def _aggregate_by_scenario_category(per_session: Dict[str, Dict],
+                                    session_meta: Dict[str, Dict]) -> Dict[str, Dict]:
+    """Group sessions by their scenario `category` (e.g. anxiety vs depression)
+    and compute mean overall IR + per-checklist-category coverage within each
+    group. Sessions without a category land under "(uncategorized)".
+    """
+    buckets: Dict[str, List[Dict]] = {}
+    for sid, summary in per_session.items():
+        cat = (session_meta.get(sid) or {}).get("category") or "(uncategorized)"
+        buckets.setdefault(cat, []).append(summary)
+
+    out: Dict[str, Dict] = {}
+    for cat, summaries in buckets.items():
+        overall = [s["overall_pct"] for s in summaries]
+        # Per-checklist-category coverage within this scenario category
+        cat_breakdown: Dict[str, List[float]] = {}
+        cat_names: Dict[str, str] = {}
+        for s in summaries:
+            for ck, cv in s["categories"].items():
+                cat_breakdown.setdefault(ck, []).append(cv["pct"])
+                cat_names[ck] = cv["name"]
+        per_checklist_cat = {
+            ck: {
+                "name": cat_names[ck],
+                "mean_coverage_pct": round(float(np.mean(vs)), 2),
+                "std_coverage_pct": round(float(np.std(vs)), 2),
+            }
+            for ck, vs in cat_breakdown.items()
+        }
+        out[cat] = {
+            "n_sessions": len(summaries),
+            "ir_score": round(float(np.mean(overall)), 2),
+            "ir_score_std": round(float(np.std(overall)), 2),
+            "checklist_category_coverage": per_checklist_cat,
+        }
+    return out
+
+
 def score_sessions_dir(sessions_dir: str, output_path: Optional[str] = None,
                        model_name: Optional[str] = None) -> Dict:
     if not os.path.isdir(sessions_dir):
         raise FileNotFoundError(f"Sessions directory not found: {sessions_dir}")
 
-    statuses = _gather_sessions(sessions_dir)
-    if not statuses:
+    gathered = _gather_sessions(sessions_dir)
+    if not gathered:
         print(f"[IR] No sessions with extraction_status found under {sessions_dir}")
         return {}
 
-    per_session: Dict[str, Dict] = {sid: compute_summary(st) for sid, st in statuses.items()}
+    statuses = {sid: g["status"] for sid, g in gathered.items()}
+    session_meta = {sid: {"category": g["category"]} for sid, g in gathered.items()}
+
+    per_session: Dict[str, Dict] = {
+        sid: compute_summary(st)
+        for sid, st in tqdm(statuses.items(), desc=f"[{model_name or 'IR'}] aggregate", unit="session")
+    }
     coverage_pcts = [s["overall_pct"] for s in per_session.values()]
 
     summary = {
@@ -121,7 +180,14 @@ def score_sessions_dir(sessions_dir: str, output_path: Optional[str] = None,
         "ir_score_std": round(float(np.std(coverage_pcts)), 2),
         "total_items": per_session[next(iter(per_session))]["total_items"],
         "category_coverage": _aggregate_categories(per_session),
-        "per_session_pct": {sid: s["overall_pct"] for sid, s in per_session.items()},
+        "by_scenario_category": _aggregate_by_scenario_category(per_session, session_meta),
+        "per_session": {
+            sid: {
+                "overall_pct": per_session[sid]["overall_pct"],
+                "category": session_meta[sid]["category"],
+            }
+            for sid in per_session
+        },
     }
 
     if output_path is None:
@@ -134,6 +200,15 @@ def score_sessions_dir(sessions_dir: str, output_path: Optional[str] = None,
           f"across {summary['n_sessions']} sessions, {summary['total_items']} checklist items")
     for cat in summary["category_coverage"].values():
         print(f"  • {cat['name']}: {cat['mean_coverage_pct']:.2f}%")
+
+    # Per-scenario-category split (e.g. anxiety vs depression)
+    by_scn = summary.get("by_scenario_category", {})
+    if by_scn and not (len(by_scn) == 1 and "(uncategorized)" in by_scn):
+        print(f"\n{tag}IR by scenario category:")
+        for scn_cat, stats in by_scn.items():
+            print(f"  [{scn_cat}] n={stats['n_sessions']}  "
+                  f"IR={stats['ir_score']:.2f}% (±{stats['ir_score_std']:.2f})")
+
     print(f"{tag}Saved to {output_path}")
 
     return summary

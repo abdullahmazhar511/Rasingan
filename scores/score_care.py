@@ -15,7 +15,25 @@ from inference import CareModel, CARE_LABELS
 EVAL_ROOT = os.environ.get("EVAL_ROOT", os.path.join(RASINGAN_PATH, "evaluation_pipeline"))
 MODELS_CONFIG = os.path.join(EVAL_ROOT, "models_config.json")
 
-def score_model_folder(model_cfg, care_model, eval_root):
+# Gold CARE scores depend only on (context, Utterance) which are dataset-wide
+# constants — identical across every model's responses/ CSVs. Cache them at
+# this path so re-scoring N models = 1× CARE pass on gold + N× on model output.
+# Delete the file to force a recompute (e.g. if the CARE classifier changed).
+GOLD_CACHE_PATH = os.path.join(EVAL_ROOT, "_gold_care_cache.csv")
+
+
+def _load_gold_cache():
+    if os.path.exists(GOLD_CACHE_PATH):
+        return pd.read_csv(GOLD_CACHE_PATH).set_index("ID")
+    return pd.DataFrame(columns=["ID"] + CARE_LABELS).set_index("ID")
+
+
+def _save_gold_cache(cache_df):
+    os.makedirs(os.path.dirname(GOLD_CACHE_PATH), exist_ok=True)
+    cache_df.reset_index().to_csv(GOLD_CACHE_PATH, index=False)
+
+
+def score_model_folder(model_cfg, care_model, eval_root, gold_cache):
     model_name = model_cfg['name']
     input_dir = os.path.join(eval_root, model_name, "responses")
     output_dir = os.path.join(eval_root, model_name, "care_scores")
@@ -36,22 +54,44 @@ def score_model_folder(model_cfg, care_model, eval_root):
         if os.path.exists(out_file): continue # Skip if already done
         
         df = pd.read_csv(file_path)
-        if 'model_prediction' not in df.columns or 'context' not in df.columns:
+        if 'model_prediction' not in df.columns or 'context' not in df.columns \
+           or 'Utterance' not in df.columns or 'ID' not in df.columns:
             continue
 
         df['model_prediction'] = df['model_prediction'].fillna("")
+        df['Utterance'] = df['Utterance'].fillna("")
         mask = df['model_prediction'] != ""
-        
+
         contexts = df.loc[mask, 'context'].tolist()
-        utterances = df.loc[mask, 'model_prediction'].tolist()
-        
-        if not utterances:
+        model_utts = df.loc[mask, 'model_prediction'].tolist()
+        gold_utts  = df.loc[mask, 'Utterance'].tolist()
+        ids        = df.loc[mask, 'ID'].tolist()
+
+        if not model_utts:
             df.to_csv(out_file, index=False)
             continue
-            
-        results = care_model.batch_predict(contexts, utterances, batch_size=8, include_analysis=True)
-        
-        # Output directly matching the standard coherence column names for ease of use
+
+        # Score the model's response.
+        pred_results = care_model.batch_predict(contexts, model_utts, batch_size=8, include_analysis=True)
+
+        # Gold scores: serve from cache when available, score only the misses.
+        miss_idx = [i for i, _id in enumerate(ids) if _id not in gold_cache.index]
+        if miss_idx:
+            new_results = care_model.batch_predict(
+                [contexts[i]  for i in miss_idx],
+                [gold_utts[i] for i in miss_idx],
+                batch_size=8, include_analysis=True,
+            )
+            new_rows = pd.DataFrame(
+                [{label: r[label] for label in CARE_LABELS} for r in new_results],
+                index=[ids[i] for i in miss_idx],
+            )
+            new_rows.index.name = "ID"
+            gold_cache = pd.concat([gold_cache, new_rows])
+            _save_gold_cache(gold_cache)
+
+        # Abbreviated cols = scores on model_prediction.
+        # Full-name cols   = cached gold scores (CARE classifier on gold text).
         mapping = {
             'Non-Judgmental Language': 'NJ',
             'Warmth and Encouragement': 'WE',
@@ -60,13 +100,16 @@ def score_model_folder(model_cfg, care_model, eval_root):
             'Reflecting Feelings': 'RF',
             'Situational Appropriateness': 'SA'
         }
-        
         for label in CARE_LABELS:
             mapped_col = mapping[label]
             df[mapped_col] = None
-            df.loc[mask, mapped_col] = [res[label] for res in results]
-            
+            df[label]      = None
+            df.loc[mask, mapped_col] = [res[label] for res in pred_results]
+            df.loc[mask, label]      = [gold_cache.at[_id, label] for _id in ids]
+
         df.to_csv(out_file, index=False)
+
+    return gold_cache
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compute CARE scores for models")
@@ -81,12 +124,14 @@ if __name__ == "__main__":
     os.chdir(RASINGAN_PATH)
     print("Loading CARE Model (Slow)...")
     care_model = CareModel()
-    
+    gold_cache = _load_gold_cache()
+    print(f"Gold CARE cache: {len(gold_cache)} entries loaded from {GOLD_CACHE_PATH}")
+
     # If specific model name provided, score only that model
     if args.model_name:
         model_cfg = {'name': args.model_name}
         try:
-            score_model_folder(model_cfg, care_model, eval_root)
+            gold_cache = score_model_folder(model_cfg, care_model, eval_root, gold_cache)
         except Exception as e:
             print(f"Error CARE scoring for {args.model_name}: {e}")
     # Otherwise, try to load from config if it exists
@@ -95,7 +140,7 @@ if __name__ == "__main__":
             models = json.load(f)
         for m in models:
             try:
-                score_model_folder(m, care_model, eval_root)
+                gold_cache = score_model_folder(m, care_model, eval_root, gold_cache)
             except Exception as e:
                 print(f"Error CARE scoring for {m['name']}: {e}")
     else:

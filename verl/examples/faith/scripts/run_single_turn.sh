@@ -1,5 +1,8 @@
 # run on 8xH100
 
+#Exp name , MODEL change. merge adapter
+#First convert using MERGE PEFT insft and then run this 
+
 # Activate verl conda environment
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate verl
@@ -19,7 +22,7 @@ function now() {
     date '+%d-%H-%M'
 }
 
-EXPERIMENT_NAME="llama3.2_sft_$(now)"
+EXPERIMENT_NAME="${EXP_NAME:-qwen_3_v1_$(now)}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 CONFIG_PATH="$PROJECT_DIR/examples/faith/scripts/config"
@@ -27,12 +30,12 @@ source "$PROJECT_DIR/examples/faith/scripts/api_key"
 SERVER_PORT=29500  # port for reward model
 CARE_SERVER_URL="${CARE_SERVER_URL:-http://127.0.0.1:8000}"
 
-SAVE_PATH="./checkpoints/${EXPERIMENT_NAME}"
-
-MODEL="$PROJECT_DIR/../sft_training/results/Qwen3-4B-sft-respair-new-3-merged"
+# MODEL_PATH / OUTPUT_PATH come from scripts/single_turn_rl.sh; fall back to defaults.
+MODEL="${MODEL_PATH:-$PROJECT_DIR/../sft_training/results/Qwen3-4B-sft-respair-new-3-merged}"
+SAVE_PATH="${OUTPUT_PATH:-./checkpoints/${EXPERIMENT_NAME}}"
 RESUME_FROM_PATH=""
 TRAIN_BATCH_SIZE=16
-VAL_BATCH_SIZE=32
+VAL_BATCH_SIZE=64
 PPO_MINI_BATCH_SIZE=4
 MAX_PROMPT_LENGTH=1024
 MAX_RESPONSE_LENGTH=256
@@ -55,7 +58,7 @@ RESUME=False
 if [ "$VAL_ONLY" = True ]; then
     EXTRA_FLAGS="trainer.val_only=True trainer.val_before_train=True"
 else
-    EXTRA_FLAGS="trainer.val_only=False trainer.val_before_train=True"
+    EXTRA_FLAGS="trainer.val_only=False trainer.val_before_train=False"
 fi
 
 if [ "$RESUME" = True ]; then
@@ -86,8 +89,8 @@ fi
 
 python3 -m verl.trainer.main_ppo \
     +server.port=$SERVER_PORT \
-    +reward_model.max_concurrent=32 \
-    +reward_model.max_rpm=32 \
+    +reward_model.max_concurrent=64 \
+    +reward_model.max_rpm=64 \
     +reward_model.estimated_tokens_per_request=$((MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH)) \
     actor_rollout_ref.rollout.agent.default_agent_loop='single_turn_agent' \
     algorithm.adv_estimator=grpo \
@@ -104,21 +107,21 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.actor.ppo_mini_batch_size=$PPO_MINI_BATCH_SIZE \
     actor_rollout_ref.actor.use_dynamic_bsz=True \
     actor_rollout_ref.actor.use_kl_loss=True \
-    actor_rollout_ref.actor.kl_loss_coef=0.001 \
+    actor_rollout_ref.actor.kl_loss_coef=0.01 \
     actor_rollout_ref.actor.kl_loss_type=low_var_kl \
     actor_rollout_ref.actor.entropy_coeff=0 \
-    actor_rollout_ref.model.enable_gradient_checkpointing=True \
-    actor_rollout_ref.actor.fsdp_config.param_offload=True \
-    actor_rollout_ref.actor.fsdp_config.optimizer_offload=True \
+    actor_rollout_ref.model.enable_gradient_checkpointing=False \
+    actor_rollout_ref.actor.fsdp_config.param_offload=False \
+    actor_rollout_ref.actor.fsdp_config.optimizer_offload=False \
     actor_rollout_ref.rollout.tensor_model_parallel_size=1 \
     actor_rollout_ref.rollout.name=vllm \
-    actor_rollout_ref.rollout.gpu_memory_utilization=0.7 \
+    actor_rollout_ref.rollout.gpu_memory_utilization=0.20 \
     actor_rollout_ref.rollout.n=4 \
     actor_rollout_ref.ref.fsdp_config.param_offload=True \
     actor_rollout_ref.ref.fsdp_config.model_dtype=bfloat16 \
     actor_rollout_ref.rollout.mode=async \
     actor_rollout_ref.rollout.enforce_eager=False \
-    actor_rollout_ref.rollout.free_cache_engine=True \
+    actor_rollout_ref.rollout.free_cache_engine=False \
     algorithm.use_kl_in_reward=False \
     reward_model.reward_manager="care" \
     +reward_model.care_server_url="$CARE_SERVER_URL" \
@@ -128,17 +131,17 @@ python3 -m verl.trainer.main_ppo \
     trainer.experiment_name=$EXPERIMENT_NAME \
     trainer.n_gpus_per_node=2 \
     trainer.nnodes=1 \
-    trainer.save_freq=40 \
-    trainer.test_freq=40 \
-    trainer.total_epochs=3 \
+    trainer.save_freq=80 \
+    trainer.test_freq=80 \
+    trainer.total_epochs=2 \
     ${EXTRA_FLAGS} \
     ${RESUME_FLAGS} \
     trainer.validation_data_dir=${SAVE_PATH}/rollout \
     trainer.default_local_dir=$SAVE_PATH \
     trainer.rollout_data_dir=${ROLLOUT_SAVE_PATH} \
-    actor_rollout_ref.actor.ppo_max_token_len_per_gpu=$((4 * (MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH))) \
-    actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=$((4 * (MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH))) \
-    actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=$((4 * (MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH))) \
+    actor_rollout_ref.actor.ppo_max_token_len_per_gpu=$((12 * (MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH))) \
+    actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=$((12 * (MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH))) \
+    actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=$((12 * (MAX_PROMPT_LENGTH + MAX_RESPONSE_LENGTH))) \
     data.train_files=$TRAIN_FILES \
     data.val_files=$VAL_FILES \
     actor_rollout_ref.rollout.multi_turn.tool_config_path="$PROJECT_DIR/examples/sglang_multiturn/config/tool_config/gsm8k_tool_config.yaml" \
