@@ -177,12 +177,12 @@ EOF
 }
 
 # Defaults
-MODEL_NAME="qwen_rl"
+MODEL_NAME="qwen_sft"
 # BASE_MODEL="${BASE_MODEL:-Qwen/Qwen3-4B-Instruct-2507}" 
 BASE_MODEL="/home/asbahk/EMNLP_FINAL/Rasingan/sft_training/results/Qwen3-4B-sft-respair-new-3-merged" #checkpoint for sft model used for rl"
-MERGE_MODE="verl"               # "" | "sft" | "verl"
-MERGE_CHECKPOINT="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v1_21-09-39/global_step_160"   # path to the unmerged checkpoint
-MERGE_OUTPUT="${MERGE_OUTPUT:-}"           # where to write merged dir; auto if empty
+# MERGE_MODE="verl"               # "" | "sft" | "verl"
+# MERGE_CHECKPOINT="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_80"   # path to the unmerged checkpoint
+# MERGE_OUTPUT="${MERGE_OUTPUT:-}"           # where to write merged dir; auto if empty
 SKIP_SINGLE_TURN=false
 SKIP_GENERATION=false
 SKIP_MULTI_TURN=true
