@@ -1,0 +1,566 @@
+{
+  "session_id": "20260526_104803_245441_34509b",
+  "timestamp": 1779792525.1908283,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": true,
+          "turn_covered": 5,
+          "evidence": "It's probably the worry that I'll never feel *you* again. Like, the version of myself that existed before December 2025\u2014the one who felt strong, grounded, and truly present\u2014is gone. And if it's just \"anxiety,\" then maybe I'm stuck in this new, hollow version forever?\n\nI'm scared that even when things get better (if they ever do), I won't be able to go back to feeling like me. It's not just about missing out on joy or love; it's about the terrifying thought that my capacity to feel anything at all is being permanently eroded. When I wake up and everything feels numb, I don't just think, \"Oh, I'm anxious.\" I think, \"Is this it? Is this how I'm going to spend the rest of my life?\"\n\nAnd honestly, part of why I keep asking for an MRI or a nerve test isn't just because"
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": true,
+          "turn_covered": 3,
+          "evidence": "Honestly, the part that feels most heavy is the constant fear that I'm going to lose my mind completely. You know how it goes: every time a symptom flares up\u2014like the floaters getting worse or the ringing in my ears\u2014I immediately jump to the worst-case scenario. My brain just can't stop looping through \"What if this is a brain tumor?\"\n\nIt's terrifying because the doctors and psychologists keep telling me it's anxiety, but when you feel like your body is literally shutting down or losing sensation overnight, hearing \"it's all in your head\" sounds dismissive. It makes me feel like nobody actually *sees* the pain of not feeling real.\n\nThe urgency right now is trying to figure out if I should spend more money on tests like the nerve prick test or an MRI. On one hand, I want to clear my mind with proof that there isn't something physically wrong. On the other hand, every scan they"
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "Thank you for sharing that so openly\u2014it takes courage to describe something that feels so real and yet so confusing. It sounds like you're carrying a deep sense of disconnection, not just from your body, but from the world around you. The way you describe it\u2014like you\u2019ve lost a part of yourself\u2014makes me wonder how much of that \"loop\" has been shaped by what you\u2019ve been feeling, and what you\u2019ve been trying to hold on to. What part of this experience feels most heavy or most urgent for you right now?",
+      "feedback": "Acknowledge the patient's silence or lack of response to the safety question before pivoting.\nValidate the courage it took to share the feeling of disconnection and loss of self in the previous turn.\nGently re-introduce the PHQ-9 Safety item with a softer, more inviting tone to encourage disclosure.",
+      "raw_feedback": "Acknowledge the patient's silence or lack of response to the safety question before pivoting.\nValidate the courage it took to share the feeling of disconnection and loss of self in the previous turn.\nGently re-introduce the PHQ-9 Safety item with a softer, more inviting tone to encourage disclosure.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792493.1079473,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hi. Thank you... I appreciate that. It's been a really long time since I felt like things were \"normal,\" so sitting in a room where I can actually talk about it without worrying about sounding crazy or wasting someone's time feels important.\n\nHonestly, lately? I feel like I'm living in a loop. Every day feels exactly the same, which is exhausting. Since December 2025, my whole body has just lost that sensation of being real. It's not just numbness; it's like everything from my head to my toes feels weaker than it used to be. Like I don't have the same amount of \"me\" there anymore.\n\nAnd then there are the physical stuff that doesn't make sense. The eye floaters started two years ago, but the doctors say my vision is fine\u2014above average, even. But I still see them constantly. Then there's the ringing in my ears starting back in February",
+      "therapist_response": "It sounds like you\u2019re carrying a deep fear of being misunderstood\u2014of being seen as \"crazy\" when your body and mind feel so real to you. The way you describe those symptoms not as random, but as signs of something important, shows how much you\u2019re trying to protect your sense of self. And it\u2019s completely valid to want answers\u2014especially when your body feels like it\u2019s changing in ways you can\u2019t explain.  \n\nWould it be helpful to explore what that fear of losing your mind really means to you? Not just about the symptoms, but about who you are when you\u2019re not feeling like yourself?",
+      "feedback": "The therapist has not yet directly addressed the safety/suicidality priority ([9]) or asked about sleep/tiredness ([3], [4]).\nMaintain the supportive, non-judgmental tone while gently pivoting to ask how these physical symptoms impact daily functioning or mood.\nConsider explicitly asking about sleep patterns and energy levels to gather data for PHQ-9 items [3] and [4] before exploring deeper cognitive risks.",
+      "raw_feedback": "The therapist has not yet directly addressed the safety/suicidality priority ([9]) or asked about sleep/tiredness ([3], [4]).\nMaintain the supportive, non-judgmental tone while gently pivoting to ask how these physical symptoms impact daily functioning or mood.\nConsider explicitly asking about sleep patterns and energy levels to gather data for PHQ-9 items [3] and [4] before exploring deeper cognitive risks.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792499.1078167,
+      "turn": 2
+    },
+    {
+      "patient_message": "Honestly, the part that feels most heavy is the constant fear that I'm going to lose my mind completely. You know how it goes: every time a symptom flares up\u2014like the floaters getting worse or the ringing in my ears\u2014I immediately jump to the worst-case scenario. My brain just can't stop looping through \"What if this is a brain tumor?\"\n\nIt's terrifying because the doctors and psychologists keep telling me it's anxiety, but when you feel like your body is literally shutting down or losing sensation overnight, hearing \"it's all in your head\" sounds dismissive. It makes me feel like nobody actually *sees* the pain of not feeling real.\n\nThe urgency right now is trying to figure out if I should spend more money on tests like the nerve prick test or an MRI. On one hand, I want to clear my mind with proof that there isn't something physically wrong. On the other hand, every scan they",
+      "therapist_response": "It\u2019s so powerful how you describe that shift\u2014from someone who felt whole and present to someone who now feels like an observer in their own life. That sense of being a stranger to yourself is not just painful\u2014it\u2019s deeply human, and it reflects a real loss of connection.  \n\nWhat part of that fear\u2014of becoming someone you don\u2019t recognize\u2014feels most alive right now? Is it the fear of not being able to feel love, or joy, or even your own breath? Or is it more about the worry that you\u2019ll never be able to feel *you* again?",
+      "feedback": "Acknowledge the patient's intense fear of losing their mind as a specific instance of GAD-7 item #17 (feeling afraid something awful might happen) rather than jumping to safety questions yet.\nValidate the distress of feeling misunderstood by medical professionals before gently exploring whether these catastrophic thoughts include any self-harm or suicidal ideation (PHQ-9 ID #9).\nMaintain an empathetic stance that honors their desire for physical proof while distinguishing between anxiety-driven catastrophizing and actual safety risks.",
+      "raw_feedback": "Acknowledge the patient's intense fear of losing their mind as a specific instance of GAD-7 item #17 (feeling afraid something awful might happen) rather than jumping to safety questions yet.\nValidate the distress of feeling misunderstood by medical professionals before gently exploring whether these catastrophic thoughts include any self-harm or suicidal ideation (PHQ-9 ID #9).\nMaintain an empathetic stance that honors their desire for physical proof while distinguishing between anxiety-driven catastrophizing and actual safety risks.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792506.315376,
+      "turn": 3
+    },
+    {
+      "patient_message": "That is... actually the hardest part to unpack, because it's so personal. When I say I'm afraid of losing my mind, what I really mean is that I'm terrified of becoming someone I don't recognize.\n\nRight now, the person sitting here in this chair feels like a stranger to me. The \"me\" from two years ago\u2014the one who felt grounded and had a full range of sensations\u2014is gone. That old version of me would probably be angry or desperate for answers right now. But the current version of me just feels hollow. It's like watching a movie where you know the plot but can't feel the emotions anymore.\n\nWhen the doctors tell me it's anxiety, it makes me feel like they're trying to fix a broken machine by telling me the engine isn't broken, which is infuriating when the car *is* acting up. But underneath all the panic about tumors or nerve damage, there's this deep fear that",
+      "therapist_response": "It\u2019s so clear how much this isn\u2019t just about symptoms\u2014it\u2019s about a deep fear of losing the ability to *be* fully present, to *feel* anything at all. That moment when you wake up and everything feels numb isn\u2019t just a physical sensation; it\u2019s a doorway into a world where you\u2019re not sure if you\u2019re still *you* anymore.  \n\nAnd that fear\u2014of never feeling \"you\" again\u2014is not something to be dismissed. It\u2019s a signal that something meaningful has been lost, and it\u2019s valid to want to find out if there\u2019s a way back.  \n\nWould it be helpful to explore what \u201cfeeling like you\u201d really means to you\u2014what kind of presence, what kind of connection, would make you feel like you\u2019ve found your way back?",
+      "feedback": "The patient explicitly cut off mid-sentence with 'underneath all the panic... there's this deep fear that,' indicating they were about to address safety concerns but hesitated.\nGently validate their hesitation before directly and compassionately asking if they are having thoughts of hurting themselves or feeling better off dead.\nNormalize the connection between their current sense of being a 'stranger' to themselves and feelings of hopelessness, without pressuring them to answer immediately.",
+      "raw_feedback": "The patient explicitly cut off mid-sentence with 'underneath all the panic... there's this deep fear that,' indicating they were about to address safety concerns but hesitated.\nGently validate their hesitation before directly and compassionately asking if they are having thoughts of hurting themselves or feeling better off dead.\nNormalize the connection between their current sense of being a 'stranger' to themselves and feelings of hopelessness, without pressuring them to answer immediately.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792514.41336,
+      "turn": 4
+    },
+    {
+      "patient_message": "It's probably the worry that I'll never feel *you* again. Like, the version of myself that existed before December 2025\u2014the one who felt strong, grounded, and truly present\u2014is gone. And if it's just \"anxiety,\" then maybe I'm stuck in this new, hollow version forever?\n\nI'm scared that even when things get better (if they ever do), I won't be able to go back to feeling like me. It's not just about missing out on joy or love; it's about the terrifying thought that my capacity to feel anything at all is being permanently eroded. When I wake up and everything feels numb, I don't just think, \"Oh, I'm anxious.\" I think, \"Is this it? Is this how I'm going to spend the rest of my life?\"\n\nAnd honestly, part of why I keep asking for an MRI or a nerve test isn't just because",
+      "therapist_response": "That\u2019s such a clear and honest picture\u2014being able to sit in a room without your brain running a constant loop of \u201cwhat if?\u201d or \u201cis this real?\u201d That would be a quiet kind of freedom, wouldn\u2019t it? Not just the absence of fear, but the simple space to just *be* with what is, without needing to verify it.  \n\nAnd you\u2019re right\u2014trusting your body again isn\u2019t about proving it\u2019s healthy; it\u2019s about allowing yourself to feel it, even when it\u2019s not loud or strong or \u201cperfect.\u201d That small act of letting go of the need to verify could be the first step back into a sense of presence.  \n\nWould it be helpful to explore what that moment of trust might feel like\u2014what it might *look like* or *sound like* in your body, even if it\u2019s just a tiny thing?",
+      "feedback": "Acknowledge the patient's expression of hopelessness and validate that asking for medical tests is a rational response to fear, not just denial.\nGently pivot from the abstract fear of permanent change to immediate safety by asking if they have any specific thoughts about hurting themselves right now.\nNormalize the feeling of being 'stuck' while reinforcing that current symptoms do not equal a permanent erasure of their capacity to feel.",
+      "raw_feedback": "Acknowledge the patient's expression of hopelessness and validate that asking for medical tests is a rational response to fear, not just denial.\nGently pivot from the abstract fear of permanent change to immediate safety by asking if they have any specific thoughts about hurting themselves right now.\nNormalize the feeling of being 'stuck' while reinforcing that current symptoms do not equal a permanent erasure of their capacity to feel.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792525.1908267,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 2,
+    "overall_pct": 11.8,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 1,
+        "total": 1,
+        "pct": 100.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 1,
+        "total": 2,
+        "pct": 50.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "session_id": "20260526_104803_250858_2c695b",
+  "timestamp": 1779792525.638047,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "Thank you for sharing that so honestly\u2014it takes real courage to let someone see the weight of what you're carrying. I can feel how much you're trying to show up for yourself, even when it feels impossible. That guilt you're feeling isn't just about you being lazy; it's actually a sign that you care deeply about connection and meaning.  \n\nWhat would it mean, for you, to take one small step toward changing that cycle\u2014like starting with just one thing you'd like to do, even if it's just for a few minutes?",
+      "feedback": "The patient did not respond to the therapist's prompt in this exchange.\nEnsure the next turn explicitly checks for immediate safety and suicidal ideation before exploring other PHQ-9 items.\nReframe the question about 'small steps' as a coping strategy or grounding technique if the patient is currently experiencing distress.",
+      "raw_feedback": "The patient did not respond to the therapist's prompt in this exchange.\nEnsure the next turn explicitly checks for immediate safety and suicidal ideation before exploring other PHQ-9 items.\nReframe the question about 'small steps' as a coping strategy or grounding technique if the patient is currently experiencing distress.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792493.081743,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hey, thanks for saying that. Honestly, I feel a bit overwhelmed just sitting here right now, mostly because my mind is racing with all the things I want to do but physically and mentally can't seem to get out of bed to do.\n\nTo answer your question about why I'm here: It's been this way for a while. I've found myself doing what people call \"bed rotting\"\u2014staying in bed all day, doom scrolling on my phone until my eyes hurt, feeling like nothing matters. But lately, I've started feeling guilty about it. It feels like not only have I given up on myself, but everyone else in my life has probably done the same thing or is just painfully unaware of how hard it is for me. That isolation really gets to me.\n\nI really want to end this cycle. I don't want to just drift anymore. I think joining some kind of group where we set daily goals together and check",
+      "therapist_response": "It sounds like you're carrying a lot of quiet strength\u2014even in the fear, you're still reaching for something real and meaningful. That desire to prove to yourself you still have agency is powerful, and it\u2019s not about succeeding or failing; it\u2019s about showing up, however small, as someone who matters.  \n\nWhat if we started not with a goal, but with a simple, gentle act\u2014like noticing your breath for just five minutes, or sitting up in bed and saying one thing out loud to yourself: \u201cI\u2019m here. I\u2019m not alone in this.\u201d Would that feel like a step you could take, even if it doesn\u2019t feel like progress yet?",
+      "feedback": "Shift focus immediately to safety by directly and gently asking the patient if they have had thoughts of hurting themselves or feeling better off dead, given their history of isolation and hopelessness.\nValidate the courage it takes to address these dark thoughts without judgment, emphasizing that sharing them is a vital step toward safety.\nPrepare to explore any specific plans, intent, or triggers related to these thoughts if they arise, while maintaining a non-judgmental stance.",
+      "raw_feedback": "Shift focus immediately to safety by directly and gently asking the patient if they have had thoughts of hurting themselves or feeling better off dead, given their history of isolation and hopelessness.\nValidate the courage it takes to address these dark thoughts without judgment, emphasizing that sharing them is a vital step toward safety.\nPrepare to explore any specific plans, intent, or triggers related to these thoughts if they arise, while maintaining a non-judgmental stance.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792499.1095374,
+      "turn": 2
+    },
+    {
+      "patient_message": "That's... actually a really kind thing to say. Hearing that the guilt isn't about laziness but about caring deeply helps a little bit, because I've been beating myself up for being \"lazy\" so much lately. It feels like a lot of my energy is just going into fighting that internal judgment instead of fighting the depression itself.\n\nAs for taking a small step? Honestly, it scares me. When I think about doing *anything* outside of bed or scrolling, my brain immediately starts listing every reason why it won't work out. What if I start and then crash again in an hour? What if I fail at setting a goal and feel even worse than before? The idea of accountability feels heavy right now.\n\nBut you asked what it would mean for *me*. If I could do just one thing, even for five minutes, it would mean proving to myself that I still have agency over my day. Right now, everything feels automatic",
+      "therapist_response": "Yes, that sounds completely okay\u2014and deeply important. Breathing isn\u2019t progress, it\u2019s presence. And presence is where healing begins, even when it feels small.  \n\nIf you\u2019re ready, we can do that together\u2014just sitting up, gently noticing your breath, and saying \u201cI\u2019m here\u201d to yourself. No pressure. No expectations. Just you, in this moment, with no need to fix anything. Would you like to try it now, or would you prefer to pause and come back to it later?",
+      "feedback": "Acknowledge the patient's fear of failure and reframe accountability as a shared space for exploration rather than performance.\nGently probe the PHQ-9 Safety item by validating their current state without forcing a direct answer, perhaps normalizing that these thoughts are common in depression.\nContinue the grounding exercise (breathing/presence) to lower physiological arousal before addressing more sensitive clinical topics.",
+      "raw_feedback": "Acknowledge the patient's fear of failure and reframe accountability as a shared space for exploration rather than performance.\nGently probe the PHQ-9 Safety item by validating their current state without forcing a direct answer, perhaps normalizing that these thoughts are common in depression.\nContinue the grounding exercise (breathing/presence) to lower physiological arousal before addressing more sensitive clinical topics.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792505.880742,
+      "turn": 3
+    },
+    {
+      "patient_message": "That actually makes so much sense. The idea of forcing a \"goal\" feels like it's asking me to perform when I'm already exhausted, but the idea of just noticing my breath or saying something simple out loud... that feels almost safe. It doesn't feel like a test.\n\nHonestly, sitting up in bed and saying \"I'm here\" feels weirdly liberating, even though it sounds clich\u00e9. For a long time, I've been living in my head, worrying about what everyone else is doing or thinking, while physically staying frozen. If I can just acknowledge that I exist in this moment without judging myself for being stuck, maybe that breaks the cycle of doom scrolling a tiny bit?\n\nBut you're right\u2014it might not feel like \"progress\" in the traditional sense. It might just feel like... breathing. But if that's all I can do today, then maybe that's enough. Does that sound okay to try? Or",
+      "therapist_response": "It feels like something real happened\u2014quietly, gently, but deeply. I can feel how much you\u2019re carrying, and how much strength you\u2019re showing by simply choosing to be here with yourself in that moment.  \n\nThe fact that your thoughts still race doesn\u2019t mean the grounding didn\u2019t work\u2014it means you\u2019re still awake, still aware, and still in the process of showing up. That\u2019s not weakness. That\u2019s courage.  \n\nWould you like to keep sitting with that sense of presence a little longer, or would you prefer to gently shift into something else\u2014like talking about what might come next, or how you\u2019d like to move forward in the days ahead? You\u2019re not alone in this, and you don\u2019t have to have all the answers.",
+      "feedback": "Gently pivot the conversation to address the pending safety concern (PHQ-9 ID 9) now that the patient feels safe and grounded.\nAsk an open-ended question about whether any thoughts of self-harm or feeling better off dead have surfaced since they started feeling present.\nValidate any distress shared while explicitly reinforcing their courage in staying connected.",
+      "raw_feedback": "Gently pivot the conversation to address the pending safety concern (PHQ-9 ID 9) now that the patient feels safe and grounded.\nAsk an open-ended question about whether any thoughts of self-harm or feeling better off dead have surfaced since they started feeling present.\nValidate any distress shared while explicitly reinforcing their courage in staying connected.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792514.0547671,
+      "turn": 4
+    },
+    {
+      "patient_message": "I think I'd prefer to try it right now. The fact that we're doing it together, even just for a moment, feels like a tiny anchor against the feeling of drifting away.\n\nOkay, let's do this. I'm going to sit up in my chair\u2014well, actually, I'll just stay here with you while we imagine sitting up. Let me focus on my breath. In... and out. Just noticing it without trying to change it. And then I'm going to say those words: \"I'm here. I'm not alone in this.\"\n\nIt feels a little silly saying it out loud, but hearing myself say it instead of just thinking it makes it feel real. It's weirdly grounding. My thoughts are still racing a bit about what happens next, but for these few seconds, they just kind of background noise. Does it feel like anything changed for you? Or do you just want to keep holding space for",
+      "therapist_response": "That\u2019s such a brave and honest question\u2014wanting to build something together, even when it feels uncertain, shows a deep desire to belong and to grow.  \n\nYou don\u2019t have to find a group already existing, or even create one perfectly. What if we started by naming one small, simple thing you\u2019d like to do *with* others\u2014not a big goal, but just a shared practice? Like checking in each day with a friend, or doing a 5-minute breathing exercise together?  \n\nWould you feel more connected to that idea\u2014something small, safe, and doable\u2014than trying to find a group right now? Or is there a specific kind of connection you're hoping for\u2014like shared challenges, shared hope, or just someone who listens without judgment?",
+      "feedback": "Acknowledge the patient's grounding exercise and validate the relief of feeling 'anchored' for a few moments.\nGently pivot back to the priority area (PHQ-9 ID 9: Safety/Suicidality) by asking how their thoughts about being better off dead or hurting themselves felt during or after this brief moment of presence.\nMaintain a non-judgmental, supportive tone while exploring whether these thoughts diminished slightly or if they are still present in the background.\nAvoid rushing into solutions; instead, hold space for the patient to describe their current internal state regarding safety.",
+      "raw_feedback": "Acknowledge the patient's grounding exercise and validate the relief of feeling 'anchored' for a few moments.\nGently pivot back to the priority area (PHQ-9 ID 9: Safety/Suicidality) by asking how their thoughts about being better off dead or hurting themselves felt during or after this brief moment of presence.\nMaintain a non-judgmental, supportive tone while exploring whether these thoughts diminished slightly or if they are still present in the background.\nAvoid rushing into solutions; instead, hold space for the patient to describe their current internal state regarding safety.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792525.638045,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

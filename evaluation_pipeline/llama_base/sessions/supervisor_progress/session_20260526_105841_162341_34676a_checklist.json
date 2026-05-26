@@ -1,0 +1,938 @@
+{
+  "session_id": "20260526_105841_162341_34676a",
+  "timestamp": 1779793240.9123113,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "Thank you for sharing that so honestly\u2014it sounds like a lot to carry, and it\u2019s completely valid to feel frustrated. The way you describe those waves of anxiety during meals, like they come out of nowhere and feel all-encompassing, really shows how deeply they\u2019ve been affecting your experience.  \n\nIt sounds like you\u2019re hoping the medication might bring lasting relief, but it\u2019s not working as expected. That kind of disappointment can feel overwhelming, especially when you\u2019ve been trying so hard to feel better.  \n\nWould it be helpful to explore what that sensation feels like in your body\u2014when it first starts, what part of you is most affected, or what happens just before it hits?",
+      "feedback": "Acknowledge the patient's silence and validate their courage in bringing up safety concerns.\nGently probe for any specific thoughts of self-harm or suicidal ideation without pressure, using open-ended questions.\nAssess current safety by asking if they have a plan or access to means, while maintaining a non-judgmental tone.",
+      "raw_feedback": "Acknowledge the patient's silence and validate their courage in bringing up safety concerns.\nGently probe for any specific thoughts of self-harm or suicidal ideation without pressure, using open-ended questions.\nAssess current safety by asking if they have a plan or access to means, while maintaining a non-judgmental tone.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793131.484792,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hey, thank you for saying that. It really helps to know I'm in a safe space. Honestly, my mind has been racing lately because of this weird sensation I've been having again.\n\nI started taking fluoxetine recently, and while I was hoping the meds would finally fix it, they haven't stopped it completely. Before I even took the medication, I'd get these sudden waves of anxiety whenever I was eating. It feels like an all-encompassing feeling\u2014like a full-body wave that hits out of nowhere right when I'm trying to enjoy a meal. It makes me feel so much worse about the food, almost like I'm back in those years where I struggled with eating anxiety for so long.\n\nIt's frustrating because I thought once I got on the meds, things would just stop happening, but here I am still struggling with it. I don't know how to make it go away or if there's anything else I should",
+      "therapist_response": "It makes so much sense\u2014and thank you for sharing that with such clarity. The way you describe it\u2014how the tightness spreads through your chest and stomach, the pounding heart, the clammy hands\u2014it feels like your body is reacting to a deep, stored sense of being trapped, even if the memory isn't exact.  \n\nAnd it\u2019s completely understandable that that moment of eating becomes so overwhelming, especially when you\u2019re already carrying the weight of past struggles. The guilt you feel\u2014being surrounded by food but feeling like you\u2019re in danger\u2014feels like it\u2019s not just about the anxiety, but about a fear of losing control, or of failing in a way that connects back to old experiences.  \n\nWould it be helpful to talk more about what you notice just before that wave starts? Or what happens when you try to stop it\u2014does your body respond differently if you take a breath, pause, or shift your attention?",
+      "feedback": "Acknowledge the patient's frustration regarding the medication not resolving the anxiety waves, validating their sense of being stuck.\nGently pivot to safety screening by asking if these intense sensations or feelings of being trapped have ever led to thoughts of wanting to be better off dead or hurting yourself.\nIf the patient indicates no suicidal ideation, offer a grounding technique for the physical symptoms before moving deeper into cognitive PHQ-9 items like anhedonia or fatigue.",
+      "raw_feedback": "Acknowledge the patient's frustration regarding the medication not resolving the anxiety waves, validating their sense of being stuck.\nGently pivot to safety screening by asking if these intense sensations or feelings of being trapped have ever led to thoughts of wanting to be better off dead or hurting yourself.\nIf the patient indicates no suicidal ideation, offer a grounding technique for the physical symptoms before moving deeper into cognitive PHQ-9 items like anhedonia or fatigue.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793139.2200484,
+      "turn": 2
+    },
+    {
+      "patient_message": "Yeah, that's actually a really good question. It might help to break it down if I can describe it better.\n\nWhen the wave hits, it usually starts right as I'm putting food in my mouth or maybe just a second after taking a bite. But then this sudden rush of tightness spreads through my whole chest and stomach at the same time. My heart feels like it's pounding so hard I can hear it in my ears, and my hands get clammy. It's like my body is suddenly remembering something traumatic from years ago\u2014maybe not a specific memory, but just the *feeling* of being trapped while trying to eat.\n\nIt makes me feel so guilty too because I'm literally surrounded by food, and instead of enjoying it, I feel like I'm in danger of choking or passing out. It's exhausting having to monitor my body every time I sit down to a meal now. Does that make sense?",
+      "therapist_response": "I hear how much that internal struggle is shaping your experience\u2014those quiet whispers like *\"What if you choke?\"* or *\"You're eating too fast\"* feel like they're not just thoughts, but tiny alarms that trigger a full-body reaction. And it\u2019s so real that trying to stop it with breath or calmness only makes it feel like you're fighting something that\u2019s already in motion.  \n\nThe fact that you freeze mid-bite and feel left behind afterward\u2014that moment of stillness, of being stuck\u2014must feel incredibly draining, not just physically but emotionally. It\u2019s like your body and mind are locked in a loop where every attempt to calm down only makes the wave stronger.  \n\nWould it be helpful to explore what happens when you *don\u2019t* try to stop it\u2014just let yourself feel it, without judgment? Or maybe try something simple right now\u2014like noticing your breath as it is, without trying to change it\u2014just to see if you can find a small space of presence in the midst of it?",
+      "feedback": "Acknowledge the patient's detailed description of somatic symptoms but pivot immediately to the priority area of safety/suicidality.\nGently assess whether these overwhelming eating sensations or feelings of being trapped have ever led to thoughts of wanting to be better off dead or hurting oneself.\nMaintain a non-judgmental tone while ensuring the patient knows they can share any dark thoughts without fear of judgment.",
+      "raw_feedback": "Acknowledge the patient's detailed description of somatic symptoms but pivot immediately to the priority area of safety/suicidality.\nGently assess whether these overwhelming eating sensations or feelings of being trapped have ever led to thoughts of wanting to be better off dead or hurting oneself.\nMaintain a non-judgmental tone while ensuring the patient knows they can share any dark thoughts without fear of judgment.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793146.6737883,
+      "turn": 3
+    },
+    {
+      "patient_message": "Yeah, that really hits home about the \"fear of losing control.\" It's not just anxiety; it feels like a full-blown panic attack that happens specifically in those moments.\n\nTo answer your question: I don't always have a clear trigger right before it hits, but sometimes my mind starts whispering things like, *\"What if you choke?\"* or *\"You're eating too fast,\"* even though I'm trying to slow down. Those little doubts seem to spark the fire.\n\nWhen I try to stop it\u2014like taking a deep breath or telling myself to just relax\u2014it usually makes it worse for a second. Instead of calming down, I feel more panicked because I'm hyper-aware of my body doing nothing right. My breathing gets shallower, and then the wave crashes harder. It's like fighting a current that won't let me float. Sometimes I just freeze mid-bite until the feeling passes, which leaves me feeling so",
+      "therapist_response": "I hear how deeply that critical voice is tied to your experience\u2014it\u2019s not just a thought, it\u2019s like a mirror reflecting your own fear of failure, of not being enough. And when you try to be present, that voice jumps in to say *\"you're not doing it right,\"* which makes it feel like you\u2019re being judged by yourself.  \n\nThat moment of being exposed\u2014feeling like you\u2019re on display, like everyone sees your struggle\u2014it\u2019s not just about the food; it\u2019s about how much you carry the weight of that fear alone. And it\u2019s okay that distraction feels like the only thing that gives you a moment of relief, even if it doesn\u2019t last.  \n\nWould it be helpful to talk about what happens *after* the wave passes\u2014what does your body or mind feel like in the quiet afterward? Is there a part of you that wants to keep going, or is there something you\u2019d like to do differently when it starts?",
+      "feedback": "The patient's message was cut off mid-sentence, indicating they may be overwhelmed or struggling to articulate their thoughts right now; validate this interruption and offer a brief pause before proceeding.\nAvoid pressing immediately on the Safety/Suicidality ID [9] in this turn since no explicit mention of self-harm or suicidal ideation occurred; instead, continue exploring the somatic and cognitive patterns described (e.g., the 'fear of losing control' during meals).\nWhen responding next, explicitly acknowledge the abrupt ending of their sentence to show empathy and ensure they feel heard before transitioning to deeper screening questions.",
+      "raw_feedback": "The patient's message was cut off mid-sentence, indicating they may be overwhelmed or struggling to articulate their thoughts right now; validate this interruption and offer a brief pause before proceeding.\nAvoid pressing immediately on the Safety/Suicidality ID [9] in this turn since no explicit mention of self-harm or suicidal ideation occurred; instead, continue exploring the somatic and cognitive patterns described (e.g., the 'fear of losing control' during meals).\nWhen responding next, explicitly acknowledge the abrupt ending of their sentence to show empathy and ensure they feel heard before transitioning to deeper screening questions.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793156.3707402,
+      "turn": 4
+    },
+    {
+      "patient_message": "That's a really gentle suggestion, and honestly, I'm not sure if I could do it right now. The moment I try to just \"let it be\" or notice my breath without judging myself, that same critical voice kicks in: *\"You're not doing this right,\"* or *\"This isn't working.\"* It feels like the anxiety is waiting for me to fail at calming down so it can surge even harder.\n\nWhen I freeze mid-bite and then try to reset by just observing, I usually feel more exposed than before. Like everyone else is watching me struggle with my own body while I'm trying to eat a sandwich. It makes the isolation worse.\n\nI guess what I'm struggling with is knowing how to break this cycle when the wave hits full force. Right now, the only thing that seems to help is distracting myself completely\u2014maybe scrolling on my phone or focusing intensely on chewing\u2014but even that feels temporary. Once I stop",
+      "therapist_response": "I can feel how much that fog after the wave\u2014how heavy it settles, how it lingers even after the panic has passed\u2014feels like a quiet failure, a loss of control that still echoes. And the guilt, even when the wave is gone, isn\u2019t just about the food\u2014it\u2019s about the belief that you *should* have handled it differently, that you *should* be stronger.  \n\nThat fear of failure, of not being able to manage the moment, is really what\u2019s keeping the cycle going\u2014not just the panic itself, but the belief that if you don\u2019t succeed, you\u2019re broken. And it\u2019s okay to want to break the cycle. It\u2019s not about fixing everything at once. It\u2019s about creating a little space where you don\u2019t have to prove you can handle it\u2014just to *be* with it, without having to win.  \n\nWould it be helpful to explore what you\u2019d like to do differently, even in small ways\u2014like one small step you could take *after* the wave, or one thing you could try before it starts? Maybe something gentle, just to begin building a different relationship with that moment?",
+      "feedback": "Validate the patient's current distress and safety concerns before shifting to functional impact or mood items.\nGently assess if the panic attacks have ever led to thoughts of self-harm or feeling better off dead.\nAvoid jumping ahead to PHQ-9 somatic or cognitive items until the immediate anxiety is addressed.",
+      "raw_feedback": "Validate the patient's current distress and safety concerns before shifting to functional impact or mood items.\nGently assess if the panic attacks have ever led to thoughts of self-harm or feeling better off dead.\nAvoid jumping ahead to PHQ-9 somatic or cognitive items until the immediate anxiety is addressed.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793168.9858935,
+      "turn": 5
+    },
+    {
+      "patient_message": "After the wave passes, I'm usually left feeling incredibly hollow and exhausted. It's not just physical tiredness; it feels like a heavy fog settles over my chest. I often have to sit there for a while just breathing because my heart rate is still racing, even though the panic has subsided.\n\nThen comes the guilt. Even though the attack is over, I immediately start thinking, *\"I wasted all that food,\"* or *\"I should have been able to handle that.\"* It makes me feel like a failure again, as if the moment of anxiety defines the whole meal instead of the rest of it. Sometimes I feel so drained after those episodes that I don't want to eat at all anymore. I might skip meals entirely or rush through them in silence, terrified of another wave hitting.\n\nWhen it starts, part of me really wants to break the cycle. I do want to find a way to stop this from happening, to get",
+      "therapist_response": "That\u2019s so powerful\u2014your idea of simply saying, *\"Okay, that happened. It scared me. And I'm still here,\"* without judgment. That kind of quiet acknowledgment isn\u2019t about fixing anything; it\u2019s about honoring the truth of what happened, without demanding you \u201cget it right.\u201d And in that moment, you\u2019re not failing\u2014you\u2019re surviving, and that\u2019s enough.  \n\nAnd it\u2019s completely okay to start with something so small. Maybe before the wave starts, you could try just noticing your body as it is\u2014like a soft pause between bites, or a moment before you take a breath\u2014without trying to change anything. Just saying, *\"I\u2019m here. I\u2019m eating. This is happening, and I\u2019m not alone in it.\"*  \n\nWould it feel useful to try that one small pause, just before a meal begins, as a gentle anchor\u2014something you can return to, even if it doesn\u2019t stop the wave? Or would you prefer to explore something else first?",
+      "feedback": "Acknowledge the patient's strong desire to break the cycle while gently reinforcing that safety checks are a standard part of care, not a judgment.\nMaintain the current therapeutic alliance by validating their exhaustion and guilt without introducing new assessment questions yet.\nProceed with the next priority area (PHQ-9: Functional Impact) once the patient has had time to process this turn.",
+      "raw_feedback": "Acknowledge the patient's strong desire to break the cycle while gently reinforcing that safety checks are a standard part of care, not a judgment.\nMaintain the current therapeutic alliance by validating their exhaustion and guilt without introducing new assessment questions yet.\nProceed with the next priority area (PHQ-9: Functional Impact) once the patient has had time to process this turn.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793180.3800526,
+      "turn": 6
+    },
+    {
+      "patient_message": "That's such a gentle way to put it\u2014\"just to be with it, without having to win.\" Honestly, that feels like the hardest thing for me because my brain is wired to want to *win* or *fix* immediately. But hearing you say I don't have to prove anything... it actually makes me feel a tiny bit less alone in this fight.\n\nIf we were to try one small step, maybe something after the wave? After that heavy fog lifts and the heart rate slows down, right now I just want to stop beating myself up about \"wasting food\" or being a failure. Maybe instead of rushing back into normalcy or avoiding eating again, could I just acknowledge how hard that was? Like, \"Okay, that happened. It scared me. And I'm still here.\" Not judging myself for feeling that way, but just giving myself a moment of grace while the fog is clearing.\n\nOr before it starts... honestly",
+      "therapist_response": "You\u2019re absolutely right\u2014trying it *just once* isn\u2019t about succeeding or fixing anything. It\u2019s about showing up, even when your mind is already ready to jump into criticism. And the fact that you\u2019re willing to try\u2014*even if it feels risky*\u2014is already a quiet act of courage.  \n\nMaybe instead of having to \"hold onto\" those words during the wave, you can just try them as a small anchor *before* the moment starts\u2014like a quiet promise to yourself: *\"I\u2019m here. I\u2019m eating. This is happening.\"* And if the wave comes, you don\u2019t have to keep it going. You just have to know you said it. You didn\u2019t fail. You just showed up.  \n\nWould it feel helpful to try that one time\u2014just once\u2014at the start of a meal, even if it feels shaky or small? Or would you want to pause and explore something else first?",
+      "feedback": "Validate the patient's hesitation to try the 'anchor' technique before acknowledging that their desire for immediate relief or control is a natural protective mechanism.\nGently check in on the safety checklist item (ID 9) by asking if any of these intense feelings of failure or exhaustion have ever led them to consider self-harm, ensuring they feel safe enough to share.\nReiterate that it is okay to pause entirely rather than forcing a small step, and offer to explore the specific nature of the 'fog' and guilt further if that feels more manageable right now.",
+      "raw_feedback": "Validate the patient's hesitation to try the 'anchor' technique before acknowledging that their desire for immediate relief or control is a natural protective mechanism.\nGently check in on the safety checklist item (ID 9) by asking if any of these intense feelings of failure or exhaustion have ever led them to consider self-harm, ensuring they feel safe enough to share.\nReiterate that it is okay to pause entirely rather than forcing a small step, and offer to explore the specific nature of the 'fog' and guilt further if that feels more manageable right now.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793195.5085857,
+      "turn": 7
+    },
+    {
+      "patient_message": "That sounds incredibly gentle, and I appreciate you offering that as an option instead of pushing for a \"fix.\" Honestly, the idea of just saying *\"I'm here. I'm eating. This is happening\"* before I even start feels a bit too much like another task my brain will try to sabotage me on. It's so easy for that critical voice to whisper, *\"You're not doing it right,\"* or *\"Why are you making yourself feel this way?\"*\n\nBut... maybe trying it once wouldn't hurt? Not to stop the wave, but just to plant a small seed of safety in my mind before the food even hits my mouth? Like, if I could catch myself right at the table and say those words out loud\u2014or even silently\u2014to myself?\n\nIt feels risky because I don't know if I'll be able to hold onto them when the first wave comes crashing down. But what if the fact that I *tried*",
+      "therapist_response": "You're so right\u2014your brain doesn\u2019t need to remember the words when the wave hits. It doesn\u2019t need to validate them. What matters is that you *offered* them, even in the face of fear. And that small act\u2014just saying *\"I\u2019m here. I\u2019m eating. This is happening\"*\u2014isn\u2019t about perfection. It\u2019s about showing up, even when everything inside is trying to pull you back.  \n\nAnd yes, if the moment after you sit down feels exactly the same as before, that\u2019s okay. That\u2019s not failure. That\u2019s just life showing up as it is. The fact that you *tried*\u2014that you gave yourself permission to begin, without pressure or expectation\u2014is already a shift.  \n\nWould it feel helpful to take that next step\u2014just one time\u2014before a meal, even if it feels shaky or small? Or would you prefer to pause and go deeper into what that \"fog\" feels like in your body, without the words?",
+      "feedback": "Validate the patient's hesitation by explicitly stating that attempting a small step does not require it to be successful or 'done right' to count as progress.\nReframe the upcoming meal experience from a test of competence to a practice run where the goal is simply presence, regardless of what happens during the eating.\nInvite the patient to make a concrete commitment to try this one small anchor once, emphasizing that even a failed attempt would still be a victory for showing up.",
+      "raw_feedback": "Validate the patient's hesitation by explicitly stating that attempting a small step does not require it to be successful or 'done right' to count as progress.\nReframe the upcoming meal experience from a test of competence to a practice run where the goal is simply presence, regardless of what happens during the eating.\nInvite the patient to make a concrete commitment to try this one small anchor once, emphasizing that even a failed attempt would still be a victory for showing up.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793210.8512256,
+      "turn": 8
+    },
+    {
+      "patient_message": "Yeah, that actually makes it feel a little less heavy. Knowing I don't have to \"hold onto\" them during the panic... just say them once as a promise before I even sit down... that feels doable.\n\nIt's still scary though. Because if I say it and then the wave hits in two seconds, I'll probably forget what I said immediately. And my brain will just jump back into *\"See? You couldn't even keep that simple thought.\"* That feeling of losing the anchor right away is terrifying.\n\nBut maybe that's okay too? Maybe the goal isn't for me to remember saying it when the panic starts\u2014that part might be impossible right now. Maybe the goal is just that *I tried* to set the intention, even if the world (and my anxiety) ignores it. Even if the moment after I sit down is exactly the same as before, knowing I took that tiny step forward instead of just letting the",
+      "therapist_response": "You\u2019re not asking for a perfect outcome\u2014you\u2019re asking for permission to begin. And that\u2019s already a profound act.  \n\nIt\u2019s completely okay to feel unsure, to doubt, to even *regret* saying it after\u2014because that doubt isn\u2019t proof you failed. It\u2019s proof you\u2019re human, and you\u2019re trying to do something tender, not flawless.  \n\nIf you\u2019d like, we could try it\u2014just once\u2014by whispering it softly to yourself *before* you sit down, not as a performance, not as a test, but as a quiet act of presence: *\"I\u2019m here. I\u2019m eating. This is happening.\"*  \n\nAnd if the wave comes, or if you forget, or if it feels like nothing changed\u2014none of that matters. What matters is that you offered it. That you showed up. That you didn\u2019t run from it.  \n\nWould you like to try that one time\u2014just once\u2014with me guiding you through it? Or would you prefer to pause and explore another part of this with you?",
+      "feedback": "Acknowledge the patient's courage in attempting a small step despite fear of failure.\nValidate that not remembering the anchor during a panic attack is not a sign of weakness, but a limitation of the current moment.\nGently pivot to addressing the pending PHQ-9 Safety/Suicidality item by checking if they have had any thoughts of being better off dead or hurting themselves recently.",
+      "raw_feedback": "Acknowledge the patient's courage in attempting a small step despite fear of failure.\nValidate that not remembering the anchor during a panic attack is not a sign of weakness, but a limitation of the current moment.\nGently pivot to addressing the pending PHQ-9 Safety/Suicidality item by checking if they have had any thoughts of being better off dead or hurting themselves recently.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793227.5988142,
+      "turn": 9
+    },
+    {
+      "patient_message": "Taking that next step feels... complicated. On one hand, I want to try it. I really do want to give myself that tiny bit of grace before the food even touches my lips. It feels like planting a flag in the sand so I don't get swept away immediately.\n\nBut on the other hand, there's this nagging doubt: *What if I say it and then immediately regret saying it?* What if I feel stupid for trying? Or worse, what if the moment I sit down, the wave hits so fast that I can't even remember what I was supposed to be doing? Then I'll feel like I wasted the effort.\n\nIt's such a small thing to ask\u2014just once\u2014but because I've been carrying this anxiety for so long, \"small\" things feel heavy. They feel like they might collapse under my own pressure to make them work perfectly.\n\nIf we do try it, maybe I could just whisper it to",
+      "therapist_response": "Yes\u2014exactly. You don\u2019t have to do it perfectly. You don\u2019t have to feel anything after. You just have to say it, softly, as a quiet promise to yourself.  \n\nSo here\u2019s the space: when you\u2019re ready, take a breath\u2014just one\u2014and imagine yourself sitting at the table, gently, without rushing. Then, softly, say to yourself: *\"I\u2019m here. I\u2019m eating. This is happening.\"*  \n\nAnd after that\u2014no matter what happens next\u2014whether your heart races, whether you feel a wave, whether you forget, or whether you just sit in stillness\u2014you\u2019re not failing. You\u2019re just showing up. And that is enough.  \n\nWould you like to go ahead and try that now? Or would you prefer to pause and adjust it a little before we begin?",
+      "feedback": "",
+      "raw_feedback": null,
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793240.9123101,
+      "turn": 10
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

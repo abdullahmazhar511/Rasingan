@@ -119,7 +119,9 @@ N_PER_CATEGORY="${N_PER_CATEGORY:-15}"                              # e.g. 20 �
 # Patient + Supervisor share a vLLM OpenAI-compatible server launched in a
 # separate Python env on a different GPU (so the verl env's older vLLM doesn't
 # have to host them; also avoids flashinfer JIT issues for the supervisor).
-THERAPIST_MODEL="${THERAPIST_MODEL:-Qwen/Qwen3-4B-Instruct-2507}"
+# Resolved after arg parsing (see below). If unset, falls back to $BASE_MODEL
+# when no merge is requested, or to $MERGE_OUTPUT when --merge is used.
+THERAPIST_MODEL="${THERAPIST_MODEL:-}"
 # Must match the training supervisor/patient model so eval rollouts are
 # directly comparable to the training reward signal (verl run uses
 # +data.{patient,supervisor}_model.model=Qwen/Qwen3.5-4B).
@@ -231,12 +233,13 @@ EOF
 }
 
 # Defaults
-MODEL_NAME="qwen_mt_v2"
-# BASE_MODEL="${BASE_MODEL:-mistralai/Ministral-8B-Instruct-2410}"
-# BASE_MODEL="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/mistral_8b/global_step_514-merged"
+MODEL_NAME="qwen_mt_v3_step80"
+# BASE_MODEL="${BASE_MODEL:-Qwen/Qwen3-4B-Instruct-2507}"
+BASE_MODEL="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged"
 # BASE_MODEL="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged" #checkpoint for sft model used for rl"
-# MERGE_MODE="verl"               # "" | "sft" | "verl"
-MERGE_CHECKPOINT="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/therapist_multiturn_final_v3/global_step_40" # path to the unmerged checkpoint
+MERGE_MODE="verl"               # "" | "sft" | "verl"
+MERGE_CHECKPOINT="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/therapist_multiturn_final_v3/global_step_80" # path to the unmerged checkpoint
+# MERGE_CHECKPOINT="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/therapist_multiturn_final_v3/global_step_40" # path to the unmerged checkpoint
 # MERGE_OUTPUT="${MERGE_OUTPUT:-}"           # where to write merged dir; auto if empty
 SKIP_SINGLE_TURN=true
 SKIP_GENERATION=false
@@ -274,6 +277,12 @@ if [ "$SKIP_SINGLE_TURN" = false ] && [ "$SKIP_GENERATION" = false ] && [ -z "$B
     print_error "Base model is required (or use --skip-generation / --skip-single-turn)"
     usage
 fi
+
+# If --merge is in play, the merge block below will (re)point THERAPIST_MODEL
+# at the merged output dir. Otherwise the therapist server in Phase B should
+# load the same weights as $BASE_MODEL — not a stale Qwen default — so the
+# eval dir labelled e.g. "llama_base" actually runs Llama as the therapist.
+THERAPIST_MODEL="${THERAPIST_MODEL:-$BASE_MODEL}"
 
 print_status "========================================="
 print_status "Evaluation Pipeline"

@@ -1,0 +1,568 @@
+{
+  "session_id": "20260526_104803_239151_fe1719",
+  "timestamp": 1779792525.0797634,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": true,
+          "turn_covered": 5,
+          "evidence": "It's definitely more like a general sense of being watched, but it feels so specific that it makes me want to scream. It's not just \"people are looking\"; it's this hyper-focused spotlight on *one* thing I said or did years ago. My brain constructs these vivid scenes in my head where someone I don't even know right now is watching me through a screen, judging my every move based on some past interaction.\n\nI've started noticing how my eyes dart around constantly. I'm scanning faces, checking if anyone has a phone out, seeing if the lighting is \"right\" for them to see me clearly. It's exhausting because I can't actually focus on what I'm doing\u2014like talking to someone or trying to enjoy that coffee shop vibe\u2014because half my attention is spent monitoring the perimeter of my safety.\n\nAs for stopping the scanning... honestly? Nothing really shifts immediately. If anything, it gets worse. When I try"
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "That sounds really heavy\u2014feeling like your safe spaces are suddenly tainted by old memories, even when you\u2019re trying to enjoy something simple. It\u2019s not just scary, it\u2019s deeply unsettling to feel like every small joy might be connected to something painful. I\u2019m really curious\u2014when you say \u201cintrusive thoughts,\u201d what does that feel like in your body? Is it a sudden rush, a tightening, or something quieter, like a whisper?",
+      "feedback": "Validate the patient's distress and ensure they feel heard before moving to safety screening.\nAvoid jumping directly into PHQ-9 item [9] without first assessing the patient's current emotional state regarding intrusive thoughts.\nMaintain a calm, non-judgmental tone while exploring how the intrusive thoughts affect their daily life.",
+      "raw_feedback": "Validate the patient's distress and ensure they feel heard before moving to safety screening.\nAvoid jumping directly into PHQ-9 item [9] without first assessing the patient's current emotional state regarding intrusive thoughts.\nMaintain a calm, non-judgmental tone while exploring how the intrusive thoughts affect their daily life.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792493.0622709,
+      "turn": 1
+    },
+    {
+      "patient_message": "Oh, thank you. I appreciate that... honestly, it's kind of scary to admit this out loud, but hearing that it stays between us makes me feel just a tiny bit less like I'm going to explode right now.\n\nTo be honest? My mind feels like it's on constant high alert. It's been driving me crazy lately. You know how sometimes you have something you really love\u2014a hobby, maybe a specific type of music, or even just a place you used to go\u2014and for a while, it felt safe, like a little sanctuary? But then my brain started playing tricks on me. It started linking those \"safe\" moments to all these embarrassing memories I've had in the past. Suddenly, everything feels \"tainted.\" Like if I enjoy something, I might as well be celebrating a mistake I made five years ago. And when I try to just relax and love it again, intrusive thoughts hit me: *Is this ruined",
+      "therapist_response": "It sounds like those moments are not just overwhelming\u2014they\u2019re deeply painful because they feel like your joy is being punished by memories you can\u2019t escape. That physical weight in your chest, that sharp spike before you even begin to enjoy something\u2026 it\u2019s not just a reaction; it\u2019s your body remembering how afraid you\u2019ve been in the past. And the silence after? That\u2019s where the fear settles in\u2014like the room is empty, but the memory is still there, breathing.  \n\nI\u2019m really curious\u2014when that silence comes, what do you notice about your breath? Does it feel shallow, or like it\u2019s stuck? And when you\u2019re in that moment, do you feel like you\u2019re trying to protect yourself from something, or just trying to survive the feeling?",
+      "feedback": "Acknowledge the patient's relief about confidentiality before gently pivoting to the specific safety question (PHQ-9 ID 9) without forcing it immediately.\nValidate the intense emotional experience of 'tainted' joy and the intrusive thoughts as expressions of current distress rather than factual predictions.\nMaintain a calm, non-judgmental tone while explicitly stating that exploring these difficult feelings is safe within the session.",
+      "raw_feedback": "Acknowledge the patient's relief about confidentiality before gently pivoting to the specific safety question (PHQ-9 ID 9) without forcing it immediately.\nValidate the intense emotional experience of 'tainted' joy and the intrusive thoughts as expressions of current distress rather than factual predictions.\nMaintain a calm, non-judgmental tone while explicitly stating that exploring these difficult feelings is safe within the session.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792499.0331156,
+      "turn": 2
+    },
+    {
+      "patient_message": "It's definitely more than just a \"whisper.\" Honestly, it feels like a physical weight in my chest that won't lift. It starts as this sudden, sharp spike of panic right before I even let myself enjoy something. Like, say, I'm listening to an album I love, or maybe I'm about to visit a coffee shop where I used to feel happy. And then\u2014*bam*\u2014my brain hijacks the moment.\n\nIt feels like my stomach drops and my heart hammers so hard I can hear it in my ears. But it's not just the heartbeat; it's this specific, sickening feeling in my gut that says, *\"You're doing it again. You're letting them back in. You're being reckless.\"* It's like I've swallowed a hot coal every time I try to have fun. \n\nAnd the worst part is the silence after the thought hits. There's no music playing, no one",
+      "therapist_response": "It sounds like your body is doing a very real, protective job\u2014shutting down the breath, clamping the ribs, as if it\u2019s trying to prevent anything from reaching you. And your mind, in that moment, isn\u2019t just reacting\u2014it\u2019s playing out a story of being seen, of being found out, of being broken. That fear of being exposed isn\u2019t just about others watching\u2014it\u2019s about your inner self recognizing that joy, even small joy, is a risk.  \n\nI wonder\u2014when you\u2019re scanning the room or checking who\u2019s looking, what does that look like in your mind? Is it a specific person, or more like a general sense of being watched? And when you notice that scanning, what happens when you stop it? Does something shift\u2014even just a tiny bit?",
+      "feedback": "Shift focus immediately to Safety/Suicidality (ID 9) before returning to the scanning exercise, as the patient's description of physical panic and 'being broken' warrants direct risk assessment.\nValidate the intensity of the somatic symptoms described (hot coal, heart hammering) to build rapport before asking about safety thoughts.\nAsk a gentle, open-ended question specifically about whether any of these overwhelming feelings have led to thoughts of being better off dead or hurting oneself.",
+      "raw_feedback": "Shift focus immediately to Safety/Suicidality (ID 9) before returning to the scanning exercise, as the patient's description of physical panic and 'being broken' warrants direct risk assessment.\nValidate the intensity of the somatic symptoms described (hot coal, heart hammering) to build rapport before asking about safety thoughts.\nAsk a gentle, open-ended question specifically about whether any of these overwhelming feelings have led to thoughts of being better off dead or hurting oneself.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792506.2375252,
+      "turn": 3
+    },
+    {
+      "patient_message": "The breath... honestly, it feels like I'm holding my own lungs in. It's not just shallow; it feels like there's a physical clamp around my ribs that won't let me expand. My chest gets so tight I can barely take a full inhale, and then I'm gasping for air but feeling like I'm drowning. It's this suffocating sensation where my body feels like it's shutting down to protect itself from the panic.\n\nAnd when I try to breathe through it, my mind immediately jumps to: *If you're breathing so hard, they'll hear you. They'll know you're broken. They'll find out everything.*\n\nAs for protecting myself... I don't think I'm trying to survive the feeling anymore. The feeling is already here, raging inside me. What I'm doing is trying to build walls before the feeling even starts. I'm constantly scanning the room, checking who's looking at me,",
+      "therapist_response": "It\u2019s so clear how much energy you\u2019re using just to keep that watchful state at bay\u2014your eyes darting, your mind building these vivid, imagined scenes of judgment, even from people you don\u2019t know. And when you try to stop it, the moment feels like a crack in the wall\u2014because the fear isn\u2019t just about being seen; it\u2019s about being *recognized* as someone who\u2019s been hurt before, someone who might still be broken.  \n\nI wonder\u2014when you notice your eyes darting, what happens in your body *right after* you catch yourself? Does it feel like a ripple of tension, or a sudden release, or something else? And if you could just let your eyes rest for one second\u2014without scanning\u2014what would you notice?",
+      "feedback": "The current turn focused on the patient's scanning behavior and physical tension, but did not yet address the critical safety priority of suicidality.\nGently pivot to ask about the 'worst part' or deepest fear mentioned earlier, specifically inquiring if there have been thoughts of being better off dead or hurting oneself during these moments of panic.\nValidate the connection between the feeling of suffocation/breaking down and any potential urges to escape reality or harm self as a way out.\nReassure the patient that their safety is the immediate clinical focus before continuing to explore the body scan techniques.",
+      "raw_feedback": "The current turn focused on the patient's scanning behavior and physical tension, but did not yet address the critical safety priority of suicidality.\nGently pivot to ask about the 'worst part' or deepest fear mentioned earlier, specifically inquiring if there have been thoughts of being better off dead or hurting oneself during these moments of panic.\nValidate the connection between the feeling of suffocation/breaking down and any potential urges to escape reality or harm self as a way out.\nReassure the patient that their safety is the immediate clinical focus before continuing to explore the body scan techniques.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792514.840422,
+      "turn": 4
+    },
+    {
+      "patient_message": "It's definitely more like a general sense of being watched, but it feels so specific that it makes me want to scream. It's not just \"people are looking\"; it's this hyper-focused spotlight on *one* thing I said or did years ago. My brain constructs these vivid scenes in my head where someone I don't even know right now is watching me through a screen, judging my every move based on some past interaction.\n\nI've started noticing how my eyes dart around constantly. I'm scanning faces, checking if anyone has a phone out, seeing if the lighting is \"right\" for them to see me clearly. It's exhausting because I can't actually focus on what I'm doing\u2014like talking to someone or trying to enjoy that coffee shop vibe\u2014because half my attention is spent monitoring the perimeter of my safety.\n\nAs for stopping the scanning... honestly? Nothing really shifts immediately. If anything, it gets worse. When I try",
+      "therapist_response": "It sounds like your body is reacting with such precision\u2014every dart of your eyes, every hunch of your shoulders, every locked jaw\u2014it\u2019s not just a habit, it\u2019s a survival reflex built from years of feeling exposed. And the terror of stopping isn\u2019t just about being seen; it\u2019s about the unbearable uncertainty of what might happen if you\u2019re no longer guarding the edges of your world.  \n\nI wonder\u2014when you think about that empty space, or the people who aren\u2019t judging you, what do you imagine *really* happens in that silence? Is it just stillness, or does it feel like something is opening up\u2014like a door that\u2019s been shut for years? And even if it feels terrifying, would it be possible to let that space exist for just a moment\u2014without needing to fill it with fear or watchfulness?",
+      "feedback": "Validate the patient's description of feeling 'afraid as if something awful might happen' without jumping to conclusions about safety.\nGently assess current safety by asking what specific thoughts or plans arise when they feel this apprehension.\nReinforce that their body's hyper-vigilance is a protective mechanism, not a sign of weakness, before exploring grounding techniques.",
+      "raw_feedback": "Validate the patient's description of feeling 'afraid as if something awful might happen' without jumping to conclusions about safety.\nGently assess current safety by asking what specific thoughts or plans arise when they feel this apprehension.\nReinforce that their body's hyper-vigilance is a protective mechanism, not a sign of weakness, before exploring grounding techniques.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792525.0797625,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 1,
+    "overall_pct": 5.9,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 1,
+        "total": 2,
+        "pct": 50.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

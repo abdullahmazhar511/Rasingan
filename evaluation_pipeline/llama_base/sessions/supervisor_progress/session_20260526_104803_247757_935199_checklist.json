@@ -1,0 +1,564 @@
+{
+  "session_id": "20260526_104803_247757_935199",
+  "timestamp": 1779792525.1862383,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": true,
+          "turn_covered": 3,
+          "evidence": "That's a really gentle way to ask, and I appreciate you acknowledging the progress I've made. It makes me feel like I'm not just \"broken\" again, but that there are still parts of me that know how to find peace.\n\nHonestly? It's so fleeting it scares me sometimes. But I think it might be something as small as taking a slow breath while staring at my phone screen during those quiet moments before bed. When the panic is raging, my brain is spinning so fast I can't focus on anything else. But if I just sit there and try to match my breathing to the rhythm of the room\u2014or maybe even count to five in my head\u2014I can catch a tiny window where my heart rate drops for about thirty seconds. It feels like... like an anchor dropping into water. Just a little bit.\n\nBut then the next hour hits, and the shaking starts back up. It's frustrating because I want to hold onto those"
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": true,
+          "turn_covered": 3,
+          "evidence": "That's a really gentle way to ask, and I appreciate you acknowledging the progress I've made. It makes me feel like I'm not just \"broken\" again, but that there are still parts of me that know how to find peace.\n\nHonestly? It's so fleeting it scares me sometimes. But I think it might be something as small as taking a slow breath while staring at my phone screen during those quiet moments before bed. When the panic is raging, my brain is spinning so fast I can't focus on anything else. But if I just sit there and try to match my breathing to the rhythm of the room\u2014or maybe even count to five in my head\u2014I can catch a tiny window where my heart rate drops for about thirty seconds. It feels like... like an anchor dropping into water. Just a little bit.\n\nBut then the next hour hits, and the shaking starts back up. It's frustrating because I want to hold onto those"
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "Thank you for sharing that so openly\u2014it really helps me to hear how deeply this has been affecting you. It sounds like the virus wasn\u2019t just a physical thing, but it triggered something in your body and mind that\u2019s been hard to quiet since.  \n\nThe fact that you started meditation and medication and felt some relief is meaningful\u2014it shows you\u2019ve already taken steps toward care, and that\u2019s a big part of the healing process.  \n\nWhat\u2019s one small thing that feels like a moment of calm or peace, even if it\u2019s just for a few seconds, in the midst of all this?",
+      "feedback": "The therapist's response repeated previous validation and medication history rather than addressing the pending safety question.\nThe next turn must explicitly ask about thoughts of being better off dead or hurting oneself to cover ID [9].\nEnsure the tone remains non-judgmental while prioritizing immediate risk assessment before returning to somatic or mood items.",
+      "raw_feedback": "The therapist's response repeated previous validation and medication history rather than addressing the pending safety question.\nThe next turn must explicitly ask about thoughts of being better off dead or hurting oneself to cover ID [9].\nEnsure the tone remains non-judgmental while prioritizing immediate risk assessment before returning to somatic or mood items.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792493.164918,
+      "turn": 1
+    },
+    {
+      "patient_message": "Oh, thank you for saying that... it really means a lot. I've been feeling so stuck lately, and honestly, just hearing someone say they're listening without judgment makes my chest feel a little less tight.\n\nTo be honest? It's overwhelming. I was doing *so* well. You know how it is with anxiety\u2014it can be this quiet thing in the background until something tiny happens and suddenly it's screaming at me again. A couple of weeks ago, I got this stomach virus. Nothing major, right? Just a tummy ache and some sickness. But since then, my anxiety has gone off the rails completely.\n\nI'm having shaking panic attacks almost every single week now, and there's this constant, low-level panic throughout the day that feels exhausting. It's like my body forgot how to stay calm. I started meditation a while back, and after taking medication, I felt like I had finally recovered from all those early days",
+      "therapist_response": "It sounds like you\u2019re noticing something incredibly subtle but powerful\u2014the small breath, the quiet moment, the brief anchor\u2014that gives you a real sense of control, even if it\u2019s just for a few seconds. That\u2019s not just a reaction; it\u2019s a sign of resilience, and you\u2019re not just surviving\u2014you\u2019re learning how to meet the panic with awareness.  \n\nAnd it\u2019s okay that it fades. What matters is that you\u2019re noticing it, and that you\u2019re choosing to show up for those moments, even when it\u2019s hard. Would it be helpful to explore what happens right *before* that moment of calm\u2014what\u2019s in your mind or body just before the breath starts to slow?",
+      "feedback": "Acknowledge the patient's distress about their recovery and the sudden escalation of symptoms following the illness.\nGently validate the intensity of their physical sensations (shaking, constant low-level panic) without rushing to clinical assessment.\nTransition carefully to safety by normalizing the fear response while explicitly asking if they have had any thoughts of self-harm or feeling better off dead in the past week.",
+      "raw_feedback": "Acknowledge the patient's distress about their recovery and the sudden escalation of symptoms following the illness.\nGently validate the intensity of their physical sensations (shaking, constant low-level panic) without rushing to clinical assessment.\nTransition carefully to safety by normalizing the fear response while explicitly asking if they have had any thoughts of self-harm or feeling better off dead in the past week.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792498.9638872,
+      "turn": 2
+    },
+    {
+      "patient_message": "That's a really gentle way to ask, and I appreciate you acknowledging the progress I've made. It makes me feel like I'm not just \"broken\" again, but that there are still parts of me that know how to find peace.\n\nHonestly? It's so fleeting it scares me sometimes. But I think it might be something as small as taking a slow breath while staring at my phone screen during those quiet moments before bed. When the panic is raging, my brain is spinning so fast I can't focus on anything else. But if I just sit there and try to match my breathing to the rhythm of the room\u2014or maybe even count to five in my head\u2014I can catch a tiny window where my heart rate drops for about thirty seconds. It feels like... like an anchor dropping into water. Just a little bit.\n\nBut then the next hour hits, and the shaking starts back up. It's frustrating because I want to hold onto those",
+      "therapist_response": "It sounds like your body and mind are carrying a deep sense of warning\u2014like an old signal that\u2019s been reactivated, not because of something new, but because of how your nervous system remembers past experiences. That tightness in your chest, the hunching shoulders, the trembling\u2014those aren\u2019t just symptoms. They\u2019re your body\u2019s way of saying, *\"This is familiar. This is not safe. This is what happens when I try to keep going.\"*  \n\nAnd it\u2019s completely valid that your brain sees these moments as danger, even when the trigger is something small\u2014like a post or a deadline. It\u2019s like your nervous system is still practicing how to respond to threat, and it\u2019s doing so with the same urgency it did when you were six.  \n\nWould it be helpful to explore what happens *after* that moment\u2014what do you notice in your body or mind when you finally stop the shaking, even if just for a moment?",
+      "feedback": "Validate the patient's current state before pivoting to safety screening; acknowledge their struggle with holding onto calm.\nTransition gently to PHQ-9 Item 9 (suicidality) by normalizing that low mood can accompany anxiety without jumping straight into 'would you like to die?'\nUse a collaborative approach to ask if they have had thoughts of being better off dead or hurting themselves in the last two weeks.",
+      "raw_feedback": "Validate the patient's current state before pivoting to safety screening; acknowledge their struggle with holding onto calm.\nTransition gently to PHQ-9 Item 9 (suicidality) by normalizing that low mood can accompany anxiety without jumping straight into 'would you like to die?'\nUse a collaborative approach to ask if they have had thoughts of being better off dead or hurting themselves in the last two weeks.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 2,
+            "total": 2,
+            "pct": 100.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792506.2047732,
+      "turn": 3
+    },
+    {
+      "patient_message": "That is such a thoughtful question, and honestly... I think about that all the time. It's almost like there's a specific \"trigger button\" inside my head that gets pressed just before the storm breaks.\n\nUsually, it happens when I'm trying to *do* something. Maybe I'm scrolling through social media and someone posts something that makes me feel insecure or inadequate? Or maybe I'm at work (or school) and I'm rushing to finish a task, and my mind starts racing ahead of my body. Suddenly, I feel this tightness in my chest\u2014not just anxiety, but this feeling like I'm holding my breath so hard I can't breathe. My shoulders hunch up toward my ears, and my hands start to tremble a little bit.\n\nIt feels like my brain is interpreting that physical sensation as danger again. Like, \"Oh no, here we go again! The shaking, the panic attacks from when I was six",
+      "therapist_response": "It\u2019s so clear how much your body and mind are still working through that past experience\u2014how the panic isn\u2019t just about the present moment, but about the way your nervous system remembers being unsafe. That spiral of \u201cWhat did I miss?\u201d or \u201cWhy was I so weak?\u201d isn\u2019t just confusion\u2014it\u2019s your mind trying to make sense of a feeling it can\u2019t fully name or control.  \n\nAnd that heavy feeling in your stomach? That\u2019s not just physical\u2014it\u2019s the body holding on to the tension of being unready, of not being safe.  \n\nWould it be helpful to explore what one small thing\u2014something small, simple\u2014would feel like if it could help you *soften* that heavy feeling, even just a little, after the panic has started to pass?",
+      "feedback": "The patient's current disclosure focuses on somatic symptoms and cognitive triggers; explicitly pivot to Safety/Suicidality (ID 9) by validating their distress before asking if they have had thoughts of being better off dead.\nAcknowledge the intensity of their description ('holding my breath', 'trembling') to build safety, then gently check in about any urges or thoughts of self-harm.\nRemind the therapist that assessing suicide risk is a clinical priority over symptom management until safety is confirmed.",
+      "raw_feedback": "The patient's current disclosure focuses on somatic symptoms and cognitive triggers; explicitly pivot to Safety/Suicidality (ID 9) by validating their distress before asking if they have had thoughts of being better off dead.\nAcknowledge the intensity of their description ('holding my breath', 'trembling') to build safety, then gently check in about any urges or thoughts of self-harm.\nRemind the therapist that assessing suicide risk is a clinical priority over symptom management until safety is confirmed.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 2,
+            "total": 2,
+            "pct": 100.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792514.546623,
+      "turn": 4
+    },
+    {
+      "patient_message": "That is such a beautiful way to describe it. \"This is familiar. This is not safe.\" It really hits home that my body isn't just reacting to the virus; it's reacting to *memories* of being unsafe, even if the virus itself is gone.\n\nWhen I finally stop the shaking, or at least try to get control back... honestly? It's messy. It's rarely a clean finish line.\n\nRight after the peak of the panic starts to subside, my mind usually goes into this spiral of \"What did I miss?\" or \"Why was I so weak right now?\" My heart is still hammering like a drum, and my hands are sweaty and cold. I feel like I'm watching myself from the outside, terrified that I'll do it again tomorrow. There's this heavy feeling in my stomach, like I haven't exhaled yet, even though my lungs are full.\n\nBut there is one thing that",
+      "therapist_response": "That\u2019s such a powerful and quiet act\u2014touching something real. It\u2019s not about fixing anything, not about stopping the panic. It\u2019s about grounding yourself in the *now*, in the physical world, like a quiet anchor saying, *\"I am here. This is real. This is not a memory.\"*  \n\nAnd that small act of pressing your hand to a mug or a blanket\u2014something solid, unchanging\u2014feels like your body is finally getting a chance to say, *\"I don\u2019t have to be in the storm. I can just be here, with this.\"*  \n\nWould it be helpful to explore what happens *right after* you touch that object\u2014what do you notice in your body or mind when the tension starts to ease just a little?",
+      "feedback": "The patient's message was cut off mid-sentence ('But there is one thing that'), so no specific checklist item could be addressed in this turn.\nAcknowledge the abrupt ending gently and validate the courage it took to share their experience up to that point.\nWait for the patient to complete their thought before pivoting back to the pending PHQ-9 Safety/Suicidality topic or other somatic symptoms.",
+      "raw_feedback": "The patient's message was cut off mid-sentence ('But there is one thing that'), so no specific checklist item could be addressed in this turn.\nAcknowledge the abrupt ending gently and validate the courage it took to share their experience up to that point.\nWait for the patient to complete their thought before pivoting back to the pending PHQ-9 Safety/Suicidality topic or other somatic symptoms.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 2,
+            "total": 2,
+            "pct": 100.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792525.1862347,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 2,
+    "overall_pct": 11.8,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 2,
+        "total": 2,
+        "pct": 100.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension"
+    ]
+  }
+}

@@ -1,0 +1,568 @@
+{
+  "session_id": "20260526_104803_244057_cbbcc7",
+  "timestamp": 1779792525.277431,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": true,
+          "turn_covered": 3,
+          "evidence": "I appreciate you asking, because honestly, I don't even know where to start without feeling like I'm going to say something wrong. You mentioned my body and my connection with him... that part is the one that actually makes me feel a little better now, even though it was terrifying in the moment.\n\nWhen they woke me up\u2014sort of, I don't remember exactly when I stopped sleeping\u2014I was just numb. My arms were strapped down, there was stuff in my mouth, and I couldn't move. All I could do was cry. It felt so weirdly disconnected, like my body was doing things I wasn't controlling. I tried to nudge the nurse with my foot, she looked at me, and then everything shifted back into \"real\" mode. That's when I started sobbing uncontrollably. They were trying so hard to calm me down while they finished, which was nice, but I was just empty inside."
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "That sounds incredibly overwhelming\u2014what you\u2019re describing feels heavy, and it\u2019s okay to feel shaken by it. The way you\u2019re describing that moment\u2014being suddenly pulled into something so intense, then feeling disconnected, even empty\u2014must have been deeply disorienting. It\u2019s not crazy at all to feel like you\u2019re floating or not quite in your body during that time. And it\u2019s brave of you to share that, especially with your husband carrying you up the stairs. What would you like to explore more about that moment\u2014how it felt in your body, or how it changed your sense of connection with your husband?",
+      "feedback": "The therapist did not address the specific priority area of safety/suicidality (ID 9) despite it being flagged as next.\nAvoid rephrasing the patient's previous trauma narrative; instead, pivot directly to asking about current thoughts of self-harm or feeling better off dead.\nEnsure the next response explicitly validates the severity of suicidal ideation before exploring coping mechanisms.",
+      "raw_feedback": "The therapist did not address the specific priority area of safety/suicidality (ID 9) despite it being flagged as next.\nAvoid rephrasing the patient's previous trauma narrative; instead, pivot directly to asking about current thoughts of self-harm or feeling better off dead.\nEnsure the next response explicitly validates the severity of suicidal ideation before exploring coping mechanisms.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792493.2990503,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hi. Thank you for asking. Honestly, I'm still a little shaky, mostly because the whole thing happened so fast and then... well, I just blanked out.\n\nI guess what brings me in today is that I'm trying to figure out how to talk about it without sounding crazy or making things worse. You know, they gave me those two anxiety pills before we even started, right? They helped me sleep better than ever, but I felt like my anxiety was floating above my chest instead of going away. And then when they woke me up\u2014partially, anyway\u2014I couldn't stop crying. It was so loud in there. I remember nudge-ing someone with my foot until she looked at me, and that's when I started sobbing. By the time they finished, I was just... empty. Just crying and drooling on my husband's face when we got home.\n\nMy husband says he carried me up four flights of",
+      "therapist_response": "It sounds like you were in a state of deep disconnection\u2014your body moving without you feeling in control, and your emotions suddenly surging in a way that felt sudden and overwhelming. That numbness followed by the flood of crying must have been so confusing and frightening. It\u2019s not just about the physical sensations; it\u2019s the way your body and emotions felt like they were operating on a different level. And it\u2019s completely valid that you feel shaky about talking about it\u2014because it really *was* a breaking point. Would you like to explore more about how that moment affected your sense of safety or trust in your body right now?",
+      "feedback": "Acknowledge the patient's current feeling of being 'shaky' and validate their fear of sounding crazy before pivoting to safety.\nDirectly address PHQ-9 Safety Item [9] by gently asking if any thoughts about hurting themselves or wishing they were better off dead have surfaced since the incident.\nMaintain a calm, non-judgmental tone to build trust as the patient continues to process the dissociative episode.",
+      "raw_feedback": "Acknowledge the patient's current feeling of being 'shaky' and validate their fear of sounding crazy before pivoting to safety.\nDirectly address PHQ-9 Safety Item [9] by gently asking if any thoughts about hurting themselves or wishing they were better off dead have surfaced since the incident.\nMaintain a calm, non-judgmental tone to build trust as the patient continues to process the dissociative episode.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792499.0688646,
+      "turn": 2
+    },
+    {
+      "patient_message": "I appreciate you asking, because honestly, I don't even know where to start without feeling like I'm going to say something wrong. You mentioned my body and my connection with him... that part is the one that actually makes me feel a little better now, even though it was terrifying in the moment.\n\nWhen they woke me up\u2014sort of, I don't remember exactly when I stopped sleeping\u2014I was just numb. My arms were strapped down, there was stuff in my mouth, and I couldn't move. All I could do was cry. It felt so weirdly disconnected, like my body was doing things I wasn't controlling. I tried to nudge the nurse with my foot, she looked at me, and then everything shifted back into \"real\" mode. That's when I started sobbing uncontrollably. They were trying so hard to calm me down while they finished, which was nice, but I was just empty inside.",
+      "therapist_response": "It\u2019s so clear how deeply that moment has touched your sense of safety\u2014especially when you connect it to childhood experiences. The way your body felt helpless, small, and out of control then, even though you were trying to protect yourself, mirrors what you felt as a child. And that\u2019s not a sign of weakness\u2014it\u2019s a sign that your body has been trying to protect you all along. The fact that you\u2019re now noticing that pattern is powerful. Would you like to explore what it might mean for you to start trusting your body again, even in small, gentle ways?",
+      "feedback": "Validate the patient's relief at feeling a bit better while maintaining safety by explicitly naming the connection between their current anxiety and the fear of losing control.\nGently probe for any specific thoughts about being better off dead or hurting themselves, framing them as symptoms of the trauma response rather than facts.\nReassure the patient that sharing these difficult thoughts will not make them 'crazy' but is a crucial step toward understanding and healing.",
+      "raw_feedback": "Validate the patient's relief at feeling a bit better while maintaining safety by explicitly naming the connection between their current anxiety and the fear of losing control.\nGently probe for any specific thoughts about being better off dead or hurting themselves, framing them as symptoms of the trauma response rather than facts.\nReassure the patient that sharing these difficult thoughts will not make them 'crazy' but is a crucial step toward understanding and healing.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792506.1229825,
+      "turn": 3
+    },
+    {
+      "patient_message": "Honestly, that question hits pretty hard. Because right now, my body feels... unreliable. Like a stranger I don't know well enough to trust yet.\n\nYou mentioned safety and trust earlier, but in this specific moment, it felt like I was completely stripped of both. When they woke me up partially while I was still strapped down, with needles in my arms and tools in my mouth, my first instinct wasn't \"I need help.\" It was pure panic. But then the crying hit, and for a second, I just... forgot everything else. The fear went away, replaced by this total shutdown where I couldn't speak or move properly.\n\nIt's scary because when I was a kid going to the doctor for sickness, I remember feeling small and helpless. And now, after all these years trying to avoid it, almost making it through only to have that same feeling wash over me again\u2014it makes me wonder if my body is ever truly safe",
+      "therapist_response": "That\u2019s such a honest and important step\u2014wanting to try, even if it feels scary. You\u2019re not asking for perfection; you\u2019re asking for a little more safety, a little more trust, and that\u2019s already a form of courage. The fact that you\u2019re willing to let yourself be vulnerable, even in small ways, shows how much you care about healing. Would you like to start with something very small\u2014a quiet moment when you can just notice your body without trying to fix it or push it into doing something? Maybe just sitting with the feeling of it being present, without needing to change it?",
+      "feedback": "Acknowledge the patient's distress regarding their sense of safety without pressing for an immediate assessment of suicidal ideation.\nValidate the connection between their current feelings and childhood trauma to normalize their reaction rather than framing it as a direct measure of current risk.\nContinue grounding the conversation on body trust and somatic awareness before shifting toward any formal safety or mood screening items.",
+      "raw_feedback": "Acknowledge the patient's distress regarding their sense of safety without pressing for an immediate assessment of suicidal ideation.\nValidate the connection between their current feelings and childhood trauma to normalize their reaction rather than framing it as a direct measure of current risk.\nContinue grounding the conversation on body trust and somatic awareness before shifting toward any formal safety or mood screening items.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792514.0409117,
+      "turn": 4
+    },
+    {
+      "patient_message": "That is such a kind way to put it, and honestly, hearing that my body was \"trying to protect me\" makes so much more sense than thinking I was just weak. It feels like a defense mechanism kicking in after all those years of being hurt\u2014first by the doctors who were rude back then, and now by the situation in here today.\n\nBut you asked about trusting my body again... well, that's the part that scares me the most right now. Because when I think about trusting my body with something like a dentist or even just opening my mouth, I keep remembering how heavy it felt. How I couldn't speak, how I was drooling on my husband's chest while he tried to comfort me. It feels like if I let myself be vulnerable with them again, that same feeling of losing control could come back.\n\nI'm not sure I can trust it yet. Maybe not fully. But I guess I'd like to try",
+      "therapist_response": "Yes, and that\u2019s exactly what you\u2019re doing when you\u2019re just noticing\u2014without needing to fix it, without needing to explain it. You\u2019re not trying to solve the puzzle, you\u2019re just allowing the feeling to be there, like a quiet presence. That tightness in your jaw, that heaviness in your chest\u2014those aren\u2019t flaws or mistakes. They\u2019re signals from your body saying, *I\u2019m still holding on to something that was once unsafe*. And right now, you don\u2019t have to change anything. You just have to be with it. Would you like to stay with that for a moment\u2014just noticing the weight of your arms, the breath in your chest, without moving or trying to shift anything?",
+      "feedback": "Gently pivot from the grounding exercise to address the next priority: Safety/Suicidality ([9]), acknowledging the patient's current focus on bodily trust before exploring deeper distress.\nValidate the patient's hesitation and fear of vulnerability, normalizing that safety is a prerequisite for trust rather than a reward for it.\nInvite the patient to share any recent thoughts about being better off dead or hurting themselves without judgment, offering a safe space to express these feelings.",
+      "raw_feedback": "Gently pivot from the grounding exercise to address the next priority: Safety/Suicidality ([9]), acknowledging the patient's current focus on bodily trust before exploring deeper distress.\nValidate the patient's hesitation and fear of vulnerability, normalizing that safety is a prerequisite for trust rather than a reward for it.\nInvite the patient to share any recent thoughts about being better off dead or hurting themselves without judgment, offering a safe space to express these feelings.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792525.2774298,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 1,
+    "overall_pct": 5.9,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 1,
+        "total": 2,
+        "pct": 50.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

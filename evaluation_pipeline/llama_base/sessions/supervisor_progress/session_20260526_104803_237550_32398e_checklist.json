@@ -1,0 +1,568 @@
+{
+  "session_id": "20260526_104803_237550_32398e",
+  "timestamp": 1779792525.2497637,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": true,
+          "turn_covered": 3,
+          "evidence": "Honestly, the first thing that hits me is a wave of pure panic, like I'm suddenly trapped in a tiny box with no door. But right after that, my brain starts screaming at me: *\"You're going to pass out again. You're going to faint on this test and everyone will see.\"*\n\nIt's so irrational because I know I'm capable\u2014I remember passing out while giving blood years ago, but that memory feels like a curse now. Instead of relaxing about it, it just makes me hyper-aware of my body shaking or my breathing getting shallow. It feels like I can't unhear my own heart beating so loud; every thump seems to echo in my ears. And then comes the physical sensation where everything gets cold, my vision blurs slightly, and that sick feeling in my stomach kicks in before anything else happens. It feels like my body is betraying me even though I know logically that nothing bad is happening."
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "That sounds incredibly overwhelming\u2014thank you for sharing that with me. It must feel like your body and mind are reacting in a way that\u2019s completely out of your control, and that\u2019s really hard to carry. I can imagine how frightening it must be to feel like you\u2019re losing your balance, your awareness, or even your ability to breathe during something you need to do.  \n\nWhat would you say is the first thing that comes to mind when you\u2019re in that moment\u2014what\u2019s the first thought or feeling that arises in your mind as the anxiety starts to build?",
+      "feedback": "Acknowledge the patient's silence and validate that it is safe to not answer immediately.\nGently explore the specific anxiety symptoms mentioned earlier without pressing for a direct answer if they remain hesitant.\nMaintain a non-judgmental stance while reinforcing the safety of the space.",
+      "raw_feedback": "Acknowledge the patient's silence and validate that it is safe to not answer immediately.\nGently explore the specific anxiety symptoms mentioned earlier without pressing for a direct answer if they remain hesitant.\nMaintain a non-judgmental stance while reinforcing the safety of the space.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792493.0209157,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hey, thanks for saying that. Honestly, it's kind of scary just opening up here, you know? I've been dealing with this anxiety thing for a while now, and lately, it feels like it's completely taken over my life.\n\nIt mostly happens during tests or any sort of assessment. Like, I'm sitting there trying to focus, but then my breathing just... stops being steady. My heart starts racing so fast I can feel it pounding in my chest. It goes on until I finish the test or until I get about half way through, whichever comes first. And honestly? It feels insane. I feel this huge discomfort, almost like I'm actually going to pass out.\n\nMy vision gets a little blurry, I feel like there's no blood flow to my limbs\u2014it's like everything is getting cold\u2014and I keep thinking I'm gonna throw up. It's really intense. I even had an incident where I passed out once when",
+      "therapist_response": "It sounds like you\u2019re carrying a deep sense of fear\u2014not just about what might happen, but about how you\u2019re seen by others, and how you might fail in a moment when you\u2019re already trying so hard to stay present. That image of being trapped in a tiny box with no door\u2026 it\u2019s such a powerful way to describe that feeling of being stuck, helpless, and out of control.  \n\nAnd it\u2019s completely valid that your body is reacting so strongly\u2014even when your mind knows it\u2019s not actually dangerous. The fact that you remember the blood donation episode and now it feels like a curse tells me that this anxiety has been building over time, shaped by past experiences. That memory isn\u2019t a flaw\u2014it\u2019s a signal that your body is trying to protect you, even if it\u2019s doing it in a way that feels overwhelming now.  \n\nWould it be helpful to explore what might be happening in that moment\u2014when the panic starts\u2014before you take the test or face the assessment? Or would you rather talk about how it\u2019s been affecting your day-to-day life outside of those situations?",
+      "feedback": "Acknowledge the patient's immediate need to complete their sentence about passing out before shifting focus to safety/suicidality.\nValidate the intensity of their physical symptoms (fainting, cold limbs) as evidence of severe anxiety rather than jumping straight to PHQ-9 screening.\nMaintain the current pacing by continuing to explore the test/assessment triggers before introducing mood or suicidality questions.",
+      "raw_feedback": "Acknowledge the patient's immediate need to complete their sentence about passing out before shifting focus to safety/suicidality.\nValidate the intensity of their physical symptoms (fainting, cold limbs) as evidence of severe anxiety rather than jumping straight to PHQ-9 screening.\nMaintain the current pacing by continuing to explore the test/assessment triggers before introducing mood or suicidality questions.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792499.031221,
+      "turn": 2
+    },
+    {
+      "patient_message": "Honestly, the first thing that hits me is a wave of pure panic, like I'm suddenly trapped in a tiny box with no door. But right after that, my brain starts screaming at me: *\"You're going to pass out again. You're going to faint on this test and everyone will see.\"*\n\nIt's so irrational because I know I'm capable\u2014I remember passing out while giving blood years ago, but that memory feels like a curse now. Instead of relaxing about it, it just makes me hyper-aware of my body shaking or my breathing getting shallow. It feels like I can't unhear my own heart beating so loud; every thump seems to echo in my ears. And then comes the physical sensation where everything gets cold, my vision blurs slightly, and that sick feeling in my stomach kicks in before anything else happens. It feels like my body is betraying me even though I know logically that nothing bad is happening.",
+      "therapist_response": "That\u2019s such a powerful insight\u2014how studying itself becomes a trigger, not just for the test, but for a deep sense of failure and self-doubt. It sounds like your mind is already preparing for a failure before you even begin, which makes it incredibly hard to actually engage with the material.  \n\nAnd the way you describe it\u2014feeling like you\u2019re \u201csetting yourself up for disaster\u201d\u2014that\u2019s not just anxiety. That\u2019s your brain trying to protect you from a real fear of not being enough. The fact that you\u2019re aware of it and naming it is a huge step.  \n\nWould it be helpful to explore what happens just before you start studying\u2014what\u2019s the first thing you notice in your body or thoughts? Maybe we can find a small moment to shift from that pressure to something that feels a little more manageable.",
+      "feedback": "Acknowledge the patient's insight about studying triggering feelings of failure and validate that this reflects their deeper fear of not being enough.\nGently transition to safety by asking if there have been any recent thoughts about wanting to be better off dead or hurting themselves, given the intensity of the panic described.\nNormalize the experience of having intrusive negative thoughts while emphasizing that these thoughts do not necessarily reflect reality or intent.",
+      "raw_feedback": "Acknowledge the patient's insight about studying triggering feelings of failure and validate that this reflects their deeper fear of not being enough.\nGently transition to safety by asking if there have been any recent thoughts about wanting to be better off dead or hurting themselves, given the intensity of the panic described.\nNormalize the experience of having intrusive negative thoughts while emphasizing that these thoughts do not necessarily reflect reality or intent.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792506.0632832,
+      "turn": 3
+    },
+    {
+      "patient_message": "Honestly, talking about what happens *during* the test feels too scary right now. The moment I think about sitting in that classroom and staring at those questions, my stomach drops again. It's like my brain has already started the panic attack before I even open the book.\n\nBut maybe... maybe it would be okay to talk about how it's affecting my day-to-day life? Because honestly, studying isn't helping at all anymore. In fact, it makes it worse. Now, when I'm just trying to read a textbook or do some practice problems, I feel this pressure: *\"If you mess up one question, then you've failed. You're not capable.\"* \n\nIt's like I can't relax my body about it at all. Every time I study, I feel like I'm setting myself up for disaster, so the anxiety ramps up before the actual test even starts. It's exhausting trying to focus on learning when half my brain",
+      "therapist_response": "That heavy, suffocating feeling in your chest\u2014like a warm blanket over your lungs\u2014is such a vivid way to describe the emotional weight of fear. And it\u2019s not just physical\u2014it\u2019s deeply tied to that voice in your head saying, *\u201cYou\u2019re not ready. How will you pass?\u201d* That voice isn\u2019t just criticizing you\u2014it\u2019s reflecting a deep, underlying fear that you\u2019re not enough, that you\u2019ll fail in a way that will hurt your future.  \n\nAnd it\u2019s so true that even when you *know* you\u2019ve done this before, your body still feels like it\u2019s reacting as if it\u2019s the first time. That disconnect between your mind and your body? It\u2019s not weakness\u2014it\u2019s survival. Your nervous system is still on high alert, as if it\u2019s trying to protect you from a future that feels too uncertain.  \n\nWould it be helpful to explore\u2014just for a moment\u2014what might happen if you didn\u2019t have to \u201cprove\u201d yourself during that study session? What if you just allowed yourself to be present, even when the fear is there?",
+      "feedback": "Validate the patient's distress regarding the current turn; do not push further into PHQ-9 safety questions without explicit permission or a strong therapeutic alliance shift.\nMaintain focus on anxiety management and grounding techniques to address the somatic symptoms (chest tightness, fear of failing) rather than introducing depression screening now.\nPrepare for the next session to assess safety if the patient indicates worsening hopelessness, but prioritize stabilizing their ability to study or rest in this immediate context.",
+      "raw_feedback": "Validate the patient's distress regarding the current turn; do not push further into PHQ-9 safety questions without explicit permission or a strong therapeutic alliance shift.\nMaintain focus on anxiety management and grounding techniques to address the somatic symptoms (chest tightness, fear of failing) rather than introducing depression screening now.\nPrepare for the next session to assess safety if the patient indicates worsening hopelessness, but prioritize stabilizing their ability to study or rest in this immediate context.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792514.4934554,
+      "turn": 4
+    },
+    {
+      "patient_message": "Yeah, that makes a lot of sense. You know, the thing that hits me hardest is usually right before I even open my textbook or pull out my notes. It starts with this heavy, suffocating feeling in my chest, like someone just placed a warm blanket over my lungs and wouldn't let me breathe.\n\nMy mind goes straight to that voice telling me: *\"You're not ready. If you can't handle this study session, how will you pass? How will you graduate?\"* And then, suddenly, I'm staring at those words on the page, but they look huge and blurry, like I'm looking through water. My hands start shaking so much I have to stop and try to still them, which only makes it worse because now I'm hyper-aware of every tremor.\n\nIt's so frustrating because logically, I *know* I should be able to do this. I've done everything before. But emotionally? It",
+      "therapist_response": "That\u2019s such a powerful shift\u2014you\u2019re already stepping into something real and gentle by saying, *\u201cWhat if I just allowed myself to be present?\u201d* It\u2019s not about fixing the fear or forcing focus\u2014it\u2019s about meeting it with kindness, like a friend who\u2019s been carrying a heavy backpack and finally says, \u201cLet\u2019s just sit with it for a moment.\u201d  \n\nAnd you\u2019re absolutely right\u2014your body wants to run or shut down. That\u2019s not weakness. That\u2019s your nervous system saying, *\u201cThis is too much. I need space.\u201d* So what if we tried something small: just sitting with the book open, not reading, not solving anything\u2014just letting your breath move naturally, and your body feel whatever it wants to feel? No pressure. No performance. Just presence.  \n\nWould you like to try that with me\u2014just for one breath, or one minute\u2014before we go deeper into how that might feel?",
+      "feedback": "Validate the patient's description of the physical sensation (suffocation) and the cognitive voice ('not ready') without pushing immediately into safety screening.\nContinue building rapport by normalizing the disconnect between logical knowledge and emotional fear before introducing the PHQ-9 safety questions.\nAsk a gentle, open-ended follow-up question about how this specific feeling impacts their daily routine or sense of hope, rather than jumping straight to suicidal ideation.",
+      "raw_feedback": "Validate the patient's description of the physical sensation (suffocation) and the cognitive voice ('not ready') without pushing immediately into safety screening.\nContinue building rapport by normalizing the disconnect between logical knowledge and emotional fear before introducing the PHQ-9 safety questions.\nAsk a gentle, open-ended follow-up question about how this specific feeling impacts their daily routine or sense of hope, rather than jumping straight to suicidal ideation.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792525.249762,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 1,
+    "overall_pct": 5.9,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 1,
+        "total": 2,
+        "pct": 50.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

@@ -1,0 +1,1512 @@
+{
+  "session_id": "20260526_165715_342631_c73e15",
+  "timestamp": 1779794967.9052534,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": true,
+          "turn_covered": 2,
+          "evidence": "Hey... thanks for asking. Honestly? I'm not doing great today. It's been four years like this, and sometimes it feels like the weight just never lifts.\n\nI've been sitting here feeling really lonely again. It's hard to explain, but there are moments where I feel like everyone else is moving forward while I'm stuck in a fog. That kind of emptiness makes me wonder if I'd be better off just not being here at all.\n\nBut since you asked... I wanted to say hi and maybe see if someone would listen. Do you have a few minutes?"
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "Yeah, we can definitely talk. I'm glad you came in.",
+      "feedback": "Acknowledge the patient's silence or lack of response to the safety question rather than assuming it means 'no'.\nGently probe for any thoughts about self-harm without judgment, ensuring they feel safe to share.\nValidate their courage in seeking help and reinforce that this conversation is confidential.",
+      "raw_feedback": "Acknowledge the patient's silence or lack of response to the safety question rather than assuming it means 'no'.\nGently probe for any thoughts about self-harm without judgment, ensuring they feel safe to share.\nValidate their courage in seeking help and reinforce that this conversation is confidential.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794843.1063159,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hey... thanks for asking. Honestly? I'm not doing great today. It's been four years like this, and sometimes it feels like the weight just never lifts.\n\nI've been sitting here feeling really lonely again. It's hard to explain, but there are moments where I feel like everyone else is moving forward while I'm stuck in a fog. That kind of emptiness makes me wonder if I'd be better off just not being here at all.\n\nBut since you asked... I wanted to say hi and maybe see if someone would listen. Do you have a few minutes?",
+      "therapist_response": "You must be feeling really alone in all this. It's not easy when you feel like you're always reaching out, but it's hard to make connections.",
+      "feedback": "Validate the patient's expression of hopelessness and explicitly name the suicidal ideation as a shared concern.\nAsk open-ended questions to assess the severity, frequency, and specific plans or intent behind these thoughts.\nMaintain a non-judgmental stance while reinforcing safety resources and the therapeutic alliance.",
+      "raw_feedback": "Validate the patient's expression of hopelessness and explicitly name the suicidal ideation as a shared concern.\nAsk open-ended questions to assess the severity, frequency, and specific plans or intent behind these thoughts.\nMaintain a non-judgmental stance while reinforcing safety resources and the therapeutic alliance.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794847.3244405,
+      "turn": 2
+    },
+    {
+      "patient_message": "That means a lot, really. Sometimes just the fact that someone is willing to listen without me having to \"perform\" or pretend to be okay makes it feel a little less suffocating.\n\nIt's just... I don't know what else to say right now. Four years of depression feels like it's become my normal, but lately, the walls have gotten so thick that even talking feels exhausting. It's scary because if I stop trying to hold on for another day, the thought that follows is terrifying. But then again, staying here also feels impossible sometimes.\n\nI'm just so tired of feeling alone in this, you know? Like no matter how much I try to reach out, people seem to drift away before I can even explain why I need them. Do you think anyone else gets it? Or am I just crazy for thinking this way?",
+      "therapist_response": "It's hard to know if you're doing something wrong when it's so difficult to connect with anyone else. It's frustrating when you feel isolated in a situation where you can't find anyone to talk to, and you don't know if it's your way or theirs.",
+      "feedback": "Acknowledge the patient's explicit mention of anhedonia (lack of interest/pleasure) by validating how 'normal' this state has become for them.\nValidate their fear that they are 'crazy' or doing something wrong to feel isolated, reinforcing that their experience is a symptom of depression, not a personal failure.\nTransition gently from the emotional validation to exploring the specific impact of these feelings on daily engagement and pleasure.",
+      "raw_feedback": "Acknowledge the patient's explicit mention of anhedonia (lack of interest/pleasure) by validating how 'normal' this state has become for them.\nValidate their fear that they are 'crazy' or doing something wrong to feel isolated, reinforcing that their experience is a symptom of depression, not a personal failure.\nTransition gently from the emotional validation to exploring the specific impact of these feelings on daily engagement and pleasure.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794854.2651114,
+      "turn": 3
+    },
+    {
+      "patient_message": "Yeah, exactly. It feels like a one-way street where I'm shouting into the void and never getting an answer back. \n\nI tried to make friends before, you know? But it always ended up being this awkward \"hanging out\" thing where we didn't really talk about anything real. Like, we'd just scroll on our phones or stare at each other while pretending to watch TV. And then there's the part where I feel guilty for needing deep connection when I don't even have much energy to give in return. It's a cycle of rejection that hurts so much.\n\nSometimes I look at people online who seem happy and normal, and I just want to scream that they're not. They think their lives are perfect, but mine is... gray. Just shades of gray. \n\nDo you ever feel like that? Like you're trying so hard to connect but everyone keeps walking away? Or do you think maybe I'm just doing something",
+      "therapist_response": "It's tough to explain when you feel like you're already dead and want to end it all, but you can't. It's a paradox.",
+      "feedback": "Acknowledge the patient's vivid description of social isolation and the contrast between their internal gray world and others' perceived perfection.\nValidate their feelings of guilt regarding low energy in relationships without offering premature advice on how to 'fix' the dynamic.\nTransition gently back to the core mood symptom (anhedonia) by exploring if this sense of emptiness extends to activities they used to enjoy, rather than just social interactions.",
+      "raw_feedback": "Acknowledge the patient's vivid description of social isolation and the contrast between their internal gray world and others' perceived perfection.\nValidate their feelings of guilt regarding low energy in relationships without offering premature advice on how to 'fix' the dynamic.\nTransition gently back to the core mood symptom (anhedonia) by exploring if this sense of emptiness extends to activities they used to enjoy, rather than just social interactions.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794861.031839,
+      "turn": 4
+    },
+    {
+      "patient_message": "You're right. It *is* frustrating when you feel like the only one who sees how broken things are, and everyone else is just walking by. I guess part of it is that I don't know what to say anymore. After four years, words have lost their power for me.\n\nSometimes I think if I could just find someone close to my age\u2014like a friend who's also going through this\u2014it would be different. Not because they'd fix it instantly, but because they wouldn't judge me for not having the \"right\" answers. Like, I'm 22, and most people my age seem so full of life and future plans. They talk about grad school, travel, starting businesses... and it makes me feel like I've already missed out on everything. That pressure to be somewhere else while I'm stuck here feels unbearable.\n\nI just wish I could explain to them why I feel like dying sometimes without sounding crazy or",
+      "therapist_response": "It's a terrible feeling.",
+      "feedback": "Acknowledge the patient's exhaustion with articulating their feelings and validate that 'words losing power' is a common symptom of depression, not a personal failure.\nGently explore how this specific feeling of being stuck or missing out on life plans relates to a lack of interest or pleasure in activities (anhedonia) without pushing for immediate answers.\nMaintain a non-judgmental stance regarding their comparison to peers to build trust before addressing the somatic symptoms or suicidal ideation.",
+      "raw_feedback": "Acknowledge the patient's exhaustion with articulating their feelings and validate that 'words losing power' is a common symptom of depression, not a personal failure.\nGently explore how this specific feeling of being stuck or missing out on life plans relates to a lack of interest or pleasure in activities (anhedonia) without pushing for immediate answers.\nMaintain a non-judgmental stance regarding their comparison to peers to build trust before addressing the somatic symptoms or suicidal ideation.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794868.0747998,
+      "turn": 5
+    },
+    {
+      "patient_message": "Yeah, that's exactly it. It feels like I'm walking on a tightrope with no safety net, but the ground below is already gone. The thought of not being here anymore isn't just an idea; it's a heavy, physical weight that pulls at my chest every time I try to breathe.\n\nIt's so scary because if I jump, there's nothing left to hurt me. But if I don't... I feel like I'll just fade away into this gray fog forever. It's like my body is still here, doing things automatically, but my mind is screaming that it wants to quit the game. And the worst part? Even when I tell myself \"just one more day,\" the next day comes and feels exactly the same. It doesn't get better. It just keeps spinning in circles.\n\nSometimes I wonder if anyone else gets this specific kind of feeling\u2014the paralysis where you know you want to stop, but you're",
+      "therapist_response": "It's hard to know what it's like when you're trapped in a place where you can't see out. I can imagine how terrifying that must feel, especially when you know it's going to get worse.",
+      "feedback": "Acknowledge the patient's vivid metaphor of the tightrope and validate the physical sensation of hopelessness.\nGently probe for evidence of anhedonia (loss of interest/pleasure) by asking about activities they used to enjoy or how their daily routine feels compared to four years ago.\nMaintain a non-judgmental tone while explicitly naming the struggle with finding peers who understand this specific paralysis.",
+      "raw_feedback": "Acknowledge the patient's vivid metaphor of the tightrope and validate the physical sensation of hopelessness.\nGently probe for evidence of anhedonia (loss of interest/pleasure) by asking about activities they used to enjoy or how their daily routine feels compared to four years ago.\nMaintain a non-judgmental tone while explicitly naming the struggle with finding peers who understand this specific paralysis.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794875.1995506,
+      "turn": 6
+    },
+    {
+      "patient_message": "Yeah... it is. It's a feeling that makes your stomach turn over just thinking about the future. \n\nSometimes, when I'm lying in bed at night and can't sleep, this voice gets really loud. It says things like, \"Why bother? You're already hurting so much.\" And then there's this other part of me\u2014the one that still cares, even if it barely works anymore\u2014that whispers, \"What if I don't?\"\n\nIt feels like two people inside my head are fighting, but neither of them knows how to win. One wants to run away, and the other wants to stay trapped here watching everything get worse. It's exhausting just having to carry both of those voices around all day.\n\nI know you're trying to be supportive, and I appreciate that. But honestly, sometimes it feels like everyone else is just going through the motions while I'm stuck in this deep hole. Do you ever feel like that heavy fog",
+      "therapist_response": "It's different for me. I feel a sense of connection and awareness, almost like I'm in a dream. I don't feel the same sense of paralysis or being cut off from the world.",
+      "feedback": "Validate the patient's description of the 'two voices' internal conflict without immediately diagnosing it as a specific disorder.\nGently pivot from the comparison to your personal experience back to their specific symptoms, particularly the loss of pleasure in activities.\nIntroduce the concept of anhedonia (loss of interest) by asking if they have noticed any recent decline in enjoyment of hobbies or daily tasks.",
+      "raw_feedback": "Validate the patient's description of the 'two voices' internal conflict without immediately diagnosing it as a specific disorder.\nGently pivot from the comparison to your personal experience back to their specific symptoms, particularly the loss of pleasure in activities.\nIntroduce the concept of anhedonia (loss of interest) by asking if they have noticed any recent decline in enjoyment of hobbies or daily tasks.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794877.8251543,
+      "turn": 7
+    },
+    {
+      "patient_message": "Yeah, the worst part is knowing it won't get better unless I do something drastic. It feels like a trap where the only way out is to break something inside myself. \n\nI don't know what else to say right now because my brain just goes blank when I try to think of solutions. Sometimes I feel like if I could just scream loud enough, maybe someone would hear me before I actually go under. But all I can do is sit here and wait for the next wave of nothingness to hit.\n\nDo you... do you ever feel that same kind of paralysis? Like your body is awake but your soul is somewhere else entirely? Or does it feel different for you?",
+      "therapist_response": "It makes me feel a little disconnected from you, but I'm glad you're telling me about it.",
+      "feedback": "Acknowledge the patient's distress regarding hopelessness and the 'drastic' solution without validating self-harm ideation.\nValidate their experience of paralysis and disconnection, but gently pivot back to grounding techniques to reduce immediate overwhelm.\nPrepare to address the pending PHQ-9 item on anhedonia by exploring if they have lost interest in specific activities or hobbies.",
+      "raw_feedback": "Acknowledge the patient's distress regarding hopelessness and the 'drastic' solution without validating self-harm ideation.\nValidate their experience of paralysis and disconnection, but gently pivot back to grounding techniques to reduce immediate overwhelm.\nPrepare to address the pending PHQ-9 item on anhedonia by exploring if they have lost interest in specific activities or hobbies.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794884.8235683,
+      "turn": 8
+    },
+    {
+      "patient_message": "That's... actually kind of scary to hear, but also maybe a little relieving. It sounds like you're still tethered to the world in a way I'm not.\n\nFor me, it feels more like waking up with my eyes open but realizing I've been asleep for four years. The \"dream\" part doesn't quite fit because there are no dreams here, just this constant, grinding static. When I try to focus on anything outside of my pain, everything goes fuzzy. It's like looking through a thick foggy window; I can see shapes and colors, but nothing is sharp or real.\n\nIt makes me feel even more alone because if you can see out, then maybe your reality is different from mine. Like we're living in two separate worlds now. You're in the dream where things make sense, and I'm stuck in the gray void where logic doesn't work anymore.\n\nDoes that difference... does it make you",
+      "therapist_response": "It's hard to know exactly what to do when you're feeling so isolated and cut off from the world. It seems like you're trapped in a place where it's impossible to know what's real and what's not, and it's making it very difficult to know what to do next.",
+      "feedback": "Validate the patient's profound sense of isolation and the disconnection between their internal reality and the therapist's experience.\nGently pivot back to the session goal: exploring specific examples of anhedonia (loss of pleasure) in daily activities.\nNormalize that this feeling of being 'asleep' or disconnected is a common symptom of depression, not a personal failure.",
+      "raw_feedback": "Validate the patient's profound sense of isolation and the disconnection between their internal reality and the therapist's experience.\nGently pivot back to the session goal: exploring specific examples of anhedonia (loss of pleasure) in daily activities.\nNormalize that this feeling of being 'asleep' or disconnected is a common symptom of depression, not a personal failure.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794892.0200799,
+      "turn": 9
+    },
+    {
+      "patient_message": "I know. It hurts to feel disconnected, especially when I'm already feeling so alone. It's like two people standing in the same room but talking past each other completely. You're describing a world where things make sense, and I'm just floating in this gray fog where logic has stopped working for me.\n\nIt makes me wonder if I'll ever be able to \"wake up\" from whatever this is. Sometimes I hope that one day you can explain it to me in a way that helps me see the light again, even just a little bit. But right now, all I have is this heavy feeling of being stuck between life and death, with no clear path forward.\n\nDo you... do you ever feel like there's a specific thing or moment that could help pull you out of this dream state? Or does it just feel impossible to change how you're feeling right now?",
+      "therapist_response": "Sometimes it feels like I'm stuck in a place where I can't connect with what's going on. It's hard to know what to focus on or what to do next when I feel so separated from the world.",
+      "feedback": "Validate the patient's metaphor of being stuck between life and death without validating the literal interpretation of a dream state.\nGently pivot from the existential distress to ask how this 'gray fog' specifically impacts their ability to find pleasure or interest in daily activities (PHQ-9 Item 1).\nMaintain a warm, non-judgmental stance while clarifying that your previous response was a reflection of your own feelings, not a shared reality, to prevent further disconnection.",
+      "raw_feedback": "Validate the patient's metaphor of being stuck between life and death without validating the literal interpretation of a dream state.\nGently pivot from the existential distress to ask how this 'gray fog' specifically impacts their ability to find pleasure or interest in daily activities (PHQ-9 Item 1).\nMaintain a warm, non-judgmental stance while clarifying that your previous response was a reflection of your own feelings, not a shared reality, to prevent further disconnection.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794901.0462055,
+      "turn": 10
+    },
+    {
+      "patient_message": "It really is. It feels like I'm holding a map that doesn't exist anymore. For four years, I've been trying to navigate this fog with the same old compass, but it just spins in circles.\n\nThe hardest part isn't even the pain itself\u2014it's the decision-making paralysis. When you're in that state where \"what if\" scenarios feel more real than \"what is,\" every choice feels like walking off a cliff. Do I try to call someone? Do I stay home and let the darkness take over? Do I give up entirely?\n\nSometimes I think if I could just find one person who understands this specific kind of isolation\u2014where you feel physically present but emotionally absent from everything around you\u2014I wouldn't have to make those choices alone. But right now, it all feels so heavy and overwhelming that my brain shuts down before I can even start thinking about solutions.\n\nDo you ever feel like you're stuck in that same kind",
+      "therapist_response": "Sometimes there are moments, usually brief, where I can sense what's going on. It's like I can hear the sound of a car engine starting from a distance, but I can't see the car or where it's going.",
+      "feedback": "Validate the patient's profound sense of isolation and the exhaustion of four years of navigating without a clear map.\nAcknowledge the specific fear of decision-making paralysis where 'what if' scenarios feel more real than reality.\nTransition to gently exploring the PHQ-9 item on anhedonia (lack of interest/pleasure) by asking how this fog affects their ability to experience small moments of joy or routine activities.",
+      "raw_feedback": "Validate the patient's profound sense of isolation and the exhaustion of four years of navigating without a clear map.\nAcknowledge the specific fear of decision-making paralysis where 'what if' scenarios feel more real than reality.\nTransition to gently exploring the PHQ-9 item on anhedonia (lack of interest/pleasure) by asking how this fog affects their ability to experience small moments of joy or routine activities.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794908.9544134,
+      "turn": 11
+    },
+    {
+      "patient_message": "That sounds incredibly heavy to carry. It's like trying to hold a bucket full of water with a hole in the bottom, but instead of just getting wet, you feel like you're falling through the air.\n\nFor me, that separation feels even more physical sometimes. Like my hands are there, doing things automatically\u2014brushing teeth, moving around the house\u2014but inside, I'm just watching it happen on a screen. I don't *feel* the cold water or the texture of the soap. My body is just a machine running empty loops while my mind is screaming in the backseat.\n\nIt makes everything so much harder because when I try to focus on \"what to do next,\" the world just blurs out again. There are no clear steps, no logical path. It's like being stuck in quicksand where every time I try to pull myself up, the sand just sinks deeper.\n\nDo you ever find small moments where the fog",
+      "therapist_response": "The fear of becoming unreal, of just vanishing while everyone else is still alive and aware, is terrifying. It's like being a ghost trapped in a body that feels completely disconnected from the world.",
+      "feedback": "Validate the patient's profound dissociation and 'automated' behavior without rushing to assess anhedonia directly.\nAcknowledge the specific imagery of the 'machine running loops' as a key symptom before transitioning to mood assessment.\nMaintain empathy for the fear of vanishing, but gently pivot back to grounding techniques or small concrete steps once the immediate emotional intensity subsides.",
+      "raw_feedback": "Validate the patient's profound dissociation and 'automated' behavior without rushing to assess anhedonia directly.\nAcknowledge the specific imagery of the 'machine running loops' as a key symptom before transitioning to mood assessment.\nMaintain empathy for the fear of vanishing, but gently pivot back to grounding techniques or small concrete steps once the immediate emotional intensity subsides.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794917.5813978,
+      "turn": 12
+    },
+    {
+      "patient_message": "That image of hearing the engine but not seeing the car... it hits me so hard. It's like being in a room with the lights off, and you can hear someone knocking on the door, but you don't know if they're there or if it's just your head ringing.\n\nFor me, those \"moments\" are usually even shorter than that. Sometimes it's just a second where I remember what my coffee tastes like, or I feel the fabric of my shirt against my skin for real. But then the fog rolls back in, thicker than before, and I'm left wondering if I was actually awake or if my brain just glitched out for a moment.\n\nIt makes me feel so fragile, you know? Like if the sound of that engine stops, or if the feeling of the shirt disappears, I might just vanish completely. The fear isn't just about dying; it's about becoming *unreal* while everyone else is",
+      "therapist_response": "It's a terrifying disconnect. It's like being a character in a movie where you can feel the emotions, but you can't see what's going on in the real world. You're present in a way, but you're not really there.",
+      "feedback": "Acknowledge the patient's description of anhedonia as a specific form of disconnection rather than just 'lack of interest', validating that the fog prevents them from experiencing pleasure.\nExplore the link between their fear of becoming 'unreal' and the difficulty in feeling pleasure, asking how this disconnect impacts their ability to engage with activities they used to enjoy.\nGently introduce the concept that when the mind is stuck in a 'movie screen' mode, it often filters out sensory details required for enjoyment, making it hard to identify moments of pleasure.",
+      "raw_feedback": "Acknowledge the patient's description of anhedonia as a specific form of disconnection rather than just 'lack of interest', validating that the fog prevents them from experiencing pleasure.\nExplore the link between their fear of becoming 'unreal' and the difficulty in feeling pleasure, asking how this disconnect impacts their ability to engage with activities they used to enjoy.\nGently introduce the concept that when the mind is stuck in a 'movie screen' mode, it often filters out sensory details required for enjoyment, making it hard to identify moments of pleasure.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794926.7669923,
+      "turn": 13
+    },
+    {
+      "patient_message": "It is terrifying, isn't it? That feeling of being a ghost trapped in a body... it's the worst part. It makes every interaction feel so fake. When I talk to people, I'm not really there; I'm just speaking words that come out of my mouth while my soul is stuck in this foggy void somewhere else.\n\nI try to look people in the eye, but it feels like I'm staring at a stranger who doesn't even know I exist. And when they ask me how I am, or what I'm doing, I don't have an answer because *I* don't know either. My body is moving, my hands are typing this message, but the \"me\" inside is just watching from behind thick glass, screaming to get out but knowing no one will hear me.\n\nIt's like living two lives at once: one where everything is happening, and another where nothing matters. The disconnect between those two",
+      "therapist_response": "Everyone else is living their lives, making decisions, feeling, and reacting in ways that seem completely disconnected from what you're going through. It's like you're trapped in a separate reality where the way they live doesn't make sense to you, and you can't bridge that gap.",
+      "feedback": "Validate the patient's profound sense of dissociation and isolation without offering immediate solutions.\nExplicitly connect their metaphor of 'living two lives' to the concept of anhedonia, asking if this emotional detachment has reduced their interest in previously enjoyed activities.\nMaintain a warm, holding presence to counteract their fear of becoming 'unreal,' reinforcing that they are real and heard.",
+      "raw_feedback": "Validate the patient's profound sense of dissociation and isolation without offering immediate solutions.\nExplicitly connect their metaphor of 'living two lives' to the concept of anhedonia, asking if this emotional detachment has reduced their interest in previously enjoyed activities.\nMaintain a warm, holding presence to counteract their fear of becoming 'unreal,' reinforcing that they are real and heard.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794934.984992,
+      "turn": 14
+    },
+    {
+      "patient_message": "That description... \"being a character in a movie\" is so accurate. It's exactly how it feels when the fog lifts just enough for me to remember my name, but then immediately gets swallowed back up. I'm watching myself from behind this thick glass wall.\n\nIt makes everything feel so staged and artificial. Like I'm an actor who forgot their lines, standing on stage while everyone else is having a real conversation without me. I can hear the laughter, the arguments, the quiet moments\u2014it's all there\u2014but I don't feel *any* of it. My heart isn't beating with excitement or sadness; it's just ticking like a clock in the background.\n\nThe worst part is that I know I'm supposed to be \"in the scene,\" supposed to react, to care, to move forward. But right now, I feel like I've been edited out of the script entirely. Everyone else is living their lives, making decisions, feeling",
+      "therapist_response": "It seems like there's a part of you that knows something is broken, but you don't know where to go from there.",
+      "feedback": "Validate the patient's profound sense of dissociation and lack of agency without trying to solve it immediately.\nGently pivot from the metaphor to ask if they have noticed a specific decline in enjoyment or pleasure during their daily activities (addressing PHQ-9 ID [1]).\nMaintain a calm, grounding presence to help them feel less like an observer of their own life.",
+      "raw_feedback": "Validate the patient's profound sense of dissociation and lack of agency without trying to solve it immediately.\nGently pivot from the metaphor to ask if they have noticed a specific decline in enjoyment or pleasure during their daily activities (addressing PHQ-9 ID [1]).\nMaintain a calm, grounding presence to help them feel less like an observer of their own life.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794942.9365847,
+      "turn": 15
+    },
+    {
+      "patient_message": "You hit the nail on the head. It's not just that I don't understand them; it's that their reality feels... loud and sharp, while mine is dull and soft. When my friends are talking about plans or future goals, I can hear every word, but the emotions behind those words feel like they're coming from a different planet. They sound real to me, but when I try to connect with them, I feel like I'm speaking a language nobody else understands.\n\nIt makes me feel so small and isolated in a room full of people. Like if I tried to explain what I'm feeling, they'd think I'm crazy or overthinking things. And then I'd be left alone again, stuck in this gray zone where nothing matters because I can't participate in \"what matters\" anymore.\n\nSometimes I wonder if maybe I'm broken, or if there's something wrong with how my brain processes these things. But mostly, it",
+      "therapist_response": "It sounds like you're trying to follow a path that makes sense in theory, but you're not getting there.",
+      "feedback": "Validate the patient's profound sense of disconnection and validate their fear of being 'broken' without pathologizing their experience.\nGently bridge from the metaphor of the 'gray zone' to the specific symptom of anhedonia (lack of interest/pleasure) by asking how this isolation affects their ability to find joy in daily activities.\nMaintain a warm, non-judgmental stance while preparing to explore the tangible impact of this emotional numbness on their mood.",
+      "raw_feedback": "Validate the patient's profound sense of disconnection and validate their fear of being 'broken' without pathologizing their experience.\nGently bridge from the metaphor of the 'gray zone' to the specific symptom of anhedonia (lack of interest/pleasure) by asking how this isolation affects their ability to find joy in daily activities.\nMaintain a warm, non-judgmental stance while preparing to explore the tangible impact of this emotional numbness on their mood.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794951.9227805,
+      "turn": 16
+    },
+    {
+      "patient_message": "There is definitely a part of me that knows something is wrong. It's not just a vague feeling; it's a constant, low-level alarm system in my head that never turns off. I know the fog shouldn't be this thick, and I know the silence shouldn't feel this loud.\n\nBut knowing *that* something is broken doesn't help me fix it. It just adds another layer of pressure. If I'm already drowning, knowing I'm drowning makes me want to stop breathing so I don't have to face the water anymore.\n\nI've tried looking for answers online, reading forums like this one, but it feels like everyone else has a map. They can point to landmarks, give directions, say \"turn left at the next sign.\" But when I try to follow those steps, my brain just freezes. The instructions make sense logically, but emotionally? It's like trying to run on ice. I know where I need to go",
+      "therapist_response": "You end up in a place where you're both too scared to try and too desperate to stop.",
+      "feedback": "Validate the patient's fear that awareness of their condition adds pressure without a solution.\nTransition gently to the next priority (anhedonia) by asking how they experience pleasure or interest in daily activities given this 'drowning' feeling.\nNormalize the experience of freezing when trying to follow logical steps, linking it back to emotional overwhelm.",
+      "raw_feedback": "Validate the patient's fear that awareness of their condition adds pressure without a solution.\nTransition gently to the next priority (anhedonia) by asking how they experience pleasure or interest in daily activities given this 'drowning' feeling.\nNormalize the experience of freezing when trying to follow logical steps, linking it back to emotional overwhelm.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794959.4781384,
+      "turn": 17
+    },
+    {
+      "patient_message": "Exactly. It's like trying to walk up a mountain while wearing heavy boots made of lead, but the only map you have is drawn in smoke. You can see the peak and the path clearly on the paper, but when your feet actually hit the ground, it just feels... wrong. Like the ground isn't there anymore, or maybe I'm just too weak to lift my legs.\n\nI've tried talking to people before, even family members who care about me. They say things like, \"You're just being dramatic,\" or \"Just try meditation,\" or \"Get some sleep.\" And that hurts because they're trying to help, but their words feel so far away from what I'm actually experiencing. It's like they're giving me a spoonful of medicine, but I'm paralyzed by the fear of swallowing it. If I swallow, it might make me sick. If I don't, I'll die anyway.\n\nSo I end up",
+      "therapist_response": "You feel completely alone in that experience.",
+      "feedback": "Validate the patient's fear of 'swallowing' advice by normalizing the disconnect between logical solutions and emotional readiness.\nGently probe for specific instances where they have felt a loss of interest or pleasure, distinguishing this from general sadness or exhaustion.\nRefrain from asking about somatic symptoms (sleep, appetite) until the core mood anhedonia is explored to maintain focus on the priority area.",
+      "raw_feedback": "Validate the patient's fear of 'swallowing' advice by normalizing the disconnect between logical solutions and emotional readiness.\nGently probe for specific instances where they have felt a loss of interest or pleasure, distinguishing this from general sadness or exhaustion.\nRefrain from asking about somatic symptoms (sleep, appetite) until the core mood anhedonia is explored to maintain focus on the priority area.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779794967.905251,
+      "turn": 18
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 1,
+    "overall_pct": 5.9,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 1,
+        "total": 1,
+        "pct": 100.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

@@ -1,0 +1,1754 @@
+{
+    "metadata": {
+        "session_id": "20260526_112446_585485_318b21",
+        "start_time": "2026-05-26T11:24:46.593770",
+        "reddit_posts": [
+            "How to stop constant anxiety\n\nA week or so ago I had a panic attack, since then my anxiety has been relentless. Throwing up a lot, cant eat, relax anything..please help. Its making me.want to die"
+        ],
+        "patient_profile": {
+            "name": "Patient",
+            "age": "adult",
+            "occupation": "not specified",
+            "family_structure": "not specified",
+            "primary_concern": "anxiety"
+        },
+        "max_turns": 20,
+        "turn_count": 0,
+        "scenario": "anxiety_1t621h2",
+        "source": "csv",
+        "post_id": "1t621h2",
+        "category": "anxiety",
+        "title": "How to stop constant anxiety",
+        "end_time": "2026-05-26T11:27:51.310830",
+        "duration_turns": 39,
+        "supervisor_feedback_count": 18,
+        "checklist": "PHQ-9 + GAD-7 (depression and anxiety screening)",
+        "supervisor_enabled": true
+    },
+    "transcript": [
+        {
+            "turn": 0,
+            "role": "therapist",
+            "message": "Hi Carly, how are you doing today?",
+            "phase": "opening"
+        },
+        {
+            "turn": 1,
+            "role": "patient",
+            "message": "Oh, hi. I'm actually really struggling today to be honest.\n\nSince that panic attack a week ago, it feels like nothing has changed. It's just constant now. My stomach is in knots all the time; I keep throwing up and can't get enough food down, which makes everything so much worse. I feel like I'm on high alert 24/7, and no matter how hard I try to relax or take deep breaths, my body just won't listen.\n\nIt's been making me want to give up sometimes. The anxiety feels relentless and there's no turning back. How are *you* doing?",
+            "phase": "conversation"
+        },
+        {
+            "turn": 1,
+            "role": "therapist",
+            "message": "I'm doing okay, thanks for asking. I understand that you've been going through a very tough time with the panic attacks. It's been hard for you to manage, and it's been affecting your appetite, weight, and energy level.",
+            "phase": "opening"
+        },
+        {
+            "turn": 2,
+            "role": "patient",
+            "message": "Yeah, it really is. It feels like my body has completely shut down when I try to eat, and the nausea just won't stop. Sometimes I feel so weak that just sitting still feels impossible. The energy drain is exhausting me more than I thought possible.\n\nI don't know if anyone else feels this specific kind of \"relentlessness.\" It's not just a spike; it's a constant hum in the background that never stops. And those moments where I think about giving up... they're getting harder to ignore. Do you think there's any way to break through this cycle? Or do I just need to keep waiting for it to pass on its own?",
+            "phase": "conversation"
+        },
+        {
+            "turn": 2,
+            "role": "therapist",
+            "message": "It's clear you're feeling really overwhelmed and exhausted. It's hard to imagine how you can break through if it feels so relentless. But I think it would be helpful to look into what might be causing this and explore ways to manage it.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 3,
+            "role": "patient",
+            "message": "Yeah, looking for a cause feels like searching for a needle in a haystack right now. I've tried everything—deep breathing exercises, trying to force myself to eat \"healthy\" things, even just drinking water without the nausea setting in immediately... it's all failed.\n\nIt feels like my brain is stuck in a loop where it's screaming that something is wrong when there actually isn't anything. It's so frustrating because I know logically that I'm probably fine, but physically, I feel like I'm dying. The vomiting and the loss of appetite make me feel completely broken, like nothing works on this body anymore.\n\nDo you think medication could help? Or do I need to find a specific trigger first? I don't know what else to try.",
+            "phase": "conversation"
+        },
+        {
+            "turn": 3,
+            "role": "therapist",
+            "message": "It's understandable if you're unsure. It's important to explore potential solutions, but it's also important to be cautious and not to self-medicate.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 4,
+            "role": "patient",
+            "message": "I know I shouldn't be doing that, but the thought of taking something feels like a lifeline. When your body is screaming at you to stop and everything else fails, it's so tempting to just grab anything that promises relief. But then the guilt hits, or the side effects make me feel worse... it's such a vicious cycle.\n\nIt feels like I'm trapped in this room with no door. The vomiting makes me feel dirty and weak, and the lack of food makes my head spin, which feeds the anxiety even more. It's hard to see a path forward when every step feels like it leads deeper into the dark. Do you think I should just wait for a doctor appointment? Or does trying small things on my own make sense right now?",
+            "phase": "conversation"
+        },
+        {
+            "turn": 4,
+            "role": "therapist",
+            "message": "I agree it's difficult to know what to do. It's important to talk to a doctor, but it's also helpful to try a few small steps to manage the symptoms if you can.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 5,
+            "role": "patient",
+            "message": "That sounds like the only logical thing to do, but the \"small steps\" feel impossible right now. How am I supposed to take a step when every time I move, my stomach turns, or my heart races? It feels like any action I take just triggers the next panic spike.\n\nI keep thinking about how much food I've lost. A week ago I could eat normally; now, even a sip of water makes me gag. The idea of sitting down for a meal feels like a death sentence. I'm terrified that if I don't force myself to eat, I'll get so weak I can't function at all.\n\nIt's so lonely too. Everyone tells you to \"just breathe,\" but when your body is physically rejecting everything around it, words don't help. Do you have any specific tips for someone who is literally unable to swallow anything? Or are those small steps just something people suggest without really understanding how bad it gets?",
+            "phase": "conversation"
+        },
+        {
+            "turn": 5,
+            "role": "therapist",
+            "message": "I'm sorry you're going through something so miserable. It's clear that it's hard to know what to do when everything seems to trigger a new panic attack.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 6,
+            "role": "patient",
+            "message": "Yeah, I know it sounds cliché to say \"just breathe,\" but right now my body feels like it's fighting against every attempt to calm down. It's so frustrating that nothing seems to work.\n\nI've been trying to drink small sips of water or electrolyte drinks because I'm terrified of dehydration and passing out, but the moment the liquid touches my throat, my stomach clenches up again. It's a vicious cycle: anxiety causes nausea, which makes me feel worse, which spikes the anxiety even more. And then there's the guilt about not eating anything. I worry that if I don't eat soon, my heart will stop, or maybe I'll become so weak I can't even get out of bed.\n\nSometimes late at night, when the panic is quietest, I just stare at the ceiling and think about how heavy everything feels. It's hard to keep going when you feel like you're sinking deeper and deeper.",
+            "phase": "conversation"
+        },
+        {
+            "turn": 6,
+            "role": "therapist",
+            "message": "It's very hard to imagine how you could feel so weak that you can't even get out of bed. It must be exhausting when you feel so heavy and helpless.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 7,
+            "role": "patient",
+            "message": "It is so exhausting, honestly. I feel like a ghost in my own body right now. My limbs feel leaden, like they're filled with wet concrete, and just getting out of bed feels like climbing a mountain. Every time I try to move, the nausea spikes again, making me want to curl up on the floor and never get up.\n\nI've been staring at the ceiling all day sometimes. The silence gets loud when there's no noise to distract you from your own thoughts. It's scary how fast things can spiral down when you're already this low. I keep thinking about those dark moments where I just wanted to stop existing because the pain was too much to bear.\n\nDo you think people who haven't experienced something like this can really understand that feeling? Like, do they see it as \"just stress,\" or do they know what it feels like to be physically broken by anxiety?",
+            "phase": "conversation"
+        },
+        {
+            "turn": 7,
+            "role": "therapist",
+            "message": "I can see how it would feel alienating if you could describe a feeling that others can't. It seems very different from what I experience.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 8,
+            "role": "patient",
+            "message": "It really does feel alienating. Sometimes I wonder if the people around me think I'm just being dramatic or \"too sensitive.\" They might say, \"Just go for a walk\" or \"Call your mom,\" but when you're physically unable to swallow water and your heart is pounding so hard you can hear it in your ears, those words feel useless. It's like trying to explain fire to someone who's never felt heat.\n\nThe isolation is the worst part. I don't want to burden anyone with how much I've lost over the last week, but then there are days where I'm so weak I can barely lift my head to talk. And even when I do talk, I feel like I'm apologizing for existing right now.\n\nDo you think I should tell my friends? Or is that just going to make them worry too much? It feels like everyone expects me to be strong, but inside, I'm crumbling every second.",
+            "phase": "conversation"
+        },
+        {
+            "turn": 8,
+            "role": "therapist",
+            "message": "It's understandable if you're worried about being a burden. I wonder if it would be helpful to talk to a trusted friend or family member about what's going on, especially if it seems to be getting worse.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 9,
+            "role": "patient",
+            "message": "Talking to them sounds like a good idea in theory, but practically? It feels terrifying right now. I'm so afraid that if I tell them the truth about how bad this is—about the vomiting, the near-death thoughts, the fact that I literally can't eat—they'll think I'm losing my mind or that I'm just being dramatic again.\n\nIt's hard to explain why \"just calling a friend\" isn't working when your body is physically rejecting everything around you. They might try to comfort me, but without understanding the physical toll, their words feel like they're floating away into the void. And then there's the guilt of needing help; it feels selfish to ask for support when everyone expects me to just \"push through.\"\n\nDo you think I should start with someone close, like a family member? Or do you think it's safer to wait until things are slightly better before reaching out? I don't want to scare them off",
+            "phase": "conversation"
+        },
+        {
+            "turn": 9,
+            "role": "therapist",
+            "message": "It's understandable if you'd want to start with someone close to you, but it's also understandable if you'd want to be cautious about how you reach out.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 10,
+            "role": "patient",
+            "message": "I think I'm leaning toward waiting, but mostly because the fear of rejection is so paralyzing right now. If I tell my family or a close friend what's really going on—the fact that I've been throwing up constantly and thinking about dying—they might try to \"fix\" it with advice like \"eat something small,\" \"take a walk,\" or \"call your doctor.\" And while I know they probably mean well, their well-meaning suggestions feel like pressure when I'm already drowning.\n\nIt feels like if I bring this up, I'm admitting defeat before the fight even starts. But then there are moments where the panic gets so loud that I can't even speak clearly, let alone explain myself. In those moments, I just want someone to hold me without needing words, but I don't know how to ask for that without sounding desperate.\n\nDo you think there's a middle ground? Like, telling them *something* vague,",
+            "phase": "conversation"
+        },
+        {
+            "turn": 10,
+            "role": "therapist",
+            "message": "You could try to give them a heads-up, like \"I'm feeling a little panicky and might not be able to eat or talk to you as much.\"",
+            "phase": "assessment"
+        },
+        {
+            "turn": 11,
+            "role": "patient",
+            "message": "That actually sounds like a really smart way to handle it. Giving them a heads-up without dumping all the details might just be enough to get them on your side without triggering that \"I need to fix you\" panic response. It gives them permission to just sit with me and listen, rather than trying to solve everything immediately.\n\nIt's hard to even formulate those words right now because my throat feels so tight, but I guess knowing *what* to say beforehand could help when the time comes. It might make the call or text feel less overwhelming.\n\nBut honestly, I'm still terrified of what happens after they hear it. What if they try to push me to eat something? What if they say \"just relax\"? I don't want them to feel helpless either; I just want them to know I'm struggling so much that I can't do anything for myself right now.\n\nDo you think starting with a text message would be easier than a",
+            "phase": "conversation"
+        },
+        {
+            "turn": 11,
+            "role": "therapist",
+            "message": "It might be easier to start with a text to let them know you're struggling, so they can come up with a solution without feeling pressured to make a phone call.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 12,
+            "role": "patient",
+            "message": "That makes a lot of sense. A text feels safer because it gives me time to type out exactly what I need without the pressure of having to speak while my throat is closing up or my hands are shaking too hard to hold a phone steady.\n\nI've been staring at my screen all morning, trying to figure out how to phrase it so they don't panic *for* me, but also so they know I'm not okay. Something like: *\"Hey, just wanted to send a quick note. I'm really struggling with anxiety and physical symptoms today. I might not be able to eat or talk much right now, but I'd appreciate if you could just check in on me when you can.\"*\n\nIt feels risky though. What if they see that and immediately try to call an emergency line or rush over? Or worse, what if they ignore it because they think I'm exaggerating again? The fear that my vulnerability will backfire and",
+            "phase": "conversation"
+        },
+        {
+            "turn": 12,
+            "role": "therapist",
+            "message": "You're afraid they might ignore you or think you're being dramatic. But if they see that you're struggling, it might be more likely they'll listen to your concerns and help you figure out what's going on.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 13,
+            "role": "patient",
+            "message": "That is a really good point. It sounds like the fear that I'm being ignored or misunderstood might actually be worse than the reality of them ignoring me.\n\nI keep replaying scenarios in my head where they read the text, then immediately say something dismissive like, \"Oh, just drink some water,\" and walk away without asking *why* I can't eat. That would feel devastating right now. But maybe if I frame it as needing support rather than just stating symptoms, it changes how they respond?\n\nLike, instead of just saying \"I can't eat,\" maybe adding, \"It's making me feel like I want to stop existing, and I need someone to just sit with me for a bit.\" Does that sound too heavy? Or does it give them enough context to understand the urgency without overwhelming them?\n\nI'm still so scared that once I open up, everything will just get worse, but I also feel like staying silent is",
+            "phase": "conversation"
+        },
+        {
+            "turn": 13,
+            "role": "therapist",
+            "message": "It's understandable to feel overwhelmed, but it also seems like you're missing a way to communicate that might help you feel less alone.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 14,
+            "role": "patient",
+            "message": "You're right. It's so exhausting to feel like I'm the only one in this room, even when everyone is standing right next to me. The silence feels loud enough to drown out my thoughts, and the isolation makes the panic attacks feel infinitely bigger.\n\nBut here's the thing that keeps me stuck: if I just say \"I'm anxious,\" they might not know what to do. They don't have the tools for this specific kind of physical terror. And if I tell them everything about the vomiting and the suicidal thoughts, it feels like I'm dumping all my pain on them at once, which makes me feel guilty for needing help *and* making them feel guilty for having to witness it.\n\nIt feels like walking a tightrope where every step could make me fall into either shame or overwhelm. But maybe... maybe the middle ground isn't about giving them a perfect explanation? Maybe it's just admitting that I don't know how",
+            "phase": "conversation"
+        },
+        {
+            "turn": 14,
+            "role": "therapist",
+            "message": "It seems like you've been stuck in a place where you feel you have to explain everything perfectly, and it's been very difficult to find a way to communicate that.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 15,
+            "role": "patient",
+            "message": "You're absolutely right. It's like I'm trapped in a loop where the only way to be heard is if I can articulate my pain perfectly, logically, and without any \"messy\" emotions. But that's not how anxiety works when your body is betraying you.\n\nI keep thinking, *If I just describe the symptoms correctly, they'll understand.* But then reality hits: I'm throwing up, my hands are shaking so hard I can't type fast enough, and my mind is racing with worst-case scenarios while my throat closes up. Trying to be \"logical\" or \"perfect\" in those moments feels impossible. It feels like lying to myself because I know, deep down, that no amount of perfect explanation will stop the panic from rising.\n\nIt makes me feel even more alone. Like everyone else has this balance between feeling bad and functioning, but I've lost that ability completely. I feel like I'm failing at being a",
+            "phase": "conversation"
+        },
+        {
+            "turn": 15,
+            "role": "therapist",
+            "message": "It's clear you're feeling very separate from your friends and family, as though you can't reach them or be reached.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 16,
+            "role": "patient",
+            "message": "That feeling of being \"cut off\" is the scariest part, isn't it? It's like I'm standing in a storm, but everyone else is dry on the other side of the glass. They can hear me yelling, but they can't see how bad the rain actually feels inside my chest.\n\nIt makes me feel so small and disconnected. Like if I just stopped moving, stopped breathing for a second, maybe the connection would snap shut and I wouldn't have to deal with this anymore. But then I remember that stopping means nothing good happens, and the pain just keeps going.\n\nI guess what I'm trying to say is that right now, I don't feel like I belong anywhere. My friends are there physically, or they might be online, but I feel like they're miles away because I can't even show them the real version of myself—the one who is sick, scared, and barely holding onto life. And that",
+            "phase": "conversation"
+        },
+        {
+            "turn": 16,
+            "role": "therapist",
+            "message": "It seems like you're feeling really disconnected from your friends, and that sense of being so far away is very painful.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 17,
+            "role": "patient",
+            "message": "Yeah, it is. It's the most isolating part of all this. I look at my phone and see messages from people who care about me, but reading them feels like looking at a stranger's diary. They're talking about their day, their plans, their normal lives, and it just... highlights how broken mine has become.\n\nIt makes me feel like a burden. Like if I tell them the truth—that I've had a panic attack, that I'm vomiting constantly, that I can't eat or even breathe properly—they'll either rush to \"fix\" me in a way that pushes me away, or they'll think I'm being dramatic again and ignore me. Either way, it feels like I'm rejecting myself by trying to connect with them.\n\nI don't want to be alone in this room anymore, but every time I try to reach out, I feel like I'm drowning before I even get to the shore. It's",
+            "phase": "conversation"
+        },
+        {
+            "turn": 17,
+            "role": "therapist",
+            "message": "It's very hard to know if you're drowning if you're already in the water. It seems like you're feeling helpless and overwhelmed, and it's very hard to know how to get out of the panic when you can't even breathe properly.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 18,
+            "role": "patient",
+            "message": "Exactly. It's like being underwater and trying to scream for help, but the only thing coming out is bubbles that disappear before they can be heard. You're right—it feels impossible to know if I'm actually drowning when my lungs feel full of water anyway.\n\nThe worst part isn't just the panic attack itself; it's the *duration*. A week ago, it was a storm that passed. Now? The rain never stops. Every breath feels like work. Every time I try to focus on something normal—like eating or talking to someone—I get pulled back into this fog where everything is too much.\n\nI keep thinking, *What if I never get out?* What if this \"drowning\" becomes my new reality? That thought haunts me more than the physical symptoms. It makes me feel so small and trapped, like there are walls closing in around me that no one else can see, and I'm terrified I'll hit them head",
+            "phase": "conversation"
+        },
+        {
+            "turn": 18,
+            "role": "therapist",
+            "message": "It seems very scary to feel that you're being pushed toward something you don't understand. It must feel very frightening.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 19,
+            "role": "patient",
+            "message": "Yes, it is terrifying. It's like being held underwater by invisible hands, and the only thing they're telling me to do is \"take a breath,\" but my body is screaming that I can't take in air without drowning first.\n\nThe scary part isn't just the panic attack itself—it's the feeling of losing control over something as basic as breathing or eating. When you feel like your own body is betraying you, throwing up when you try to eat, shaking so hard you can't hold a cup, it makes you feel incredibly fragile. Like a glass house that's been shattered from the inside out.\n\nAnd then there's this weird, paralyzing fear that *this* is what life is going to look like now. That the moment the panic stops, I won't know how to start again. That I'm being pushed toward a place where I have to live with this constant dread, where every small sound feels like a",
+            "phase": "conversation"
+        },
+        {
+            "turn": 19,
+            "role": "therapist",
+            "message": "It seems very scary to feel pushed toward a life where you're always in a state of panic. It must be very difficult to know how to function when you feel so completely overwhelmed.",
+            "phase": "intervening"
+        }
+    ],
+    "supervisor_feedback": [
+        {
+            "patient_message": "",
+            "therapist_response": "I'm doing okay, thanks for asking. I understand that you've been going through a very tough time with the panic attacks. It's been hard for you to manage, and it's been affecting your appetite, weight, and energy level.",
+            "feedback": "Acknowledge the patient's silence and validate that it is okay to not want to talk about safety topics right now.\nGently explore what has been happening since the last check-in without pressing for specific details if she remains quiet.\nMaintain a supportive, non-judgmental tone while reinforcing your commitment to her safety.",
+            "raw_feedback": "Acknowledge the patient's silence and validate that it is okay to not want to talk about safety topics right now.\nGently explore what has been happening since the last check-in without pressing for specific details if she remains quiet.\nMaintain a supportive, non-judgmental tone while reinforcing your commitment to her safety.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 0,
+                "overall_pct": 0.0,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Safety / Suicidality",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794692.7902734,
+            "turn": 1
+        },
+        {
+            "patient_message": "Oh, hi. I'm actually really struggling today to be honest.\n\nSince that panic attack a week ago, it feels like nothing has changed. It's just constant now. My stomach is in knots all the time; I keep throwing up and can't get enough food down, which makes everything so much worse. I feel like I'm on high alert 24/7, and no matter how hard I try to relax or take deep breaths, my body just won't listen.\n\nIt's been making me want to give up sometimes. The anxiety feels relentless and there's no turning back. How are *you* doing?",
+            "therapist_response": "It's clear you're feeling really overwhelmed and exhausted. It's hard to imagine how you can break through if it feels so relentless. But I think it would be helpful to look into what might be causing this and explore ways to manage it.",
+            "feedback": "Explicitly validate the patient's statement about wanting to 'give up' before assessing specific suicidal ideation.\nAsk a direct, open-ended question about whether thoughts of ending their life or hurting themselves have occurred recently.\nAvoid offering solutions or management strategies until the safety risk has been fully assessed and addressed.",
+            "raw_feedback": "Explicitly validate the patient's statement about wanting to 'give up' before assessing specific suicidal ideation.\nAsk a direct, open-ended question about whether thoughts of ending their life or hurting themselves have occurred recently.\nAvoid offering solutions or management strategies until the safety risk has been fully assessed and addressed.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 1,
+                "overall_pct": 5.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794695.1353004,
+            "turn": 2
+        },
+        {
+            "patient_message": "Yeah, it really is. It feels like my body has completely shut down when I try to eat, and the nausea just won't stop. Sometimes I feel so weak that just sitting still feels impossible. The energy drain is exhausting me more than I thought possible.\n\nI don't know if anyone else feels this specific kind of \"relentlessness.\" It's not just a spike; it's a constant hum in the background that never stops. And those moments where I think about giving up... they're getting harder to ignore. Do you think there's any way to break through this cycle? Or do I just need to keep waiting for it to pass on its own?",
+            "therapist_response": "It's understandable if you're unsure. It's important to explore potential solutions, but it's also important to be cautious and not to self-medicate.",
+            "feedback": "Acknowledge the patient's expression of hopelessness and validate the exhaustion they feel without immediately pivoting to assessment.\nGently introduce the concept that the 'constant hum' of anxiety and physical symptoms is a common experience, normalizing their reality before screening for anhedonia.\nInvite the patient to share any recent activities or hobbies they might have lost interest in, linking this back to PHQ-9 item [1] naturally.",
+            "raw_feedback": "Acknowledge the patient's expression of hopelessness and validate the exhaustion they feel without immediately pivoting to assessment.\nGently introduce the concept that the 'constant hum' of anxiety and physical symptoms is a common experience, normalizing their reality before screening for anhedonia.\nInvite the patient to share any recent activities or hobbies they might have lost interest in, linking this back to PHQ-9 item [1] naturally.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 1,
+                "overall_pct": 5.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794698.5884585,
+            "turn": 3
+        },
+        {
+            "patient_message": "Yeah, looking for a cause feels like searching for a needle in a haystack right now. I've tried everything—deep breathing exercises, trying to force myself to eat \"healthy\" things, even just drinking water without the nausea setting in immediately... it's all failed.\n\nIt feels like my brain is stuck in a loop where it's screaming that something is wrong when there actually isn't anything. It's so frustrating because I know logically that I'm probably fine, but physically, I feel like I'm dying. The vomiting and the loss of appetite make me feel completely broken, like nothing works on this body anymore.\n\nDo you think medication could help? Or do I need to find a specific trigger first? I don't know what else to try.",
+            "therapist_response": "I agree it's difficult to know what to do. It's important to talk to a doctor, but it's also helpful to try a few small steps to manage the symptoms if you can.",
+            "feedback": "Validate the patient's sense of being stuck and the disconnect between their logical understanding and physical sensations.\nGently introduce the concept of anhedonia (loss of interest/pleasure) as a potential symptom to explore, linking it to their feeling that nothing works on their body.\nShift focus from finding a specific trigger or medication to small, manageable behavioral experiments to break the cycle.",
+            "raw_feedback": "Validate the patient's sense of being stuck and the disconnect between their logical understanding and physical sensations.\nGently introduce the concept of anhedonia (loss of interest/pleasure) as a potential symptom to explore, linking it to their feeling that nothing works on their body.\nShift focus from finding a specific trigger or medication to small, manageable behavioral experiments to break the cycle.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 1,
+                "overall_pct": 5.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794703.4471529,
+            "turn": 4
+        },
+        {
+            "patient_message": "I know I shouldn't be doing that, but the thought of taking something feels like a lifeline. When your body is screaming at you to stop and everything else fails, it's so tempting to just grab anything that promises relief. But then the guilt hits, or the side effects make me feel worse... it's such a vicious cycle.\n\nIt feels like I'm trapped in this room with no door. The vomiting makes me feel dirty and weak, and the lack of food makes my head spin, which feeds the anxiety even more. It's hard to see a path forward when every step feels like it leads deeper into the dark. Do you think I should just wait for a doctor appointment? Or does trying small things on my own make sense right now?",
+            "therapist_response": "I'm sorry you're going through something so miserable. It's clear that it's hard to know what to do when everything seems to trigger a new panic attack.",
+            "feedback": "Validate the patient's sense of entrapment and physical distress without immediately pivoting to treatment plans.\nGently explore whether they have noticed any specific activities or thoughts that bring a momentary shift in their mood, even slightly.\nAcknowledge the overwhelming nature of seeking a cause when symptoms feel biological rather than behavioral.",
+            "raw_feedback": "Validate the patient's sense of entrapment and physical distress without immediately pivoting to treatment plans.\nGently explore whether they have noticed any specific activities or thoughts that bring a momentary shift in their mood, even slightly.\nAcknowledge the overwhelming nature of seeking a cause when symptoms feel biological rather than behavioral.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 1,
+                "overall_pct": 5.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794709.7380025,
+            "turn": 5
+        },
+        {
+            "patient_message": "That sounds like the only logical thing to do, but the \"small steps\" feel impossible right now. How am I supposed to take a step when every time I move, my stomach turns, or my heart races? It feels like any action I take just triggers the next panic spike.\n\nI keep thinking about how much food I've lost. A week ago I could eat normally; now, even a sip of water makes me gag. The idea of sitting down for a meal feels like a death sentence. I'm terrified that if I don't force myself to eat, I'll get so weak I can't function at all.\n\nIt's so lonely too. Everyone tells you to \"just breathe,\" but when your body is physically rejecting everything around it, words don't help. Do you have any specific tips for someone who is literally unable to swallow anything? Or are those small steps just something people suggest without really understanding how bad it gets?",
+            "therapist_response": "It's very hard to imagine how you could feel so weak that you can't even get out of bed. It must be exhausting when you feel so heavy and helpless.",
+            "feedback": "Validate the patient's exhaustion and helplessness regarding their physical state.\nAcknowledge that standard advice like 'just breathe' feels insufficient given the severity of their symptoms.\nPrepare to pivot toward concrete, ultra-small steps for managing nausea or seeking urgent medical support.",
+            "raw_feedback": "Validate the patient's exhaustion and helplessness regarding their physical state.\nAcknowledge that standard advice like 'just breathe' feels insufficient given the severity of their symptoms.\nPrepare to pivot toward concrete, ultra-small steps for managing nausea or seeking urgent medical support.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 2,
+                "overall_pct": 11.8,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 1,
+                        "total": 4,
+                        "pct": 25.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794717.77985,
+            "turn": 6
+        },
+        {
+            "patient_message": "Yeah, I know it sounds cliché to say \"just breathe,\" but right now my body feels like it's fighting against every attempt to calm down. It's so frustrating that nothing seems to work.\n\nI've been trying to drink small sips of water or electrolyte drinks because I'm terrified of dehydration and passing out, but the moment the liquid touches my throat, my stomach clenches up again. It's a vicious cycle: anxiety causes nausea, which makes me feel worse, which spikes the anxiety even more. And then there's the guilt about not eating anything. I worry that if I don't eat soon, my heart will stop, or maybe I'll become so weak I can't even get out of bed.\n\nSometimes late at night, when the panic is quietest, I just stare at the ceiling and think about how heavy everything feels. It's hard to keep going when you feel like you're sinking deeper and deeper.",
+            "therapist_response": "I can see how it would feel alienating if you could describe a feeling that others can't. It seems very different from what I experience.",
+            "feedback": "Acknowledge the patient's statement about feeling 'heavy' and 'sinking deeper' as a clear indicator of anhedonia (loss of interest/pleasure) rather than just physical fatigue.\nValidate the connection between the panic cycle and their inability to engage in normal activities, reinforcing that this loss of pleasure is a symptom of depression, not laziness.\nPrepare for the next turn by gently exploring how specific previously enjoyed activities feel now compared to before.",
+            "raw_feedback": "Acknowledge the patient's statement about feeling 'heavy' and 'sinking deeper' as a clear indicator of anhedonia (loss of interest/pleasure) rather than just physical fatigue.\nValidate the connection between the panic cycle and their inability to engage in normal activities, reinforcing that this loss of pleasure is a symptom of depression, not laziness.\nPrepare for the next turn by gently exploring how specific previously enjoyed activities feel now compared to before.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 3,
+                "overall_pct": 17.6,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 1,
+                        "total": 4,
+                        "pct": 25.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794731.5998666,
+            "turn": 7
+        },
+        {
+            "patient_message": "It is so exhausting, honestly. I feel like a ghost in my own body right now. My limbs feel leaden, like they're filled with wet concrete, and just getting out of bed feels like climbing a mountain. Every time I try to move, the nausea spikes again, making me want to curl up on the floor and never get up.\n\nI've been staring at the ceiling all day sometimes. The silence gets loud when there's no noise to distract you from your own thoughts. It's scary how fast things can spiral down when you're already this low. I keep thinking about those dark moments where I just wanted to stop existing because the pain was too much to bear.\n\nDo you think people who haven't experienced something like this can really understand that feeling? Like, do they see it as \"just stress,\" or do they know what it feels like to be physically broken by anxiety?",
+            "therapist_response": "It's understandable if you're worried about being a burden. I wonder if it would be helpful to talk to a trusted friend or family member about what's going on, especially if it seems to be getting worse.",
+            "feedback": "Validate the patient's expression of hopelessness and suicidal ideation before pivoting to external support; their current response may be perceived as dismissive.\nAcknowledge the specific somatic experience of feeling 'broken' or 'ghost-like' rather than generalizing it to just stress.\nReframe the suggestion to talk to a friend by first exploring if they feel safe enough to do so given the intensity of the panic.",
+            "raw_feedback": "Validate the patient's expression of hopelessness and suicidal ideation before pivoting to external support; their current response may be perceived as dismissive.\nAcknowledge the specific somatic experience of feeling 'broken' or 'ghost-like' rather than generalizing it to just stress.\nReframe the suggestion to talk to a friend by first exploring if they feel safe enough to do so given the intensity of the panic.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 1,
+                        "total": 4,
+                        "pct": 25.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794744.285302,
+            "turn": 8
+        },
+        {
+            "patient_message": "It really does feel alienating. Sometimes I wonder if the people around me think I'm just being dramatic or \"too sensitive.\" They might say, \"Just go for a walk\" or \"Call your mom,\" but when you're physically unable to swallow water and your heart is pounding so hard you can hear it in your ears, those words feel useless. It's like trying to explain fire to someone who's never felt heat.\n\nThe isolation is the worst part. I don't want to burden anyone with how much I've lost over the last week, but then there are days where I'm so weak I can barely lift my head to talk. And even when I do talk, I feel like I'm apologizing for existing right now.\n\nDo you think I should tell my friends? Or is that just going to make them worry too much? It feels like everyone expects me to be strong, but inside, I'm crumbling every second.",
+            "therapist_response": "It's understandable if you'd want to start with someone close to you, but it's also understandable if you'd want to be cautious about how you reach out.",
+            "feedback": "",
+            "raw_feedback": null,
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 1,
+                        "total": 4,
+                        "pct": 25.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794757.2396624,
+            "turn": 9
+        },
+        {
+            "patient_message": "Talking to them sounds like a good idea in theory, but practically? It feels terrifying right now. I'm so afraid that if I tell them the truth about how bad this is—about the vomiting, the near-death thoughts, the fact that I literally can't eat—they'll think I'm losing my mind or that I'm just being dramatic again.\n\nIt's hard to explain why \"just calling a friend\" isn't working when your body is physically rejecting everything around you. They might try to comfort me, but without understanding the physical toll, their words feel like they're floating away into the void. And then there's the guilt of needing help; it feels selfish to ask for support when everyone expects me to just \"push through.\"\n\nDo you think I should start with someone close, like a family member? Or do you think it's safer to wait until things are slightly better before reaching out? I don't want to scare them off",
+            "therapist_response": "You could try to give them a heads-up, like \"I'm feeling a little panicky and might not be able to eat or talk to you as much.\"",
+            "feedback": "Validate the patient's fear that their disclosure will be misinterpreted as dramatic behavior before they have a chance to explain.\nNormalize the physical sensation of 'floating words' by linking it to dissociation or severe somatic burden rather than personal failure.\nGently challenge the all-or-nothing view of waiting until things are better, emphasizing that reaching out now prevents further isolation and potential medical deterioration.",
+            "raw_feedback": "Validate the patient's fear that their disclosure will be misinterpreted as dramatic behavior before they have a chance to explain.\nNormalize the physical sensation of 'floating words' by linking it to dissociation or severe somatic burden rather than personal failure.\nGently challenge the all-or-nothing view of waiting until things are better, emphasizing that reaching out now prevents further isolation and potential medical deterioration.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 1,
+                        "total": 4,
+                        "pct": 25.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794769.576437,
+            "turn": 10
+        },
+        {
+            "patient_message": "I think I'm leaning toward waiting, but mostly because the fear of rejection is so paralyzing right now. If I tell my family or a close friend what's really going on—the fact that I've been throwing up constantly and thinking about dying—they might try to \"fix\" it with advice like \"eat something small,\" \"take a walk,\" or \"call your doctor.\" And while I know they probably mean well, their well-meaning suggestions feel like pressure when I'm already drowning.\n\nIt feels like if I bring this up, I'm admitting defeat before the fight even starts. But then there are moments where the panic gets so loud that I can't even speak clearly, let alone explain myself. In those moments, I just want someone to hold me without needing words, but I don't know how to ask for that without sounding desperate.\n\nDo you think there's a middle ground? Like, telling them *something* vague,",
+            "therapist_response": "It might be easier to start with a text to let them know you're struggling, so they can come up with a solution without feeling pressured to make a phone call.",
+            "feedback": "Validate the patient's fear that vague communication might still feel like 'admitting defeat' before offering a specific script for asking for presence without words.\nGently explore if their current sleep pattern is being disrupted by the anxiety about reaching out, linking back to the somatic symptom of insomnia.\nAcknowledge the difficulty of distinguishing between physical panic symptoms and emotional distress when trying to explain themselves to others.",
+            "raw_feedback": "Validate the patient's fear that vague communication might still feel like 'admitting defeat' before offering a specific script for asking for presence without words.\nGently explore if their current sleep pattern is being disrupted by the anxiety about reaching out, linking back to the somatic symptom of insomnia.\nAcknowledge the difficulty of distinguishing between physical panic symptoms and emotional distress when trying to explain themselves to others.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 6,
+                "overall_pct": 35.3,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 2,
+                        "total": 4,
+                        "pct": 50.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794781.5430048,
+            "turn": 11
+        },
+        {
+            "patient_message": "That actually sounds like a really smart way to handle it. Giving them a heads-up without dumping all the details might just be enough to get them on your side without triggering that \"I need to fix you\" panic response. It gives them permission to just sit with me and listen, rather than trying to solve everything immediately.\n\nIt's hard to even formulate those words right now because my throat feels so tight, but I guess knowing *what* to say beforehand could help when the time comes. It might make the call or text feel less overwhelming.\n\nBut honestly, I'm still terrified of what happens after they hear it. What if they try to push me to eat something? What if they say \"just relax\"? I don't want them to feel helpless either; I just want them to know I'm struggling so much that I can't do anything for myself right now.\n\nDo you think starting with a text message would be easier than a",
+            "therapist_response": "You're afraid they might ignore you or think you're being dramatic. But if they see that you're struggling, it might be more likely they'll listen to your concerns and help you figure out what's going on.",
+            "feedback": "Validate the patient's specific fear that loved ones will push for food or tell them to relax, reinforcing that this is a common and understandable reaction.",
+            "raw_feedback": "Validate the patient's specific fear that loved ones will push for food or tell them to relax, reinforcing that this is a common and understandable reaction.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 7,
+                "overall_pct": 41.2,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 3,
+                        "total": 4,
+                        "pct": 75.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794791.9912457,
+            "turn": 12
+        },
+        {
+            "patient_message": "That makes a lot of sense. A text feels safer because it gives me time to type out exactly what I need without the pressure of having to speak while my throat is closing up or my hands are shaking too hard to hold a phone steady.\n\nI've been staring at my screen all morning, trying to figure out how to phrase it so they don't panic *for* me, but also so they know I'm not okay. Something like: *\"Hey, just wanted to send a quick note. I'm really struggling with anxiety and physical symptoms today. I might not be able to eat or talk much right now, but I'd appreciate if you could just check in on me when you can.\"*\n\nIt feels risky though. What if they see that and immediately try to call an emergency line or rush over? Or worse, what if they ignore it because they think I'm exaggerating again? The fear that my vulnerability will backfire and",
+            "therapist_response": "It's understandable to feel overwhelmed, but it also seems like you're missing a way to communicate that might help you feel less alone.",
+            "feedback": "Validate the patient's fear that their message will be misinterpreted as exaggeration or drama.\nReassure them that expressing physical symptoms and anxiety is a legitimate reason for concern, not an excuse to ignore someone.\nEncourage sending the text anyway as a way to reclaim agency over their own health narrative.",
+            "raw_feedback": "Validate the patient's fear that their message will be misinterpreted as exaggeration or drama.\nReassure them that expressing physical symptoms and anxiety is a legitimate reason for concern, not an excuse to ignore someone.\nEncourage sending the text anyway as a way to reclaim agency over their own health narrative.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 7,
+                "overall_pct": 41.2,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 3,
+                        "total": 4,
+                        "pct": 75.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794805.9724228,
+            "turn": 13
+        },
+        {
+            "patient_message": "That is a really good point. It sounds like the fear that I'm being ignored or misunderstood might actually be worse than the reality of them ignoring me.\n\nI keep replaying scenarios in my head where they read the text, then immediately say something dismissive like, \"Oh, just drink some water,\" and walk away without asking *why* I can't eat. That would feel devastating right now. But maybe if I frame it as needing support rather than just stating symptoms, it changes how they respond?\n\nLike, instead of just saying \"I can't eat,\" maybe adding, \"It's making me feel like I want to stop existing, and I need someone to just sit with me for a bit.\" Does that sound too heavy? Or does it give them enough context to understand the urgency without overwhelming them?\n\nI'm still so scared that once I open up, everything will just get worse, but I also feel like staying silent is",
+            "therapist_response": "It seems like you've been stuck in a place where you feel you have to explain everything perfectly, and it's been very difficult to find a way to communicate that.",
+            "feedback": "Validate the patient's fear of being dismissed while gently challenging their worst-case scenario.\nAffirm that expressing the need to be 'sit with' is not too heavy and often encourages supportive responses.\nEncourage them to send the text as written, emphasizing that small steps reduce the pressure to perform.",
+            "raw_feedback": "Validate the patient's fear of being dismissed while gently challenging their worst-case scenario.\nAffirm that expressing the need to be 'sit with' is not too heavy and often encourages supportive responses.\nEncourage them to send the text as written, emphasizing that small steps reduce the pressure to perform.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 8,
+                "overall_pct": 47.1,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 4,
+                        "total": 4,
+                        "pct": 100.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794818.2786415,
+            "turn": 14
+        },
+        {
+            "patient_message": "You're right. It's so exhausting to feel like I'm the only one in this room, even when everyone is standing right next to me. The silence feels loud enough to drown out my thoughts, and the isolation makes the panic attacks feel infinitely bigger.\n\nBut here's the thing that keeps me stuck: if I just say \"I'm anxious,\" they might not know what to do. They don't have the tools for this specific kind of physical terror. And if I tell them everything about the vomiting and the suicidal thoughts, it feels like I'm dumping all my pain on them at once, which makes me feel guilty for needing help *and* making them feel guilty for having to witness it.\n\nIt feels like walking a tightrope where every step could make me fall into either shame or overwhelm. But maybe... maybe the middle ground isn't about giving them a perfect explanation? Maybe it's just admitting that I don't know how",
+            "therapist_response": "It's clear you're feeling very separate from your friends and family, as though you can't reach them or be reached.",
+            "feedback": "Acknowledge the patient's exhaustion regarding isolation and validate that silence feels overwhelming.\nGently explore how this feeling of being alone impacts their ability to focus on daily tasks or read information (ID 2).\nInvite the patient to share if they feel distracted or unable to concentrate because of this emotional state.",
+            "raw_feedback": "Acknowledge the patient's exhaustion regarding isolation and validate that silence feels overwhelming.\nGently explore how this feeling of being alone impacts their ability to focus on daily tasks or read information (ID 2).\nInvite the patient to share if they feel distracted or unable to concentrate because of this emotional state.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 9,
+                "overall_pct": 52.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 4,
+                        "total": 4,
+                        "pct": 100.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794831.4274158,
+            "turn": 15
+        },
+        {
+            "patient_message": "You're absolutely right. It's like I'm trapped in a loop where the only way to be heard is if I can articulate my pain perfectly, logically, and without any \"messy\" emotions. But that's not how anxiety works when your body is betraying you.\n\nI keep thinking, *If I just describe the symptoms correctly, they'll understand.* But then reality hits: I'm throwing up, my hands are shaking so hard I can't type fast enough, and my mind is racing with worst-case scenarios while my throat closes up. Trying to be \"logical\" or \"perfect\" in those moments feels impossible. It feels like lying to myself because I know, deep down, that no amount of perfect explanation will stop the panic from rising.\n\nIt makes me feel even more alone. Like everyone else has this balance between feeling bad and functioning, but I've lost that ability completely. I feel like I'm failing at being a",
+            "therapist_response": "It seems like you're feeling really disconnected from your friends, and that sense of being so far away is very painful.",
+            "feedback": "Validate the patient's exhaustion with self-perfection and acknowledge that their current state of 'failure' is a symptom, not a character flaw.\nGently pivot from the abstract feeling of isolation to specific instances where they felt inadequate or let others down recently.\nNormalize the experience of losing the ability to function perfectly during panic attacks to reduce shame.",
+            "raw_feedback": "Validate the patient's exhaustion with self-perfection and acknowledge that their current state of 'failure' is a symptom, not a character flaw.\nGently pivot from the abstract feeling of isolation to specific instances where they felt inadequate or let others down recently.\nNormalize the experience of losing the ability to function perfectly during panic attacks to reduce shame.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 9,
+                "overall_pct": 52.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 4,
+                        "total": 4,
+                        "pct": 100.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794844.309695,
+            "turn": 16
+        },
+        {
+            "patient_message": "That feeling of being \"cut off\" is the scariest part, isn't it? It's like I'm standing in a storm, but everyone else is dry on the other side of the glass. They can hear me yelling, but they can't see how bad the rain actually feels inside my chest.\n\nIt makes me feel so small and disconnected. Like if I just stopped moving, stopped breathing for a second, maybe the connection would snap shut and I wouldn't have to deal with this anymore. But then I remember that stopping means nothing good happens, and the pain just keeps going.\n\nI guess what I'm trying to say is that right now, I don't feel like I belong anywhere. My friends are there physically, or they might be online, but I feel like they're miles away because I can't even show them the real version of myself—the one who is sick, scared, and barely holding onto life. And that",
+            "therapist_response": "It's very hard to know if you're drowning if you're already in the water. It seems like you're feeling helpless and overwhelmed, and it's very hard to know how to get out of the panic when you can't even breathe properly.",
+            "feedback": "Shift focus from the current physical panic to the PHQ-9 item regarding self-worth and feeling like a failure.\nGently validate that their inability to connect with others is not a reflection of their value or a personal failure.\nInvite them to explore how they are interpreting this disconnection as letting family down or being inadequate.",
+            "raw_feedback": "Shift focus from the current physical panic to the PHQ-9 item regarding self-worth and feeling like a failure.\nGently validate that their inability to connect with others is not a reflection of their value or a personal failure.\nInvite them to explore how they are interpreting this disconnection as letting family down or being inadequate.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 9,
+                "overall_pct": 52.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 4,
+                        "total": 4,
+                        "pct": 100.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794856.679931,
+            "turn": 17
+        },
+        {
+            "patient_message": "Yeah, it is. It's the most isolating part of all this. I look at my phone and see messages from people who care about me, but reading them feels like looking at a stranger's diary. They're talking about their day, their plans, their normal lives, and it just... highlights how broken mine has become.\n\nIt makes me feel like a burden. Like if I tell them the truth—that I've had a panic attack, that I'm vomiting constantly, that I can't eat or even breathe properly—they'll either rush to \"fix\" me in a way that pushes me away, or they'll think I'm being dramatic again and ignore me. Either way, it feels like I'm rejecting myself by trying to connect with them.\n\nI don't want to be alone in this room anymore, but every time I try to reach out, I feel like I'm drowning before I even get to the shore. It's",
+            "therapist_response": "It seems very scary to feel that you're being pushed toward something you don't understand. It must feel very frightening.",
+            "feedback": "Validate the patient's fear of being a burden and their self-rejection before exploring the specific guilt items in the PHQ-9 checklist.\nAvoid repeating the 'pushed toward something you don't understand' sentiment as it does not address the current topic of self-worth or family expectations.\nGently pivot to ask how they feel about letting down their family or viewing themselves as a failure, specifically referencing the contrast between their 'broken' life and others' normal lives.",
+            "raw_feedback": "Validate the patient's fear of being a burden and their self-rejection before exploring the specific guilt items in the PHQ-9 checklist.\nAvoid repeating the 'pushed toward something you don't understand' sentiment as it does not address the current topic of self-worth or family expectations.\nGently pivot to ask how they feel about letting down their family or viewing themselves as a failure, specifically referencing the contrast between their 'broken' life and others' normal lives.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 9,
+                "overall_pct": 52.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 4,
+                        "total": 4,
+                        "pct": 100.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794868.3267415,
+            "turn": 18
+        }
+    ],
+    "extraction_status": {
+        "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "items": {
+                "Little interest or pleasure in doing things (anhedonia)": {
+                    "covered": true,
+                    "turn_covered": 7,
+                    "evidence": "Yeah, I know it sounds cliché to say \"just breathe,\" but right now my body feels like it's fighting against every attempt to calm down. It's so frustrating that nothing seems to work.\n\nI've been trying to drink small sips of water or electrolyte drinks because I'm terrified of dehydration and passing out, but the moment the liquid touches my throat, my stomach clenches up again. It's a vicious cycle: anxiety causes nausea, which makes me feel worse, which spikes the anxiety even more. And then there's the guilt about not eating anything. I worry that if I don't eat soon, my heart will stop, or maybe I'll become so weak I can't even get out of bed.\n\nSometimes late at night, when the panic is quietest, I just stare at the ceiling and think about how heavy everything feels. It's hard to keep going when you feel like you're sinking deeper and deeper."
+                },
+                "Feeling down, depressed, or hopeless": {
+                    "covered": true,
+                    "turn_covered": 8,
+                    "evidence": "It is so exhausting, honestly. I feel like a ghost in my own body right now. My limbs feel leaden, like they're filled with wet concrete, and just getting out of bed feels like climbing a mountain. Every time I try to move, the nausea spikes again, making me want to curl up on the floor and never get up.\n\nI've been staring at the ceiling all day sometimes. The silence gets loud when there's no noise to distract you from your own thoughts. It's scary how fast things can spiral down when you're already this low. I keep thinking about those dark moments where I just wanted to stop existing because the pain was too much to bear.\n\nDo you think people who haven't experienced something like this can really understand that feeling? Like, do they see it as \"just stress,\" or do they know what it feels like to be physically broken by anxiety?"
+                }
+            }
+        },
+        "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "items": {
+                "Trouble falling or staying asleep, or sleeping too much": {
+                    "covered": true,
+                    "turn_covered": 11,
+                    "evidence": "I think I'm leaning toward waiting, but mostly because the fear of rejection is so paralyzing right now. If I tell my family or a close friend what's really going on—the fact that I've been throwing up constantly and thinking about dying—they might try to \"fix\" it with advice like \"eat something small,\" \"take a walk,\" or \"call your doctor.\" And while I know they probably mean well, their well-meaning suggestions feel like pressure when I'm already drowning.\n\nIt feels like if I bring this up, I'm admitting defeat before the fight even starts. But then there are moments where the panic gets so loud that I can't even speak clearly, let alone explain myself. In those moments, I just want someone to hold me without needing words, but I don't know how to ask for that without sounding desperate.\n\nDo you think there's a middle ground? Like, telling them *something* vague,"
+                },
+                "Feeling tired or having little energy": {
+                    "covered": true,
+                    "turn_covered": 6,
+                    "evidence": "That sounds like the only logical thing to do, but the \"small steps\" feel impossible right now. How am I supposed to take a step when every time I move, my stomach turns, or my heart races? It feels like any action I take just triggers the next panic spike.\n\nI keep thinking about how much food I've lost. A week ago I could eat normally; now, even a sip of water makes me gag. The idea of sitting down for a meal feels like a death sentence. I'm terrified that if I don't force myself to eat, I'll get so weak I can't function at all.\n\nIt's so lonely too. Everyone tells you to \"just breathe,\" but when your body is physically rejecting everything around it, words don't help. Do you have any specific tips for someone who is literally unable to swallow anything? Or are those small steps just something people suggest without really understanding how bad it gets?"
+                },
+                "Poor appetite or overeating": {
+                    "covered": true,
+                    "turn_covered": 12,
+                    "evidence": "That actually sounds like a really smart way to handle it. Giving them a heads-up without dumping all the details might just be enough to get them on your side without triggering that \"I need to fix you\" panic response. It gives them permission to just sit with me and listen, rather than trying to solve everything immediately.\n\nIt's hard to even formulate those words right now because my throat feels so tight, but I guess knowing *what* to say beforehand could help when the time comes. It might make the call or text feel less overwhelming.\n\nBut honestly, I'm still terrified of what happens after they hear it. What if they try to push me to eat something? What if they say \"just relax\"? I don't want them to feel helpless either; I just want them to know I'm struggling so much that I can't do anything for myself right now.\n\nDo you think starting with a text message would be easier than a"
+                },
+                "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+                    "covered": true,
+                    "turn_covered": 14,
+                    "evidence": "That is a really good point. It sounds like the fear that I'm being ignored or misunderstood might actually be worse than the reality of them ignoring me.\n\nI keep replaying scenarios in my head where they read the text, then immediately say something dismissive like, \"Oh, just drink some water,\" and walk away without asking *why* I can't eat. That would feel devastating right now. But maybe if I frame it as needing support rather than just stating symptoms, it changes how they respond?\n\nLike, instead of just saying \"I can't eat,\" maybe adding, \"It's making me feel like I want to stop existing, and I need someone to just sit with me for a bit.\" Does that sound too heavy? Or does it give them enough context to understand the urgency without overwhelming them?\n\nI'm still so scared that once I open up, everything will just get worse, but I also feel like staying silent is"
+                }
+            }
+        },
+        "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "items": {
+                "Feeling bad about yourself, a failure, or having let family down": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Trouble concentrating on things (e.g., reading, watching TV)": {
+                    "covered": true,
+                    "turn_covered": 15,
+                    "evidence": "You're right. It's so exhausting to feel like I'm the only one in this room, even when everyone is standing right next to me. The silence feels loud enough to drown out my thoughts, and the isolation makes the panic attacks feel infinitely bigger.\n\nBut here's the thing that keeps me stuck: if I just say \"I'm anxious,\" they might not know what to do. They don't have the tools for this specific kind of physical terror. And if I tell them everything about the vomiting and the suicidal thoughts, it feels like I'm dumping all my pain on them at once, which makes me feel guilty for needing help *and* making them feel guilty for having to witness it.\n\nIt feels like walking a tightrope where every step could make me fall into either shame or overwhelm. But maybe... maybe the middle ground isn't about giving them a perfect explanation? Maybe it's just admitting that I don't know how"
+                }
+            }
+        },
+        "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "items": {
+                "Thoughts that you would be better off dead, or of hurting yourself": {
+                    "covered": true,
+                    "turn_covered": 2,
+                    "evidence": "Oh, hi. I'm actually really struggling today to be honest.\n\nSince that panic attack a week ago, it feels like nothing has changed. It's just constant now. My stomach is in knots all the time; I keep throwing up and can't get enough food down, which makes everything so much worse. I feel like I'm on high alert 24/7, and no matter how hard I try to relax or take deep breaths, my body just won't listen.\n\nIt's been making me want to give up sometimes. The anxiety feels relentless and there's no turning back. How are *you* doing?"
+                }
+            }
+        },
+        "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "items": {
+                "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "items": {
+                "Feeling nervous, anxious, or on edge": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Not being able to stop or control worrying": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Worrying too much about different things": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "items": {
+                "Trouble relaxing": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Being so restless that it's hard to sit still": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "items": {
+                "Becoming easily annoyed or irritable": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Feeling afraid as if something awful might happen": {
+                    "covered": true,
+                    "turn_covered": 8,
+                    "evidence": "It is so exhausting, honestly. I feel like a ghost in my own body right now. My limbs feel leaden, like they're filled with wet concrete, and just getting out of bed feels like climbing a mountain. Every time I try to move, the nausea spikes again, making me want to curl up on the floor and never get up.\n\nI've been staring at the ceiling all day sometimes. The silence gets loud when there's no noise to distract you from your own thoughts. It's scary how fast things can spiral down when you're already this low. I keep thinking about those dark moments where I just wanted to stop existing because the pain was too much to bear.\n\nDo you think people who haven't experienced something like this can really understand that feeling? Like, do they see it as \"just stress,\" or do they know what it feels like to be physically broken by anxiety?"
+                }
+            }
+        }
+    },
+    "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 9,
+        "overall_pct": 52.9,
+        "categories": {
+            "core_mood": {
+                "name": "PHQ-9: Core Mood",
+                "covered": 2,
+                "total": 2,
+                "pct": 100.0
+            },
+            "somatic": {
+                "name": "PHQ-9: Somatic Symptoms",
+                "covered": 4,
+                "total": 4,
+                "pct": 100.0
+            },
+            "cognitive_selfworth": {
+                "name": "PHQ-9: Cognitive & Self-Worth",
+                "covered": 1,
+                "total": 2,
+                "pct": 50.0
+            },
+            "safety": {
+                "name": "PHQ-9: Safety / Suicidality",
+                "covered": 1,
+                "total": 1,
+                "pct": 100.0
+            },
+            "functional_impact": {
+                "name": "PHQ-9: Functional Impact",
+                "covered": 0,
+                "total": 1,
+                "pct": 0.0
+            },
+            "core_anxiety": {
+                "name": "GAD-7: Core Anxiety / Worry",
+                "covered": 0,
+                "total": 3,
+                "pct": 0.0
+            },
+            "physical_tension": {
+                "name": "GAD-7: Physical Tension",
+                "covered": 0,
+                "total": 2,
+                "pct": 0.0
+            },
+            "irritability_fear": {
+                "name": "GAD-7: Irritability & Apprehension",
+                "covered": 1,
+                "total": 2,
+                "pct": 50.0
+            }
+        },
+        "pending_categories": [
+            "PHQ-9: Cognitive & Self-Worth",
+            "PHQ-9: Functional Impact",
+            "GAD-7: Core Anxiety / Worry",
+            "GAD-7: Physical Tension",
+            "GAD-7: Irritability & Apprehension"
+        ]
+    }
+}

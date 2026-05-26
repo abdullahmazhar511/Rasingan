@@ -1,0 +1,563 @@
+{
+  "session_id": "20260526_104803_253849_728466",
+  "timestamp": 1779792525.2789378,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": true,
+          "turn_covered": 2,
+          "evidence": "Hey, thanks for saying that. Honestly? It's been a really heavy day. I don't know if it's the weather or just everything piling up lately, but I feel like my brain is stuck in overdrive while my body feels completely frozen.\n\nTo answer your question about what brought me here... well, I guess I'm just drowning and needed someone to actually listen without trying to fix it immediately. The last few weeks have been brutal. I can't work, I definitely can't drive, and I've stopped seeing any friends. I've basically become a ghost in my own house.\n\nIt gets even harder because my husband usually isn't there either; he's too tired from his job, so we're both kind of drifting apart. And then there's my son. He's 17 now, which used to be when I thought he was finally going to get his act together, but now he's unmotivated to"
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "Thank you for sharing that so honestly. It sounds like your body and mind are carrying a lot right now\u2014like a storm you\u2019re trying to keep from breaking. It\u2019s completely okay to feel stuck, frozen, even when your thoughts are racing. I can see how much you\u2019re holding everything in, and how hard it must be to feel so disconnected from the people you care about.  \n\nWhat would it feel like if you could just *be* with yourself\u2014without needing to fix anything or move forward right now?",
+      "feedback": "Note that the patient did not provide a response to the therapist's question in this turn; the exchange appears to contain a repeated message from the previous turn.\nProceed by gently checking in with the patient to ensure they received and understood the invitation to explore feelings of being stuck or disconnected.\nOnce rapport is re-established, move forward with the priority area: PHQ-9 Safety/Suicidality (ID 9) by asking directly about thoughts of being better off dead or hurting yourself.",
+      "raw_feedback": "Note that the patient did not provide a response to the therapist's question in this turn; the exchange appears to contain a repeated message from the previous turn.\nProceed by gently checking in with the patient to ensure they received and understood the invitation to explore feelings of being stuck or disconnected.\nOnce rapport is re-established, move forward with the priority area: PHQ-9 Safety/Suicidality (ID 9) by asking directly about thoughts of being better off dead or hurting yourself.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792493.5265615,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hey, thanks for saying that. Honestly? It's been a really heavy day. I don't know if it's the weather or just everything piling up lately, but I feel like my brain is stuck in overdrive while my body feels completely frozen.\n\nTo answer your question about what brought me here... well, I guess I'm just drowning and needed someone to actually listen without trying to fix it immediately. The last few weeks have been brutal. I can't work, I definitely can't drive, and I've stopped seeing any friends. I've basically become a ghost in my own house.\n\nIt gets even harder because my husband usually isn't there either; he's too tired from his job, so we're both kind of drifting apart. And then there's my son. He's 17 now, which used to be when I thought he was finally going to get his act together, but now he's unmotivated to",
+      "therapist_response": "It sounds like you're carrying a lot of weight\u2014feeling trapped in a cycle where your efforts aren\u2019t being met with connection or relief, and every moment feels like a quiet struggle. The guilt and frustration you're feeling about your son and your husband aren\u2019t just about what\u2019s happening; they\u2019re about the deep desire to be present, to help, and to feel seen.  \n\nWhat would it mean, in this moment, to simply allow yourself to feel that heaviness without needing to change or fix it?",
+      "feedback": "Acknowledge the functional impairment mentioned (inability to work, drive, or socialize) as direct evidence of Item 10.\nMaintain a non-judgmental stance while validating the exhaustion and isolation described.\nPrepare to gently pivot toward safety screening (Item 9) given the severity of reported withdrawal and hopelessness.",
+      "raw_feedback": "Acknowledge the functional impairment mentioned (inability to work, drive, or socialize) as direct evidence of Item 10.\nMaintain a non-judgmental stance while validating the exhaustion and isolation described.\nPrepare to gently pivot toward safety screening (Item 9) given the severity of reported withdrawal and hopelessness.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792498.7831905,
+      "turn": 2
+    },
+    {
+      "patient_message": "Honestly? That's the scary part. If I could just *be* with myself without needing to fix anything, I feel like I'd probably just sit there and stare at the ceiling until my eyes burned out. \n\nRight now, being alone feels like a punishment that never ends. My son is home all day asking for things that cost money\u2014video games, clothes, maybe even a trip somewhere\u2014and since I can't work or drive, I'm stuck paying for it while he's not doing anything else but complaining or waiting. It makes me feel so useless, like I'm dragging us both down.\n\nAnd then there's the guilt about my husband. He's exhausted from his job, trying to do everything himself because he doesn't have the energy to ask for help. But when we are finally together, it feels heavy. We're both just surviving on autopilot, right? Like two people in a house who don't really know how to",
+      "therapist_response": "That\u2019s such a powerful insight\u2014seeing his exhaustion not as laziness, but as survival. It shows how much you're already trying to understand him, even when it's hard. And that quiet space between the words, where you just sit with the weight of being together without needing to fix anything\u2014that\u2019s where real connection might begin.  \n\nWhat would it feel like, even just for a moment, to sit in that silence with your husband, not trying to \"solve\" it, just letting the stillness be enough?",
+      "feedback": "Shift focus immediately to Safety/Suicidality (ID 9) given the patient's report of feeling 'stuck' and the intensity of their current distress.\nValidate the patient's description of being alone as a punishment without judgment, then gently assess if they have thoughts that they would be better off dead or hurt themselves.\nMaintain a non-judgmental stance when exploring these heavy feelings to ensure the patient feels safe enough to disclose any suicidal ideation.",
+      "raw_feedback": "Shift focus immediately to Safety/Suicidality (ID 9) given the patient's report of feeling 'stuck' and the intensity of their current distress.\nValidate the patient's description of being alone as a punishment without judgment, then gently assess if they have thoughts that they would be better off dead or hurt themselves.\nMaintain a non-judgmental stance when exploring these heavy feelings to ensure the patient feels safe enough to disclose any suicidal ideation.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792506.1429873,
+      "turn": 3
+    },
+    {
+      "patient_message": "It would mean... I don't even know. It feels like a luxury I can't afford right now, but also something my soul is screaming for.\n\nIf I could just let myself feel that heaviness without trying to \"fix\" it or tell myself I'm failing because I can't work or drive... maybe I wouldn't be so angry at them? Right now, every time my son asks for something expensive and I have to say no (or worse, if I have to pay for it anyway), I feel this sharp sting of resentment. I hate him for being unmotivated, but I also hate myself for feeling helpless watching him struggle while I sit here paralyzed.\n\nAnd with my husband... if I could stop judging him for being tired and just sit in the silence of us both being exhausted, maybe the house wouldn't feel so dead. Instead of seeing his lack of energy as laziness, I could see it as survival. But",
+      "therapist_response": "It\u2019s so brave of you to name that fear\u2014the panic of silence, the worry that you\u2019ll be misunderstood or judged. And you're absolutely right: when we're exhausted, silence can feel like a vulnerability, like a space where we might be seen as failing. But what you're describing\u2014just noticing his breathing, not jumping to labels\u2014feels like a quiet act of care.  \n\nWould it be helpful to explore that moment of stillness a little more, not as something you have to \"do,\" but as something you might just *allow* to happen, even if it feels scary?",
+      "feedback": "The patient's message was cut off mid-sentence, and the therapist's response diverted into exploring silence with the husband rather than addressing the explicit safety concern.\nImmediately pivot back to the pending PHQ-9 Safety item (ID 9) by directly asking about thoughts of self-harm or feeling better off dead.\nValidate the patient's exhaustion before assessing risk to build alliance before diving into potentially distressing safety questions.",
+      "raw_feedback": "The patient's message was cut off mid-sentence, and the therapist's response diverted into exploring silence with the husband rather than addressing the explicit safety concern.\nImmediately pivot back to the pending PHQ-9 Safety item (ID 9) by directly asking about thoughts of self-harm or feeling better off dead.\nValidate the patient's exhaustion before assessing risk to build alliance before diving into potentially distressing safety questions.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792514.225277,
+      "turn": 4
+    },
+    {
+      "patient_message": "Honestly, that sounds terrifying. Like walking into a room where everyone is breathing but no one is talking, and I'm terrified of saying the wrong thing or making it awkward.\n\nRight now, when we *do* sit together, it's usually filled with the noise of complaints\u2014him being tired, me being useless, him asking for money, me feeling guilty. If I could just sit in silence without those scripts running... I think I'd probably panic. My brain would immediately start racing with \"What if he thinks I'm lazy too?\" or \"What if he gets mad that I can't pay for his stuff?\"\n\nBut if I really tried to just let the stillness be enough? Maybe I wouldn't feel so desperate to grab his attention to fix things. Maybe I'd just notice that his breathing is slow and heavy, and instead of interpreting it as \"he doesn't care,\" I could just acknowledge that he's hurting, too.",
+      "therapist_response": "I hear you\u2014your mind is racing because it's been working so hard to keep everything together, and now it's trying to protect you from feeling overwhelmed. That fear of spinning out in silence isn\u2019t weakness; it\u2019s your brain\u2019s way of trying to stay safe.  \n\nWould it be okay to just *begin* with a small pause\u2014like three breaths, just sitting with the quiet, without needing to make sense of it or change anything? Not to fix, not to perform, just to let the stillness be a space where you can feel your own breath, without judgment?",
+      "feedback": "Shift focus from the immediate exercise to directly addressing the pending Safety/Suicidality item (ID 9) as it is the highest clinical priority.\nValidate the patient's expression of fear and helplessness regarding her situation before gently introducing questions about thoughts of being better off dead or hurting oneself.\nMaintain a calm, non-judgmental tone while explicitly asking if she has had any recent thoughts of self-harm or feeling that life isn't worth living.",
+      "raw_feedback": "Shift focus from the immediate exercise to directly addressing the pending Safety/Suicidality item (ID 9) as it is the highest clinical priority.\nValidate the patient's expression of fear and helplessness regarding her situation before gently introducing questions about thoughts of being better off dead or hurting oneself.\nMaintain a calm, non-judgmental tone while explicitly asking if she has had any recent thoughts of self-harm or feeling that life isn't worth living.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779792525.2789361,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 1,
+    "overall_pct": 5.9,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 1,
+        "total": 1,
+        "pct": 100.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

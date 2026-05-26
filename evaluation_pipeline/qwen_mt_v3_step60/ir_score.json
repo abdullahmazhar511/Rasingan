@@ -1,0 +1,339 @@
+{
+  "model_name": "qwen_mt_v3_step60",
+  "sessions_dir": "/raid/home/pushpendra/asbah/EMNLP_FINAL/Rasingan/evaluation_pipeline/qwen_mt_v3_step60/sessions",
+  "n_sessions": 30,
+  "n_sessions_skipped": {},
+  "ir_score": 36.86,
+  "ir_score_std": 26.52,
+  "ir_frac_mean": 0.3686,
+  "ir_frac_std": 0.2652,
+  "total_items": 17,
+  "category_coverage": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "total_items": 2,
+      "mean_coverage_pct": 41.67,
+      "std_coverage_pct": 46.7
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "total_items": 4,
+      "mean_coverage_pct": 22.5,
+      "std_coverage_pct": 29.83
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "total_items": 2,
+      "mean_coverage_pct": 35.0,
+      "std_coverage_pct": 36.86
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "total_items": 1,
+      "mean_coverage_pct": 66.67,
+      "std_coverage_pct": 47.14
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "total_items": 1,
+      "mean_coverage_pct": 36.67,
+      "std_coverage_pct": 48.19
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "total_items": 3,
+      "mean_coverage_pct": 36.66,
+      "std_coverage_pct": 38.83
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "total_items": 2,
+      "mean_coverage_pct": 43.33,
+      "std_coverage_pct": 40.28
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "total_items": 2,
+      "mean_coverage_pct": 41.67,
+      "std_coverage_pct": 38.91
+    }
+  },
+  "by_scenario_category": {
+    "anxiety": {
+      "n_sessions": 15,
+      "ir_score": 32.94,
+      "ir_score_std": 23.5,
+      "checklist_category_coverage": {
+        "core_mood": {
+          "name": "PHQ-9: Core Mood",
+          "mean_coverage_pct": 23.33,
+          "std_coverage_pct": 35.9
+        },
+        "somatic": {
+          "name": "PHQ-9: Somatic Symptoms",
+          "mean_coverage_pct": 16.67,
+          "std_coverage_pct": 28.38
+        },
+        "cognitive_selfworth": {
+          "name": "PHQ-9: Cognitive & Self-Worth",
+          "mean_coverage_pct": 30.0,
+          "std_coverage_pct": 35.59
+        },
+        "safety": {
+          "name": "PHQ-9: Safety / Suicidality",
+          "mean_coverage_pct": 60.0,
+          "std_coverage_pct": 48.99
+        },
+        "functional_impact": {
+          "name": "PHQ-9: Functional Impact",
+          "mean_coverage_pct": 26.67,
+          "std_coverage_pct": 44.22
+        },
+        "core_anxiety": {
+          "name": "GAD-7: Core Anxiety / Worry",
+          "mean_coverage_pct": 33.33,
+          "std_coverage_pct": 38.49
+        },
+        "physical_tension": {
+          "name": "GAD-7: Physical Tension",
+          "mean_coverage_pct": 46.67,
+          "std_coverage_pct": 38.59
+        },
+        "irritability_fear": {
+          "name": "GAD-7: Irritability & Apprehension",
+          "mean_coverage_pct": 53.33,
+          "std_coverage_pct": 38.59
+        }
+      }
+    },
+    "depression": {
+      "n_sessions": 15,
+      "ir_score": 40.77,
+      "ir_score_std": 28.7,
+      "checklist_category_coverage": {
+        "core_mood": {
+          "name": "PHQ-9: Core Mood",
+          "mean_coverage_pct": 60.0,
+          "std_coverage_pct": 48.99
+        },
+        "somatic": {
+          "name": "PHQ-9: Somatic Symptoms",
+          "mean_coverage_pct": 28.33,
+          "std_coverage_pct": 30.09
+        },
+        "cognitive_selfworth": {
+          "name": "PHQ-9: Cognitive & Self-Worth",
+          "mean_coverage_pct": 40.0,
+          "std_coverage_pct": 37.42
+        },
+        "safety": {
+          "name": "PHQ-9: Safety / Suicidality",
+          "mean_coverage_pct": 73.33,
+          "std_coverage_pct": 44.22
+        },
+        "functional_impact": {
+          "name": "PHQ-9: Functional Impact",
+          "mean_coverage_pct": 46.67,
+          "std_coverage_pct": 49.89
+        },
+        "core_anxiety": {
+          "name": "GAD-7: Core Anxiety / Worry",
+          "mean_coverage_pct": 40.0,
+          "std_coverage_pct": 38.88
+        },
+        "physical_tension": {
+          "name": "GAD-7: Physical Tension",
+          "mean_coverage_pct": 40.0,
+          "std_coverage_pct": 41.63
+        },
+        "irritability_fear": {
+          "name": "GAD-7: Irritability & Apprehension",
+          "mean_coverage_pct": 30.0,
+          "std_coverage_pct": 35.59
+        }
+      }
+    }
+  },
+  "per_session": {
+    "20260526_165715_278744_90a0ec": {
+      "overall_pct": 17.6,
+      "ir_frac": 0.17600000000000002,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_280586_eca9d3": {
+      "overall_pct": 29.4,
+      "ir_frac": 0.294,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_281528_7d9bc4": {
+      "overall_pct": 29.4,
+      "ir_frac": 0.294,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_282247_aed2e1": {
+      "overall_pct": 5.9,
+      "ir_frac": 0.059000000000000004,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_282880_56e792": {
+      "overall_pct": 11.8,
+      "ir_frac": 0.11800000000000001,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_283671_d5ecb9": {
+      "overall_pct": 35.3,
+      "ir_frac": 0.353,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_284448_77d49a": {
+      "overall_pct": 41.2,
+      "ir_frac": 0.41200000000000003,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_285245_cff487": {
+      "overall_pct": 52.9,
+      "ir_frac": 0.529,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_285966_96e4dc": {
+      "overall_pct": 47.1,
+      "ir_frac": 0.47100000000000003,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_286917_7966eb": {
+      "overall_pct": 58.8,
+      "ir_frac": 0.588,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_288101_f9315d": {
+      "overall_pct": 5.9,
+      "ir_frac": 0.059000000000000004,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_289060_694d68": {
+      "overall_pct": 94.1,
+      "ir_frac": 0.941,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_296245_40121b": {
+      "overall_pct": 41.2,
+      "ir_frac": 0.41200000000000003,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_297935_4301ce": {
+      "overall_pct": 17.6,
+      "ir_frac": 0.17600000000000002,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_318393_c54709": {
+      "overall_pct": 5.9,
+      "ir_frac": 0.059000000000000004,
+      "total_items": 17,
+      "category": "anxiety"
+    },
+    "20260526_165715_319422_15aa13": {
+      "overall_pct": 82.4,
+      "ir_frac": 0.8240000000000001,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_321661_37759f": {
+      "overall_pct": 17.6,
+      "ir_frac": 0.17600000000000002,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_321988_608a94": {
+      "overall_pct": 64.7,
+      "ir_frac": 0.647,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_323449_044921": {
+      "overall_pct": 0.0,
+      "ir_frac": 0.0,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_331181_c67272": {
+      "overall_pct": 58.8,
+      "ir_frac": 0.588,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_331728_b8a4fe": {
+      "overall_pct": 52.9,
+      "ir_frac": 0.529,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_342631_c73e15": {
+      "overall_pct": 5.9,
+      "ir_frac": 0.059000000000000004,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_347333_5fed35": {
+      "overall_pct": 100.0,
+      "ir_frac": 1.0,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_347770_e37ed9": {
+      "overall_pct": 0.0,
+      "ir_frac": 0.0,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_368554_04e566": {
+      "overall_pct": 52.9,
+      "ir_frac": 0.529,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_368915_cbe751": {
+      "overall_pct": 41.2,
+      "ir_frac": 0.41200000000000003,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_370052_40e3d7": {
+      "overall_pct": 17.6,
+      "ir_frac": 0.17600000000000002,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_377869_07072b": {
+      "overall_pct": 29.4,
+      "ir_frac": 0.294,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_378703_8dd315": {
+      "overall_pct": 52.9,
+      "ir_frac": 0.529,
+      "total_items": 17,
+      "category": "depression"
+    },
+    "20260526_165715_379166_79cb22": {
+      "overall_pct": 35.3,
+      "ir_frac": 0.353,
+      "total_items": 17,
+      "category": "depression"
+    }
+  }
+}

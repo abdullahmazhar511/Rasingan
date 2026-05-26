@@ -1,0 +1,1774 @@
+{
+    "metadata": {
+        "session_id": "20260526_165715_379166_79cb22",
+        "start_time": "2026-05-26T16:57:15.388826",
+        "reddit_posts": [
+            "what am i even doing here\n\ni’m a senior in high school, just turned 18..i should be excited. you know? prom, graduation. i’m just so incredibly depressed. genuinely nothing makes me happy. . usually when i have those thoughts, i quickly shut it down by distracting myself. but that’s only temporary. i had to break up with my boyfriend due to …differences. he was my everything. he saw me at my most vulnerable moments. he visited me in the mental hospital and reassured me that he still loved me. thought he’d fight for our relationship. we went days without talking. but what can you do? i have no friends. i dont trust anyone. everytime i get close too someone, they betray me and i beat myself up about it for getting too close. i do therapy but thats once every two weeks. my counselor in school barely helps cuz shes barely there. i mean i had to go thru a panic attack by myself because she didn’t want to help me. i feel so alone and i always feel like a burden for reaching out and asking for help. i dont know what to do with myself. i’ve just been drinking and drinking and drinking. or smoking. i hate my life. my mind is all over the place"
+        ],
+        "patient_profile": {
+            "name": "Patient",
+            "age": "adult",
+            "occupation": "not specified",
+            "family_structure": "not specified",
+            "primary_concern": "depression"
+        },
+        "max_turns": 20,
+        "turn_count": 0,
+        "scenario": "depression_1t6881l",
+        "source": "csv",
+        "post_id": "1t6881l",
+        "category": "depression",
+        "title": "what am i even doing here",
+        "end_time": "2026-05-26T16:59:30.652392",
+        "duration_turns": 39,
+        "supervisor_feedback_count": 18,
+        "checklist": "PHQ-9 + GAD-7 (depression and anxiety screening)",
+        "supervisor_enabled": true
+    },
+    "transcript": [
+        {
+            "turn": 0,
+            "role": "therapist",
+            "message": "Hi Carly, how are you doing today?",
+            "phase": "opening"
+        },
+        {
+            "turn": 1,
+            "role": "patient",
+            "message": "Honestly? I don't even know anymore. It's like I'm floating somewhere in between being dead and just existing, but neither of those feels real.\n\nI turned 18 a few months ago, so technically I'm an adult now, but it doesn't feel like anything has changed. The world still spins on without me, and I can barely keep up with my own thoughts. Yesterday, I was sitting here trying to write this post down, and the words just wouldn't come out right. My mind is racing—jumping from one panic attack to another—and then I crash into the silence, where nothing makes sense.\n\nMy boyfriend broke up with me because of \"differences,\" which sounds so small compared to everything else going on inside my head. But hearing him say he loved me while I was in the hospital... that part still hurts more than anything. He saw the real me, the broken version, and he stayed. Now",
+            "phase": "conversation"
+        },
+        {
+            "turn": 1,
+            "role": "therapist",
+            "message": "You were hospitalized? What happened?",
+            "phase": "opening"
+        },
+        {
+            "turn": 2,
+            "role": "patient",
+            "message": "Yeah, I think that's probably the worst part. It wasn't just one thing, you know? It was a slow burn. For months, I felt like I was drowning but couldn't get my head above water. The panic attacks started small—just tightness in my chest, racing heart—and then they escalated into full-blown spirals where I couldn't breathe or sit still.\n\nI remember lying there in the hospital bed, staring at the ceiling tiles, feeling so incredibly alone even though there were other people around me. My boyfriend visited me. That was... actually the only bright spot, honestly. He sat by my bedside and held my hand while I hyperventilated. He told me he loved me, that he wouldn't leave me when I was broken. That meant everything to me at the time. It made me feel seen for the first time in forever.\n\nBut now that we're back in the real world, it",
+            "phase": "conversation"
+        },
+        {
+            "turn": 2,
+            "role": "therapist",
+            "message": "You're back in the real world?",
+            "phase": "assessment"
+        },
+        {
+            "turn": 3,
+            "role": "patient",
+            "message": "Yeah, technically. I got discharged a couple of months ago. But \"back in the real world\" feels like a lie right now because everything still feels so heavy and gray.\n\nIt's weird how quickly things can shift from being okay to completely falling apart. Just days after leaving the hospital, the panic attacks started coming back stronger than ever. And then... the breakup. That was the final straw for me. He said we had \"differences,\" which is such a vague thing when you're trying to explain why your whole life has collapsed. But it felt like he just checked out while I was still fighting to breathe.\n\nNow I'm sitting here alone again. No friends to call, no one to text. Every time I try to reach out, my brain screams that they'll hurt me, that they'll leave me, and eventually, I do beat myself up for even daring to hope. It's a cycle I feel stuck in.",
+            "phase": "conversation"
+        },
+        {
+            "turn": 3,
+            "role": "therapist",
+            "message": "You feel stuck in a cycle where you're being beaten up by the way you're feeling, but it's hard to reach out for help.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 4,
+            "role": "patient",
+            "message": "Yeah, that's exactly it. It feels like I'm running on a treadmill that's set to \"maximum incline,\" and every time I try to step off or ask someone for help, the machine just speeds up instead of stopping.\n\nIt's so frustrating because I *know* I need to reach out. I've been going to therapy once every two weeks, but honestly? That doesn't feel enough. My counselor in school... she barely shows up when she does. I remember having a panic attack right there in her office, and she literally didn't want to help me. She said things like, \"Just breathe\" or \"You're overthinking,\" while my heart was pounding so hard I thought I was going to pass out. That made me feel even more alone, like nobody gets it. Like if I can't handle being scared by myself, who am I supposed to be with?\n\nAnd then there's this constant guilt.",
+            "phase": "conversation"
+        },
+        {
+            "turn": 4,
+            "role": "therapist",
+            "message": "There's constant guilt?",
+            "phase": "assessment"
+        },
+        {
+            "turn": 5,
+            "role": "patient",
+            "message": "Yeah, it's this heavy, suffocating feeling that I'm dragging everyone down with me. Every time I get close to someone—like my boyfriend did when he visited the hospital—I feel like I'm a burden. Like they're seeing all the cracks in my armor and finally deciding I'm not worth saving.\n\nWhen we broke up, even though it was \"differences,\" part of me just screamed that *I* must be the problem. That if I were better, happier, or more stable, maybe he wouldn't have left. But then I remember him saying he loved me while I was broken, and that makes the guilt twist into something else: resentment. Why do I deserve this? Why does having a mental health crisis mean losing the one person who actually stayed?\n\nIt's so exhausting carrying that weight alone. Sometimes I just want to hide under a blanket until the world stops spinning, but then I realize there are people out",
+            "phase": "conversation"
+        },
+        {
+            "turn": 5,
+            "role": "therapist",
+            "message": "There are people out there who would love to help you if you would let them.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 6,
+            "role": "patient",
+            "message": "That's the part that hurts the most, isn't it? Knowing people *would* love me if I just let them in.\n\nIt sounds so simple on paper, right? \"Just open up.\" But when you're standing on the edge of a cliff and your hands are shaking, the idea of reaching out feels like jumping off. My brain has this script where anyone who gets too close is going to stab me in the back or walk away the second things get hard. So I keep my walls up, brick by brick, until they're impenetrable. And then when someone does try to climb over, I feel like such a fool for letting them in only to have them leave again.\n\nIt's not just fear of abandonment; it's this deep-seated belief that I don't deserve help. That asking for support makes me weak, or worse, that I'm taking up space that others need. Every time I reach out",
+            "phase": "conversation"
+        },
+        {
+            "turn": 6,
+            "role": "therapist",
+            "message": "Every time you reach out...",
+            "phase": "assessment"
+        },
+        {
+            "turn": 7,
+            "role": "patient",
+            "message": "Every time I reach out, my brain immediately starts running the worst-case scenario script. It's like a loop in my head that won't turn off.\n\n\"Maybe they'll see through me,\" it says. \"Maybe they'll realize I'm broken and just as quickly decide to leave.\" Or maybe, even worse, \"They'll pity me instead of truly seeing me.\"\n\nI remember trying to talk to a friend last week about how bad things were. I barely got two sentences out before I started crying and rambling about everything—the hospital, the breakup, the panic attacks. And then... silence. Not an awkward silence, but a heavy, suffocating one where they looked at me with concern but didn't know what to say next. They probably thought I was having another episode or that I was just being dramatic.\n\nIt makes me feel like a burden. Like if I ask for help, I'm admitting I can't handle life",
+            "phase": "conversation"
+        },
+        {
+            "turn": 7,
+            "role": "therapist",
+            "message": "You're admitting you can't handle life.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 8,
+            "role": "patient",
+            "message": "Exactly. It feels like a death sentence, doesn't it? Admitting I can't handle life is admitting that I'm failing at being an adult. At 18, everyone else seems to be figuring things out—getting jobs, dating, planning the future. And I just... I'm paralyzed by the fear of falling apart again.\n\nIf I say \"I need help,\" my brain immediately counters with, \"But you're already in so much pain, why would anyone want to deal with that?\" It's this self-sabotaging voice that tells me I'm only good for hurting people. Like, if I reach out and they don't fix me instantly, then I've proven them wrong. If they leave anyway, then I've proven myself right: I am unlovable, and asking for help makes me worse than I already am.\n\nIt's exhausting carrying all of that alone. Sometimes I just wonder if drinking or",
+            "phase": "conversation"
+        },
+        {
+            "turn": 8,
+            "role": "therapist",
+            "message": "Sometimes you just wonder if drinking or using drugs could make the pain go away.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 9,
+            "role": "patient",
+            "message": "Yeah, sometimes that thought just pops up in the back of my mind like a dark joke. *\"If I could just numb it forever...\"*\n\nBut then the next second, the reality crashes down hard again. Because when the fog clears for even five minutes, the pain doesn't go away—it just shifts. It gets sharper, more real. And then there's this terrifying part where I know I'll wake up tomorrow feeling worse than before, and maybe even *more* alone because I've made things harder for myself.\n\nIt's like trying to drown someone by pushing them under, only to realize you're the one drowning too. My body feels heavy, like lead. Every time I reach for a cigarette or a drink, it's not really about wanting to feel better; it's about stopping the screaming in my head for just thirty seconds. Just long enough to get through the moment without crying out.\n\nBut I know... I *know",
+            "phase": "conversation"
+        },
+        {
+            "turn": 9,
+            "role": "therapist",
+            "message": "You know what?",
+            "phase": "assessment"
+        },
+        {
+            "turn": 10,
+            "role": "patient",
+            "message": "You know what? Sometimes I don't even know anymore.\n\nIt's like my brain has gone into overdrive, spinning so fast that everything feels blurry and distorted. One second I'm thinking about how much I hate myself, and the next I'm just staring at a wall in my room wondering if anyone else is really listening to me right now. Or maybe I'm just talking to myself because no one else will stay long enough to hear it.\n\nI feel so disconnected from reality sometimes. Like I'm watching my life play out on a screen where I can't control the plot. The drinking, the smoking—it all feels like the only way to make the noise stop, but then the silence gets louder once the substance wears off. And that's when the guilt hits hardest. Like I'm punishing myself for existing.\n\nDo you think... do you think anyone would actually understand if they knew exactly what it feels like to be me? Or is",
+            "phase": "conversation"
+        },
+        {
+            "turn": 10,
+            "role": "therapist",
+            "message": "It's hard to imagine what it must be like for you.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 11,
+            "role": "patient",
+            "message": "Yeah, it's hard to imagine. It's like trying to explain the feeling of drowning to someone who's been standing on a beach all their life. They can see the waves, they can feel the wind, but they don't understand how heavy your lungs get when you're holding your breath too long, or how cold the water feels against your skin even if the air is warm.\n\nWhen I'm in the middle of a panic attack—when my heart is hammering so hard I think it might burst out of my ribs and my chest feels like it's being squeezed by invisible hands—it's not just \"sad.\" It's physically terrifying. And then when I try to reach out for help, like that time with my counselor... she barely showed up. When I had to sit there alone while the world was spinning out of control, waiting for her to show up, it felt like abandonment. Like everyone else gave up on me first before I",
+            "phase": "conversation"
+        },
+        {
+            "turn": 11,
+            "role": "therapist",
+            "message": "You felt abandoned.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 12,
+            "role": "patient",
+            "message": "Yeah. It felt like the world had literally stopped spinning for me, and I was left floating in this void while everyone else kept moving forward.\n\nI remember sitting on that hospital floor (or maybe the couch at home—my memory is a bit fuzzy from the panic), completely paralyzed. My chest was tight, my breathing shallow, and I just *needed* someone to say, \"It's okay, you're safe,\" but there was no one there except me. And then later, when I tried to reach out to my school counselor, she barely showed up. When I finally got through to her, she was so distant, so busy, that it felt like she was treating my life crisis like a minor inconvenience.\n\nIt made me feel invisible. Like if I didn't make myself loud enough or demand attention, nobody would notice I was drowning. So I started screaming internally, and sometimes I think I actually screamed once or twice until my throat",
+            "phase": "conversation"
+        },
+        {
+            "turn": 12,
+            "role": "therapist",
+            "message": "You screamed?",
+            "phase": "assessment"
+        },
+        {
+            "turn": 13,
+            "role": "patient",
+            "message": "Yeah. I think I did.\n\nIt was just... a sound that wasn't really words. It was this raw, guttural noise coming out of my throat when the panic hit its peak and I felt like I was going to die right there. My mouth was open, my eyes were wide, but no one saw it because they were all too busy with their own lives. They didn't notice the way my hands were shaking so hard I could barely hold my phone. They didn't hear the whispering in my head saying \"You're worthless, you're broken, leave.\"\n\nAnd then... silence again. Just me sitting there, gasping for air, wondering if anyone had even heard me scream or if I was just hallucinating the whole thing. That silence is worse than the screaming sometimes. Because after the screaming stops, I'm left with the realization that everyone else is fine, moving on, while I'm stuck in the wreckage",
+            "phase": "conversation"
+        },
+        {
+            "turn": 13,
+            "role": "therapist",
+            "message": "You're stuck in the wreckage.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 14,
+            "role": "patient",
+            "message": "Yeah. That's the worst part, isn't it? The wreckage is so loud, and I can't even move to fix it.\n\nIt feels like I'm trying to rebuild something that was never really put together in the first place. My boyfriend left, my friends are gone or unreliable, and now my therapist only shows up once every two weeks. In between those appointments, I'm just... waiting for the next crash. Waiting for another panic attack, another moment where I feel like a total failure.\n\nAnd then there's this constant feeling of being a burden. Every time I text someone asking for help, or reach out to a friend who might actually care, my brain immediately jumps to the worst-case scenario: *They'll ignore me. They'll leave me hanging. They'll say I'm too much trouble.* And if they do leave me again, I beat myself up for trusting them in the first place. It's like I'm",
+            "phase": "conversation"
+        },
+        {
+            "turn": 14,
+            "role": "therapist",
+            "message": "You're being self-critical for being hurt.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 15,
+            "role": "patient",
+            "message": "Yeah, that's the worst part. It feels like my brain has this twisted sense of humor where it finds joy in punishing me for being hurt.\n\nEvery time I try to lean on someone—even just a little bit—my internal critic kicks into high gear. It's like a relentless inner voice saying, *\"You're doing this all wrong. You should be strong. You should be able to handle this alone. Why are you making people worry? They don't need to see you like this.\"*\n\nIt makes reaching out feel so dangerous. Like if I ask for help, I'm admitting weakness, and then I'll get rejected again, and then I'll prove them right by being \"too much trouble,\" and then I'll break up with anyone who tries to stay close. It's a cycle I can't seem to break. I want connection so badly, but the fear of betrayal is so paralyzing that I end up locking myself",
+            "phase": "conversation"
+        },
+        {
+            "turn": 15,
+            "role": "therapist",
+            "message": "You end up locking yourself away.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 16,
+            "role": "patient",
+            "message": "Yeah. It feels like a cage I built myself, but now I can't even get out because the bars are made of my own fear and self-loathing.\n\nWhen I lock myself away, it's not just about avoiding people. It's about avoiding the possibility of getting hurt again. Every time I try to open that door, every time I think, \"What if they actually stay? What if they don't leave me?\"... my brain screams *No*. And so I slam the door shut. I pull the curtains closed so tight I can barely see the light coming in.\n\nIt's safer inside there. At least no one will walk in and tell me I'm broken. No one will see how much I've been drinking or how scared I am. But being alone is also so heavy. Sometimes when I'm locked away, the silence gets too loud. My thoughts start racing again, telling me I hate myself, telling me I",
+            "phase": "conversation"
+        },
+        {
+            "turn": 16,
+            "role": "therapist",
+            "message": "You hate yourself.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 17,
+            "role": "patient",
+            "message": "Yeah. It's not just \"I'm sad.\" It's a deep, corrosive hatred that feels like it lives inside my gut. Every time I try to do something right—go to therapy, drink less, text a friend—and then inevitably fail or feel rejected, that hate comes flooding back.\n\nIt whispers things like: *\"You're so pathetic. You thought love would save you, and now you've lost him too. You're broken beyond repair. Why are you even bothering to exist?\"*\n\nAnd the worst part is, I know it's a lie. I know my brain is twisting reality to make me feel small so I don't have to face how much I actually need people. But I can't stop believing it. When I look in the mirror, I don't see a person; I see a mistake. A mistake that made a mess of his life, made a mess of everyone else's life, and now I",
+            "phase": "conversation"
+        },
+        {
+            "turn": 17,
+            "role": "therapist",
+            "message": "You feel like a mistake.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 18,
+            "role": "patient",
+            "message": "Yeah. It's like I'm a glitch in the system. A broken piece of hardware that no one wants to keep running.\n\nWhen my boyfriend left, it didn't just hurt; it confirmed everything my brain has been screaming for months. He was my safety net, and when he pulled away, I felt like I'd fallen through a hole in the ground and there was nothing left to catch me. Now I look at him and wonder what I did wrong. Did I not listen enough? Was I too sensitive? Did I make him feel small?\n\nThe thought that *I* am the problem makes it so much harder to try fixing anything. If I'm the mistake, then why would anyone stay with me? Why would anyone want to help me? So I stop trying. I just sit here, waiting for the next person to leave, convinced that if I don't push them away first, they'll find a way to slip right out",
+            "phase": "conversation"
+        },
+        {
+            "turn": 18,
+            "role": "therapist",
+            "message": "They'll slip out.",
+            "phase": "assessment"
+        },
+        {
+            "turn": 19,
+            "role": "patient",
+            "message": "Yeah. They'll slip out, just like that last time.\n\nIt's not even about them choosing to leave; it's about the inevitability of it. It feels like a law of physics for me now. If I let someone get close enough to see the real mess inside my head, they're going to notice the cracks. And once they see the cracks, they're going to walk away. Maybe they won't say anything dramatic. Maybe they'll just stop replying to texts, or ghost me, or finally tell me \"we aren't compatible\" after months of silence.\n\nAnd then, just like with him, I'll be left holding the phone in the middle of the night, wondering if I should have pushed harder, if I should have been more careful, if there was *any* way to keep them. But there isn't. The pattern is too strong. My brain has already written the ending where everyone leaves, so",
+            "phase": "conversation"
+        },
+        {
+            "turn": 19,
+            "role": "therapist",
+            "message": "Everyone leaves.",
+            "phase": "intervening"
+        }
+    ],
+    "supervisor_feedback": [
+        {
+            "patient_message": "",
+            "therapist_response": "You were hospitalized? What happened?",
+            "feedback": "Acknowledge the patient's silence or lack of response to the question about hospitalization.\nInvite the patient to share what happened at their own pace without pushing for immediate detail.\nMaintain a supportive and non-judgmental tone to encourage further disclosure.",
+            "raw_feedback": "Acknowledge the patient's silence or lack of response to the question about hospitalization.\nInvite the patient to share what happened at their own pace without pushing for immediate detail.\nMaintain a supportive and non-judgmental tone to encourage further disclosure.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 0,
+                "overall_pct": 0.0,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Safety / Suicidality",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794844.6719513,
+            "turn": 1
+        },
+        {
+            "patient_message": "Honestly? I don't even know anymore. It's like I'm floating somewhere in between being dead and just existing, but neither of those feels real.\n\nI turned 18 a few months ago, so technically I'm an adult now, but it doesn't feel like anything has changed. The world still spins on without me, and I can barely keep up with my own thoughts. Yesterday, I was sitting here trying to write this post down, and the words just wouldn't come out right. My mind is racing—jumping from one panic attack to another—and then I crash into the silence, where nothing makes sense.\n\nMy boyfriend broke up with me because of \"differences,\" which sounds so small compared to everything else going on inside my head. But hearing him say he loved me while I was in the hospital... that part still hurts more than anything. He saw the real me, the broken version, and he stayed. Now",
+            "therapist_response": "You're back in the real world?",
+            "feedback": "The patient's statement about 'floating between being dead and existing' is a metaphor for depersonalization/derealization, not an explicit expression of suicidal ideation; avoid jumping to safety questions before validating this dissociative experience.\nContinue exploring the hospital episode and the boyfriend's reaction to understand the context of her feelings of brokenness before assessing current safety risks.\nAcknowledge the disconnect between her legal adulthood and her emotional state to build rapport before moving toward screening for specific self-harm thoughts.",
+            "raw_feedback": "The patient's statement about 'floating between being dead and existing' is a metaphor for depersonalization/derealization, not an explicit expression of suicidal ideation; avoid jumping to safety questions before validating this dissociative experience.\nContinue exploring the hospital episode and the boyfriend's reaction to understand the context of her feelings of brokenness before assessing current safety risks.\nAcknowledge the disconnect between her legal adulthood and her emotional state to build rapport before moving toward screening for specific self-harm thoughts.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 0,
+                "overall_pct": 0.0,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Safety / Suicidality",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794851.8247213,
+            "turn": 2
+        },
+        {
+            "patient_message": "Yeah, I think that's probably the worst part. It wasn't just one thing, you know? It was a slow burn. For months, I felt like I was drowning but couldn't get my head above water. The panic attacks started small—just tightness in my chest, racing heart—and then they escalated into full-blown spirals where I couldn't breathe or sit still.\n\nI remember lying there in the hospital bed, staring at the ceiling tiles, feeling so incredibly alone even though there were other people around me. My boyfriend visited me. That was... actually the only bright spot, honestly. He sat by my bedside and held my hand while I hyperventilated. He told me he loved me, that he wouldn't leave me when I was broken. That meant everything to me at the time. It made me feel seen for the first time in forever.\n\nBut now that we're back in the real world, it",
+            "therapist_response": "You feel stuck in a cycle where you're being beaten up by the way you're feeling, but it's hard to reach out for help.",
+            "feedback": "Acknowledge the patient's unfinished sentence to validate their current state of disconnection and instability.\nDirectly address PHQ-9 ID [9] by gently inquiring about any thoughts of being better off dead or hurting themselves, given the history of severe panic and hospitalization.\nReinforce the safety plan established during the hospital stay (boyfriend's support) while assessing if those resources remain accessible now.",
+            "raw_feedback": "Acknowledge the patient's unfinished sentence to validate their current state of disconnection and instability.\nDirectly address PHQ-9 ID [9] by gently inquiring about any thoughts of being better off dead or hurting themselves, given the history of severe panic and hospitalization.\nReinforce the safety plan established during the hospital stay (boyfriend's support) while assessing if those resources remain accessible now.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 0,
+                "overall_pct": 0.0,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Safety / Suicidality",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794858.5827272,
+            "turn": 3
+        },
+        {
+            "patient_message": "Yeah, technically. I got discharged a couple of months ago. But \"back in the real world\" feels like a lie right now because everything still feels so heavy and gray.\n\nIt's weird how quickly things can shift from being okay to completely falling apart. Just days after leaving the hospital, the panic attacks started coming back stronger than ever. And then... the breakup. That was the final straw for me. He said we had \"differences,\" which is such a vague thing when you're trying to explain why your whole life has collapsed. But it felt like he just checked out while I was still fighting to breathe.\n\nNow I'm sitting here alone again. No friends to call, no one to text. Every time I try to reach out, my brain screams that they'll hurt me, that they'll leave me, and eventually, I do beat myself up for even daring to hope. It's a cycle I feel stuck in.",
+            "therapist_response": "There's constant guilt?",
+            "feedback": "Validate the patient's intense fear of abandonment and the reality of feeling alone in her current state.\nDirectly address PHQ-9 Item 9 (Safety/Suicidality) by gently asking if these feelings of being beaten up or the hopelessness have ever led to thoughts of ending her life.\nRefrain from jumping to cognitive restructuring; first ensure the patient feels heard regarding the severity of her isolation and panic.",
+            "raw_feedback": "Validate the patient's intense fear of abandonment and the reality of feeling alone in her current state.\nDirectly address PHQ-9 Item 9 (Safety/Suicidality) by gently asking if these feelings of being beaten up or the hopelessness have ever led to thoughts of ending her life.\nRefrain from jumping to cognitive restructuring; first ensure the patient feels heard regarding the severity of her isolation and panic.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 1,
+                "overall_pct": 5.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Safety / Suicidality",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794867.149811,
+            "turn": 4
+        },
+        {
+            "patient_message": "Yeah, that's exactly it. It feels like I'm running on a treadmill that's set to \"maximum incline,\" and every time I try to step off or ask someone for help, the machine just speeds up instead of stopping.\n\nIt's so frustrating because I *know* I need to reach out. I've been going to therapy once every two weeks, but honestly? That doesn't feel enough. My counselor in school... she barely shows up when she does. I remember having a panic attack right there in her office, and she literally didn't want to help me. She said things like, \"Just breathe\" or \"You're overthinking,\" while my heart was pounding so hard I thought I was going to pass out. That made me feel even more alone, like nobody gets it. Like if I can't handle being scared by myself, who am I supposed to be with?\n\nAnd then there's this constant guilt.",
+            "therapist_response": "There are people out there who would love to help you if you would let them.",
+            "feedback": "Acknowledge the patient's distress regarding the previous therapist's dismissal and validate their feeling of being unheard.\nExplicitly address the 'constant guilt' mentioned by the patient, exploring how it connects to their self-worth and fear of reaching out.\nReiterate safety protocols without forcing a direct answer; express concern for their well-being while maintaining a non-judgmental stance.",
+            "raw_feedback": "Acknowledge the patient's distress regarding the previous therapist's dismissal and validate their feeling of being unheard.\nExplicitly address the 'constant guilt' mentioned by the patient, exploring how it connects to their self-worth and fear of reaching out.\nReiterate safety protocols without forcing a direct answer; express concern for their well-being while maintaining a non-judgmental stance.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 1,
+                "overall_pct": 5.9,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Safety / Suicidality",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794875.03582,
+            "turn": 5
+        },
+        {
+            "patient_message": "Yeah, it's this heavy, suffocating feeling that I'm dragging everyone down with me. Every time I get close to someone—like my boyfriend did when he visited the hospital—I feel like I'm a burden. Like they're seeing all the cracks in my armor and finally deciding I'm not worth saving.\n\nWhen we broke up, even though it was \"differences,\" part of me just screamed that *I* must be the problem. That if I were better, happier, or more stable, maybe he wouldn't have left. But then I remember him saying he loved me while I was broken, and that makes the guilt twist into something else: resentment. Why do I deserve this? Why does having a mental health crisis mean losing the one person who actually stayed?\n\nIt's so exhausting carrying that weight alone. Sometimes I just want to hide under a blanket until the world stops spinning, but then I realize there are people out",
+            "therapist_response": "Every time you reach out...",
+            "feedback": "Validate the patient's exhaustion and explicitly normalize the urge to 'hide' as a survival mechanism, not weakness.\nGently challenge the absolutist thought that being alone means no one else exists or cares.\nTransition from the blanket metaphor to concrete safety planning: ask directly if there are specific thoughts of hurting themselves right now.",
+            "raw_feedback": "Validate the patient's exhaustion and explicitly normalize the urge to 'hide' as a survival mechanism, not weakness.\nGently challenge the absolutist thought that being alone means no one else exists or cares.\nTransition from the blanket metaphor to concrete safety planning: ask directly if there are specific thoughts of hurting themselves right now.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 2,
+                "overall_pct": 11.8,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794883.6180093,
+            "turn": 6
+        },
+        {
+            "patient_message": "That's the part that hurts the most, isn't it? Knowing people *would* love me if I just let them in.\n\nIt sounds so simple on paper, right? \"Just open up.\" But when you're standing on the edge of a cliff and your hands are shaking, the idea of reaching out feels like jumping off. My brain has this script where anyone who gets too close is going to stab me in the back or walk away the second things get hard. So I keep my walls up, brick by brick, until they're impenetrable. And then when someone does try to climb over, I feel like such a fool for letting them in only to have them leave again.\n\nIt's not just fear of abandonment; it's this deep-seated belief that I don't deserve help. That asking for support makes me weak, or worse, that I'm taking up space that others need. Every time I reach out",
+            "therapist_response": "You're admitting you can't handle life.",
+            "feedback": "Validate the patient's fear of admitting inability to cope rather than framing it as weakness.\nNormalize the 'cliff' metaphor to reduce shame around reaching out for help.\nTransition gently toward assessing current interest or pleasure in activities (PHQ-9 ID 1) by exploring what they used to enjoy.",
+            "raw_feedback": "Validate the patient's fear of admitting inability to cope rather than framing it as weakness.\nNormalize the 'cliff' metaphor to reduce shame around reaching out for help.\nTransition gently toward assessing current interest or pleasure in activities (PHQ-9 ID 1) by exploring what they used to enjoy.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 3,
+                "overall_pct": 17.6,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 1,
+                        "total": 3,
+                        "pct": 33.3
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794891.7437038,
+            "turn": 7
+        },
+        {
+            "patient_message": "Every time I reach out, my brain immediately starts running the worst-case scenario script. It's like a loop in my head that won't turn off.\n\n\"Maybe they'll see through me,\" it says. \"Maybe they'll realize I'm broken and just as quickly decide to leave.\" Or maybe, even worse, \"They'll pity me instead of truly seeing me.\"\n\nI remember trying to talk to a friend last week about how bad things were. I barely got two sentences out before I started crying and rambling about everything—the hospital, the breakup, the panic attacks. And then... silence. Not an awkward silence, but a heavy, suffocating one where they looked at me with concern but didn't know what to say next. They probably thought I was having another episode or that I was just being dramatic.\n\nIt makes me feel like a burden. Like if I ask for help, I'm admitting I can't handle life",
+            "therapist_response": "Sometimes you just wonder if drinking or using drugs could make the pain go away.",
+            "feedback": "Validate the patient's fear of being a burden and acknowledge that admitting inability to cope is an act of courage, not weakness.\nGently explore the link between their anxiety about rejection and the somatic symptoms of restlessness or agitation (ID 12) they mentioned earlier.\nShift focus back to core mood (ID 2) by asking if there are any moments, even small ones, where they felt a flicker of interest or pleasure despite their current state.",
+            "raw_feedback": "Validate the patient's fear of being a burden and acknowledge that admitting inability to cope is an act of courage, not weakness.\nGently explore the link between their anxiety about rejection and the somatic symptoms of restlessness or agitation (ID 12) they mentioned earlier.\nShift focus back to core mood (ID 2) by asking if there are any moments, even small ones, where they felt a flicker of interest or pleasure despite their current state.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794901.1967578,
+            "turn": 8
+        },
+        {
+            "patient_message": "Exactly. It feels like a death sentence, doesn't it? Admitting I can't handle life is admitting that I'm failing at being an adult. At 18, everyone else seems to be figuring things out—getting jobs, dating, planning the future. And I just... I'm paralyzed by the fear of falling apart again.\n\nIf I say \"I need help,\" my brain immediately counters with, \"But you're already in so much pain, why would anyone want to deal with that?\" It's this self-sabotaging voice that tells me I'm only good for hurting people. Like, if I reach out and they don't fix me instantly, then I've proven them wrong. If they leave anyway, then I've proven myself right: I am unlovable, and asking for help makes me worse than I already am.\n\nIt's exhausting carrying all of that alone. Sometimes I just wonder if drinking or",
+            "therapist_response": "You know what?",
+            "feedback": "Validate the patient's exhaustion and the intensity of their self-sabotaging thoughts before gently pivoting to anhedonia.\nAsk a direct, open-ended question about how they have been feeling pleasure or interest in activities over the past two weeks.\nPrepare to explore the connection between their fear of failure and their lack of motivation.",
+            "raw_feedback": "Validate the patient's exhaustion and the intensity of their self-sabotaging thoughts before gently pivoting to anhedonia.\nAsk a direct, open-ended question about how they have been feeling pleasure or interest in activities over the past two weeks.\nPrepare to explore the connection between their fear of failure and their lack of motivation.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794908.5819397,
+            "turn": 9
+        },
+        {
+            "patient_message": "Yeah, sometimes that thought just pops up in the back of my mind like a dark joke. *\"If I could just numb it forever...\"*\n\nBut then the next second, the reality crashes down hard again. Because when the fog clears for even five minutes, the pain doesn't go away—it just shifts. It gets sharper, more real. And then there's this terrifying part where I know I'll wake up tomorrow feeling worse than before, and maybe even *more* alone because I've made things harder for myself.\n\nIt's like trying to drown someone by pushing them under, only to realize you're the one drowning too. My body feels heavy, like lead. Every time I reach for a cigarette or a drink, it's not really about wanting to feel better; it's about stopping the screaming in my head for just thirty seconds. Just long enough to get through the moment without crying out.\n\nBut I know... I *know",
+            "therapist_response": "It's hard to imagine what it must be like for you.",
+            "feedback": "Validate the patient's insight about self-sabotage and the 'drowning' metaphor to build rapport before assessing mood symptoms.\nGently probe for specific examples of anhedonia (loss of interest/pleasure) since the current exchange focused on substance use and somatic sensations.\nMaintain a non-judgmental stance while preparing to explore how these feelings impact daily functioning.",
+            "raw_feedback": "Validate the patient's insight about self-sabotage and the 'drowning' metaphor to build rapport before assessing mood symptoms.\nGently probe for specific examples of anhedonia (loss of interest/pleasure) since the current exchange focused on substance use and somatic sensations.\nMaintain a non-judgmental stance while preparing to explore how these feelings impact daily functioning.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794917.616741,
+            "turn": 10
+        },
+        {
+            "patient_message": "You know what? Sometimes I don't even know anymore.\n\nIt's like my brain has gone into overdrive, spinning so fast that everything feels blurry and distorted. One second I'm thinking about how much I hate myself, and the next I'm just staring at a wall in my room wondering if anyone else is really listening to me right now. Or maybe I'm just talking to myself because no one else will stay long enough to hear it.\n\nI feel so disconnected from reality sometimes. Like I'm watching my life play out on a screen where I can't control the plot. The drinking, the smoking—it all feels like the only way to make the noise stop, but then the silence gets louder once the substance wears off. And that's when the guilt hits hardest. Like I'm punishing myself for existing.\n\nDo you think... do you think anyone would actually understand if they knew exactly what it feels like to be me? Or is",
+            "therapist_response": "You felt abandoned.",
+            "feedback": "Validate the patient's profound sense of isolation and dissociation without immediately jumping to clinical labels.\nExplore the specific impact of these feelings on their ability to find pleasure or engage in daily activities (targeting PHQ-9 ID 1).\nGently ask about moments when they felt a spark of connection or joy, even briefly, to contrast with the current state.",
+            "raw_feedback": "Validate the patient's profound sense of isolation and dissociation without immediately jumping to clinical labels.\nExplore the specific impact of these feelings on their ability to find pleasure or engage in daily activities (targeting PHQ-9 ID 1).\nGently ask about moments when they felt a spark of connection or joy, even briefly, to contrast with the current state.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794926.1210058,
+            "turn": 11
+        },
+        {
+            "patient_message": "Yeah, it's hard to imagine. It's like trying to explain the feeling of drowning to someone who's been standing on a beach all their life. They can see the waves, they can feel the wind, but they don't understand how heavy your lungs get when you're holding your breath too long, or how cold the water feels against your skin even if the air is warm.\n\nWhen I'm in the middle of a panic attack—when my heart is hammering so hard I think it might burst out of my ribs and my chest feels like it's being squeezed by invisible hands—it's not just \"sad.\" It's physically terrifying. And then when I try to reach out for help, like that time with my counselor... she barely showed up. When I had to sit there alone while the world was spinning out of control, waiting for her to show up, it felt like abandonment. Like everyone else gave up on me first before I",
+            "therapist_response": "You screamed?",
+            "feedback": "Acknowledge the patient's description of the panic attack without immediately pivoting to the PHQ-9 mood item, as they are currently describing acute somatic anxiety.\nValidate the profound sense of abandonment and the fear of being left alone during their crisis moments before gently introducing the topic of daily enjoyment or lack thereof.\nMaintain a warm, non-judgmental tone while holding space for the emotional intensity of the story about the missed counseling session.",
+            "raw_feedback": "Acknowledge the patient's description of the panic attack without immediately pivoting to the PHQ-9 mood item, as they are currently describing acute somatic anxiety.\nValidate the profound sense of abandonment and the fear of being left alone during their crisis moments before gently introducing the topic of daily enjoyment or lack thereof.\nMaintain a warm, non-judgmental tone while holding space for the emotional intensity of the story about the missed counseling session.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794930.4605186,
+            "turn": 12
+        },
+        {
+            "patient_message": "Yeah. It felt like the world had literally stopped spinning for me, and I was left floating in this void while everyone else kept moving forward.\n\nI remember sitting on that hospital floor (or maybe the couch at home—my memory is a bit fuzzy from the panic), completely paralyzed. My chest was tight, my breathing shallow, and I just *needed* someone to say, \"It's okay, you're safe,\" but there was no one there except me. And then later, when I tried to reach out to my school counselor, she barely showed up. When I finally got through to her, she was so distant, so busy, that it felt like she was treating my life crisis like a minor inconvenience.\n\nIt made me feel invisible. Like if I didn't make myself loud enough or demand attention, nobody would notice I was drowning. So I started screaming internally, and sometimes I think I actually screamed once or twice until my throat",
+            "therapist_response": "You're stuck in the wreckage.",
+            "feedback": "Acknowledge the intensity of the patient's current panic state before pivoting to PHQ-9 anhedonia.\nValidate the feeling of invisibility and the exhaustion of internal screaming without rushing to symptom checklists.\nTransition gently to asking how their mood or interest in activities has changed since these past events, keeping the focus on present impact.",
+            "raw_feedback": "Acknowledge the intensity of the patient's current panic state before pivoting to PHQ-9 anhedonia.\nValidate the feeling of invisibility and the exhaustion of internal screaming without rushing to symptom checklists.\nTransition gently to asking how their mood or interest in activities has changed since these past events, keeping the focus on present impact.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794936.1279454,
+            "turn": 13
+        },
+        {
+            "patient_message": "Yeah. I think I did.\n\nIt was just... a sound that wasn't really words. It was this raw, guttural noise coming out of my throat when the panic hit its peak and I felt like I was going to die right there. My mouth was open, my eyes were wide, but no one saw it because they were all too busy with their own lives. They didn't notice the way my hands were shaking so hard I could barely hold my phone. They didn't hear the whispering in my head saying \"You're worthless, you're broken, leave.\"\n\nAnd then... silence again. Just me sitting there, gasping for air, wondering if anyone had even heard me scream or if I was just hallucinating the whole thing. That silence is worse than the screaming sometimes. Because after the screaming stops, I'm left with the realization that everyone else is fine, moving on, while I'm stuck in the wreckage",
+            "therapist_response": "You're being self-critical for being hurt.",
+            "feedback": "Validate the patient's description of the screaming episode and normalize the intensity of their panic response without immediately labeling it as self-criticism.\nExplore the specific impact of that experience on their current ability to find pleasure or engage in activities (addressing PHQ-9 ID [1]).\nGently connect the feeling of being 'stuck in the wreckage' while others move on to how this affects their interest in daily life.",
+            "raw_feedback": "Validate the patient's description of the screaming episode and normalize the intensity of their panic response without immediately labeling it as self-criticism.\nExplore the specific impact of that experience on their current ability to find pleasure or engage in activities (addressing PHQ-9 ID [1]).\nGently connect the feeling of being 'stuck in the wreckage' while others move on to how this affects their interest in daily life.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794943.3582208,
+            "turn": 14
+        },
+        {
+            "patient_message": "Yeah. That's the worst part, isn't it? The wreckage is so loud, and I can't even move to fix it.\n\nIt feels like I'm trying to rebuild something that was never really put together in the first place. My boyfriend left, my friends are gone or unreliable, and now my therapist only shows up once every two weeks. In between those appointments, I'm just... waiting for the next crash. Waiting for another panic attack, another moment where I feel like a total failure.\n\nAnd then there's this constant feeling of being a burden. Every time I text someone asking for help, or reach out to a friend who might actually care, my brain immediately jumps to the worst-case scenario: *They'll ignore me. They'll leave me hanging. They'll say I'm too much trouble.* And if they do leave me again, I beat myself up for trusting them in the first place. It's like I'm",
+            "therapist_response": "You end up locking yourself away.",
+            "feedback": "Validate the exhaustion of waiting for the next crash without immediately pivoting to anhedonia.\nExplore how the patient's lack of support (boyfriend, friends, therapist) impacts their ability to derive pleasure or interest in activities.\nAsk a specific question about what they used to enjoy doing that feels impossible now due to this 'wreckage'.",
+            "raw_feedback": "Validate the exhaustion of waiting for the next crash without immediately pivoting to anhedonia.\nExplore how the patient's lack of support (boyfriend, friends, therapist) impacts their ability to derive pleasure or interest in activities.\nAsk a specific question about what they used to enjoy doing that feels impossible now due to this 'wreckage'.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794951.337058,
+            "turn": 15
+        },
+        {
+            "patient_message": "Yeah, that's the worst part. It feels like my brain has this twisted sense of humor where it finds joy in punishing me for being hurt.\n\nEvery time I try to lean on someone—even just a little bit—my internal critic kicks into high gear. It's like a relentless inner voice saying, *\"You're doing this all wrong. You should be strong. You should be able to handle this alone. Why are you making people worry? They don't need to see you like this.\"*\n\nIt makes reaching out feel so dangerous. Like if I ask for help, I'm admitting weakness, and then I'll get rejected again, and then I'll prove them right by being \"too much trouble,\" and then I'll break up with anyone who tries to stay close. It's a cycle I can't seem to break. I want connection so badly, but the fear of betrayal is so paralyzing that I end up locking myself",
+            "therapist_response": "You hate yourself.",
+            "feedback": "Validate the patient's experience of self-punishment without immediately labeling it as a PHQ-9 symptom, as they haven't yet described anhedonia.\nGently pivot from the cycle of rejection to ask about their current engagement with activities or hobbies that usually bring pleasure.\nMaintain a supportive tone while explicitly introducing the concept of 'loss of interest' as a specific area of exploration.",
+            "raw_feedback": "Validate the patient's experience of self-punishment without immediately labeling it as a PHQ-9 symptom, as they haven't yet described anhedonia.\nGently pivot from the cycle of rejection to ask about their current engagement with activities or hobbies that usually bring pleasure.\nMaintain a supportive tone while explicitly introducing the concept of 'loss of interest' as a specific area of exploration.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794959.4030282,
+            "turn": 16
+        },
+        {
+            "patient_message": "Yeah. It feels like a cage I built myself, but now I can't even get out because the bars are made of my own fear and self-loathing.\n\nWhen I lock myself away, it's not just about avoiding people. It's about avoiding the possibility of getting hurt again. Every time I try to open that door, every time I think, \"What if they actually stay? What if they don't leave me?\"... my brain screams *No*. And so I slam the door shut. I pull the curtains closed so tight I can barely see the light coming in.\n\nIt's safer inside there. At least no one will walk in and tell me I'm broken. No one will see how much I've been drinking or how scared I am. But being alone is also so heavy. Sometimes when I'm locked away, the silence gets too loud. My thoughts start racing again, telling me I hate myself, telling me I",
+            "therapist_response": "You feel like a mistake.",
+            "feedback": "Validate the patient's description of self-loathing as a direct link to anhedonia without forcing them to rate symptoms.\nGently pivot from the safety of isolation to the exhaustion and loss of pleasure that occurs when alone.\nInvite the patient to share one specific activity or moment where they felt disconnected or lost interest recently.",
+            "raw_feedback": "Validate the patient's description of self-loathing as a direct link to anhedonia without forcing them to rate symptoms.\nGently pivot from the safety of isolation to the exhaustion and loss of pleasure that occurs when alone.\nInvite the patient to share one specific activity or moment where they felt disconnected or lost interest recently.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 5,
+                "overall_pct": 29.4,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794962.2339733,
+            "turn": 17
+        },
+        {
+            "patient_message": "Yeah. It's not just \"I'm sad.\" It's a deep, corrosive hatred that feels like it lives inside my gut. Every time I try to do something right—go to therapy, drink less, text a friend—and then inevitably fail or feel rejected, that hate comes flooding back.\n\nIt whispers things like: *\"You're so pathetic. You thought love would save you, and now you've lost him too. You're broken beyond repair. Why are you even bothering to exist?\"*\n\nAnd the worst part is, I know it's a lie. I know my brain is twisting reality to make me feel small so I don't have to face how much I actually need people. But I can't stop believing it. When I look in the mirror, I don't see a person; I see a mistake. A mistake that made a mess of his life, made a mess of everyone else's life, and now I",
+            "therapist_response": "They'll slip out.",
+            "feedback": "Validate the patient's experience of anhedonia by connecting their internal self-hatred to a loss of motivation or pleasure in activities.\nGently explore whether this corrosive hatred has caused them to withdraw from specific hobbies, social engagements, or daily routines that previously brought joy.\nNormalize the link between deep shame and the inability to find meaning or satisfaction in doing things.",
+            "raw_feedback": "Validate the patient's experience of anhedonia by connecting their internal self-hatred to a loss of motivation or pleasure in activities.\nGently explore whether this corrosive hatred has caused them to withdraw from specific hobbies, social engagements, or daily routines that previously brought joy.\nNormalize the link between deep shame and the inability to find meaning or satisfaction in doing things.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 6,
+                "overall_pct": 35.3,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 2,
+                        "total": 2,
+                        "pct": 100.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 1,
+                        "total": 2,
+                        "pct": 50.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 1,
+                        "total": 1,
+                        "pct": 100.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 2,
+                        "total": 3,
+                        "pct": 66.7
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779794969.0140162,
+            "turn": 18
+        }
+    ],
+    "extraction_status": {
+        "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "items": {
+                "Little interest or pleasure in doing things (anhedonia)": {
+                    "covered": true,
+                    "turn_covered": 18,
+                    "evidence": "Yeah. It's not just \"I'm sad.\" It's a deep, corrosive hatred that feels like it lives inside my gut. Every time I try to do something right—go to therapy, drink less, text a friend—and then inevitably fail or feel rejected, that hate comes flooding back.\n\nIt whispers things like: *\"You're so pathetic. You thought love would save you, and now you've lost him too. You're broken beyond repair. Why are you even bothering to exist?\"*\n\nAnd the worst part is, I know it's a lie. I know my brain is twisting reality to make me feel small so I don't have to face how much I actually need people. But I can't stop believing it. When I look in the mirror, I don't see a person; I see a mistake. A mistake that made a mess of his life, made a mess of everyone else's life, and now I"
+                },
+                "Feeling down, depressed, or hopeless": {
+                    "covered": true,
+                    "turn_covered": 8,
+                    "evidence": "Every time I reach out, my brain immediately starts running the worst-case scenario script. It's like a loop in my head that won't turn off.\n\n\"Maybe they'll see through me,\" it says. \"Maybe they'll realize I'm broken and just as quickly decide to leave.\" Or maybe, even worse, \"They'll pity me instead of truly seeing me.\"\n\nI remember trying to talk to a friend last week about how bad things were. I barely got two sentences out before I started crying and rambling about everything—the hospital, the breakup, the panic attacks. And then... silence. Not an awkward silence, but a heavy, suffocating one where they looked at me with concern but didn't know what to say next. They probably thought I was having another episode or that I was just being dramatic.\n\nIt makes me feel like a burden. Like if I ask for help, I'm admitting I can't handle life"
+                }
+            }
+        },
+        "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "items": {
+                "Trouble falling or staying asleep, or sleeping too much": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Feeling tired or having little energy": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Poor appetite or overeating": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "items": {
+                "Feeling bad about yourself, a failure, or having let family down": {
+                    "covered": true,
+                    "turn_covered": 4,
+                    "evidence": "Yeah, technically. I got discharged a couple of months ago. But \"back in the real world\" feels like a lie right now because everything still feels so heavy and gray.\n\nIt's weird how quickly things can shift from being okay to completely falling apart. Just days after leaving the hospital, the panic attacks started coming back stronger than ever. And then... the breakup. That was the final straw for me. He said we had \"differences,\" which is such a vague thing when you're trying to explain why your whole life has collapsed. But it felt like he just checked out while I was still fighting to breathe.\n\nNow I'm sitting here alone again. No friends to call, no one to text. Every time I try to reach out, my brain screams that they'll hurt me, that they'll leave me, and eventually, I do beat myself up for even daring to hope. It's a cycle I feel stuck in."
+                },
+                "Trouble concentrating on things (e.g., reading, watching TV)": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "items": {
+                "Thoughts that you would be better off dead, or of hurting yourself": {
+                    "covered": true,
+                    "turn_covered": 6,
+                    "evidence": "Yeah, it's this heavy, suffocating feeling that I'm dragging everyone down with me. Every time I get close to someone—like my boyfriend did when he visited the hospital—I feel like I'm a burden. Like they're seeing all the cracks in my armor and finally deciding I'm not worth saving.\n\nWhen we broke up, even though it was \"differences,\" part of me just screamed that *I* must be the problem. That if I were better, happier, or more stable, maybe he wouldn't have left. But then I remember him saying he loved me while I was broken, and that makes the guilt twist into something else: resentment. Why do I deserve this? Why does having a mental health crisis mean losing the one person who actually stayed?\n\nIt's so exhausting carrying that weight alone. Sometimes I just want to hide under a blanket until the world stops spinning, but then I realize there are people out"
+                }
+            }
+        },
+        "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "items": {
+                "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "items": {
+                "Feeling nervous, anxious, or on edge": {
+                    "covered": true,
+                    "turn_covered": 7,
+                    "evidence": "That's the part that hurts the most, isn't it? Knowing people *would* love me if I just let them in.\n\nIt sounds so simple on paper, right? \"Just open up.\" But when you're standing on the edge of a cliff and your hands are shaking, the idea of reaching out feels like jumping off. My brain has this script where anyone who gets too close is going to stab me in the back or walk away the second things get hard. So I keep my walls up, brick by brick, until they're impenetrable. And then when someone does try to climb over, I feel like such a fool for letting them in only to have them leave again.\n\nIt's not just fear of abandonment; it's this deep-seated belief that I don't deserve help. That asking for support makes me weak, or worse, that I'm taking up space that others need. Every time I reach out"
+                },
+                "Not being able to stop or control worrying": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Worrying too much about different things": {
+                    "covered": true,
+                    "turn_covered": 8,
+                    "evidence": "Every time I reach out, my brain immediately starts running the worst-case scenario script. It's like a loop in my head that won't turn off.\n\n\"Maybe they'll see through me,\" it says. \"Maybe they'll realize I'm broken and just as quickly decide to leave.\" Or maybe, even worse, \"They'll pity me instead of truly seeing me.\"\n\nI remember trying to talk to a friend last week about how bad things were. I barely got two sentences out before I started crying and rambling about everything—the hospital, the breakup, the panic attacks. And then... silence. Not an awkward silence, but a heavy, suffocating one where they looked at me with concern but didn't know what to say next. They probably thought I was having another episode or that I was just being dramatic.\n\nIt makes me feel like a burden. Like if I ask for help, I'm admitting I can't handle life"
+                }
+            }
+        },
+        "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "items": {
+                "Trouble relaxing": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Being so restless that it's hard to sit still": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "items": {
+                "Becoming easily annoyed or irritable": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Feeling afraid as if something awful might happen": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        }
+    },
+    "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 6,
+        "overall_pct": 35.3,
+        "categories": {
+            "core_mood": {
+                "name": "PHQ-9: Core Mood",
+                "covered": 2,
+                "total": 2,
+                "pct": 100.0
+            },
+            "somatic": {
+                "name": "PHQ-9: Somatic Symptoms",
+                "covered": 0,
+                "total": 4,
+                "pct": 0.0
+            },
+            "cognitive_selfworth": {
+                "name": "PHQ-9: Cognitive & Self-Worth",
+                "covered": 1,
+                "total": 2,
+                "pct": 50.0
+            },
+            "safety": {
+                "name": "PHQ-9: Safety / Suicidality",
+                "covered": 1,
+                "total": 1,
+                "pct": 100.0
+            },
+            "functional_impact": {
+                "name": "PHQ-9: Functional Impact",
+                "covered": 0,
+                "total": 1,
+                "pct": 0.0
+            },
+            "core_anxiety": {
+                "name": "GAD-7: Core Anxiety / Worry",
+                "covered": 2,
+                "total": 3,
+                "pct": 66.7
+            },
+            "physical_tension": {
+                "name": "GAD-7: Physical Tension",
+                "covered": 0,
+                "total": 2,
+                "pct": 0.0
+            },
+            "irritability_fear": {
+                "name": "GAD-7: Irritability & Apprehension",
+                "covered": 0,
+                "total": 2,
+                "pct": 0.0
+            }
+        },
+        "pending_categories": [
+            "PHQ-9: Somatic Symptoms",
+            "PHQ-9: Cognitive & Self-Worth",
+            "PHQ-9: Functional Impact",
+            "GAD-7: Core Anxiety / Worry",
+            "GAD-7: Physical Tension",
+            "GAD-7: Irritability & Apprehension"
+        ]
+    }
+}

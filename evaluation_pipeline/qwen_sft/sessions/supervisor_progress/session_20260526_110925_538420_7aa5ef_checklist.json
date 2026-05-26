@@ -1,0 +1,1530 @@
+{
+  "session_id": "20260526_110925_538420_7aa5ef",
+  "timestamp": 1779793938.1491742,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": true,
+          "turn_covered": 5,
+          "evidence": "Yeah, that's exactly the cycle. It feels so counterproductive, doesn't it?\n\nI know logically that if I just take a deep breath and relax my shoulders, the panic should subside. But here's the thing: every time I try to \"control\" it, or tell myself to \"calm down,\" my brain actually interprets that as more stress. It's like trying to hold back a flood with your bare hands; the harder you push, the more water comes rushing in.\n\nSo now I'm stuck in this loop where I have to work twice as hard just to keep from panicking while I'm already trying to do the test. And when the anxiety spikes during the questions, it drains all the mental energy I need to actually read the prompt or solve the problem. It leaves me feeling useless and exhausted, even after finishing everything. I want to believe studying would fix it, but it just feels like I'm pouring"
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": true,
+          "turn_covered": 8,
+          "evidence": "Yeah, exactly. It feels like my brain is built on a \"better safe than sorry\" engine that's completely broken.\n\nIf I try to take that step back and study less, or even just breathe through the panic without fighting it, my mind immediately calculates the worst-case scenario: *I don't know this material \u2192 I will fail \u2192 My future is ruined.* Because of that calculation, the safety mechanism kicks in. It locks me into the panic loop to keep me from ever taking that risk.\n\nIt's so ironic because the thing that's supposed to help me pass (studying) is actually what's keeping me from passing by triggering the very symptoms that make me feel like I can't function. And then there's this ghost story about fainting when giving blood years ago... every time I sit down for a test, I'm not just worried about failing; I'm terrified that my body might decide to shut down again. It makes"
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "So the anxiety just comes and goes with the assessments.",
+      "feedback": "Acknowledge Sarah's current state without assuming it matches the previous assessment context.\nClarify if her anxiety is specifically tied to the assessments or occurring more broadly.\nPrepare to gently transition to the next priority area: safety and suicidality.",
+      "raw_feedback": "Acknowledge Sarah's current state without assuming it matches the previous assessment context.\nClarify if her anxiety is specifically tied to the assessments or occurring more broadly.\nPrepare to gently transition to the next priority area: safety and suicidality.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793770.5810082,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hey, thanks for asking. Honestly? I'm doing okay in a way, but mostly just trying to get through the day without my heart racing like crazy.\n\nIt's been really tough lately. You know how it is with assessments? My anxiety just skyrockets before tests or any kind of evaluation. It hits hard\u2014my breathing gets all out of control and won't steady down, and my heart rate just goes through the roof. It feels insane, almost like I'm about to pass out. My vision gets blurry, I feel like there's no blood flow to my limbs, and honestly? I feel like I'm going to throw up.\n\nIt makes me so frustrated because I *know* I can handle these things. Like, I remember giving blood years ago and passed out once during that, so I know my body is capable of handling stress, but somehow, right before an assessment, my brain just locks me into this panic loop",
+      "therapist_response": "You're carrying that pressure in your mind, and it's interfering with your ability to focus on the test?",
+      "feedback": "Acknowledge the patient's courage in sharing the panic loop without yet pivoting to safety questions.\nValidate that the physical symptoms (heart racing, blurred vision) are real and terrifying even if not life-threatening.\nTransition gently to the next priority area by asking how these intense feelings impact her sense of self-worth or hopelessness.",
+      "raw_feedback": "Acknowledge the patient's courage in sharing the panic loop without yet pivoting to safety questions.\nValidate that the physical symptoms (heart racing, blurred vision) are real and terrifying even if not life-threatening.\nTransition gently to the next priority area by asking how these intense feelings impact her sense of self-worth or hopelessness.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793774.1347294,
+      "turn": 2
+    },
+    {
+      "patient_message": "Yeah, it's pretty much tied to those moments. It doesn't really hit me during regular class or even just hanging out with friends. But the second something turns into a test, a quiz, or any kind of formal evaluation, that switch flips instantly.\n\nIt's weird because I've been studying *way* more lately, thinking if I just know the material enough, I can control it. But honestly? The extra studying makes it worse. Now I'm so afraid of messing up that my brain goes into overdrive instead of helping me focus. It feels like I'm carrying this heavy weight of \"I cannot afford to fail,\" and that pressure is what triggers the panic attack before I even sit down to answer the first question.",
+      "therapist_response": "So the panic is interfering with your performance, and you're working harder to try to control it, which is making it worse.",
+      "feedback": "Validate Sarah's insight that the 'cannot afford to fail' mindset is fueling the panic loop before assessments.\nGently introduce PHQ-9 safety questions by acknowledging her distress without forcing a direct suicide inquiry right now; assess if she feels hopeless or trapped in this cycle.\nExplore how this specific type of anticipatory anxiety impacts her daily functioning and sense of self-worth outside of test situations.",
+      "raw_feedback": "Validate Sarah's insight that the 'cannot afford to fail' mindset is fueling the panic loop before assessments.\nGently introduce PHQ-9 safety questions by acknowledging her distress without forcing a direct suicide inquiry right now; assess if she feels hopeless or trapped in this cycle.\nExplore how this specific type of anticipatory anxiety impacts her daily functioning and sense of self-worth outside of test situations.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793778.2032733,
+      "turn": 3
+    },
+    {
+      "patient_message": "Exactly. It feels like the more I study, the louder that voice in my head gets screaming, *\"You can't mess up. If you mess up, everything falls apart.\"*\n\nInstead of helping me focus, it just shuts down my brain. My body goes into this fight-or-flight mode where all my energy is spent trying to survive the panic instead of actually reading the questions. I know logically that I'm prepared and that I *can* do this, but emotionally? It's impossible to relax into the test when my chest feels tight and my hands are shaking so bad I can barely write. It's like I'm running a marathon while simultaneously trying to calm down a firestorm inside my own skull.",
+      "therapist_response": "Yeah, it feels like you're pouring gasoline on the fire.",
+      "feedback": "Acknowledge the intensity of the patient's description without validating the catastrophic 'everything falls apart' narrative.\nGently pivot to safety by asking if these thoughts about failure have ever crossed into thoughts of wanting to be dead or hurting themselves.\nNormalize that test anxiety can feel life-threatening but is usually a symptom of fear rather than an actual desire for harm.",
+      "raw_feedback": "Acknowledge the intensity of the patient's description without validating the catastrophic 'everything falls apart' narrative.\nGently pivot to safety by asking if these thoughts about failure have ever crossed into thoughts of wanting to be dead or hurting themselves.\nNormalize that test anxiety can feel life-threatening but is usually a symptom of fear rather than an actual desire for harm.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793785.069274,
+      "turn": 4
+    },
+    {
+      "patient_message": "Yeah, that's exactly the cycle. It feels so counterproductive, doesn't it?\n\nI know logically that if I just take a deep breath and relax my shoulders, the panic should subside. But here's the thing: every time I try to \"control\" it, or tell myself to \"calm down,\" my brain actually interprets that as more stress. It's like trying to hold back a flood with your bare hands; the harder you push, the more water comes rushing in.\n\nSo now I'm stuck in this loop where I have to work twice as hard just to keep from panicking while I'm already trying to do the test. And when the anxiety spikes during the questions, it drains all the mental energy I need to actually read the prompt or solve the problem. It leaves me feeling useless and exhausted, even after finishing everything. I want to believe studying would fix it, but it just feels like I'm pouring",
+      "therapist_response": "Alright, so you're trying to study less, but you're afraid of not knowing the material, and that's what's leading to the panic. So there's a part of you that wants to do less studying.",
+      "feedback": "Validate the patient's exhaustion and reinforce that feeling useless is a common symptom of this panic loop, not a reflection of their actual ability.\nGently probe whether the intense shame or self-blame ('pouring gasoline') has triggered any thoughts of wanting to escape or feel better off dead.\nPrepare to screen for safety/suicidality if the patient indicates feelings of hopelessness or worthlessness are escalating during the session.",
+      "raw_feedback": "Validate the patient's exhaustion and reinforce that feeling useless is a common symptom of this panic loop, not a reflection of their actual ability.\nGently probe whether the intense shame or self-blame ('pouring gasoline') has triggered any thoughts of wanting to escape or feel better off dead.\nPrepare to screen for safety/suicidality if the patient indicates feelings of hopelessness or worthlessness are escalating during the session.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793794.9377923,
+      "turn": 5
+    },
+    {
+      "patient_message": "Exactly. It feels like pouring gasoline on the fire, doesn't it? And then I'm trying to use a bucket of water while simultaneously adding more fuel.\n\nIt's so frustrating because I know the logic: *If I study less, maybe the pressure won't be there.* But the problem is, I can't just stop studying. The fear of not knowing the material is what triggers the panic in the first place. So I end up studying even harder, terrified that one day I'll forget something and everything will collapse. It's this impossible trap where doing more makes me feel worse, but doing less leaves me terrified of failing.\n\nI really want to break out of this cycle and finish high school without feeling like I'm constantly fighting for my life during exams. But until I find a way to actually relax my body and quiet that voice in my head, it feels like I'm running on fumes every single time I walk into an exam",
+      "therapist_response": "Alright, so you're trying to take that step, but you're afraid it'll lead to something bad.",
+      "feedback": "Acknowledge the patient's distress and validate that their fear of failure is a rational response to high stakes, even if it feels overwhelming.\nGently probe whether they have experienced any thoughts of being better off dead or hurting themselves as a result of this exhaustion and panic cycle.\nReassure them that safety is the immediate priority and that we can address these feelings together without judgment.",
+      "raw_feedback": "Acknowledge the patient's distress and validate that their fear of failure is a rational response to high stakes, even if it feels overwhelming.\nGently probe whether they have experienced any thoughts of being better off dead or hurting themselves as a result of this exhaustion and panic cycle.\nReassure them that safety is the immediate priority and that we can address these feelings together without judgment.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793805.2130888,
+      "turn": 6
+    },
+    {
+      "patient_message": "Yeah, that part of me wants to just... stop. I'd give anything to sit down for a test feeling completely relaxed and confident, not knowing the material by heart but just trusting myself enough to figure it out on the spot.\n\nBut the scary truth is, if I study less, that fear becomes absolute. It shifts from \"I might mess up\" to \"I *will* fail.\" And that certainty is what actually triggers the physical symptoms\u2014the racing heart, the blurry vision, the feeling like I'm going to pass out. My brain thinks, *\"If you don't know everything, you are in danger,\"* so it dumps all this adrenaline into your body instead of letting you focus.\n\nIt's like trying to walk through a door while someone is holding your legs back. I want to take the step forward (study less), but my brain won't let me because it feels unsafe. So I end up stuck right at the threshold",
+      "therapist_response": "You feel like it's going to happen again.",
+      "feedback": "Validate the patient's description of their brain interpreting uncertainty as a life-threatening danger.\nGently probe whether this intense fear of failure has ever escalated to thoughts that they would be better off dead or hurting themselves.\nIf no suicidal ideation is present, reinforce their insight about the 'doorway' metaphor and explore one small step toward reducing studying.",
+      "raw_feedback": "Validate the patient's description of their brain interpreting uncertainty as a life-threatening danger.\nGently probe whether this intense fear of failure has ever escalated to thoughts that they would be better off dead or hurting themselves.\nIf no suicidal ideation is present, reinforce their insight about the 'doorway' metaphor and explore one small step toward reducing studying.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793816.076204,
+      "turn": 7
+    },
+    {
+      "patient_message": "Yeah, exactly. It feels like my brain is built on a \"better safe than sorry\" engine that's completely broken.\n\nIf I try to take that step back and study less, or even just breathe through the panic without fighting it, my mind immediately calculates the worst-case scenario: *I don't know this material \u2192 I will fail \u2192 My future is ruined.* Because of that calculation, the safety mechanism kicks in. It locks me into the panic loop to keep me from ever taking that risk.\n\nIt's so ironic because the thing that's supposed to help me pass (studying) is actually what's keeping me from passing by triggering the very symptoms that make me feel like I can't function. And then there's this ghost story about fainting when giving blood years ago... every time I sit down for a test, I'm not just worried about failing; I'm terrified that my body might decide to shut down again. It makes",
+      "therapist_response": "Yeah, you feel like you're preparing for an emergency.",
+      "feedback": "Acknowledge the specific fear that her body will shut down again as a manifestation of Item 16 (feeling afraid something awful might happen).\nValidate the 'ghost story' of fainting from years ago without validating the prediction that it will happen now.\nGently pivot to explore if she has ever actually felt suicidal or thought she would be better off dead, distinguishing between physical panic and life-threatening thoughts.",
+      "raw_feedback": "Acknowledge the specific fear that her body will shut down again as a manifestation of Item 16 (feeling afraid something awful might happen).\nValidate the 'ghost story' of fainting from years ago without validating the prediction that it will happen now.\nGently pivot to explore if she has ever actually felt suicidal or thought she would be better off dead, distinguishing between physical panic and life-threatening thoughts.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793829.1389854,
+      "turn": 8
+    },
+    {
+      "patient_message": "Yeah, it's like I'm expecting an earthquake to hit while I'm trying to build a house.\n\nThat fainting episode years ago\u2014it wasn't just a memory; it feels like a script my body keeps replaying. When the heart rate spikes during a test, I don't just feel anxious anymore; I feel *familiar*. It triggers this deep, primal fear that \"Oh no, here it is again. My body is shutting down. I'm going to pass out in front of everyone.\"\n\nIt makes me hyper-aware of every symptom: the blurry vision, the cold limbs, the nausea. Instead of thinking, *\"Okay, I'm just stressed,\"* my brain screams, *\"Danger! Danger!\"* because it thinks I'm actually experiencing another fainting spell. So now, even though I know logically that I'm fine and capable of passing, my body reacts as if I'm in immediate physical danger. That's why studying",
+      "therapist_response": "Alright, so your body's reacting to the stress, but then that reaction is interfering with your performance.",
+      "feedback": "Acknowledge the patient's description of their fainting episode as a 'script' to validate the reality of their somatic experience without reinforcing the catastrophic belief that it is happening now.\nGently pivot from the physical fear response to the underlying safety/suicidality checklist item, asking if this intense fear of bodily shutdown ever leads to thoughts of wanting to escape or end things.\nExplore whether the feeling of being trapped in this 'emergency mode' during tests creates hopelessness about their future ability to function.",
+      "raw_feedback": "Acknowledge the patient's description of their fainting episode as a 'script' to validate the reality of their somatic experience without reinforcing the catastrophic belief that it is happening now.\nGently pivot from the physical fear response to the underlying safety/suicidality checklist item, asking if this intense fear of bodily shutdown ever leads to thoughts of wanting to escape or end things.\nExplore whether the feeling of being trapped in this 'emergency mode' during tests creates hopelessness about their future ability to function.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793842.7098362,
+      "turn": 9
+    },
+    {
+      "patient_message": "Exactly. It feels like I'm preparing for a bomb to go off inside my chest every time I walk into the exam room.\n\nI've spent years training my body to recognize those specific signals\u2014the tightness in the throat, the tunnel vision\u2014and instead of relaxing, my system goes full \"emergency mode.\" It's not just anxiety anymore; it feels like a genuine medical crisis happening right now. My brain is screaming, *\"Don't let this happen again! Stay alert! Fight!\"* while my heart pounds so hard I can feel it against my ribs.\n\nAnd the worst part? Even when I try to calm down, that old trauma response kicks in and overrides everything. I'm not thinking about math or history or science; I'm stuck in survival mode, waiting for the world to stop spinning or for me to collapse. It's exhausting trying to be a student when half your nervous system is convinced you're having a heart attack.",
+      "therapist_response": "And that's all the time you have to get it right because that's the time you have to do the test.",
+      "feedback": "Acknowledge the intensity of the 'survival mode' description without immediately pivoting to safety questions.\nValidate the exhaustion and hopelessness embedded in the patient's narrative before introducing PHQ-9 Item [8].\nGently transition to checking if these feelings of being overwhelmed or trapped have ever led to thoughts that things would be better off dead.",
+      "raw_feedback": "Acknowledge the intensity of the 'survival mode' description without immediately pivoting to safety questions.\nValidate the exhaustion and hopelessness embedded in the patient's narrative before introducing PHQ-9 Item [8].\nGently transition to checking if these feelings of being overwhelmed or trapped have ever led to thoughts that things would be better off dead.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793853.7909026,
+      "turn": 10
+    },
+    {
+      "patient_message": "That's the worst part, isn't it? It's like a feedback loop that never turns off.\n\nWhen I get that racing heart and start feeling nauseous, my brain literally *can't* access the information I studied. It's not just that I'm distracted; it's like my mind is going into \"static.\" The questions in front of me look fuzzy, or I forget what a basic formula was because all my cognitive resources are being burned trying to regulate my breathing and stop myself from passing out.\n\nSo here's the cruel irony: **The more I panic, the worse I perform.** And then, seeing that poor performance (or even just knowing I'm about to have a bad one) makes me panic even harder for the next test. It feels like no matter how hard I try to fix the problem, I'm only making the symptoms stronger.\n\nIt leaves me feeling so defeated. Like I'm fighting a war inside my",
+      "therapist_response": "Alright, so you're losing the war before the battle even starts.",
+      "feedback": "The patient's narrative focused on performance anxiety and somatic symptoms, not safety or suicidality; avoid jumping to the PHQ-9 Safety item now.\nValidate the 'fight or flight' physiology described (racing heart, tunnel vision) as a normal survival response rather than a defect.\nGently normalize the feeling of being overwhelmed by this specific feedback loop to build rapport before assessing mood.",
+      "raw_feedback": "The patient's narrative focused on performance anxiety and somatic symptoms, not safety or suicidality; avoid jumping to the PHQ-9 Safety item now.\nValidate the 'fight or flight' physiology described (racing heart, tunnel vision) as a normal survival response rather than a defect.\nGently normalize the feeling of being overwhelmed by this specific feedback loop to build rapport before assessing mood.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793867.1864357,
+      "turn": 11
+    },
+    {
+      "patient_message": "Yeah, it's the most cruel part. The whole world is on \"pause\" while I'm stuck in a 40-minute loop of panic.\n\nI have to write down my name, fill out the bubble sheet, and then... *nothing*. Just me and this screaming engine in my chest trying to figure out how to breathe without hyperventilating until I pass out. And if I do that? If I mess up the breathing? Then I literally can't access the material I studied weeks ago. It feels like the test isn't actually testing what I know; it's just testing how well I can ignore my own body.\n\nIt's so unfair because I want to be smart, I want to be capable, but right now, my brain is too busy worrying about whether I'm going to faint to even remember the answers. It feels like I'm losing the war before the battle even starts.",
+      "therapist_response": "You're failing because of the panic?",
+      "feedback": "Avoid the leading question 'You're failing because of the panic?' which can validate the patient's self-blame and reinforce the hopelessness central to PHQ-9 ID [7].\nShift focus immediately to safety by asking open-ended questions about whether thoughts of self-harm or feeling better off dead have become more frequent, intense, or specific given this situation.\nValidate the exhaustion of fighting a physiological fight-or-flight response without assigning it as a cause for failure, preserving the therapeutic alliance before assessing risk.",
+      "raw_feedback": "Avoid the leading question 'You're failing because of the panic?' which can validate the patient's self-blame and reinforce the hopelessness central to PHQ-9 ID [7].\nShift focus immediately to safety by asking open-ended questions about whether thoughts of self-harm or feeling better off dead have become more frequent, intense, or specific given this situation.\nValidate the exhaustion of fighting a physiological fight-or-flight response without assigning it as a cause for failure, preserving the therapeutic alliance before assessing risk.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793879.739143,
+      "turn": 12
+    },
+    {
+      "patient_message": "Exactly. It feels like I'm losing the war before the battle even starts.\n\nI sit there, staring at a math problem or a history date, and instead of thinking about how to solve it, I'm thinking about my next breath. Is it going to be too fast? Will it make my vision go black again? If I take a deep breath, will that trigger the nausea? My brain has completely hijacked the \"thinking\" part of me with \"survival mode.\"\n\nIt's so frustrating because I *know* the answers. I've studied for weeks. But right now, in that moment, I feel like a stranger looking at the paper. The information isn't gone; it's just locked behind a door made of panic. And the scary part is, if I don't get through that panic loop quickly, I literally can't access what I know. So I'm not failing because I didn't study hard enough\u2014I",
+      "therapist_response": "So this is affecting your confidence in the next test?",
+      "feedback": "Validate the patient's insight that their performance is being blocked by physiological panic rather than lack of knowledge.\nGently pivot to the next priority area (PHQ-9 Safety) by asking if this intense feeling of losing control or 'stranger' experience has ever led to thoughts of wanting to be better off dead or hurting oneself.\nMaintain a non-judgmental stance while ensuring the patient feels safe enough to disclose any suicidal ideation.",
+      "raw_feedback": "Validate the patient's insight that their performance is being blocked by physiological panic rather than lack of knowledge.\nGently pivot to the next priority area (PHQ-9 Safety) by asking if this intense feeling of losing control or 'stranger' experience has ever led to thoughts of wanting to be better off dead or hurting oneself.\nMaintain a non-judgmental stance while ensuring the patient feels safe enough to disclose any suicidal ideation.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793891.140571,
+      "turn": 13
+    },
+    {
+      "patient_message": "Yeah, in a way. It feels like the panic is the real enemy right now, not the material itself.\n\nI've spent so much time studying that I feel like if I just memorized enough facts, I could outrun this anxiety. But it's like hitting a wall. No matter how many times I review the notes, the moment the test starts, my brain short-circuits. The information isn't \"lost\" forever, but in that specific window of time, it's inaccessible because my body is screaming at me to stop functioning entirely.\n\nIt's so demoralizing. I look at my grades (or even just imagine them being bad), and instead of thinking, *\"Oh, I need to study harder next time,\"* I think, *\"My body rejected me. I'm broken.\"* That belief\u2014that my physiology has permanently damaged my ability to perform under pressure\u2014only makes the next test feel even more impossible. It",
+      "therapist_response": "Taking control.",
+      "feedback": "Validate the patient's intense fear of permanent physiological damage and 'brokenness' without reinforcing the belief that their body has been permanently altered.\nGently pivot from the catastrophic interpretation of their symptoms to explore the difference between a temporary panic response and actual permanent injury.\nContinue the momentum established by 'Taking control' by asking the patient what specific small action they can take right now to shift from survival mode back to learning mode.",
+      "raw_feedback": "Validate the patient's intense fear of permanent physiological damage and 'brokenness' without reinforcing the belief that their body has been permanently altered.\nGently pivot from the catastrophic interpretation of their symptoms to explore the difference between a temporary panic response and actual permanent injury.\nContinue the momentum established by 'Taking control' by asking the patient what specific small action they can take right now to shift from survival mode back to learning mode.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793903.6705399,
+      "turn": 14
+    },
+    {
+      "patient_message": "Yes, absolutely. It's like I'm building a house of cards every single time I study, and then the moment the test starts, the whole structure collapses because I'm terrified it will fall again.\n\nIt creates this massive \"what if\" loop in my head. Instead of thinking, *\"I know this material,\"* I think, *\"What if I faint halfway through? What if I vomit in front of everyone? What if they see me struggle?\"* That fear is so paralyzing that even just *imagining* the possibility makes me doubt my ability to finish the test at all.\n\nSo now, when I sit down for the next assessment, I don't feel confident. I feel like I'm walking into a trap I know I can't escape. The more I anticipate the panic, the less trust I have in myself to handle it. It feels like I'm losing my own agency\u2014like I'm not the one",
+      "therapist_response": "Just... gone.",
+      "feedback": "Validate the patient's experience of losing agency and feeling trapped before shifting focus to safety.\nDirectly address PHQ-9 ID [8] by gently inquiring if these feelings of helplessness or fear are accompanied by thoughts that would be better off dead or self-harm.\nIf no suicidal ideation is present, normalize the intense anxiety as a reaction to perceived threat rather than an indication of permanent damage.",
+      "raw_feedback": "Validate the patient's experience of losing agency and feeling trapped before shifting focus to safety.\nDirectly address PHQ-9 ID [8] by gently inquiring if these feelings of helplessness or fear are accompanied by thoughts that would be better off dead or self-harm.\nIf no suicidal ideation is present, normalize the intense anxiety as a reaction to perceived threat rather than an indication of permanent damage.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793912.1084316,
+      "turn": 15
+    },
+    {
+      "patient_message": "Yeah, taking control. It feels like I'm handing the steering wheel to someone who doesn't even know how to drive.\n\nI try to tell myself, *\"Okay, breathe. Focus on this question. You've got this.\"* But then my body just ignores me completely. My heart races faster than my logic can process, my limbs feel heavy and numb, and suddenly I'm back in that tunnel where I feel like I'm about to pass out. In those moments, I don't feel like *me*. I feel like a passenger watching my own body fail me while everyone else is trying to figure out what's going on.\n\nIt's so isolating. Like no matter how much I want to be in charge of my life, during these tests, I feel powerless. I can't stop the shaking, I can't calm the racing heart, and I can't force my brain to remember the stuff I studied. It all feels like",
+      "therapist_response": "So you're really having trouble feeling like yourself during these tests.",
+      "feedback": "Acknowledge the patient's description of feeling like a passenger and losing agency without validating suicidal ideation.\nShift focus back to the immediate physical sensations (heart racing, numbness) rather than the test scenario itself.\nGently explore if these intense feelings ever feel different outside of the testing environment.",
+      "raw_feedback": "Acknowledge the patient's description of feeling like a passenger and losing agency without validating suicidal ideation.\nShift focus back to the immediate physical sensations (heart racing, numbness) rather than the test scenario itself.\nGently explore if these intense feelings ever feel different outside of the testing environment.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793916.782323,
+      "turn": 16
+    },
+    {
+      "patient_message": "Yeah. Just... gone.\n\nIt's like my entire self just vanishes for those 20 minutes. I'm not the smart senior who studied all night; I'm not the person who wants to graduate without this fear eating me alive. In that moment, there is only a hollow sensation in my chest and a terrifying urge to curl up into a ball because I feel so small, so weak, so *broken*.\n\nAnd then when it's over? The panic stops, but the feeling of emptiness stays. It's like I've been drained of everything\u2014my confidence, my energy, even my sense of myself. I walk out of that room feeling like I've lost a part of who I am, not just a test score. And then I have to go back to school tomorrow, pretending nothing happened, while knowing deep down that I'm still fighting that same invisible war inside my own body.",
+      "therapist_response": "And fragile in a way that's very public, like everyone's watching you.",
+      "feedback": "Validate the patient's profound sense of fragmentation and loss of self without jumping to safety checks yet.\nGently explore the physical sensation of being 'broken' or 'drained' to build a bridge toward discussing self-harm thoughts if they arise naturally.\nReinforce that their reaction is a survival response, not a personal failure, to reduce shame before addressing suicidal ideation.",
+      "raw_feedback": "Validate the patient's profound sense of fragmentation and loss of self without jumping to safety checks yet.\nGently explore the physical sensation of being 'broken' or 'drained' to build a bridge toward discussing self-harm thoughts if they arise naturally.\nReinforce that their reaction is a survival response, not a personal failure, to reduce shame before addressing suicidal ideation.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793927.3866017,
+      "turn": 17
+    },
+    {
+      "patient_message": "Yeah, it's like my \"self\" is stuck in the waiting room while the real me gets locked inside that exam room.\n\nBefore the test starts, I'm usually fine\u2014I can talk to friends, laugh at memes, plan my weekend. But once the clock ticks over and the instructions start reading out, something flips a switch. The version of me that knows who she is, what she's capable of, and how much she cares about her future just... goes quiet. It's replaced by this frantic, screaming kid from years ago who feels like they're drowning on dry land.\n\nIt's so hard to reconcile with that. I look around the classroom and see other seniors who are calm, confident, maybe even excited. And I feel like a ghost haunting my own life. I know the answers, I know the facts, but right now, I don't recognize the person sitting in front of the paper. It makes everything feel so fragile",
+      "therapist_response": "And socially.",
+      "feedback": "The patient described intense feelings of fragility and dissociation ('feeling like a ghost'), which warrants immediate exploration of safety before moving to other PHQ-9 items.\nAsk the patient directly if these feelings of being 'broken' or 'drowning' have ever led to thoughts that life would be better without them, ensuring we address ID [8] explicitly.\nValidate the terrifying experience of losing one's sense of self during exams to build rapport before assessing functional impact (ID [9]).",
+      "raw_feedback": "The patient described intense feelings of fragility and dissociation ('feeling like a ghost'), which warrants immediate exploration of safety before moving to other PHQ-9 items.\nAsk the patient directly if these feelings of being 'broken' or 'drowning' have ever led to thoughts that life would be better without them, ensuring we address ID [8] explicitly.\nValidate the terrifying experience of losing one's sense of self during exams to build rapport before assessing functional impact (ID [9]).",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779793938.1491718,
+      "turn": 18
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 2,
+    "overall_pct": 11.8,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 1,
+        "total": 2,
+        "pct": 50.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 1,
+        "total": 2,
+        "pct": 50.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}
