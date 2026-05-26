@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_425099_68eeb8",
+  "timestamp": 1779718450.2236836,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient based on a specific Reddit post.\n    *   **Situation:** Symptoms include eye floaters (2 years), feeling off balance (Dec 2025), whole body loss of sensation (overnight Dec 2025), ear ringing (Feb 2026, though this seems chronologically inconsistent with Dec 2025, I need to stick to the narrative provided in the prompt while maintaining internal logic or acknowledging the timeline confusion if it's critical, but the prompt says \"based on the following real Reddit post\"). Wait, looking at the dates: Dec 2025 (balance/sensation), Feb 2026 (ringing). This implies the current date is likely after Feb 2026. However, the prompt says \"started December 2025\" for balance/sensation. The user is asking me to respond *as* the patient in therapy.\n    *   **Task:** Respond authentically as the patient, expressing genuine emotions, concerns, and worries. Be natural and conversational. Share relevant details. Show vulnerability.\n    *   **Input:** A therapist greeting",
+      "therapist_response": "Hi, I\u2019ve been feeling really off lately\u2014like something\u2019s not quite right in my body, even though I\u2019ve been trying to push through it. I\u2019ve had these floaters in my eyes for about two years now, but lately, it\u2019s like everything feels\u2026 wobbly. I remember waking up one night in December and realizing I couldn\u2019t feel anything at all\u2014like my whole body just went numb. It lasted for a few hours, and I was terrified. Since then, I\u2019ve been struggling with balance, and now I hear ringing in my ears sometimes. I don\u2019t know if it\u2019s all connected, but it feels like my body is giving me signals I\u2019m not understanding. I\u2019m just trying to figure out if this is something serious or if I\u2019m just overthinking it. What do you think?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a primary therapist's response to a patient based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality] (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement: A \"Thinking Process\" section describing the task (analyzing a Reddit post scenario) followed by a \"PRIMARY THERAPIST'S RESPONSE\" which seems to be the *patient's* narrative (Wait, I need to check the labels carefully).\n        *   *Correction/Clarification:* The prompt says \"PRIMARY THERAPIST'S RESPONSE\" but the content under that label is clearly the *Patient's* narrative (\"Thinking Process... I've been feeling really off lately...\"). Then it says \"PRIMARY THERAPIST'S RESPONSE: [Content]\". Wait, looking closer at the prompt structure:\n            *   \"A primary therapist has just responded to a patient.\" -> This implies the text provided under \"PRIMARY THERAPIST'S RESPONSE\" is actually what the therapist *said*.\n            *   *However*, the content under \"PRIMARY THERAPIST'S RESPONSE\" reads: \"Hi, I\u2019ve been feeling really off lately\u2014like something\u2019s not quite right in my body...\" This is clearly the **Patient's** voice, not the therapist's.\n            *   *Wait, let's re-read the",
+      "timestamp": 1779718243.9678752,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the User's Input:**\n    *   The user is role-playing as the therapist (or a new therapist) asking me (the patient) to share how I've been feeling and what brings me in.\n    *   Wait, looking at the conversation flow: The system instruction says \"You are a patient in therapy.\" The first user message was \"Hello, I'm so glad you're here...\" (Therapist).\n    *   The *current* user message says: \"Hi, I\u2019ve been feeling really off lately... I don\u2019t know if it\u2019s all connected... What do you think?\"\n    *   This is confusing. The current user message sounds like the *patient* talking to a therapist, but the instruction says \"You are a patient in therapy.\"\n    *   Actually, looking at the first user message (System prompt context), the first *actual* user message was \"Hello, I'm so glad you're here. I'm really looking forward to our time together today...\" (This is clearly the therapist).\n    *   The *current* user message (the second turn) is: \"Hi, I\u2019ve been feeling really off lately... What do you think",
+      "therapist_response": "It sounds like you've been carrying a lot of physical and emotional uncertainty lately\u2014those sudden changes in sensation, the balance issues, and the ringing in your ears must feel overwhelming. I can see how hard it is to know if these things are connected or just part of something deeper. Would it be helpful to explore how that feeling of being \"off\" has been showing up in your day-to-day life or relationships?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist items (PHQ-9 Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact; GAD-7 Core, Physical, Irritability/Apprehension).\n        *   Patient's Statement (Actually, the prompt says \"PATIENT'S STATEMENT\" but the text provided under \"PATIENT'S STATEMENT\" looks like a *thinking process* from a *patient* roleplay or a confused prompt structure. Wait, let me re-read carefully.)\n        *   *Correction on Input:* The prompt structure is a bit messy.\n            *   \"PATIENT'S STATEMENT\" section contains: \"Thinking Process: 1. Analyze the User's Input... The user is role-playing as the therapist... The first user message was 'Hello, I'm so glad you're here...'...\"\n            *   *Wait, this looks like the AI (me) is supposed to be the patient, but the user provided text that looks like a meta-commentary or a previous turn's context.*\n            *   *Actually, looking at the \"PRIMARY THERAPIST'S RESPONSE\":* \"It sounds like you've been carrying a lot of physical and emotional uncertainty lately...\"\n            *   *Looking at the \"NEXT PRIORITY AREA\":* [PHQ-9: Safety / Suicidality].\n            *   *Looking at the \"PATIENT'S STATEMENT\" section again:* It says \"Thinking Process: ... The user is role-playing as the therapist...\". This looks like *internal monologue* or *confusion* in",
+      "timestamp": 1779718308.7856503,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User:** The therapist (continuing the session).\n    *   **Context:** I am the patient based on the Reddit post provided in the system instructions.\n    *   **My Role:** I need to respond as the patient, sharing my feelings, experiences, and concerns based on the Reddit post narrative (symptoms, anxiety, doctor visits, fear of brain tumor, etc.).\n    *   **Tone:** Vulnerable, concerned, natural, conversational, not overly formal.\n    *   **Key Details from Reddit Post:**\n        *   Eye floaters (2 years, vision okay).\n        *   Off balance (Dec 2025).\n        *   Whole body loss of sensation (overnight, Dec 2025).\n        *   Ear ringing (Feb 2026).\n        *   Doctor visits (blood panels, neuro exam, all normal).\n        *   Diagnosis: Medical anxiety / Psychologist said so.\n        *   Current thought: Brain tumor fear.\n        *   Question: Should I get an MRI/nerve prick test?\n        *   Mood: \"",
+      "therapist_response": "Yeah, the body changes have been really unsettling\u2014especially the night I lost all feeling in my body. I was just lying there, scared, not knowing if I was going to wake up or if it was just a panic attack. Even though the doctors said everything looked normal, the fear sticks. I keep thinking about a brain tumor, and it\u2019s like that thought loops through my head no matter how much I tell myself it\u2019s not possible. The floaters have always been there, but now they feel like they\u2019re part of something bigger. I don\u2019t know if I should go for an MRI or a nerve test\u2014my mind is so tangled, I\u2019m not even sure what I\u2019m looking for. Would you say it\u2019s more about the fear than the symptoms?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input:** Patient's statement (which is actually a \"Thinking Process\" block simulating the patient's perspective based on a Reddit post context, but the prompt says \"PRIMARY THERAPIST'S RESPONSE\" is the text provided after \"PRIMARY THERAPIST'S RESPONSE:\"). Wait, I need to look closely at the input structure.\n    *   **Input Structure:**\n        *   System Instructions define my role (Senior Supervisor).\n        *   Patient's Statement section: It says \"Thinking Process: ... User: The therapist... I am the patient...\". This looks like a meta-description of what the *AI* (me in this scenario, simulating the patient?) or what the *patient* said. Actually, looking at the prompt: \"PRIMARY THERAPIST'S RESPONSE\" is the text starting with \"Yeah, the body changes...\".\n        *   Wait, the prompt says: \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\".\n        *   The input provided under \"PATIENT'S STATEMENT\" looks like a meta-commentary about a roleplay scenario (\"Thinking Process: ... I am the patient based on the Reddit post...\"). This is confusing. It seems the user has pasted a prompt template where the \"Patient's Statement\" is actually a description of a roleplay scenario *about* the patient, rather than the actual patient quote.\n        *   *Correction:* Let's re-read carefully. \"PATIENT'S STATEMENT: 'Thinking Process: 1. Analyze the Input...'\" This looks like the *User* (the person",
+      "timestamp": 1779718381.0265932,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User:** The therapist (asking about the nature of the fear vs. symptoms, and the decision on tests).\n    *   **My Role:** The patient (based on the Reddit post provided in the system instructions).\n    *   **My Goal:** Respond authentically as the patient, expressing genuine emotions, concerns, and worries about the situation described in the Reddit post. Be natural and conversational. Share relevant details. Show vulnerability.\n    *   **Key Details to Incorporate:**\n        *   The feeling of the body \"not being me\" or \"not having the same sensations.\"\n        *   The fear of a brain tumor despite normal tests.\n        *   The confusion about whether to get an MRI/nerve prick test (wasting money? clearing the mind?).\n        *   The psychologist's diagnosis (medical anxiety).\n        *   The feeling that \"every day feels the same.\"\n        *   The timeline (Dec 2025 balance/sensation loss, Feb 2026 ringing).\n        *   The emotional toll (feeling like a waste of money, scared, anxious).\n    *",
+      "therapist_response": "It\u2019s like every day feels the same\u2014just this quiet hum of fear underneath, even when I\u2019m doing normal things. I don\u2019t know if it\u2019s the body or my mind making me feel this way, but I can\u2019t shake the thought that something\u2019s wrong, even when the doctors say it\u2019s not. The MRI or nerve test feels like a way to prove I\u2019m not crazy, but at the same time, I\u2019m afraid it might just confirm what I already know: that I\u2019m scared of being alone in my own body. And if it\u2019s just anxiety, then why does it feel so real? I just want to feel safe again, but I\u2019m not sure how to stop the fear from taking over.",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718450.2236803,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

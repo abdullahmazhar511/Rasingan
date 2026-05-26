@@ -91,10 +91,22 @@ def build_row(idx: int, split: str, row: pd.Series) -> dict:
     }
 
 
-def convert_split(split_csv: Path, split_name: str, out_path: Path) -> int:
+def convert_split(split_csv: Path, split_name: str, out_path: Path, limit: int | None = None) -> int:
     df = pd.read_csv(split_csv)
     if df.empty:
         raise ValueError(f"Empty CSV: {split_csv}")
+    if limit and limit > 0 and len(df) > limit and "category" in df.columns:
+        # Per-category stratified subsample so anxiety/depression stay balanced.
+        cats = sorted(df["category"].unique())
+        per_cat = max(1, limit // max(len(cats), 1))
+        df = (
+            df.groupby("category", group_keys=False)
+              .apply(lambda g: g.head(per_cat))
+              .reset_index(drop=True)
+              .head(limit)
+        )
+    elif limit and limit > 0 and len(df) > limit:
+        df = df.head(limit).reset_index(drop=True)
     rows = [build_row(i, split_name, row) for i, row in df.iterrows()]
     out_df = pd.DataFrame(rows)
     out_df.to_parquet(out_path, index=False)
@@ -107,19 +119,26 @@ def main():
                         help=f"Directory with train.csv / val.csv / test.csv (default: {DEFAULT_SPLITS})")
     parser.add_argument("--out-dir", default=str(DEFAULT_OUT),
                         help=f"Where to write {{train,val,test}}.parquet (default: {DEFAULT_OUT})")
+    parser.add_argument("--train-limit", type=int, default=None,
+                        help="Cap train conversations (stratified by category). Default: no cap.")
+    parser.add_argument("--val-limit", type=int, default=None,
+                        help="Cap val conversations (stratified by category). Default: no cap.")
+    parser.add_argument("--test-limit", type=int, default=None,
+                        help="Cap test conversations (stratified by category). Default: no cap.")
     args = parser.parse_args()
 
     splits_dir = Path(args.splits_dir)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    limits = {"train": args.train_limit, "val": args.val_limit, "test": args.test_limit}
     for split in ("train", "val", "test"):
         src = splits_dir / f"{split}.csv"
         if not src.exists():
             print(f"[skip] {src} not found")
             continue
         dst = out_dir / f"{split}.parquet"
-        n = convert_split(src, split, dst)
+        n = convert_split(src, split, dst, limit=limits[split])
         print(f"[write] {dst}  ({n} rows)")
 
     print(f"\nDone. Use these in run_multiturn.sh:")

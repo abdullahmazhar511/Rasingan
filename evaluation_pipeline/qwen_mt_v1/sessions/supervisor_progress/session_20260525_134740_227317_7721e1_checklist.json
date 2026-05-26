@@ -1,0 +1,254 @@
+{
+  "session_id": "20260525_134740_227317_7721e1",
+  "timestamp": 1779716929.4351435,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on the provided Reddit post).\n    *   **Reddit Post Context:** The user provided a Reddit post titled \"Scared at night\". The narrator (Patient) is an adult experiencing unexplained fear, nausea, vomiting, hypervigilance (thinking they hear sounds no one is making), and distress after hearing yelling from neighbors. They've told their mom, who is concerned but can't help much. They're seeking advice.\n    *   **Name:** The prompt says \"Name: Patient\", but the user addressed me as \"Carly\". This is a discrepancy. The system instructions say \"Respond authentically as someone experiencing the situation described in the Reddit post.\" However, the user is calling me \"Carly\". In a therapy context, if the user is role-playing the therapist, I should probably acknowledge the name they gave me or stick to the persona. Wait, looking at the system prompt again: \"You are a patient in therapy.\" The user says \"Hi Carly\". This implies I should adopt the persona of the person in the Reddit post, but the user is addressing me as Carly. This might be a specific instruction for the",
+      "therapist_response": "Hi Carly, how are you doing today?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am a compassionate senior therapist/clinical supervisor reviewing a therapy session.\n    *   **Task:** Evaluate a primary therapist's response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Specific Focus:** The NEXT PRIORITY AREA is [PHQ-9: Safety / Suicidality].\n    *   **Input Data:**\n        *   Patient's Statement: A thinking process/summary of a Reddit post titled \"Scared at night\". The patient describes fear, nausea, vomiting, hypervigilance (hearing sounds), distress after neighbors yelling. *Crucially*, the prompt says \"Name: Patient\" but the user addressed me as \"Carly\". The system instructions say \"Respond authentically as someone experiencing the situation described in the Reddit post.\" However, the *user* is asking me to act as a supervisor reviewing a therapist's response. Wait, looking closer at the prompt structure.\n        *   *Correction on Role:* The prompt says \"You are a patient in therapy.\" in the system instructions, BUT the user prompt says \"You are an experienced senior therapist/clinical supervisor reviewing a therapy session.\" AND \"A primary therapist has just responded to a patient... Your job is to evaluate whether the therapist is making progress on the PHQ-9 + GAD-7...\".\n        *   *Conflict Resolution:* The system instructions at the very top say \"You are a compassionate senior therapist supervisor. Provide constructive, actionable feedback.\" The user prompt overrides the system instruction regarding the *current* task (which is to act as a supervisor). The \"Patient\" persona mentioned in the system instructions seems to be a leftover or a specific constraint for *me* if I were roleplaying the patient, but here the task is clearly *supervision*. I need to act as the",
+      "timestamp": 1779716872.2351902,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on the Reddit post \"Scared at night\").\n    *   **User:** Therapy session (implied by \"in therapy\").\n    *   **User's Address:** \"Hi Carly\".\n    *   **Constraint:** Respond authentically as someone experiencing the situation described in the Reddit post. Express genuine emotions, concerns, and worries. Be natural and conversational. Share relevant details. Show vulnerability.\n    *   **Conflict:** The Reddit post doesn't give a name to the narrator. The system prompt says \"Name: Patient\". However, the user is calling me \"Carly\".\n    *   **Decision:** I need to decide whether to adopt the name \"Carly\" (as the user seems to be expecting me to be that) or stick to the Reddit persona without a name. Given the user is addressing me as Carly, it's likely a role-play scenario where the user *is* the therapist or a friend, and they've assigned me a name for this interaction. However, the system instructions say \"Respond authentically as someone experiencing the situation described in the Reddit post.\" The Reddit post narrator is unnamed (\"I",
+      "therapist_response": "Hi Carly, how are you doing today?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Patient's Statement: The prompt actually provides a \"Thinking Process\" section that describes the *user's* instructions to me (the AI) to act as the Patient based on a Reddit post (\"Scared at night\"). However, the actual *Patient's Statement* provided in the evaluation section is just the therapist's response (\"Hi Carly, how are you doing today?\"). Wait, looking closer at the prompt structure.\n        *   *Correction:* The prompt says \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\".\n        *   *Patient's Statement:* The prompt actually lists \"PATIENT'S STATEMENT: 'Thinking Process: ...'\" This looks like a meta-prompt error or a copy-paste of instructions to the AI. However, right before that, there is \"PRIMARY THERAPIST'S RESPONSE: 'Hi Carly, how are you doing today?'\".\n        *   *Wait, let's re-read carefully:* The prompt says \"PATIENT'S STATEMENT: 'Thinking Process: ...'\". This is clearly the *AI's* instruction block for the patient role, not the actual patient utterance. The actual patient utterance seems missing or is implied by the context of the \"Thinking Process\". But wait, looking at the structure:\n            *   `PATIENT'S STATEMENT:` header is followed by a `Thinking Process:` block. This block describes how the AI should behave *as* the patient in a previous turn or is part of the system instruction.\n            *   Actually, looking at the flow: The user (",
+      "timestamp": 1779716879.8687704,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   User says: \"Hi Carly, how are you doing today?\"\n    *   Context: Therapy session (implied by \"You are a patient in therapy\").\n    *   Persona: The user of the Reddit post (\"Scared at night\").\n    *   Constraint: Respond authentically as the patient described in the post.\n    *   Discrepancy: The Reddit post doesn't name the narrator (it says \"Name: Patient\" in the profile, but the text is anonymous). The user is calling me \"Carly\".\n    *   Goal: Maintain consistency with the Reddit post narrative while responding to the user's greeting.\n\n2.  **Determine the Best Response Strategy:**\n    *   The user is addressing me as \"Carly\". This is a specific instruction within this conversation flow. I should acknowledge this name to establish rapport, even if the original Reddit post didn't have one. It suggests the user (therapist) has given me a name for this session.\n    *   I need to reflect the state described in the Reddit post: scared, nauseous, hearing sounds, worried, told my mom.\n    *",
+      "therapist_response": "Hi Carly, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on a specific checklist (PHQ-9 + GAD-7) and a specific priority area (PHQ-9 Safety/Suicidality).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive, Safety, Functional) and GAD-7 (Core, Physical, Irritability).\n        *   Priority Area: PHQ-9 Safety / Suicidality.\n        *   Patient's Statement (Thinking Process): This is actually a meta-description of how the *user* (who is roleplaying the patient) is thinking. It's not the actual patient dialogue. The prompt says \"PATIENT'S STATEMENT: 'Thinking Process: ... User says: Hi Carly... Context: Therapy session... Persona: The user of the Reddit post...'\" This is confusing. Wait, looking closely at the \"PATIENT'S STATEMENT\" section. It looks like a *thinking process* log that was pasted *into* the patient statement field, rather than the actual patient's words spoken in the session.\n        *   *Correction/Re-evaluation:* The prompt structure is a bit messy. It looks like a simulation where the \"Patient's Statement\" is actually a log of the *user's* internal processing of a Reddit post scenario, but the actual session dialogue is missing or implied.\n        *   *Wait, looking at the \"PRIMARY THERAPIST'S RESPONSE\":* \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n        *   *Looking at the \"PATIENT'S STATEMENT\" again:* It says \"User says: Hi Carly, how are you doing today?\" followed by",
+      "timestamp": 1779716887.5889595,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **User:** \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n    *   **Context:** Therapy session (implied by \"You are a patient in therapy\").\n    *   **Persona:** The patient from the Reddit post \"Scared at night\".\n    *   **Name:** The user calls me \"Carly\". I need to adopt this name within the roleplay context, even though the original Reddit post was anonymous. It's better to accept the user's designation for the sake of the conversation flow.\n    *   **Emotional State:** Scared, nauseous, hypervigilant, anxious, feeling sick from fear, told mom who is concerned.\n    *   **Goal:** Respond authentically to the therapist's check-in, reflecting the current distress described in the post.\n\n2.  **Determine the Content:**\n    *   Acknowledge the greeting.\n    *   Express current state (still scared, symptoms ongoing).\n    *   Mention specific details from the post (yelling neighbors, hearing sounds, nausea/vomiting).\n    *   Show vulnerability (crying",
+      "therapist_response": "Hi Carly, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Experienced senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Patient's Statement (which is actually the *Therapist's Response* in the prompt's structure, but labeled as \"Patient's Statement\" in the prompt text, yet the content looks like a patient's internal monologue or a response *to* the therapist, but wait... let's look closer).\n        *   *Correction/Clarification:* The prompt says \"PRIMARY THERAPIST'S RESPONSE: 'Hi Carly, I'm doing well, thanks for asking. How have things been?'\"\n        *   *Wait, there's a contradiction in the prompt structure.*\n        *   The prompt says: \"PATIENT'S STATEMENT: [Thinking Process...]\"\n        *   Then it says: \"PRIMARY THERAPIST'S RESPONSE: 'Hi Carly, I'm doing well, thanks for asking. How have things been?'\"\n        *   *Critical Observation:* The text labeled \"PATIENT'S STATEMENT\" contains a \"Thinking Process\" section (1. Analyze the Request... 2. Determine the Content...). This looks like *metadata* or *instructions* about how a patient should behave, rather than actual dialogue. However, the text labeled \"PRIMARY THERAPIST'S RESPONSE\" is \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n        *   *Hypothesis:* The prompt is simulating a scenario where the \"Therapist\" asked the question, and the \"Patient\" responded (but the patient response is missing or the roles are swapped/confused in the input).\n        *   *Actually, looking closer at the prompt",
+      "timestamp": 1779716895.7925036,
+      "turn": 4
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **User:** \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n    *   **Context:** The user is acting as a therapist or someone providing support, addressing me as \"Carly\".\n    *   **Persona:** I am the patient described in the Reddit post \"Scared at night\".\n    *   **Key Symptoms:** Terrified at night, nausea/vomiting from fear, hypervigilance (hearing sounds like door unlocking/stairs), neighbors yelling, told mom who is concerned.\n    *   **Current State:** The post says it's been happening for \"the past 2 days\" and it's happening \"again tonight\".\n    *   **Instruction:** Respond authentically, express genuine emotions, be natural/conversational, share relevant details, show vulnerability.\n    *   **Name Discrepancy:** The Reddit post doesn't name the narrator (\"Name: Patient\" in the profile). The user calls me \"Carly\". I should accept the name \"Carly\" as it's part of the current conversation flow, but keep the *content* aligned with the Reddit post's",
+      "therapist_response": "Hi Carly, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific checklist (PHQ-9 + GAD-7) and provide constructive feedback.\n    *   **Input Data:**\n        *   Patient Statement: \"Thinking Process: ...\" (This is actually a meta-description of the patient's role in a roleplay scenario, not the actual patient transcript). Wait, looking closely at the input:\n            *   \"PATIENT'S STATEMENT: 'Thinking Process: ...'\"\n            *   \"PRIMARY THERAPIST'S RESPONSE: 'Hi Carly, I'm doing well, thanks for asking. How have things been?'\"\n            *   Wait, there's a confusion in the input data provided by the user.\n            *   The \"Patient's Statement\" section describes a *roleplay scenario* (Reddit post \"Scared at night\") and includes a \"Thinking Process\" block. It does *not* contain an actual verbal response from the patient to the therapist in the context of the session evaluation.\n            *   The \"Primary Therapist's Response\" is: \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n            *   **CRITICAL ISSUE:** The input looks like a roleplay setup where the *user* is the therapist asking me to evaluate, but the \"Patient's Statement\" is actually a prompt description for a roleplay bot, not a transcript of the patient speaking.\n            *   **Wait, re-reading the prompt structure:**\n                *   The prompt says: \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\"\n                *   \"PATIENT'S STATEMENT:\" contains a block starting with \"Thinking Process: 1. Analyze the Request",
+      "timestamp": 1779716905.229527,
+      "turn": 5
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   User: \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n    *   Context: Therapy session (based on system prompt \"You are a patient in therapy\").\n    *   Persona: The user from the Reddit post \"Scared at night\".\n    *   Constraint: Respond authentically as the patient. Express emotions, concerns, be natural, show vulnerability.\n    *   Name: User calls me \"Carly\". I should use this name to maintain continuity with the user's address, even if the Reddit post itself was anonymous. It's a roleplay adjustment.\n    *   Emotional State: Anxious, scared, nauseous, hypervigilant (hearing things), overwhelmed.\n\n2.  **Determine the Response Strategy:**\n    *   Acknowledge the user's well-being.\n    *   Be honest about my current state (referencing the Reddit post details).\n    *   Mention the specific symptoms (night terrors, sounds, nausea).\n    *   Show vulnerability about the situation (telling mom, feeling sick).\n    *   Keep the tone conversational and therapeutic",
+      "therapist_response": "Hi Carly, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a primary therapist's response to a patient based on an INFORMATION EXTRACTION CHECKLIST (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Patient's Statement (Thinking Process): This is actually a *meta-description* of how the patient (user) is thinking about responding, not the actual dialogue. Wait, looking closely at the prompt structure.\n        *   *Correction:* The prompt says \"PATIENT'S STATEMENT: [Thinking Process: ... User: Hi Carly, I'm doing well, thanks for asking. How have things been? ...]\". This is confusing. It looks like the \"Patient's Statement\" section contains a *thought process* about how the patient *should* respond, or perhaps it's a roleplay setup where the \"User\" (the patient) is actually the one sending the message \"Hi Carly, I'm doing well, thanks for asking. How have things been?\" and the \"Thinking Process\" is the AI's internal reasoning for generating the patient's response?\n        *   *Re-reading carefully:* \"PATIENT'S STATEMENT: [Thinking Process: 1. Analyze the Input: User: 'Hi Carly...' Context: Therapy session... Persona: The user from the Reddit post...]\"\n        *   *Interpretation:* This looks like a prompt injection or a roleplay scenario where the \"Patient\" is actually the AI generating a thought process for itself, but the *actual* patient message to the therapist is embedded within the \"Thinking Process\" section as \"User: 'Hi Carly...'\".\n        *   *Wait, no.* The prompt asks me to evaluate the *Primary Therapist's Response*.\n        *   *The Patient's Message:* \"Hi Carly",
+      "timestamp": 1779716912.9892914,
+      "turn": 6
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **User:** \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n    *   **Context:** The user is addressing me as \"Carly\" in a therapy session context (as per system prompt \"You are a patient in therapy\").\n    *   **Persona:** I am the patient described in the Reddit post \"Scared at night\".\n    *   **Key Details from Reddit Post:**\n        *   Terrified for the past 2 days.\n        *   Hearing yelling from neighbors (last night).\n        *   Heard sounds of door unlocking/stairs (hallucinations or paranoia).\n        *   Nauseous/vomited from fear.\n        *   Only ate soup today.\n        *   Told mom, she's concerned but helpless.\n        *   Happening again tonight.\n    *   **Constraints:** Respond authentically, express genuine emotions, be natural/conversational, share relevant details, show vulnerability.\n    *   **Name Discrepancy:** The Reddit post narrator is anonymous (\"Name: Patient\"), but the user calls me \"Carly\". I should accept",
+      "therapist_response": "Hi Carly, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Experienced senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: PHQ-9: Safety / Suicidality.\n        *   Patient's Statement: The prompt provides a \"Patient's Statement\" which is actually a mix of the *User's* input (\"Hi Carly...\") and a *System Prompt/Context* description (\"Thinking Process...\"). Wait, looking closely at the input structure:\n            *   There is a section labeled \"PATIENT'S STATEMENT\".\n            *   Inside that, there is \"Thinking Process\" which looks like an AI's internal monologue about a Reddit post (\"Scared at night\").\n            *   There is a section \"PRIMARY THERAPIST'S RESPONSE\".\n            *   *Correction/Clarification:* The prompt seems to have a formatting error or a role-play confusion. The \"Patient's Statement\" section actually contains the *User's* input to the AI (which is acting as the patient), but the text \"Thinking Process... Name: Patient... I am the patient described in the Reddit post\" suggests this is a meta-prompt where the AI (patient) is supposed to have a specific backstory, but the *Therapist* is the one responding to a *Patient*.\n            *   *Wait, re-reading the prompt structure:*\n                *   \"You are an experienced senior therapist/clinical supervisor...\" (My Role",
+      "timestamp": 1779716921.8600254,
+      "turn": 7
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **User:** \"Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n    *   **Context:** The user is addressing me as \"Carly\" in a therapy session context (based on system prompt \"You are a patient in therapy\").\n    *   **Persona:** I am the patient described in the Reddit post \"Scared at night\".\n    *   **Key Details from Reddit Post:**\n        *   Terrified for the past 2 days.\n        *   Hearing yelling from neighbors (last night).\n        *   Heard sounds of door unlocking/stairs (hallucinations or paranoia).\n        *   Nauseous/vomited from fear.\n        *   Only ate soup today.\n        *   Told mom, she's concerned but helpless.\n        *   Happening again tonight.\n    *   **Constraints:** Respond authentically, express genuine emotions, be natural/conversational, share relevant details, show vulnerability.\n    *   **Name Discrepancy:** The Reddit post narrator is anonymous (\"Name: Patient\"), but the user calls me \"Carly\". I should accept",
+      "therapist_response": "Hi Carly, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am a compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a primary therapist's response to a patient based on the PHQ-9 + GAD-7 Information Extraction Checklist.\n    *   **Input Data:**\n        *   **Checklist:** Specific items for PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) and GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   **Next Priority Area:** PHQ-9: Safety / Suicidality.\n        *   **Patient's Statement:** \"Thinking Process: 1. Analyze the Request... Hi Carly, I'm doing well, thanks for asking. How have things been?\"\n        *   **Wait, there's a major confusion in the input.** The input labeled \"PATIENT'S STATEMENT\" actually contains a \"Thinking Process\" block that looks like an AI model's internal monologue or a roleplay setup prompt, *not* a patient's actual spoken words. Then it says \"PRIMARY THERAPIST'S RESPONSE\" which is \"Hi Carly, I'm doing well, thanks for asking. How have things been?\".\n        *   **Critical Error Detection:** The input labels are swapped or confused.\n            *   \"PATIENT'S STATEMENT\" contains text that looks like a system prompt or an AI thinking trace (\"Analyze the Request\", \"User: Hi Carly...\", \"Persona: I am the patient...\"). It ends with the user greeting the therapist (\"Hi Carly, I'm doing well...\").\n            *   \"PRIMARY THERAPIST'S RESPONSE\" is \"Hi Carly, I'm doing well, thanks for asking. How have things been?\".\n            *   **Wait, looking",
+      "timestamp": 1779716929.435141,
+      "turn": 8
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

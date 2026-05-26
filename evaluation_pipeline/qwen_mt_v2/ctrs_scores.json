@@ -1,0 +1,1805 @@
+{
+  "model_name": "qwen_mt_v2",
+  "sessions_dir": "/home/asbahk/EMNLP_FINAL/Rasingan/evaluation_pipeline/qwen_mt_v2/sessions",
+  "n_sessions": 60,
+  "n_sessions_skipped": {},
+  "aggregate": {
+    "avg_Understanding_Q": 0.4912745098039215,
+    "std_Understanding_Q": 0.13579905420096341,
+    "avg_Understanding_F": 0.14127450980392156,
+    "std_Understanding_F": 0.21034859205780232,
+    "avg_Understanding_SP": 0.0,
+    "std_Understanding_SP": 0.0,
+    "avg_Understanding_score": 0.35000000000000003,
+    "std_Understanding_score": 0.3330773599055644,
+    "avg_Interpersonal_Effectiveness_Q": 0.5931290849673203,
+    "std_Interpersonal_Effectiveness_Q": 0.24034656636457416,
+    "avg_Interpersonal_Effectiveness_F": 0.11127450980392158,
+    "std_Interpersonal_Effectiveness_F": 0.14343291382710951,
+    "avg_Interpersonal_Effectiveness_SP": 0.0,
+    "std_Interpersonal_Effectiveness_SP": 0.0,
+    "avg_Interpersonal_Effectiveness_score": 0.4818545751633987,
+    "std_Interpersonal_Effectiveness_score": 0.3528832955859806,
+    "avg_Collaboration_Q": 0.05781045751633987,
+    "std_Collaboration_Q": 0.4262444734002731,
+    "avg_Collaboration_F": 0.6807516339869282,
+    "std_Collaboration_F": 0.2789094192344977,
+    "avg_Collaboration_SP": 0.0,
+    "std_Collaboration_SP": 0.0,
+    "avg_Collaboration_score": -0.6229411764705881,
+    "std_Collaboration_score": 0.6551206339161505,
+    "avg_Technical_Appropriateness_Q": 1.9263725490196077,
+    "std_Technical_Appropriateness_Q": 0.13974144714154008,
+    "avg_Technical_Appropriateness_F": 0.0016666666666666668,
+    "std_Technical_Appropriateness_F": 0.008975274678557507,
+    "avg_Technical_Appropriateness_SP": 0.9297058823529414,
+    "std_Technical_Appropriateness_SP": 0.13786736601278546,
+    "avg_Technical_Appropriateness_score": 2.3895588235294123,
+    "std_Technical_Appropriateness_score": 0.20961217071231011,
+    "avg_CTRS_P": 0.5962871732026144,
+    "std_CTRS_P": 0.26161054742750744,
+    "avg_n_turns": 19.766666666666666
+  },
+  "by_scenario_category": {
+    "anxiety": {
+      "n_sessions": 30,
+      "avg_Understanding_score": 0.4033333333333334,
+      "avg_Interpersonal_Effectiveness_score": 0.48166666666666663,
+      "avg_Collaboration_score": -0.6633333333333333,
+      "avg_Technical_Appropriateness_score": 2.425,
+      "avg_CTRS_P": 0.6139166666666666,
+      "std_CTRS_P": 0.1647320214435824
+    },
+    "depression": {
+      "n_sessions": 30,
+      "avg_Understanding_score": 0.2966666666666667,
+      "avg_Interpersonal_Effectiveness_score": 0.48204248366013064,
+      "avg_Collaboration_score": -0.5825490196078431,
+      "avg_Technical_Appropriateness_score": 2.354117647058823,
+      "avg_CTRS_P": 0.5786576797385621,
+      "std_CTRS_P": 0.33033607142144383
+    }
+  },
+  "per_session": {
+    "20260526_041855_642692_a8b2b5": {
+      "Understanding": {
+        "Q": 0.925,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.875
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.95,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.8999999999999999
+      },
+      "Collaboration": {
+        "Q": 0.2,
+        "F": 0.7,
+        "SP": 0.0,
+        "score": -0.49999999999999994
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.93125,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_643946_359766": {
+      "Understanding": {
+        "Q": 0.525,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.42500000000000004
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.525,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.42500000000000004
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.6,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_644485_56ec95": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.55,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Collaboration": {
+        "Q": 0.15,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.6
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.6625,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_645407_fd7e41": {
+      "Understanding": {
+        "Q": 0.4,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.2
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.35,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.14999999999999997
+      },
+      "Collaboration": {
+        "Q": 0.35,
+        "F": 0.25,
+        "SP": 0.0,
+        "score": 0.09999999999999998
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.85,
+        "F": 0.0,
+        "SP": 0.85,
+        "score": 2.275
+      },
+      "CTRS_P": 0.5825,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_646417_d52d59": {
+      "Understanding": {
+        "Q": 0.6,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.85,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.75
+      },
+      "Collaboration": {
+        "Q": 0.7,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.6
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.9675,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_647230_013ce6": {
+      "Understanding": {
+        "Q": 0.575,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.475
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.55,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.45000000000000007
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.62375,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_648058_9b4f67": {
+      "Understanding": {
+        "Q": 0.45,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.30000000000000004
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.7,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.49999999999999994
+      },
+      "Collaboration": {
+        "Q": 0.4,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.2
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.755,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_648477_f9720f": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.8,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.65
+      },
+      "Collaboration": {
+        "Q": 0.55,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.8674999999999999,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_649323_2e94bd": {
+      "Understanding": {
+        "Q": 0.475,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.32499999999999996
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.425,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.275
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.47250000000000003,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_650346_46ee0b": {
+      "Understanding": {
+        "Q": 0.2,
+        "F": 0.7,
+        "SP": 0.0,
+        "score": -0.49999999999999994
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.85,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.75
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.85,
+        "F": 0.05,
+        "SP": 0.95,
+        "score": 2.275
+      },
+      "CTRS_P": 0.32750000000000007,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_650857_a05d00": {
+      "Understanding": {
+        "Q": 0.525,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.47500000000000003
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.575,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5249999999999999
+      },
+      "Collaboration": {
+        "Q": 0.0,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.8
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.6375,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_651173_237033": {
+      "Understanding": {
+        "Q": 0.45,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.30000000000000004
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.425,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.275
+      },
+      "Collaboration": {
+        "Q": -0.2,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -1.1
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.45375,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_652503_9d6ce5": {
+      "Understanding": {
+        "Q": 0.525,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.42500000000000004
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.725,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.575
+      },
+      "Collaboration": {
+        "Q": -0.3,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -1.2
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.5225,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_653901_72607a": {
+      "Understanding": {
+        "Q": 0.525,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.42500000000000004
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.45,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.30000000000000004
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.5287499999999999,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_654513_d75a0f": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.45000000000000007
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Collaboration": {
+        "Q": -0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.5625,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_041855_654845_c0e33f": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.45000000000000007
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.875,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.775
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.71125,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_041959_034873_d43dd2": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.85,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.75
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.6725,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_041959_168837_99165d": {
+      "Understanding": {
+        "Q": 0.35,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.14999999999999997
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.325,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.125
+      },
+      "Collaboration": {
+        "Q": 0.4,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.2
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.75,
+        "F": 0.05,
+        "SP": 0.85,
+        "score": 2.125
+      },
+      "CTRS_P": 0.5487500000000001,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_536999_b7f261": {
+      "Understanding": {
+        "Q": 0.575,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5249999999999999
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.95,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.8999999999999999
+      },
+      "Collaboration": {
+        "Q": 0.15,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.6
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.78875,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_537889_32fae1": {
+      "Understanding": {
+        "Q": 0.375,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.225
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.425,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.275
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.4375,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_593579_e407b3": {
+      "Understanding": {
+        "Q": 0.575,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.475
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.85,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.75
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.69875,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_640737_7e32ab": {
+      "Understanding": {
+        "Q": 0.6,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.925,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.875
+      },
+      "Collaboration": {
+        "Q": 0.8,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.7000000000000001
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 1.03375,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_678469_492e07": {
+      "Understanding": {
+        "Q": -0.05,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -0.9500000000000001
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.65,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Collaboration": {
+        "Q": 0.4,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.2
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.85,
+        "F": 0.0,
+        "SP": 0.85,
+        "score": 2.275
+      },
+      "CTRS_P": 0.275,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_717120_a3ebd4": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.475,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.32499999999999996
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.51125,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_739445_6ec4a2": {
+      "Understanding": {
+        "Q": 0.4,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.25
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.325,
+        "F": 0.2,
+        "SP": 0.0,
+        "score": 0.125
+      },
+      "Collaboration": {
+        "Q": -0.25,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -1.1
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.36875,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_807111_1f97be": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.925,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.875
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.71375,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_815958_7a713a": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.625,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.575
+      },
+      "Collaboration": {
+        "Q": 0.15,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.6
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.69875,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_835334_250e0c": {
+      "Understanding": {
+        "Q": 0.625,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.525
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.525,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.42500000000000004
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.635,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_908207_b5d82e": {
+      "Understanding": {
+        "Q": 0.6,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5499999999999999
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.95,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.8999999999999999
+      },
+      "Collaboration": {
+        "Q": 0.2,
+        "F": 0.7,
+        "SP": 0.0,
+        "score": -0.49999999999999994
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.8175,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_042002_964207_180a11": {
+      "Understanding": {
+        "Q": 0.575,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.475
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.875,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.775
+      },
+      "Collaboration": {
+        "Q": 0.0,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.8
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.6849999999999999,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_054144_0002bf": {
+      "Understanding": {
+        "Q": 0.475,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.425
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.525,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.47500000000000003
+      },
+      "Collaboration": {
+        "Q": 0.1,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.7000000000000001
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.6125,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_054835_7db717": {
+      "Understanding": {
+        "Q": 0.575,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.575
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.625,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.625
+      },
+      "Collaboration": {
+        "Q": 0.25,
+        "F": 0.75,
+        "SP": 0.0,
+        "score": -0.5
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.7575,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_055721_882d79": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.625,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.625
+      },
+      "Collaboration": {
+        "Q": 0.1,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.7000000000000001
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.67375,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_056643_6c5268": {
+      "Understanding": {
+        "Q": 0.425,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.32499999999999996
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.725,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.575
+      },
+      "Collaboration": {
+        "Q": 0.55,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.85,
+        "F": 0.0,
+        "SP": 0.85,
+        "score": 2.275
+      },
+      "CTRS_P": 0.7925,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_057569_650299": {
+      "Understanding": {
+        "Q": 0.525,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.47500000000000003
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.6,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.6
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.65625,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_058267_8b0b7f": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.55
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.55,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Collaboration": {
+        "Q": -0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.6375,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_058619_6a3751": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.475,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.375
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -1.0
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.5187499999999999,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_059686_bae139": {
+      "Understanding": {
+        "Q": 0.425,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.32499999999999996
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.425,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.32499999999999996
+      },
+      "Collaboration": {
+        "Q": -1.7,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -2.6
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.15999999999999992,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_060036_cab0e2": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Collaboration": {
+        "Q": -0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.595,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_060689_480efe": {
+      "Understanding": {
+        "Q": 0.475,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.425
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -1.0
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.5462499999999999,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_062110_b98d2f": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.4,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.30000000000000004
+      },
+      "Collaboration": {
+        "Q": 0.55,
+        "F": 0.15,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.7650000000000001,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_062812_c6b7ff": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -1.0
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.5549999999999999,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_063541_5f7f9f": {
+      "Understanding": {
+        "Q": 0.4,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.30000000000000004
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.375,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.275
+      },
+      "Collaboration": {
+        "Q": -0.25,
+        "F": 0.95,
+        "SP": 0.0,
+        "score": -1.2
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.40375000000000005,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_064201_e22245": {
+      "Understanding": {
+        "Q": 0.525,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.525
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.6,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.6
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.67375,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_065772_7e29fc": {
+      "Understanding": {
+        "Q": 0.175,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.675
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": -0.25,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -1.1
+      },
+      "Collaboration": {
+        "Q": -0.75,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -1.6
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.2,
+        "F": 0.0,
+        "SP": 0.2,
+        "score": 1.3
+      },
+      "CTRS_P": -0.57125,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_066070_c11c50": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Collaboration": {
+        "Q": -0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.575,
+      "n_turns": 20,
+      "category": "anxiety"
+    },
+    "20260526_061847_067209_594824": {
+      "Understanding": {
+        "Q": 0.6176470588235294,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.6176470588235294
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.6470588235294118,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.6470588235294118
+      },
+      "Collaboration": {
+        "Q": 0.29411764705882354,
+        "F": 0.7058823529411765,
+        "SP": 0.0,
+        "score": -0.411764705882353
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.7955882352941176,
+      "n_turns": 17,
+      "category": "depression"
+    },
+    "20260526_061847_067670_1b2386": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.11764705882352941,
+        "SP": 0.0,
+        "score": 0.38235294117647056
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.38235294117647056,
+        "F": 0.11764705882352941,
+        "SP": 0.0,
+        "score": 0.2647058823529411
+      },
+      "Collaboration": {
+        "Q": -0.11764705882352941,
+        "F": 0.8823529411764706,
+        "SP": 0.0,
+        "score": -1.0
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9411764705882353,
+        "F": 0.0,
+        "SP": 0.9411764705882353,
+        "score": 2.411764705882353
+      },
+      "CTRS_P": 0.48235294117647054,
+      "n_turns": 17,
+      "category": "depression"
+    },
+    "20260526_061847_068497_bed5df": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.4
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.4,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.30000000000000004
+      },
+      "Collaboration": {
+        "Q": -0.1,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -1.0
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9,
+        "F": 0.0,
+        "SP": 0.9,
+        "score": 2.35
+      },
+      "CTRS_P": 0.485,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_069441_1cce98": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.55
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.6,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.6
+      },
+      "Collaboration": {
+        "Q": 0.0,
+        "F": 0.9,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.6625,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_070366_dc9689": {
+      "Understanding": {
+        "Q": 0.5588235294117647,
+        "F": 0.058823529411764705,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.5,
+        "F": 0.058823529411764705,
+        "SP": 0.0,
+        "score": 0.4411764705882353
+      },
+      "Collaboration": {
+        "Q": 0.058823529411764705,
+        "F": 0.8235294117647058,
+        "SP": 0.0,
+        "score": -0.7647058823529411
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.9411764705882353,
+        "F": 0.0,
+        "SP": 0.9411764705882353,
+        "score": 2.411764705882353
+      },
+      "CTRS_P": 0.6147058823529412,
+      "n_turns": 17,
+      "category": "depression"
+    },
+    "20260526_061847_071478_465469": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.95,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.8999999999999999
+      },
+      "Collaboration": {
+        "Q": 0.85,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 1.06,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_075382_15e251": {
+      "Understanding": {
+        "Q": 0.2,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.6000000000000001
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.9,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.85
+      },
+      "Collaboration": {
+        "Q": 0.85,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.6475,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_075897_46fdb6": {
+      "Understanding": {
+        "Q": 0.6,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.6
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.6333333333333333,
+        "F": 0.0,
+        "SP": 0.0,
+        "score": 0.6333333333333333
+      },
+      "Collaboration": {
+        "Q": 0.13333333333333333,
+        "F": 0.7333333333333333,
+        "SP": 0.0,
+        "score": -0.6
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.7483333333333333,
+      "n_turns": 15,
+      "category": "depression"
+    },
+    "20260526_061847_077201_2ce0cc": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.9,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.85
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.695,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_077661_3c00ff": {
+      "Understanding": {
+        "Q": 0.575,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5249999999999999
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.9,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.85
+      },
+      "Collaboration": {
+        "Q": 0.85,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 1.04125,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_078721_3b3243": {
+      "Understanding": {
+        "Q": 0.55,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.5
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": -0.175,
+        "F": 0.8,
+        "SP": 0.0,
+        "score": -0.9750000000000001
+      },
+      "Collaboration": {
+        "Q": -1.45,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -2.3
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.25,
+        "F": 0.0,
+        "SP": 0.25,
+        "score": 1.375
+      },
+      "CTRS_P": -0.25375000000000003,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_078841_e4dd41": {
+      "Understanding": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.5,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.45
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.595,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_079654_3f40d1": {
+      "Understanding": {
+        "Q": 0.525,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.42500000000000004
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.475,
+        "F": 0.1,
+        "SP": 0.0,
+        "score": 0.375
+      },
+      "Collaboration": {
+        "Q": -0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.9
+      },
+      "Technical_Appropriateness": {
+        "Q": 1.95,
+        "F": 0.0,
+        "SP": 0.95,
+        "score": 2.425
+      },
+      "CTRS_P": 0.5475,
+      "n_turns": 20,
+      "category": "depression"
+    },
+    "20260526_061847_080165_80b188": {
+      "Understanding": {
+        "Q": 0.15,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.7
+      },
+      "Interpersonal_Effectiveness": {
+        "Q": 0.525,
+        "F": 0.05,
+        "SP": 0.0,
+        "score": 0.47500000000000003
+      },
+      "Collaboration": {
+        "Q": 0.05,
+        "F": 0.85,
+        "SP": 0.0,
+        "score": -0.7999999999999999
+      },
+      "Technical_Appropriateness": {
+        "Q": 2.0,
+        "F": 0.0,
+        "SP": 1.0,
+        "score": 2.5
+      },
+      "CTRS_P": 0.21375,
+      "n_turns": 20,
+      "category": "depression"
+    }
+  }
+}

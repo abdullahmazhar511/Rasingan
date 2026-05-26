@@ -36,6 +36,10 @@ class PredictRequest(BaseModel):
     context: str
     utterance: str
     include_analysis: bool = True
+    # If True, return expected-value floats (E[label] = sum_c p_c * c) in
+    # [-2, 2] instead of argmax integers. Used by the RL reward path so the
+    # signal is smooth and PPO has a real gradient.
+    return_expected: bool = False
 
 
 class BatchPredictRequest(BaseModel):
@@ -43,15 +47,21 @@ class BatchPredictRequest(BaseModel):
     utterances: List[str]
     batch_size: int = 8
     include_analysis: bool = True
+    return_expected: bool = False
 
 
 class PredictionResponse(BaseModel):
+    # When return_expected=True: predictions = expected-value floats (smooth),
+    # predictions_argmax = argmax integers (free from same forward pass).
+    # When return_expected=False: predictions = argmax integers, predictions_argmax = None.
     predictions: Dict[str, float]
+    predictions_argmax: Optional[Dict[str, float]] = None
     processing_time: float
 
 
 class BatchPredictionResponse(BaseModel):
     predictions: List[Dict[str, float]]
+    predictions_argmax: Optional[List[Dict[str, float]]] = None
     processing_time: float
     num_samples: int
 
@@ -59,6 +69,26 @@ class BatchPredictionResponse(BaseModel):
 class HealthResponse(BaseModel):
     status: str
     model_loaded: bool
+
+
+class EmbedSimRequest(BaseModel):
+    """Pair-wise cosine similarity over MiniLM sentence embeddings."""
+    text_a: str
+    text_b: str
+
+
+class BatchEmbedSimRequest(BaseModel):
+    """Batched variant — pairs[i] = (text_a[i], text_b[i])."""
+    texts_a: List[str]
+    texts_b: List[str]
+
+
+class EmbedSimResponse(BaseModel):
+    cosine: float
+
+
+class BatchEmbedSimResponse(BaseModel):
+    cosines: List[float]
 
 
 def clear_embedding_cache():
@@ -181,13 +211,21 @@ async def predict(request: PredictRequest):
         result = model.predict(
             request.context,
             request.utterance,
-            include_analysis=request.include_analysis
+            include_analysis=request.include_analysis,
+            return_expected=request.return_expected,
         )
         processing_time = time.time() - start_time
-        
+
+        # When return_expected=True the model returns {"expected": ..., "argmax": ...}.
+        if request.return_expected:
+            return PredictionResponse(
+                predictions=result["expected"],
+                predictions_argmax=result["argmax"],
+                processing_time=processing_time,
+            )
         return PredictionResponse(
             predictions=result,
-            processing_time=processing_time
+            processing_time=processing_time,
         )
     except Exception as e:
         logger.error(f"Prediction error: {e}")
@@ -212,14 +250,24 @@ async def batch_predict(request: BatchPredictRequest):
             request.contexts,
             request.utterances,
             batch_size=request.batch_size,
-            include_analysis=request.include_analysis
+            include_analysis=request.include_analysis,
+            return_expected=request.return_expected,
         )
         processing_time = time.time() - start_time
-        
+
+        if request.return_expected:
+            expected = [p["expected"] for p in predictions]
+            argmax   = [p["argmax"]   for p in predictions]
+            return BatchPredictionResponse(
+                predictions=expected,
+                predictions_argmax=argmax,
+                processing_time=processing_time,
+                num_samples=len(predictions),
+            )
         return BatchPredictionResponse(
             predictions=predictions,
             processing_time=processing_time,
-            num_samples=len(predictions)
+            num_samples=len(predictions),
         )
     except Exception as e:
         logger.error(f"Batch prediction error: {e}")
@@ -263,6 +311,53 @@ async def batch_predict_async(request: BatchPredictRequest, background_tasks: Ba
         raise HTTPException(status_code=504, detail="Request processing timeout")
     except Exception as e:
         logger.error(f"Async batch prediction error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/embedding_sim", response_model=EmbedSimResponse)
+async def embedding_sim(req: EmbedSimRequest):
+    """Cosine similarity of MiniLM sentence embeddings.
+
+    Used by the RL reward as a continuous auxiliary signal alongside the
+    quantized CARE reward. Reuses CareModel.embedding_model so no extra
+    model load.
+    """
+    if model is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    try:
+        emb = model.embedding_model.encode(
+            [req.text_a, req.text_b], normalize_embeddings=True, show_progress_bar=False,
+        )
+        # encode() returns either a numpy array or a tensor depending on backend.
+        a = torch.as_tensor(emb[0])
+        b = torch.as_tensor(emb[1])
+        return EmbedSimResponse(cosine=float((a * b).sum().item()))
+    except Exception as e:
+        logger.error(f"Embedding similarity error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/batch_embedding_sim", response_model=BatchEmbedSimResponse)
+async def batch_embedding_sim(req: BatchEmbedSimRequest):
+    """Batched cosine similarity. cosines[i] = sim(texts_a[i], texts_b[i])."""
+    if model is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    if len(req.texts_a) != len(req.texts_b):
+        raise HTTPException(status_code=400, detail="texts_a and texts_b must have same length")
+    if not req.texts_a:
+        return BatchEmbedSimResponse(cosines=[])
+    try:
+        # Encode all unique texts in one forward; A and B can share text instances.
+        all_texts = req.texts_a + req.texts_b
+        emb = model.embedding_model.encode(
+            all_texts, normalize_embeddings=True, show_progress_bar=False, convert_to_numpy=True,
+        )
+        n = len(req.texts_a)
+        a, b = emb[:n], emb[n:]
+        cosines = (a * b).sum(axis=1).tolist()
+        return BatchEmbedSimResponse(cosines=cosines)
+    except Exception as e:
+        logger.error(f"Batch embedding similarity error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

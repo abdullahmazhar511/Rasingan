@@ -45,16 +45,38 @@ TENSOR_PARALLEL_SIZE="${TENSOR_PARALLEL_SIZE:-}"
 
 GPU_MEM_UTIL="${GPU_MEM_UTIL:-0.40}"
 MAX_MODEL_LEN="${MAX_MODEL_LEN:-8192}"
-READY_TIMEOUT="${READY_TIMEOUT:-300}"
+READY_TIMEOUT="${READY_TIMEOUT:-900}"   # 9B + torch.compile + JIT + KV profiling needs >300s on first run
 
-# Pick a Python with a working vLLM. Prefer the venv that the rest of the
-# pipeline already uses; fall back to whatever `python` resolves to.
+# Pick a Python with a working vLLM. Prefer vllmenv (vLLM 0.20.0 +
+# flashinfer 0.6.8.post1 + flashinfer_jit_cache) — newer GDN kernels and
+# perf fixes (incl. PR #40956 chunk_kda bugfix from the GDN-hang issue).
+# The DeepGEMM warmup probe vLLM 0.20 runs is bypassed by
+# `VLLM_USE_DEEP_GEMM=0` exported at launch (set on the nohup line below).
+# Fall back to hallucination/.venv (vLLM 0.19.1) if vllmenv missing.
 if [ -z "${SERVER_PYTHON:-}" ]; then
-    if [ -x /home/asbahk/hallucination/.venv/bin/python ]; then
+    if [ -x /home/asbahk/vllmenv/bin/python ]; then
+        SERVER_PYTHON=/home/asbahk/vllmenv/bin/python
+    elif [ -x /home/asbahk/hallucination/.venv/bin/python ]; then
         SERVER_PYTHON=/home/asbahk/hallucination/.venv/bin/python
     else
         SERVER_PYTHON="$(command -v python)"
     fi
+fi
+
+# Default GDN prefill backend: force triton everywhere. The FlashInfer GDN
+# kernel deadlocks TP=2 supervisors after ~60-80 min of serving (chain:
+# `gdn_linear_attn` → some worker stalls → partner waits 10 min on the next
+# `all_gather` → NCCL kills both). We saw this in vllmenv (vLLM 0.20.0 +
+# FlashInfer 0.6.8.post1) on 2026-05-25/26 — three consecutive crashes,
+# identical stack at `compute_logits → _gather_logits → all_gather`. The
+# bug was NOT actually fixed by closing vllm-project/vllm#37250 / merging
+# PR #40956 as previously assumed. The vLLM log itself explicitly suggests
+# `--gdn-prefill-backend triton` to avoid it.
+#
+# Triton path is slightly slower at prefill but stable. Override at your
+# own risk with GDN_PREFILL_BACKEND="" (FlashInfer) or "flashinfer".
+if [ -z "${GDN_PREFILL_BACKEND+set}" ]; then
+    GDN_PREFILL_BACKEND="triton"
 fi
 
 # CUDA 12.8 nvcc (needed only if we end up using verl env's vLLM 0.11.0 with
@@ -136,8 +158,64 @@ launch_server() {
     fi
     echo "🚀 Starting $label on port $port (GPU $gpu, tp=$tp): $model"
     echo "   python: $SERVER_PYTHON   log: $log"
+    # Rotate the existing log instead of truncating — when the supervisor
+    # watchdog re-invokes this launcher after a crash, the previous
+    # supervisor's last-words traceback is preserved at $log.crash-<ts>
+    # for post-mortem. Without this, the truncate at restart loses the
+    # exact crash error message every time.
+    if [ -s "$log" ]; then
+        mv "$log" "$log.crash-$(date -u +%Y%m%dT%H%M%SZ)" 2>/dev/null || true
+    fi
     : > "$log"
-    CUDA_VISIBLE_DEVICES="$gpu" nohup "$SERVER_PYTHON" -m vllm.entrypoints.openai.api_server \
+    # Throughput flags (no quantization):
+    #   --dtype bfloat16             explicit bf16 (avoid auto picking fp16
+    #                                for some models, which gives worse stability)
+    #   --enable-prefix-caching      reuse KV for shared prompt prefixes
+    #                                (matters when patient/supervisor system
+    #                                prompts repeat across all 32 rollouts)
+    #   --enable-chunked-prefill     overlap prefill+decode for better
+    #                                continuous-batching efficiency
+    #   --max-num-batched-tokens     allow up to one full context worth of
+    #                                prefill tokens per step (cuts prefill
+    #                                latency at long contexts)
+    #   --max-num-seqs               concurrent decoding slots; with 32
+    #                                rollouts × 2 calls per turn we want >=128
+    #
+    # NOTE: --disable-custom-all-reduce was previously required to avoid
+    #   "Cuda error /workspace/csrc/custom_all_reduce.cuh:455 'invalid argument'"
+    # at engine init on this 2-GPU H200 NVL setup with vLLM 0.19.1. Removed
+    # to test whether the underlying issue still reproduces. If startup
+    # fails with that same error, restore the flag below.
+    # --language-model-only: skip loading vision encoder weights / caches for
+    # multi-modal Qwen variants (Qwen3.5-9B has a VL head we never use).
+    # Saves ~1-2 GB of weights per rank + ~16 KB tokens worth of mm encoder cache.
+    # VLLM_USE_DEEP_GEMM=0: skip the FP8 DeepGEMM warmup probe that vLLM 0.20+
+    # runs on every Linear layer at startup. Without this, vllmenv (vLLM 0.20.0)
+    # crashes because `deep_gemm` isn't installed. We don't need DeepGEMM here
+    # because Qwen3.5-4B is bf16, not FP8.
+    # Conditionally add --gdn-prefill-backend only if non-empty (vllmenv leaves
+    # it unset → vLLM default FlashInfer; hallucination/.venv sets it to triton).
+    local gdn_args=()
+    if [ -n "$GDN_PREFILL_BACKEND" ]; then
+        gdn_args=(--gdn-prefill-backend "$GDN_PREFILL_BACKEND")
+    fi
+    # Disable FlashInfer's runtime autotune. vLLM 0.20's default is True for
+    # our config (KernelConfig.enable_flashinfer_autotune=True). Runtime
+    # autotune fires on unseen kernel shapes during serving and is the
+    # suspected trigger for the TP-NCCL desync hang we hit at 18:34 (one
+    # worker takes the autotune path, the other doesn't → all-reduce never
+    # syncs). The startup-time autotune that runs during warmup is harmless
+    # (1.6s, completes deterministically for both workers); only runtime
+    # autotune causes desync. Setting the flag to false at the CLI disables
+    # BOTH (acceptable: we keep the precompiled kernel variants we already
+    # have from flashinfer-jit-cache). Override via FLASHINFER_AUTOTUNE=true.
+    local autotune_args=()
+    case "${FLASHINFER_AUTOTUNE:-false}" in
+        true|True|TRUE|1) autotune_args=(--enable-flashinfer-autotune) ;;
+        *)                autotune_args=(--no-enable-flashinfer-autotune) ;;
+    esac
+    CUDA_VISIBLE_DEVICES="$gpu" VLLM_USE_DEEP_GEMM=0 \
+        nohup "$SERVER_PYTHON" -m vllm.entrypoints.openai.api_server \
         --model "$model" \
         --served-model-name "$model" \
         --host 127.0.0.1 \
@@ -145,6 +223,14 @@ launch_server() {
         --tensor-parallel-size "$tp" \
         --gpu-memory-utilization "$GPU_MEM_UTIL" \
         --max-model-len "$MAX_MODEL_LEN" \
+        --dtype bfloat16 \
+        --enable-prefix-caching \
+        --enable-chunked-prefill \
+        --max-num-batched-tokens "${MAX_NUM_BATCHED_TOKENS:-32768}" \
+        --max-num-seqs "${MAX_NUM_SEQS:-256}" \
+        "${gdn_args[@]}" \
+        "${autotune_args[@]}" \
+        --language-model-only \
         >> "$log" 2>&1 &
     local pid=$!
     echo "$pid" > "$pidfile"

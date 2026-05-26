@@ -1,0 +1,233 @@
+{
+  "session_id": "20260525_140906_424191_467044",
+  "timestamp": 1779718482.2835445,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient based on a specific Reddit post.\n    *   **Situation:** Struggles with financial matters involving *other people*. Panic, snap decisions, avoidance, loss of perspective. Currently spiraling over a work money mistake. Doesn't worry about own finances much.\n    *   **Task:** Respond authentically as the patient, expressing genuine emotions, concerns, being natural/conversational, showing vulnerability.\n    *   **Input:** Therapist greeting and opening question (\"What brings you in for this session?\").\n    *   **Constraints:** Consistency with the Reddit post narrative, don't make up info not in the post (unless asked), maintain vulnerability.\n\n2.  **Determine the Tone and Content:**\n    *   **Tone:** Vulnerable, slightly anxious, honest, conversational, seeking help.\n    *   **Content:** Address the core issue (money with others), mention the current trigger (work mistake), express the feeling of panic/clarity loss.\n    *   **Goal:** Establish rapport and share the initial story to the therapist.\n\n3.  **Drafting the Response:**\n    *",
+      "therapist_response": "I\u2019ve been feeling kind of overwhelmed lately\u2014like I\u2019m losing my footing with everything money-related, especially when it\u2019s someone else\u2019s money or decisions. Right now, I\u2019m spiraling over something at work: I made a mistake with a payment, and now I\u2019m just\u2026 panicking. I don\u2019t even know what to do, and it feels like I can\u2019t think straight. I don\u2019t usually worry about my own finances much, but when it\u2019s someone else\u2019s money, it just throws me off. I feel like I\u2019m making snap decisions out of fear, and then I regret it later.  \n\nWhat brings you in for this session?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific INFORMATION EXTRACTION CHECKLIST (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Patient's Statement (which is actually a *thought process* and a *draft* of what the patient might say, but labeled as \"Patient's Statement\" in the prompt, followed by \"PRIMARY THERAPIST'S RESPONSE\" which actually contains the patient's words). Wait, looking closely at the structure:\n            *   There is a \"Thinking Process\" section describing the *Patient's* persona (based on a Reddit post).\n            *   There is a \"PRIMARY THERAPIST'S RESPONSE\" section. *Wait, this is confusing.* The text under \"PRIMARY THERAPIST'S RESPONSE\" reads: \"I\u2019ve been feeling kind of overwhelmed lately... What brings you in for this session?\"\n            *   This text is clearly written from the *Patient's* perspective (\"I've been feeling...\", \"What brings you in...\").\n            *   However, the header says \"PRIMARY THERAPIST'S RESPONSE\". This is a labeling error in the prompt's scenario construction.\n            *   Let's re-read carefully: \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\"\n            *   \"PRIMARY THERAPIST'S RESPONSE: 'I\u2019ve been feeling kind of overwhelmed lately... What brings you in for this session?'\"\n            *   This is contradictory. The text says \"What brings *you* in for this session?\" which a therapist would ask a patient. But the content (\"I've been feeling...\") is the patient's voice.\n            *   Actually, looking at the \"Patient's Statement",
+      "timestamp": 1779718199.6382737,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User:** The user is role-playing as the *therapist* (based on the prompt structure where I am the patient and the user is the therapist). Wait, looking at the previous turn, the user *sent* a message that looks like the therapist's opening (\"Hello, I'm so glad you're here... What brings you in...\").\n    *   **Correction:** In the *first* turn, the user *was* the therapist. Now, in this *second* turn, the user *is* repeating the therapist's question but I am the patient responding. Wait, no. Let's look at the conversation history.\n    *   **Turn 1 (User):** Therapist greeting (\"Hello, I\u2019m so glad you\u2019re here... What brings you in...\").\n    *   **Turn 2 (Model):** I need to respond as the *Patient*.\n    *   **Wait, looking at the current prompt:** The user *just* sent a message that looks like *me* (the patient) drafting a response? No, the prompt says \"User: I\u2019ve been feeling kind of overwhelmed lately...\". Wait, this looks",
+      "therapist_response": "I\u2019ve been feeling kind of overwhelmed lately\u2014like I\u2019m losing my footing with everything money-related, especially when it\u2019s someone else\u2019s money or decisions. Right now, I\u2019m spiraling over something at work: I made a mistake with a payment, and now I\u2019m just\u2026 panicking. I don\u2019t even know what to do, and it feels like I can\u2019t think straight. I don\u2019t usually worry about my own finances much, but when it\u2019s someone else\u2019s money, it just throws me off. I feel like I\u2019m making snap decisions out of fear, and then I regret it later.  \n\nWhat brings you in for this session?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate the therapist's response to the patient (based on the provided session context and patient statement).\n    *   **Goal:** Evaluate progress on the PHQ-9 + GAD-7 information extraction checklist.\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality].\n        *   Patient's Statement (provided in the prompt under \"PATIENT'S STATEMENT\"): Actually, looking closely at the prompt structure, there's a bit of confusion in the prompt's internal logic (it mentions \"User: The user is role-playing as the therapist...\"). However, the core data provided for evaluation is:\n            *   **Patient's Statement:** \"Thinking Process: 1. Analyze the Input...\" (Wait, this looks like a meta-commentary block that got pasted into the prompt).\n            *   **Correction:** I need to look at the actual *Patient's Statement* provided in the prompt under \"PATIENT'S STATEMENT\".\n            *   *Re-reading the prompt:* The prompt contains a section labeled \"PATIENT'S STATEMENT\" which actually contains a \"Thinking Process\" block followed by \"PRIMARY THERAPIST'S RESPONSE\". This is confusingly structured.\n            *   *Let's parse the actual conversation flow intended:*\n                *   **Scenario:** The user is the therapist (based on the \"PRIMARY THERAPIST'S RESPONSE\" section).\n                *   **Patient Input:** The text under",
+      "timestamp": 1779718274.791129,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on the Reddit post provided in the system instructions).\n    *   **Context:** Therapy session.\n    *   **User's Input:** The user is sending a message that *looks* like the patient's initial statement, but the prompt instructions say \"User: Hello, I\u2019m so glad you\u2019re here...\" (Therapist) in the first turn. However, in *this* specific turn, the user has sent a message that reads like the patient's *initial disclosure* (\"I\u2019ve been feeling kind of overwhelmed lately... What brings you in for this session?\").\n    *   **Wait, let's re-read the conversation flow.**\n        *   System Instruction: \"You are a patient in therapy. You are based on the following real Reddit post...\"\n        *   User Turn 1 (in the actual conversation provided in the prompt history): \"Hello, I\u2019m so glad you\u2019re here... What brings you in for this session?\" (This is clearly the Therapist).\n        *   Model Turn 1 (in the actual conversation provided in the prompt history): I need to generate the patient's response.",
+      "therapist_response": "I\u2019ve been feeling kind of overwhelmed lately\u2014like I\u2019m losing my footing with everything money-related, especially when it\u2019s someone else\u2019s money or decisions. Right now, I\u2019m spiraling over something at work: I made a mistake with a payment, and now I\u2019m just\u2026 panicking. I don\u2019t even know what to do, and it feels like I can\u2019t think straight. I don\u2019t usually worry about my own finances much, but when it\u2019s someone else\u2019s money, it just throws me off. I feel like I\u2019m making snap decisions out of fear, and then I regret it later.  \n\nWhat brings you in for this session?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am a compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate the Primary Therapist's response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist (PHQ-9: Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact; GAD-7: Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality].\n        *   Patient's Statement (Wait, I need to clarify the \"Patient's Statement\" provided in the prompt).\n        *   *Correction/Clarification on Patient's Statement:* The prompt says \"PATIENT'S STATEMENT: 'Thinking Process: ...'\" followed by \"PRIMARY THERAPIST'S RESPONSE: 'I\u2019ve been feeling kind of overwhelmed lately...'\"\n        *   *Wait, there is a major confusion in the prompt structure.*\n        *   The prompt says: \"PATIENT'S STATEMENT: [Thinking Process...]\" then \"PRIMARY THERAPIST'S RESPONSE: [I've been feeling kind of overwhelmed lately...]\".\n        *   *However*, looking at the System Instruction (\"You are a patient in therapy...\"), and the Conversation History provided in the prompt (\"User Turn 1: Hello, I'm so glad you're here...\"), it seems the prompt has mixed up the labels or the user is role-playing *as* the patient in the scenario but asking me to evaluate the *Therapist's* response to a specific patient input.\n        *   *Let's look at the actual text provided under \"PATIENT'S STATEMENT\":* It starts with \"Thinking Process: 1. Analyze the",
+      "timestamp": 1779718340.7863798,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user's message appears to be a continuation of the conversation, but it looks like *they* (the user) are acting as the patient here, or they are pasting the patient's initial post again?\n    *   Wait, I need to check the conversation history.\n    *   **Turn 1 (User):** \"Hello, I\u2019m so glad you\u2019re here... What brings you in for this session?\" (Therapist greeting).\n    *   **Turn 2 (Model):** I need to respond as the Patient.\n    *   **Turn 3 (User):** The user just sent a message that says \"I\u2019ve been feeling kind of overwhelmed lately... What brings you in for this session?\" This looks like the user is *repeating* the prompt content or perhaps they made a mistake in the roleplay.\n    *   **Actually, looking closely at the prompt structure:** The user provided the Reddit post in the *system instructions*. Then the conversation started.\n    *   **Current State:** I am the Model (Patient). The User is the Therapist.\n    *   **The User's Last Message:** \"I",
+      "therapist_response": "I\u2019ve been feeling kind of overwhelmed lately\u2014like I\u2019m losing my footing with everything money-related, especially when it\u2019s someone else\u2019s money or decisions. Right now, I\u2019m spiraling over something at work: I made a mistake with a payment, and now I\u2019m just\u2026 panicking. I don\u2019t even know what to do, and it feels like I can\u2019t think straight. I don\u2019t usually worry about my own finances much, but when it\u2019s someone else\u2019s money, it just throws me off. I feel like I\u2019m making snap decisions out of fear, and then I regret it later.  \n\nWhat brings you in for this session?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on the PHQ-9 + GAD-7 Information Extraction Checklist.\n    *   **Input:**\n        *   Checklist items (PHQ-9 & GAD-7).\n        *   Priority Area: PHQ-9 Safety/Suicidality.\n        *   Patient's Statement (Turn 2): \"Thinking Process: ...\" (Wait, this looks like a copy-paste error in the prompt provided by the user. The prompt says \"PATIENT'S STATEMENT\" but then includes a \"Thinking Process\" section that looks like the AI's internal monologue from a previous turn or a meta-commentary. Then it says \"Turn 1 (User): Hello... Turn 2 (Model): I need to respond as the Patient... Turn 3 (User): The user just sent a message...\". This is confusing. Let's look at the actual \"PATIENT'S STATEMENT\" provided at the end of the prompt.)\n        *   *Correction:* Looking closely at the prompt structure provided by the user:\n            *   There is a section labeled \"PATIENT'S STATEMENT:\".\n            *   Underneath it says: \"Thinking Process: 1. Analyze the Input... 2. Wait, I need to check the conversation history...\". This looks like *model* text that was accidentally pasted into the \"Patient's Statement\" section, OR it's a meta-description of a roleplay gone wrong.\n            *   However, further down, there is a section labeled \"PRIMARY THERAPIST'S RESPONSE:\" which says: \"I've been feeling kind of overwhelmed lately... What brings you in for this session?\"\n            *   Wait, the labels are swapped or confused in the prompt provided",
+      "timestamp": 1779718413.843186,
+      "turn": 4
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am the patient in therapy.\n    *   **Source Material:** A Reddit post describing difficulty thinking clearly about financial matters involving other people, panic, snap decisions, avoidance, and current spiraling over a work money mistake.\n    *   **Current Input:** The user's message seems to be a repetition of the patient's initial disclosure (or perhaps they are roleplaying the patient *to* me? No, the instructions say \"You are a patient in therapy... Instructions: Respond authentically as someone experiencing the situation described in the Reddit post.\").\n    *   **Wait, there's a confusion in the conversation flow provided in the prompt.**\n        *   The prompt starts with \"REDDIT POST (Your Situation)... PATIENT PROFILE... INSTRUCTIONS...\".\n        *   Then \"User: Hello, I\u2019m so glad you\u2019re here...\" (This is clearly the Therapist).\n        *   Then \"Model: [My response needed]\".\n        *   BUT, the user's *latest* message in this specific chat window is: \"I\u2019ve been feeling kind of overwhelmed lately... What brings you in for this session?\"",
+      "therapist_response": "It sounds like you're carrying a lot of stress around money\u2014especially when it involves other people. That moment with the payment mistake at work must have felt really overwhelming, like your mind just shut down. I can see how that could spiral, especially if you\u2019re not used to feeling that way with financial decisions.  \n\nIs there a part of that situation that\u2019s been most difficult to handle, or something specific you\u2019d like to talk about more?",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718482.2835305,
+      "turn": 5
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

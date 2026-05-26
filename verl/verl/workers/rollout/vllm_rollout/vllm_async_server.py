@@ -397,7 +397,25 @@ class vLLMHttpServerBase:
     ) -> TokenOutput:
         """Generate sequence with token-in-token-out."""
         # TODO(@wuxibin): switch to `/generate` http endpoint once multi-modal support ready.
-        max_tokens = self.config.max_model_len - len(prompt_ids)
+        #
+        # Per-call max_tokens override (multi-turn-only opt-in):
+        #   - Default (single-turn agents, validation, etc.): caller never sets
+        #     `max_tokens` in sampling_params, so we use the legacy budget
+        #     `max_model_len - len(prompt_ids)`. **Single-turn behavior is
+        #     unchanged.**
+        #   - Multi-turn agent loops (e.g. therapist_agent_loop._generate_
+        #     therapist_response) set `max_tokens` in sampling_params to cap
+        #     per-turn generation. We honor it but still clamp to the model-
+        #     length budget for safety.
+        budget = self.config.max_model_len - len(prompt_ids)
+        caller_max = sampling_params.pop("max_tokens", None)
+        if caller_max is not None:
+            try:
+                max_tokens = min(int(caller_max), budget)
+            except (TypeError, ValueError):
+                max_tokens = budget
+        else:
+            max_tokens = budget
         sampling_params["logprobs"] = 0 if sampling_params.pop("logprobs", False) else None
         sampling_params.setdefault("repetition_penalty", self.config.get("repetition_penalty", 1.0))
         sampling_params = SamplingParams(max_tokens=max_tokens, **sampling_params)

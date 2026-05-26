@@ -17,7 +17,7 @@ import glob
 import json
 import os
 import sys
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 from tqdm.auto import tqdm
@@ -33,56 +33,45 @@ from checklists import compute_summary  # noqa: E402
 EVAL_ROOT = os.environ.get("EVAL_ROOT", os.path.join(RASINGAN_PATH, "evaluation_pipeline"))
 
 
-def _load_status_from_session(path: str) -> Optional[Dict]:
-    """Read a session_<id>.json and return its extraction_status dict (or None)."""
+def _load_session(path: str) -> Optional[Dict]:
+    """Read a JSON file once and return the parsed dict (or None on error)."""
     try:
         with open(path) as f:
-            data = json.load(f)
+            return json.load(f)
     except (json.JSONDecodeError, OSError):
         return None
-    status = data.get("extraction_status")
-    if status:
-        return status
-    return None
 
 
-def _load_status_from_progress(path: str) -> Optional[Dict]:
-    """Read a supervisor progress JSON and return its extraction_status."""
-    try:
-        with open(path) as f:
-            data = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        return None
-    return data.get("extraction_status") or None
-
-
-def _load_category_from_session(path: str) -> Optional[str]:
-    """Read session_<id>.json and return the scenario `category` if present."""
-    try:
-        with open(path) as f:
-            data = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        return None
-    meta = data.get("metadata") or {}
-    cat = meta.get("category")
-    return cat if cat else None
-
-
-def _gather_sessions(sessions_dir: str) -> Dict[str, Dict]:
-    """Return {session_id: {"status": extraction_status, "category": str|None}}.
+def _gather_sessions(sessions_dir: str) -> Tuple[Dict[str, Dict], Dict[str, int]]:
+    """Return ({session_id: {"status": extraction_status, "category": str|None}},
+              {skip_reason: count}).
 
     Prefer session_<id>.json files; for any session_id missing extraction_status,
     fall back to supervisor_progress/session_<id>_checklist.json. Category is
     read from session_<id>.json's metadata (None if no session file exists).
+    Skipped sessions are counted and surfaced — silent drops here hide cases
+    where agent_2 crashed mid-session.
     """
     out: Dict[str, Dict] = {}
+    skipped: Dict[str, int] = {}
+
+    def _bump(reason: str) -> None:
+        skipped[reason] = skipped.get(reason, 0) + 1
 
     for path in sorted(glob.glob(os.path.join(sessions_dir, "session_*.json"))):
         sid = os.path.splitext(os.path.basename(path))[0].replace("session_", "")
-        status = _load_status_from_session(path)
-        category = _load_category_from_session(path)
-        if status:
-            out[sid] = {"status": status, "category": category}
+        data = _load_session(path)
+        if data is None:
+            print(f"  [{sid}] session file unreadable, skipped")
+            _bump("read_error")
+            continue
+        status = data.get("extraction_status")
+        category = (data.get("metadata") or {}).get("category") or None
+        if not status:
+            print(f"  [{sid}] no extraction_status in session, skipped")
+            _bump("no_extraction_status")
+            continue
+        out[sid] = {"status": status, "category": category}
 
     progress_dir = os.path.join(sessions_dir, "supervisor_progress")
     if os.path.isdir(progress_dir):
@@ -90,11 +79,19 @@ def _gather_sessions(sessions_dir: str) -> Dict[str, Dict]:
             sid = os.path.basename(path).replace("session_", "").replace("_checklist.json", "")
             if sid in out:
                 continue  # already captured from the session file
-            status = _load_status_from_progress(path)
-            if status:
-                out[sid] = {"status": status, "category": None}
+            data = _load_session(path)
+            if data is None:
+                print(f"  [{sid}] progress file unreadable, skipped")
+                _bump("read_error")
+                continue
+            status = data.get("extraction_status")
+            if not status:
+                print(f"  [{sid}] no extraction_status in progress, skipped")
+                _bump("no_extraction_status")
+                continue
+            out[sid] = {"status": status, "category": None}
 
-    return out
+    return out, skipped
 
 
 def _aggregate_categories(per_session: Dict[str, Dict]) -> Dict[str, Dict]:
@@ -158,7 +155,7 @@ def score_sessions_dir(sessions_dir: str, output_path: Optional[str] = None,
     if not os.path.isdir(sessions_dir):
         raise FileNotFoundError(f"Sessions directory not found: {sessions_dir}")
 
-    gathered = _gather_sessions(sessions_dir)
+    gathered, skipped = _gather_sessions(sessions_dir)
     if not gathered:
         print(f"[IR] No sessions with extraction_status found under {sessions_dir}")
         return {}
@@ -172,18 +169,33 @@ def score_sessions_dir(sessions_dir: str, output_path: Optional[str] = None,
     }
     coverage_pcts = [s["overall_pct"] for s in per_session.values()]
 
+    # total_items can legitimately vary by checklist (e.g. PHQ-9 vs GAD-7).
+    # Surface the full distribution instead of pretending the first session is canonical.
+    item_counts = sorted({int(s["total_items"]) for s in per_session.values()})
+    total_items_repr: object = item_counts[0] if len(item_counts) == 1 else item_counts
+
+    # IR fraction in [0, 1] — matches the training reward signal exactly
+    # (faith.py: ir_frac = overall_pct / 100.0). overall_pct is already 0-100.
+    ir_frac_values = [p / 100.0 for p in coverage_pcts]
+
     summary = {
         "model_name": model_name,
         "sessions_dir": sessions_dir,
         "n_sessions": len(per_session),
+        "n_sessions_skipped": skipped,
         "ir_score": round(float(np.mean(coverage_pcts)), 2),
         "ir_score_std": round(float(np.std(coverage_pcts)), 2),
-        "total_items": per_session[next(iter(per_session))]["total_items"],
+        # ir_frac mirrors the per-session ir_frac the training reward uses.
+        "ir_frac_mean": round(float(np.mean(ir_frac_values)), 4),
+        "ir_frac_std": round(float(np.std(ir_frac_values)), 4),
+        "total_items": total_items_repr,
         "category_coverage": _aggregate_categories(per_session),
         "by_scenario_category": _aggregate_by_scenario_category(per_session, session_meta),
         "per_session": {
             sid: {
                 "overall_pct": per_session[sid]["overall_pct"],
+                "ir_frac": per_session[sid]["overall_pct"] / 100.0,
+                "total_items": per_session[sid]["total_items"],
                 "category": session_meta[sid]["category"],
             }
             for sid in per_session
@@ -196,6 +208,8 @@ def score_sessions_dir(sessions_dir: str, output_path: Optional[str] = None,
         json.dump(summary, f, indent=2)
 
     tag = f"[{model_name}] " if model_name else ""
+    if skipped:
+        print(f"{tag}Sessions skipped: " + ", ".join(f"{k}={v}" for k, v in skipped.items()))
     print(f"\n{tag}IR coverage: {summary['ir_score']:.2f}% (±{summary['ir_score_std']:.2f}) "
           f"across {summary['n_sessions']} sessions, {summary['total_items']} checklist items")
     for cat in summary["category_coverage"].values():

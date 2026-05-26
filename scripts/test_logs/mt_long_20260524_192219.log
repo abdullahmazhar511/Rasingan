@@ -1,0 +1,1350 @@
+[1/3] Starting CARE reward server…
+CARE server logs: /home/asbahk/EMNLP_FINAL/Rasingan/server/server_multi_turn_rl_20260524_192221.log
+CARE server healthy: http://127.0.0.1:8000/health
+[2/3] Building multi-turn dataset parquets from reddit splits…
+  train_limit=240  val_limit=25
+[write] /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/train.parquet  (240 rows)
+[write] /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/val.parquet  (24 rows)
+[write] /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/test.parquet  (60 rows)
+
+Done. Use these in run_multiturn.sh:
+  data.train_files=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/train.parquet
+  data.val_files=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/val.parquet
+[3/3] Starting multi-turn VERL training…
+  MODEL_PATH=/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged
+  EXP_NAME=mt_long_20260524_192219
+  OUTPUT_PATH=(auto)
+  MAX_THERAPY_TURNS=20
+  INSTRUCT_MODE=1  (Qwen3 non-thinking sampling for patient+supervisor)
+  REWARD=IR + CTRS-P  (session-level, from supervisor checklist + CARE on therapist turns)
+  CARE_SERVER_URL=http://127.0.0.1:8000
++ set -e
++ '[' -x /usr/local/cuda-12.8/bin/nvcc ']'
++ export PATH=/usr/local/cuda-12.8/bin:/home/asbahk/.local/bin:/home/asbahk/hallucination/.venv/bin:/home/asbahk/.local/bin:/home/asbahk/.vscode-server/cli/servers/Stable-0958016b2af9f09bb4257e0df4a95e2f90590f9f/server/bin/remote-cli:/home/asbahk/.local/bin:/home/asbahk/miniconda3/envs/verl/bin:/home/asbahk/miniconda3/condabin:/home/asbahk/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ PATH=/usr/local/cuda-12.8/bin:/home/asbahk/.local/bin:/home/asbahk/hallucination/.venv/bin:/home/asbahk/.local/bin:/home/asbahk/.vscode-server/cli/servers/Stable-0958016b2af9f09bb4257e0df4a95e2f90590f9f/server/bin/remote-cli:/home/asbahk/.local/bin:/home/asbahk/miniconda3/envs/verl/bin:/home/asbahk/miniconda3/condabin:/home/asbahk/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
++ export CUDA_HOME=/usr/local/cuda-12.8
++ CUDA_HOME=/usr/local/cuda-12.8
++ ulimit -n 65535
++ EXPERIMENT_NAME=mt_long_20260524_192219
++++ dirname /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts/run_multiturn.sh
+++ cd /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts
+++ pwd
++ SCRIPT_DIR=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts
+++ cd /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts/../../..
+++ pwd
++ PROJECT_DIR=/home/asbahk/EMNLP_FINAL/Rasingan/verl
+++ cd /home/asbahk/EMNLP_FINAL/Rasingan/verl/..
+++ pwd
++ RASINGAN_DIR=/home/asbahk/EMNLP_FINAL/Rasingan
++ FINAL_PIPELINE_DIR=/home/asbahk/EMNLP_FINAL/Rasingan/final_pipeline
++ REDDIT_DATA_DIR=/home/asbahk/EMNLP_FINAL/Rasingan/multiturn_reddit_data
++ export RASINGAN_FINAL_PIPELINE=/home/asbahk/EMNLP_FINAL/Rasingan/final_pipeline
++ RASINGAN_FINAL_PIPELINE=/home/asbahk/EMNLP_FINAL/Rasingan/final_pipeline
++ source /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts/api_key
+++ export WANDB_API_KEY=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
+++ WANDB_API_KEY=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
+++ export HF_TOKEN=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
+++ HF_TOKEN=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
++ SERVER_PORT=29500
++ CARE_SERVER_URL=http://127.0.0.1:8000
++ SHARED_MODEL=Qwen/Qwen3.5-4B
++ SHARED_PORT=8001
++ SHARED_GPU=0,1
++ SHARED_URL=http://127.0.0.1:8001
++ SUPPORT_GPU_MEM_UTIL=0.30
++ SUPPORT_MAX_LEN=24576
++ MODEL=/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged
++ SAVE_PATH=./checkpoints/mt_long_20260524_192219
++ TRAIN_BATCH_SIZE=8
++ VAL_BATCH_SIZE=16
++ PPO_MINI_BATCH_SIZE=4
++ MAX_PROMPT_LENGTH=2048
++ MAX_RESPONSE_LENGTH=12288
++ MAX_THERAPY_TURNS=20
++ PARQUET_DIR=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn
++ TRAIN_PARQUET=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/train.parquet
++ VAL_PARQUET=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/val.parquet
++ '[' '!' -f /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/train.parquet ']'
++ '[' '!' -f /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/val.parquet ']'
++ '[' /home/asbahk/EMNLP_FINAL/Rasingan/multiturn_reddit_data/splits/train.csv -nt /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/train.parquet ']'
++ SUPPORTING_STARTED=false
++ trap cleanup_support EXIT INT TERM
++ curl -sf --max-time 3 http://127.0.0.1:8001/v1/models -o /dev/null
++ echo '[deps] launching shared Patient+Supervisor server via setup_external_models.sh…'
+[deps] launching shared Patient+Supervisor server via setup_external_models.sh…
++ SHARED=true
++ PATIENT_MODEL=Qwen/Qwen3.5-4B
++ SUPERVISOR_MODEL=Qwen/Qwen3.5-4B
++ PATIENT_PORT=8001
++ PATIENT_GPU=0,1
++ GPU_MEM_UTIL=0.30
++ MAX_MODEL_LEN=24576
++ bash /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts/setup_external_models.sh --shared
+🎯 Launching external model servers
+==================================================
+🚀 Starting shared-patient+supervisor on port 8001 (GPU 0,1, tp=2): Qwen/Qwen3.5-4B
+   python: /home/asbahk/hallucination/.venv/bin/python   log: /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts/logs/external_models/shared_vllm_8001.log
+   PID: 1673881
+✓ shared-patient+supervisor ready at http://127.0.0.1:8001
+
+✅ Shared server ready. Point BOTH client URLs at http://127.0.0.1:8001
+
+Next: launch training. From the repo root:
+  cd /home/asbahk/EMNLP_FINAL/Rasingan/verl
+  ./examples/faith/scripts/run_multiturn.sh
+
+To stop:  /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts/setup_external_models.sh --kill
+To check: /home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/scripts/setup_external_models.sh --status
++ SUPPORTING_STARTED=true
++ curl -sf --max-time 3 http://127.0.0.1:8000/health -o /dev/null
++ echo '[deps] CARE reward server at http://127.0.0.1:8000 — ok'
+[deps] CARE reward server at http://127.0.0.1:8000 — ok
++ VAL_ONLY=False
++ RESUME=False
++ '[' False = True ']'
++ EXTRA_FLAGS='trainer.val_only=False trainer.val_before_train=False'
++ '[' False = True ']'
++ RESUME_FLAGS='trainer.resume_mode='\''auto'\'''
++ '[' -n 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 ']'
++ export HF_TOKEN=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
++ HF_TOKEN=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
++ '[' -n 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 ']'
++ wandb login --relogin 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
+wandb: [wandb.login()] Using explicit session credentials for https://api.wandb.ai.
+wandb: Appending key for api.wandb.ai to your netrc file: /home/asbahk/.netrc
+wandb: W&B API key is configured. Use `wandb login --relogin` to force relogin
++ export WANDB_DIR=./checkpoints/mt_long_20260524_192219/wandb
++ WANDB_DIR=./checkpoints/mt_long_20260524_192219/wandb
++ mkdir -p ./checkpoints/mt_long_20260524_192219
++ ROLLOUT_SAVE_PATH=./checkpoints/mt_long_20260524_192219/rollout
++ mkdir -p ./checkpoints/mt_long_20260524_192219/rollout
++ tee ./checkpoints/mt_long_20260524_192219/run.log
++ /home/asbahk/miniconda3/envs/verl/bin/python -m verl.trainer.main_ppo +server.port=29500 +reward_model.max_concurrent=16 +reward_model.max_rpm=32 +reward_model.estimated_tokens_per_request=14336 +reward_model.care_server_url=http://127.0.0.1:8000 actor_rollout_ref.rollout.agent.default_agent_loop=therapist_multiturn_agent algorithm.adv_estimator=grpo data.train_batch_size=8 data.val_batch_size=16 data.max_prompt_length=2048 data.max_response_length=12288 data.filter_overlong_prompts=True data.truncation=error data.return_raw_chat=True +data.max_therapy_turns=20 +data.session_type=counseling +data.enable_supervisor_feedback=True actor_rollout_ref.model.path=/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged actor_rollout_ref.actor.optim.lr=1e-6 actor_rollout_ref.model.use_remove_padding=True actor_rollout_ref.actor.ppo_mini_batch_size=4 actor_rollout_ref.actor.use_dynamic_bsz=True actor_rollout_ref.actor.use_kl_loss=True actor_rollout_ref.actor.kl_loss_coef=0.01 actor_rollout_ref.actor.kl_loss_type=low_var_kl actor_rollout_ref.actor.entropy_coeff=0 actor_rollout_ref.model.enable_gradient_checkpointing=True actor_rollout_ref.actor.fsdp_config.param_offload=True actor_rollout_ref.actor.fsdp_config.optimizer_offload=True actor_rollout_ref.rollout.tensor_model_parallel_size=1 actor_rollout_ref.rollout.name=vllm actor_rollout_ref.rollout.gpu_memory_utilization=0.35 actor_rollout_ref.rollout.n=4 actor_rollout_ref.ref.fsdp_config.param_offload=True actor_rollout_ref.ref.fsdp_config.model_dtype=bfloat16 actor_rollout_ref.rollout.mode=async actor_rollout_ref.rollout.enforce_eager=False actor_rollout_ref.rollout.free_cache_engine=True algorithm.use_kl_in_reward=False reward_model.reward_manager=care trainer.critic_warmup=0 'trainer.logger=["console","wandb"]' trainer.project_name=rasingan trainer.experiment_name=mt_long_20260524_192219 trainer.n_gpus_per_node=2 trainer.nnodes=1 trainer.save_freq=40 trainer.test_freq=40 trainer.total_epochs=2 trainer.total_training_steps=null trainer.val_only=False trainer.val_before_train=False 'trainer.resume_mode='\''auto'\''' trainer.validation_data_dir=./checkpoints/mt_long_20260524_192219/rollout trainer.default_local_dir=./checkpoints/mt_long_20260524_192219 trainer.rollout_data_dir=./checkpoints/mt_long_20260524_192219/rollout actor_rollout_ref.actor.ppo_max_token_len_per_gpu=28672 actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=28672 actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=28672 data.train_files=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/train.parquet data.val_files=/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/val.parquet +data.patient_model.base_url=http://127.0.0.1:8001 +data.patient_model.model=Qwen/Qwen3.5-4B +data.patient_model.api_key=EMPTY +data.patient_model.max_tokens=192 +data.patient_model.temperature=0.7 +data.supervisor_model.base_url=http://127.0.0.1:8001 +data.supervisor_model.model=Qwen/Qwen3.5-4B +data.supervisor_model.api_key=EMPTY +data.supervisor_model.max_tokens=256 +data.supervisor_model.temperature=0.2 hydra.run.dir=./checkpoints/mt_long_20260524_192219/outputs
+/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+WARNING:2026-05-24 19:24:09,036:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+2026-05-24 19:24:13,962	INFO worker.py:2003 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(pid=1685759)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1685759)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1685759)[0m WARNING:2026-05-24 19:24:18,622:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+ray init kwargs: {'num_cpus': None, 'runtime_env': {'env_vars': {'TOKENIZERS_PARALLELISM': 'true', 'NCCL_DEBUG': 'WARN', 'VLLM_LOGGING_LEVEL': 'WARN', 'VLLM_ALLOW_RUNTIME_LORA_UPDATING': 'true', 'VLLM_ALLREDUCE_USE_SYMM_MEM': '0', 'CUDA_DEVICE_MAX_CONNECTIONS': '1', 'NCCL_CUMEM_ENABLE': '0'}, 'working_dir': None}}
+[36m(TaskRunner pid=1685759)[0m TaskRunner hostname: tih, PID: 1685759
+[36m(TaskRunner pid=1685759)[0m {'actor_rollout_ref': {'actor': {'_target_': 'verl.workers.config.FSDPActorConfig',
+[36m(TaskRunner pid=1685759)[0m                                  'checkpoint': {'_target_': 'verl.trainer.config.CheckpointConfig',
+[36m(TaskRunner pid=1685759)[0m                                                 'async_save': False,
+[36m(TaskRunner pid=1685759)[0m                                                 'load_contents': ['model',
+[36m(TaskRunner pid=1685759)[0m                                                                   'optimizer',
+[36m(TaskRunner pid=1685759)[0m                                                                   'extra'],
+[36m(TaskRunner pid=1685759)[0m                                                 'save_contents': ['model',
+[36m(TaskRunner pid=1685759)[0m                                                                   'optimizer',
+[36m(TaskRunner pid=1685759)[0m                                                                   'extra']},
+[36m(TaskRunner pid=1685759)[0m                                  'clip_ratio': 0.2,
+[36m(TaskRunner pid=1685759)[0m                                  'clip_ratio_c': 3.0,
+[36m(TaskRunner pid=1685759)[0m                                  'clip_ratio_high': 0.2,
+[36m(TaskRunner pid=1685759)[0m                                  'clip_ratio_low': 0.2,
+[36m(TaskRunner pid=1685759)[0m                                  'entropy_checkpointing': False,
+[36m(TaskRunner pid=1685759)[0m                                  'entropy_coeff': 0,
+[36m(TaskRunner pid=1685759)[0m                                  'entropy_from_logits_with_chunking': False,
+[36m(TaskRunner pid=1685759)[0m                                  'freeze_vision_tower': False,
+[36m(TaskRunner pid=1685759)[0m                                  'fsdp_config': {'_target_': 'verl.workers.config.FSDPEngineConfig',
+[36m(TaskRunner pid=1685759)[0m                                                  'dtype': 'bfloat16',
+[36m(TaskRunner pid=1685759)[0m                                                  'entropy_checkpointing': False,
+[36m(TaskRunner pid=1685759)[0m                                                  'entropy_from_logits_with_chunking': False,
+[36m(TaskRunner pid=1685759)[0m                                                  'forward_only': False,
+[36m(TaskRunner pid=1685759)[0m                                                  'forward_prefetch': False,
+[36m(TaskRunner pid=1685759)[0m                                                  'fsdp_size': -1,
+[36m(TaskRunner pid=1685759)[0m                                                  'model_dtype': 'fp32',
+[36m(TaskRunner pid=1685759)[0m                                                  'offload_policy': False,
+[36m(TaskRunner pid=1685759)[0m                                                  'optimizer_offload': True,
+[36m(TaskRunner pid=1685759)[0m                                                  'param_offload': True,
+[36m(TaskRunner pid=1685759)[0m                                                  'reshard_after_forward': True,
+[36m(TaskRunner pid=1685759)[0m                                                  'strategy': 'fsdp',
+[36m(TaskRunner pid=1685759)[0m                                                  'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                                  'use_orig_params': False,
+[36m(TaskRunner pid=1685759)[0m                                                  'use_torch_compile': True,
+[36m(TaskRunner pid=1685759)[0m                                                  'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=1685759)[0m                                  'grad_clip': 1.0,
+[36m(TaskRunner pid=1685759)[0m                                  'kl_loss_coef': 0.01,
+[36m(TaskRunner pid=1685759)[0m                                  'kl_loss_type': 'low_var_kl',
+[36m(TaskRunner pid=1685759)[0m                                  'loss_agg_mode': 'token-mean',
+[36m(TaskRunner pid=1685759)[0m                                  'optim': {'_target_': 'verl.workers.config.FSDPOptimizerConfig',
+[36m(TaskRunner pid=1685759)[0m                                            'betas': [0.9, 0.999],
+[36m(TaskRunner pid=1685759)[0m                                            'clip_grad': 1.0,
+[36m(TaskRunner pid=1685759)[0m                                            'lr': 1e-06,
+[36m(TaskRunner pid=1685759)[0m                                            'lr_scheduler_type': 'constant',
+[36m(TaskRunner pid=1685759)[0m                                            'lr_warmup_steps': -1,
+[36m(TaskRunner pid=1685759)[0m                                            'lr_warmup_steps_ratio': 0.0,
+[36m(TaskRunner pid=1685759)[0m                                            'min_lr_ratio': 0.0,
+[36m(TaskRunner pid=1685759)[0m                                            'num_cycles': 0.5,
+[36m(TaskRunner pid=1685759)[0m                                            'optimizer': 'AdamW',
+[36m(TaskRunner pid=1685759)[0m                                            'optimizer_impl': 'torch.optim',
+[36m(TaskRunner pid=1685759)[0m                                            'override_optimizer_config': None,
+[36m(TaskRunner pid=1685759)[0m                                            'total_training_steps': -1,
+[36m(TaskRunner pid=1685759)[0m                                            'warmup_style': None,
+[36m(TaskRunner pid=1685759)[0m                                            'weight_decay': 0.01},
+[36m(TaskRunner pid=1685759)[0m                                  'policy_loss': {'_target_': 'verl.workers.config.PolicyLossConfig',
+[36m(TaskRunner pid=1685759)[0m                                                  'clip_cov_lb': 1.0,
+[36m(TaskRunner pid=1685759)[0m                                                  'clip_cov_ratio': 0.0002,
+[36m(TaskRunner pid=1685759)[0m                                                  'clip_cov_ub': 5.0,
+[36m(TaskRunner pid=1685759)[0m                                                  'kl_cov_ratio': 0.0002,
+[36m(TaskRunner pid=1685759)[0m                                                  'loss_mode': 'vanilla',
+[36m(TaskRunner pid=1685759)[0m                                                  'ppo_kl_coef': 0.1},
+[36m(TaskRunner pid=1685759)[0m                                  'ppo_epochs': 1,
+[36m(TaskRunner pid=1685759)[0m                                  'ppo_max_token_len_per_gpu': 28672,
+[36m(TaskRunner pid=1685759)[0m                                  'ppo_micro_batch_size': None,
+[36m(TaskRunner pid=1685759)[0m                                  'ppo_micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=1685759)[0m                                  'ppo_mini_batch_size': 4,
+[36m(TaskRunner pid=1685759)[0m                                  'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(TaskRunner pid=1685759)[0m                                               'all_ranks': False,
+[36m(TaskRunner pid=1685759)[0m                                               'enable': False,
+[36m(TaskRunner pid=1685759)[0m                                               'ranks': [],
+[36m(TaskRunner pid=1685759)[0m                                               'save_path': 'outputs/profile',
+[36m(TaskRunner pid=1685759)[0m                                               'tool': None,
+[36m(TaskRunner pid=1685759)[0m                                               'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                       'analysis': True,
+[36m(TaskRunner pid=1685759)[0m                                                                       'contents': [],
+[36m(TaskRunner pid=1685759)[0m                                                                       'discrete': False,
+[36m(TaskRunner pid=1685759)[0m                                                                       'level': 'level1'},
+[36m(TaskRunner pid=1685759)[0m                                                               'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                        'discrete': False},
+[36m(TaskRunner pid=1685759)[0m                                                               'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                         'step_end': None,
+[36m(TaskRunner pid=1685759)[0m                                                                         'step_start': 0},
+[36m(TaskRunner pid=1685759)[0m                                                               'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                                'stack_depth': 32,
+[36m(TaskRunner pid=1685759)[0m                                                                                'trace_alloc_max_entries': 100000}}},
+[36m(TaskRunner pid=1685759)[0m                                  'rollout_n': 4,
+[36m(TaskRunner pid=1685759)[0m                                  'shuffle': False,
+[36m(TaskRunner pid=1685759)[0m                                  'strategy': 'fsdp',
+[36m(TaskRunner pid=1685759)[0m                                  'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                  'use_dynamic_bsz': True,
+[36m(TaskRunner pid=1685759)[0m                                  'use_fused_kernels': False,
+[36m(TaskRunner pid=1685759)[0m                                  'use_kl_loss': True,
+[36m(TaskRunner pid=1685759)[0m                                  'use_remove_padding': True,
+[36m(TaskRunner pid=1685759)[0m                                  'use_torch_compile': True},
+[36m(TaskRunner pid=1685759)[0m                        'hybrid_engine': True,
+[36m(TaskRunner pid=1685759)[0m                        'model': {'_target_': 'verl.workers.config.HFModelConfig',
+[36m(TaskRunner pid=1685759)[0m                                  'custom_chat_template': None,
+[36m(TaskRunner pid=1685759)[0m                                  'enable_activation_offload': False,
+[36m(TaskRunner pid=1685759)[0m                                  'enable_gradient_checkpointing': True,
+[36m(TaskRunner pid=1685759)[0m                                  'exclude_modules': None,
+[36m(TaskRunner pid=1685759)[0m                                  'external_lib': None,
+[36m(TaskRunner pid=1685759)[0m                                  'fused_kernel_options': {'impl_backend': 'torch'},
+[36m(TaskRunner pid=1685759)[0m                                  'hf_config_path': None,
+[36m(TaskRunner pid=1685759)[0m                                  'lora_adapter_path': None,
+[36m(TaskRunner pid=1685759)[0m                                  'lora_alpha': 16,
+[36m(TaskRunner pid=1685759)[0m                                  'lora_rank': 0,
+[36m(TaskRunner pid=1685759)[0m                                  'override_config': {},
+[36m(TaskRunner pid=1685759)[0m                                  'path': '/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged',
+[36m(TaskRunner pid=1685759)[0m                                  'target_modules': 'all-linear',
+[36m(TaskRunner pid=1685759)[0m                                  'tokenizer_path': None,
+[36m(TaskRunner pid=1685759)[0m                                  'trust_remote_code': False,
+[36m(TaskRunner pid=1685759)[0m                                  'use_fused_kernels': False,
+[36m(TaskRunner pid=1685759)[0m                                  'use_liger': False,
+[36m(TaskRunner pid=1685759)[0m                                  'use_remove_padding': True,
+[36m(TaskRunner pid=1685759)[0m                                  'use_shm': False},
+[36m(TaskRunner pid=1685759)[0m                        'nccl_timeout': 600,
+[36m(TaskRunner pid=1685759)[0m                        'ref': {'_target_': 'verl.workers.config.FSDPActorConfig',
+[36m(TaskRunner pid=1685759)[0m                                'entropy_checkpointing': False,
+[36m(TaskRunner pid=1685759)[0m                                'entropy_from_logits_with_chunking': False,
+[36m(TaskRunner pid=1685759)[0m                                'fsdp_config': {'_target_': 'verl.workers.config.FSDPEngineConfig',
+[36m(TaskRunner pid=1685759)[0m                                                'dtype': 'bfloat16',
+[36m(TaskRunner pid=1685759)[0m                                                'entropy_checkpointing': False,
+[36m(TaskRunner pid=1685759)[0m                                                'entropy_from_logits_with_chunking': False,
+[36m(TaskRunner pid=1685759)[0m                                                'forward_only': True,
+[36m(TaskRunner pid=1685759)[0m                                                'forward_prefetch': False,
+[36m(TaskRunner pid=1685759)[0m                                                'fsdp_size': -1,
+[36m(TaskRunner pid=1685759)[0m                                                'model_dtype': 'bfloat16',
+[36m(TaskRunner pid=1685759)[0m                                                'offload_policy': False,
+[36m(TaskRunner pid=1685759)[0m                                                'optimizer_offload': False,
+[36m(TaskRunner pid=1685759)[0m                                                'param_offload': True,
+[36m(TaskRunner pid=1685759)[0m                                                'reshard_after_forward': True,
+[36m(TaskRunner pid=1685759)[0m                                                'strategy': 'fsdp',
+[36m(TaskRunner pid=1685759)[0m                                                'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                                'use_orig_params': False,
+[36m(TaskRunner pid=1685759)[0m                                                'use_torch_compile': True,
+[36m(TaskRunner pid=1685759)[0m                                                'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=1685759)[0m                                'log_prob_max_token_len_per_gpu': 28672,
+[36m(TaskRunner pid=1685759)[0m                                'log_prob_micro_batch_size': None,
+[36m(TaskRunner pid=1685759)[0m                                'log_prob_micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=1685759)[0m                                'log_prob_use_dynamic_bsz': True,
+[36m(TaskRunner pid=1685759)[0m                                'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(TaskRunner pid=1685759)[0m                                             'all_ranks': False,
+[36m(TaskRunner pid=1685759)[0m                                             'enable': False,
+[36m(TaskRunner pid=1685759)[0m                                             'ranks': [],
+[36m(TaskRunner pid=1685759)[0m                                             'save_path': 'outputs/profile',
+[36m(TaskRunner pid=1685759)[0m                                             'tool': None,
+[36m(TaskRunner pid=1685759)[0m                                             'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                     'analysis': True,
+[36m(TaskRunner pid=1685759)[0m                                                                     'contents': [],
+[36m(TaskRunner pid=1685759)[0m                                                                     'discrete': False,
+[36m(TaskRunner pid=1685759)[0m                                                                     'level': 'level1'},
+[36m(TaskRunner pid=1685759)[0m                                                             'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                      'discrete': False},
+[36m(TaskRunner pid=1685759)[0m                                                             'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                       'step_end': None,
+[36m(TaskRunner pid=1685759)[0m                                                                       'step_start': 0},
+[36m(TaskRunner pid=1685759)[0m                                                             'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                              'stack_depth': 32,
+[36m(TaskRunner pid=1685759)[0m                                                                              'trace_alloc_max_entries': 100000}}},
+[36m(TaskRunner pid=1685759)[0m                                'rollout_n': 4,
+[36m(TaskRunner pid=1685759)[0m                                'strategy': 'fsdp',
+[36m(TaskRunner pid=1685759)[0m                                'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                'use_torch_compile': True},
+[36m(TaskRunner pid=1685759)[0m                        'rollout': {'_target_': 'verl.workers.config.RolloutConfig',
+[36m(TaskRunner pid=1685759)[0m                                    'agent': {'_target_': 'verl.workers.config.AgentLoopConfig',
+[36m(TaskRunner pid=1685759)[0m                                              'agent_loop_config_path': None,
+[36m(TaskRunner pid=1685759)[0m                                              'custom_async_server': {'_target_': 'verl.workers.config.CustomAsyncServerConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                      'name': None,
+[36m(TaskRunner pid=1685759)[0m                                                                      'path': None},
+[36m(TaskRunner pid=1685759)[0m                                              'default_agent_loop': 'therapist_multiturn_agent',
+[36m(TaskRunner pid=1685759)[0m                                              'num_workers': 8},
+[36m(TaskRunner pid=1685759)[0m                                    'calculate_log_probs': False,
+[36m(TaskRunner pid=1685759)[0m                                    'cudagraph_capture_sizes': None,
+[36m(TaskRunner pid=1685759)[0m                                    'data_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                    'disable_log_stats': True,
+[36m(TaskRunner pid=1685759)[0m                                    'do_sample': True,
+[36m(TaskRunner pid=1685759)[0m                                    'dtype': 'bfloat16',
+[36m(TaskRunner pid=1685759)[0m                                    'enable_chunked_prefill': True,
+[36m(TaskRunner pid=1685759)[0m                                    'enable_prefix_caching': True,
+[36m(TaskRunner pid=1685759)[0m                                    'enforce_eager': False,
+[36m(TaskRunner pid=1685759)[0m                                    'engine_kwargs': {'sglang': {}, 'vllm': {}},
+[36m(TaskRunner pid=1685759)[0m                                    'expert_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                    'free_cache_engine': True,
+[36m(TaskRunner pid=1685759)[0m                                    'gpu_memory_utilization': 0.35,
+[36m(TaskRunner pid=1685759)[0m                                    'ignore_eos': False,
+[36m(TaskRunner pid=1685759)[0m                                    'layered_summon': False,
+[36m(TaskRunner pid=1685759)[0m                                    'load_format': 'dummy',
+[36m(TaskRunner pid=1685759)[0m                                    'log_prob_max_token_len_per_gpu': 28672,
+[36m(TaskRunner pid=1685759)[0m                                    'log_prob_micro_batch_size': None,
+[36m(TaskRunner pid=1685759)[0m                                    'log_prob_micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=1685759)[0m                                    'log_prob_use_dynamic_bsz': True,
+[36m(TaskRunner pid=1685759)[0m                                    'max_model_len': None,
+[36m(TaskRunner pid=1685759)[0m                                    'max_num_batched_tokens': 8192,
+[36m(TaskRunner pid=1685759)[0m                                    'max_num_seqs': 1024,
+[36m(TaskRunner pid=1685759)[0m                                    'mode': 'async',
+[36m(TaskRunner pid=1685759)[0m                                    'multi_stage_wake_up': False,
+[36m(TaskRunner pid=1685759)[0m                                    'multi_turn': {'_target_': 'verl.workers.config.MultiTurnConfig',
+[36m(TaskRunner pid=1685759)[0m                                                   'enable': False,
+[36m(TaskRunner pid=1685759)[0m                                                   'format': 'hermes',
+[36m(TaskRunner pid=1685759)[0m                                                   'interaction_config_path': None,
+[36m(TaskRunner pid=1685759)[0m                                                   'max_assistant_turns': None,
+[36m(TaskRunner pid=1685759)[0m                                                   'max_parallel_calls': 1,
+[36m(TaskRunner pid=1685759)[0m                                                   'max_tool_response_length': 256,
+[36m(TaskRunner pid=1685759)[0m                                                   'max_user_turns': None,
+[36m(TaskRunner pid=1685759)[0m                                                   'num_repeat_rollouts': None,
+[36m(TaskRunner pid=1685759)[0m                                                   'tokenization_sanity_check_mode': 'strict',
+[36m(TaskRunner pid=1685759)[0m                                                   'tool_config_path': None,
+[36m(TaskRunner pid=1685759)[0m                                                   'tool_response_truncate_side': 'middle',
+[36m(TaskRunner pid=1685759)[0m                                                   'use_inference_chat_template': False},
+[36m(TaskRunner pid=1685759)[0m                                    'n': 4,
+[36m(TaskRunner pid=1685759)[0m                                    'name': 'vllm',
+[36m(TaskRunner pid=1685759)[0m                                    'over_sample_rate': 0,
+[36m(TaskRunner pid=1685759)[0m                                    'pipeline_model_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                    'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(TaskRunner pid=1685759)[0m                                                 'all_ranks': False,
+[36m(TaskRunner pid=1685759)[0m                                                 'enable': False,
+[36m(TaskRunner pid=1685759)[0m                                                 'ranks': [],
+[36m(TaskRunner pid=1685759)[0m                                                 'save_path': 'outputs/profile',
+[36m(TaskRunner pid=1685759)[0m                                                 'tool': None,
+[36m(TaskRunner pid=1685759)[0m                                                 'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                         'analysis': True,
+[36m(TaskRunner pid=1685759)[0m                                                                         'contents': [],
+[36m(TaskRunner pid=1685759)[0m                                                                         'discrete': False,
+[36m(TaskRunner pid=1685759)[0m                                                                         'level': 'level1'},
+[36m(TaskRunner pid=1685759)[0m                                                                 'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                          'discrete': False},
+[36m(TaskRunner pid=1685759)[0m                                                                 'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                           'step_end': None,
+[36m(TaskRunner pid=1685759)[0m                                                                           'step_start': 0},
+[36m(TaskRunner pid=1685759)[0m                                                                 'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                                  'stack_depth': 32,
+[36m(TaskRunner pid=1685759)[0m                                                                                  'trace_alloc_max_entries': 100000}}},
+[36m(TaskRunner pid=1685759)[0m                                    'prometheus': {'_target_': 'verl.workers.config.PrometheusConfig',
+[36m(TaskRunner pid=1685759)[0m                                                   'enable': False,
+[36m(TaskRunner pid=1685759)[0m                                                   'file': '/tmp/ray/session_latest/metrics/prometheus/prometheus.yml',
+[36m(TaskRunner pid=1685759)[0m                                                   'port': 9090,
+[36m(TaskRunner pid=1685759)[0m                                                   'served_model_name': '/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged'},
+[36m(TaskRunner pid=1685759)[0m                                    'prompt_length': 2048,
+[36m(TaskRunner pid=1685759)[0m                                    'response_length': 12288,
+[36m(TaskRunner pid=1685759)[0m                                    'skip_dump_dir': '/tmp/rollout_dump',
+[36m(TaskRunner pid=1685759)[0m                                    'skip_rollout': False,
+[36m(TaskRunner pid=1685759)[0m                                    'skip_tokenizer_init': True,
+[36m(TaskRunner pid=1685759)[0m                                    'temperature': 1.0,
+[36m(TaskRunner pid=1685759)[0m                                    'tensor_model_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                    'top_k': -1,
+[36m(TaskRunner pid=1685759)[0m                                    'top_p': 1,
+[36m(TaskRunner pid=1685759)[0m                                    'trace': {'_target_': 'verl.workers.config.TraceConfig',
+[36m(TaskRunner pid=1685759)[0m                                              'backend': None,
+[36m(TaskRunner pid=1685759)[0m                                              'max_samples_per_step_per_worker': None,
+[36m(TaskRunner pid=1685759)[0m                                              'token2text': False},
+[36m(TaskRunner pid=1685759)[0m                                    'update_weights_bucket_megabytes': 512,
+[36m(TaskRunner pid=1685759)[0m                                    'val_kwargs': {'_target_': 'verl.workers.config.SamplingConfig',
+[36m(TaskRunner pid=1685759)[0m                                                   'do_sample': False,
+[36m(TaskRunner pid=1685759)[0m                                                   'n': 1,
+[36m(TaskRunner pid=1685759)[0m                                                   'temperature': 0,
+[36m(TaskRunner pid=1685759)[0m                                                   'top_k': -1,
+[36m(TaskRunner pid=1685759)[0m                                                   'top_p': 1.0}}},
+[36m(TaskRunner pid=1685759)[0m  'algorithm': {'_target_': 'verl.trainer.config.AlgoConfig',
+[36m(TaskRunner pid=1685759)[0m                'adv_estimator': 'grpo',
+[36m(TaskRunner pid=1685759)[0m                'gamma': 1.0,
+[36m(TaskRunner pid=1685759)[0m                'kl_ctrl': {'_target_': 'verl.trainer.config.KLControlConfig',
+[36m(TaskRunner pid=1685759)[0m                            'horizon': 10000,
+[36m(TaskRunner pid=1685759)[0m                            'kl_coef': 0.001,
+[36m(TaskRunner pid=1685759)[0m                            'target_kl': 0.1,
+[36m(TaskRunner pid=1685759)[0m                            'type': 'fixed'},
+[36m(TaskRunner pid=1685759)[0m                'kl_penalty': 'kl',
+[36m(TaskRunner pid=1685759)[0m                'lam': 1.0,
+[36m(TaskRunner pid=1685759)[0m                'norm_adv_by_std_in_grpo': True,
+[36m(TaskRunner pid=1685759)[0m                'pf_ppo': {'reweight_method': 'pow', 'weight_pow': 2.0},
+[36m(TaskRunner pid=1685759)[0m                'rollout_correction': {'bypass_mode': False,
+[36m(TaskRunner pid=1685759)[0m                                       'rollout_is': None,
+[36m(TaskRunner pid=1685759)[0m                                       'rollout_is_batch_normalize': False,
+[36m(TaskRunner pid=1685759)[0m                                       'rollout_is_threshold': 2.0,
+[36m(TaskRunner pid=1685759)[0m                                       'rollout_rs': None,
+[36m(TaskRunner pid=1685759)[0m                                       'rollout_rs_threshold': None,
+[36m(TaskRunner pid=1685759)[0m                                       'rollout_rs_threshold_lower': None,
+[36m(TaskRunner pid=1685759)[0m                                       'rollout_token_veto_threshold': None,
+[36m(TaskRunner pid=1685759)[0m                                       'use_policy_gradient': False},
+[36m(TaskRunner pid=1685759)[0m                'use_kl_in_reward': False,
+[36m(TaskRunner pid=1685759)[0m                'use_pf_ppo': False},
+[36m(TaskRunner pid=1685759)[0m  'critic': {'_target_': 'verl.workers.config.FSDPCriticConfig',
+[36m(TaskRunner pid=1685759)[0m             'checkpoint': {'_target_': 'verl.trainer.config.CheckpointConfig',
+[36m(TaskRunner pid=1685759)[0m                            'async_save': False,
+[36m(TaskRunner pid=1685759)[0m                            'load_contents': ['model', 'optimizer', 'extra'],
+[36m(TaskRunner pid=1685759)[0m                            'save_contents': ['model', 'optimizer', 'extra']},
+[36m(TaskRunner pid=1685759)[0m             'cliprange_value': 0.5,
+[36m(TaskRunner pid=1685759)[0m             'enable': None,
+[36m(TaskRunner pid=1685759)[0m             'forward_max_token_len_per_gpu': 32768,
+[36m(TaskRunner pid=1685759)[0m             'forward_micro_batch_size': None,
+[36m(TaskRunner pid=1685759)[0m             'forward_micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=1685759)[0m             'grad_clip': 1.0,
+[36m(TaskRunner pid=1685759)[0m             'loss_agg_mode': 'token-mean',
+[36m(TaskRunner pid=1685759)[0m             'model': {'_target_': 'verl.workers.config.FSDPCriticModelCfg',
+[36m(TaskRunner pid=1685759)[0m                       'enable_activation_offload': False,
+[36m(TaskRunner pid=1685759)[0m                       'enable_gradient_checkpointing': True,
+[36m(TaskRunner pid=1685759)[0m                       'external_lib': None,
+[36m(TaskRunner pid=1685759)[0m                       'fsdp_config': {'_target_': 'verl.workers.config.FSDPEngineConfig',
+[36m(TaskRunner pid=1685759)[0m                                       'dtype': 'bfloat16',
+[36m(TaskRunner pid=1685759)[0m                                       'entropy_checkpointing': False,
+[36m(TaskRunner pid=1685759)[0m                                       'entropy_from_logits_with_chunking': False,
+[36m(TaskRunner pid=1685759)[0m                                       'forward_only': False,
+[36m(TaskRunner pid=1685759)[0m                                       'forward_prefetch': False,
+[36m(TaskRunner pid=1685759)[0m                                       'fsdp_size': -1,
+[36m(TaskRunner pid=1685759)[0m                                       'model_dtype': 'fp32',
+[36m(TaskRunner pid=1685759)[0m                                       'offload_policy': False,
+[36m(TaskRunner pid=1685759)[0m                                       'optimizer_offload': False,
+[36m(TaskRunner pid=1685759)[0m                                       'param_offload': False,
+[36m(TaskRunner pid=1685759)[0m                                       'reshard_after_forward': True,
+[36m(TaskRunner pid=1685759)[0m                                       'strategy': 'fsdp',
+[36m(TaskRunner pid=1685759)[0m                                       'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                                       'use_orig_params': False,
+[36m(TaskRunner pid=1685759)[0m                                       'use_torch_compile': True,
+[36m(TaskRunner pid=1685759)[0m                                       'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=1685759)[0m                       'lora_alpha': 16,
+[36m(TaskRunner pid=1685759)[0m                       'lora_rank': 0,
+[36m(TaskRunner pid=1685759)[0m                       'override_config': {},
+[36m(TaskRunner pid=1685759)[0m                       'path': '~/models/deepseek-llm-7b-chat',
+[36m(TaskRunner pid=1685759)[0m                       'target_modules': 'all-linear',
+[36m(TaskRunner pid=1685759)[0m                       'tokenizer_path': '/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged',
+[36m(TaskRunner pid=1685759)[0m                       'trust_remote_code': False,
+[36m(TaskRunner pid=1685759)[0m                       'use_remove_padding': False,
+[36m(TaskRunner pid=1685759)[0m                       'use_shm': False},
+[36m(TaskRunner pid=1685759)[0m             'optim': {'_target_': 'verl.workers.config.FSDPOptimizerConfig',
+[36m(TaskRunner pid=1685759)[0m                       'betas': [0.9, 0.999],
+[36m(TaskRunner pid=1685759)[0m                       'clip_grad': 1.0,
+[36m(TaskRunner pid=1685759)[0m                       'lr': 1e-05,
+[36m(TaskRunner pid=1685759)[0m                       'lr_scheduler_type': 'constant',
+[36m(TaskRunner pid=1685759)[0m                       'lr_warmup_steps': -1,
+[36m(TaskRunner pid=1685759)[0m                       'lr_warmup_steps_ratio': 0.0,
+[36m(TaskRunner pid=1685759)[0m                       'min_lr_ratio': 0.0,
+[36m(TaskRunner pid=1685759)[0m                       'num_cycles': 0.5,
+[36m(TaskRunner pid=1685759)[0m                       'optimizer': 'AdamW',
+[36m(TaskRunner pid=1685759)[0m                       'optimizer_impl': 'torch.optim',
+[36m(TaskRunner pid=1685759)[0m                       'override_optimizer_config': None,
+[36m(TaskRunner pid=1685759)[0m                       'total_training_steps': -1,
+[36m(TaskRunner pid=1685759)[0m                       'warmup_style': None,
+[36m(TaskRunner pid=1685759)[0m                       'weight_decay': 0.01},
+[36m(TaskRunner pid=1685759)[0m             'ppo_epochs': 1,
+[36m(TaskRunner pid=1685759)[0m             'ppo_max_token_len_per_gpu': 32768,
+[36m(TaskRunner pid=1685759)[0m             'ppo_micro_batch_size': None,
+[36m(TaskRunner pid=1685759)[0m             'ppo_micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=1685759)[0m             'ppo_mini_batch_size': 4,
+[36m(TaskRunner pid=1685759)[0m             'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(TaskRunner pid=1685759)[0m                          'all_ranks': False,
+[36m(TaskRunner pid=1685759)[0m                          'enable': False,
+[36m(TaskRunner pid=1685759)[0m                          'ranks': [],
+[36m(TaskRunner pid=1685759)[0m                          'save_path': 'outputs/profile',
+[36m(TaskRunner pid=1685759)[0m                          'tool': None,
+[36m(TaskRunner pid=1685759)[0m                          'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                  'analysis': True,
+[36m(TaskRunner pid=1685759)[0m                                                  'contents': [],
+[36m(TaskRunner pid=1685759)[0m                                                  'discrete': False,
+[36m(TaskRunner pid=1685759)[0m                                                  'level': 'level1'},
+[36m(TaskRunner pid=1685759)[0m                                          'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                   'discrete': False},
+[36m(TaskRunner pid=1685759)[0m                                          'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                    'step_end': None,
+[36m(TaskRunner pid=1685759)[0m                                                    'step_start': 0},
+[36m(TaskRunner pid=1685759)[0m                                          'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                           'stack_depth': 32,
+[36m(TaskRunner pid=1685759)[0m                                                           'trace_alloc_max_entries': 100000}}},
+[36m(TaskRunner pid=1685759)[0m             'rollout_n': 4,
+[36m(TaskRunner pid=1685759)[0m             'shuffle': False,
+[36m(TaskRunner pid=1685759)[0m             'strategy': 'fsdp',
+[36m(TaskRunner pid=1685759)[0m             'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m             'use_dynamic_bsz': True},
+[36m(TaskRunner pid=1685759)[0m  'custom_reward_function': {'name': 'compute_score', 'path': None},
+[36m(TaskRunner pid=1685759)[0m  'data': {'apply_chat_template_kwargs': {},
+[36m(TaskRunner pid=1685759)[0m           'custom_cls': {'name': None, 'path': None},
+[36m(TaskRunner pid=1685759)[0m           'datagen': {'name': None, 'path': None},
+[36m(TaskRunner pid=1685759)[0m           'dataloader_num_workers': 8,
+[36m(TaskRunner pid=1685759)[0m           'enable_supervisor_feedback': True,
+[36m(TaskRunner pid=1685759)[0m           'filter_overlong_prompts': True,
+[36m(TaskRunner pid=1685759)[0m           'filter_overlong_prompts_workers': 1,
+[36m(TaskRunner pid=1685759)[0m           'image_key': 'images',
+[36m(TaskRunner pid=1685759)[0m           'image_patch_size': 14,
+[36m(TaskRunner pid=1685759)[0m           'max_prompt_length': 2048,
+[36m(TaskRunner pid=1685759)[0m           'max_response_length': 12288,
+[36m(TaskRunner pid=1685759)[0m           'max_therapy_turns': 20,
+[36m(TaskRunner pid=1685759)[0m           'patient_model': {'api_key': 'EMPTY',
+[36m(TaskRunner pid=1685759)[0m                             'base_url': 'http://127.0.0.1:8001',
+[36m(TaskRunner pid=1685759)[0m                             'max_tokens': 192,
+[36m(TaskRunner pid=1685759)[0m                             'model': 'Qwen/Qwen3.5-4B',
+[36m(TaskRunner pid=1685759)[0m                             'temperature': 0.7},
+[36m(TaskRunner pid=1685759)[0m           'prompt_key': 'prompt',
+[36m(TaskRunner pid=1685759)[0m           'return_full_prompt': False,
+[36m(TaskRunner pid=1685759)[0m           'return_multi_modal_inputs': True,
+[36m(TaskRunner pid=1685759)[0m           'return_raw_chat': True,
+[36m(TaskRunner pid=1685759)[0m           'return_raw_input_ids': False,
+[36m(TaskRunner pid=1685759)[0m           'reward_fn_key': 'data_source',
+[36m(TaskRunner pid=1685759)[0m           'sampler': {'class_name': None, 'class_path': None},
+[36m(TaskRunner pid=1685759)[0m           'seed': None,
+[36m(TaskRunner pid=1685759)[0m           'session_type': 'counseling',
+[36m(TaskRunner pid=1685759)[0m           'shuffle': True,
+[36m(TaskRunner pid=1685759)[0m           'supervisor_model': {'api_key': 'EMPTY',
+[36m(TaskRunner pid=1685759)[0m                                'base_url': 'http://127.0.0.1:8001',
+[36m(TaskRunner pid=1685759)[0m                                'max_tokens': 256,
+[36m(TaskRunner pid=1685759)[0m                                'model': 'Qwen/Qwen3.5-4B',
+[36m(TaskRunner pid=1685759)[0m                                'temperature': 0.2},
+[36m(TaskRunner pid=1685759)[0m           'tokenizer': None,
+[36m(TaskRunner pid=1685759)[0m           'tool_config_path': None,
+[36m(TaskRunner pid=1685759)[0m           'train_batch_size': 8,
+[36m(TaskRunner pid=1685759)[0m           'train_files': '/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/train.parquet',
+[36m(TaskRunner pid=1685759)[0m           'train_max_samples': -1,
+[36m(TaskRunner pid=1685759)[0m           'truncation': 'error',
+[36m(TaskRunner pid=1685759)[0m           'trust_remote_code': False,
+[36m(TaskRunner pid=1685759)[0m           'use_shm': False,
+[36m(TaskRunner pid=1685759)[0m           'val_batch_size': 16,
+[36m(TaskRunner pid=1685759)[0m           'val_files': '/home/asbahk/EMNLP_FINAL/Rasingan/verl/examples/faith/data_multiturn/val.parquet',
+[36m(TaskRunner pid=1685759)[0m           'val_max_samples': -1,
+[36m(TaskRunner pid=1685759)[0m           'validation_shuffle': False,
+[36m(TaskRunner pid=1685759)[0m           'video_key': 'videos'},
+[36m(TaskRunner pid=1685759)[0m  'global_profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(TaskRunner pid=1685759)[0m                      'global_tool_config': {'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                      'controller_nsight_options': {'cuda-graph-trace': 'graph',
+[36m(TaskRunner pid=1685759)[0m                                                                                    'cuda-memory-usage': 'true',
+[36m(TaskRunner pid=1685759)[0m                                                                                    'trace': 'cuda,nvtx,cublas,ucx'},
+[36m(TaskRunner pid=1685759)[0m                                                      'discrete': False,
+[36m(TaskRunner pid=1685759)[0m                                                      'worker_nsight_options': {'capture-range': 'cudaProfilerApi',
+[36m(TaskRunner pid=1685759)[0m                                                                                'capture-range-end': None,
+[36m(TaskRunner pid=1685759)[0m                                                                                'cuda-graph-trace': 'graph',
+[36m(TaskRunner pid=1685759)[0m                                                                                'cuda-memory-usage': 'true',
+[36m(TaskRunner pid=1685759)[0m                                                                                'kill': 'none',
+[36m(TaskRunner pid=1685759)[0m                                                                                'trace': 'cuda,nvtx,cublas,ucx'}},
+[36m(TaskRunner pid=1685759)[0m                                             'torch_memory': {'context': 'all',
+[36m(TaskRunner pid=1685759)[0m                                                              'kw_args': {},
+[36m(TaskRunner pid=1685759)[0m                                                              'stack_depth': 32,
+[36m(TaskRunner pid=1685759)[0m                                                              'stacks': 'all',
+[36m(TaskRunner pid=1685759)[0m                                                              'trace_alloc_max_entries': 100000}},
+[36m(TaskRunner pid=1685759)[0m                      'profile_continuous_steps': False,
+[36m(TaskRunner pid=1685759)[0m                      'save_path': 'outputs/profile',
+[36m(TaskRunner pid=1685759)[0m                      'steps': None,
+[36m(TaskRunner pid=1685759)[0m                      'tool': None},
+[36m(TaskRunner pid=1685759)[0m  'ray_kwargs': {'ray_init': {'num_cpus': None}, 'timeline_json_file': None},
+[36m(TaskRunner pid=1685759)[0m  'reward_model': {'care_server_url': 'http://127.0.0.1:8000',
+[36m(TaskRunner pid=1685759)[0m                   'enable': False,
+[36m(TaskRunner pid=1685759)[0m                   'enable_resource_pool': False,
+[36m(TaskRunner pid=1685759)[0m                   'estimated_tokens_per_request': 14336,
+[36m(TaskRunner pid=1685759)[0m                   'forward_max_token_len_per_gpu': 32768,
+[36m(TaskRunner pid=1685759)[0m                   'launch_reward_fn_async': False,
+[36m(TaskRunner pid=1685759)[0m                   'max_concurrent': 16,
+[36m(TaskRunner pid=1685759)[0m                   'max_length': None,
+[36m(TaskRunner pid=1685759)[0m                   'max_rpm': 32,
+[36m(TaskRunner pid=1685759)[0m                   'micro_batch_size': None,
+[36m(TaskRunner pid=1685759)[0m                   'micro_batch_size_per_gpu': None,
+[36m(TaskRunner pid=1685759)[0m                   'model': {'external_lib': None,
+[36m(TaskRunner pid=1685759)[0m                             'fsdp_config': {'_target_': 'verl.workers.config.FSDPEngineConfig',
+[36m(TaskRunner pid=1685759)[0m                                             'forward_prefetch': False,
+[36m(TaskRunner pid=1685759)[0m                                             'fsdp_size': -1,
+[36m(TaskRunner pid=1685759)[0m                                             'param_offload': False,
+[36m(TaskRunner pid=1685759)[0m                                             'reshard_after_forward': True,
+[36m(TaskRunner pid=1685759)[0m                                             'wrap_policy': {'min_num_params': 0}},
+[36m(TaskRunner pid=1685759)[0m                             'input_tokenizer': '/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged',
+[36m(TaskRunner pid=1685759)[0m                             'path': '~/models/FsfairX-LLaMA3-RM-v0.1',
+[36m(TaskRunner pid=1685759)[0m                             'trust_remote_code': False,
+[36m(TaskRunner pid=1685759)[0m                             'use_fused_kernels': False,
+[36m(TaskRunner pid=1685759)[0m                             'use_remove_padding': False,
+[36m(TaskRunner pid=1685759)[0m                             'use_shm': False},
+[36m(TaskRunner pid=1685759)[0m                   'n_gpus_per_node': 0,
+[36m(TaskRunner pid=1685759)[0m                   'nnodes': 0,
+[36m(TaskRunner pid=1685759)[0m                   'profiler': {'_target_': 'verl.utils.profiler.ProfilerConfig',
+[36m(TaskRunner pid=1685759)[0m                                'all_ranks': False,
+[36m(TaskRunner pid=1685759)[0m                                'enable': False,
+[36m(TaskRunner pid=1685759)[0m                                'ranks': [],
+[36m(TaskRunner pid=1685759)[0m                                'save_path': 'outputs/profile',
+[36m(TaskRunner pid=1685759)[0m                                'tool': None,
+[36m(TaskRunner pid=1685759)[0m                                'tool_config': {'npu': {'_target_': 'verl.utils.profiler.config.NPUToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                        'analysis': True,
+[36m(TaskRunner pid=1685759)[0m                                                        'contents': [],
+[36m(TaskRunner pid=1685759)[0m                                                        'discrete': False,
+[36m(TaskRunner pid=1685759)[0m                                                        'level': 'level1'},
+[36m(TaskRunner pid=1685759)[0m                                                'nsys': {'_target_': 'verl.utils.profiler.config.NsightToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                         'discrete': False},
+[36m(TaskRunner pid=1685759)[0m                                                'torch': {'_target_': 'verl.utils.profiler.config.TorchProfilerToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                          'step_end': None,
+[36m(TaskRunner pid=1685759)[0m                                                          'step_start': 0},
+[36m(TaskRunner pid=1685759)[0m                                                'torch_memory': {'_target_': 'verl.utils.profiler.config.TorchMemoryToolConfig',
+[36m(TaskRunner pid=1685759)[0m                                                                 'stack_depth': 32,
+[36m(TaskRunner pid=1685759)[0m                                                                 'trace_alloc_max_entries': 100000}}},
+[36m(TaskRunner pid=1685759)[0m                   'reward_manager': 'care',[36m(TaskRunner pid=1685759)[0m /home/asbahk/EMNLP_FINAL/Rasingan/verl/verl/trainer/main_ppo.py:299: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(TaskRunner pid=1685759)[0m   use_critic=need_critic(config),
+[36m(TaskRunner pid=1685759)[0m /home/asbahk/EMNLP_FINAL/Rasingan/verl/verl/utils/profiler/config.py:49: UserWarning: Torch profiler tool config is not fully supported now.
+[36m(TaskRunner pid=1685759)[0m   warnings.warn("Torch profiler tool config is not fully supported now.", stacklevel=1)
+[36m(TaskRunner pid=1685759)[0m Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 240 examples [00:00, 22184.75 examples/s]
+[36m(TaskRunner pid=1685759)[0m Setting TOKENIZERS_PARALLELISM=false for forked processes.
+[36m(TaskRunner pid=1685759)[0m WARNING:2026-05-24 19:24:21,167:Setting TOKENIZERS_PARALLELISM=false for forked processes.
+[36m(TaskRunner pid=1685759)[0m Filtering prompts longer than 2048 tokens (num_proc=1):   0%|          | 0/240 [00:00<?, ? examples/s]
+[36m(TaskRunner pid=1685759)[0m Filtering prompts longer than 2048 tokens (num_proc=1): 100%|██████████| 240/240 [00:00<00:00, 466.67 examples/s]
+[36m(TaskRunner pid=1685759)[0m Filtering prompts longer than 2048 tokens (num_proc=1): 100%|██████████| 240/240 [00:00<00:00, 375.97 examples/s]
+[36m(TaskRunner pid=1685759)[0m Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 24 examples [00:00, 2697.23 examples/s]
+[36m(TaskRunner pid=1685759)[0m Setting TOKENIZERS_PARALLELISM=false for forked processes.
+[36m(TaskRunner pid=1685759)[0m WARNING:2026-05-24 19:24:22,299:Setting TOKENIZERS_PARALLELISM=false for forked processes.
+[36m(TaskRunner pid=1685759)[0m Filtering prompts longer than 2048 tokens (num_proc=1):   0%|          | 0/24 [00:00<?, ? examples/s]
+[36m(TaskRunner pid=1685759)[0m Filtering prompts longer than 2048 tokens (num_proc=1): 100%|██████████| 24/24 [00:00<00:00, 52.78 examples/s]
+[36m(TaskRunner pid=1685759)[0m Filtering prompts longer than 2048 tokens (num_proc=1): 100%|██████████| 24/24 [00:00<00:00, 42.00 examples/s]
+[36m(TaskRunner pid=1685759)[0m /home/asbahk/EMNLP_FINAL/Rasingan/verl/verl/trainer/ppo/ray_trainer.py:327: UserWarning: Disabled critic as algorithm.adv_estimator != gae. If it is not intended, please set critic.enable=True
+[36m(TaskRunner pid=1685759)[0m   self.use_critic = need_critic(self.config)
+[36m(pid=1686197)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1686197)[0m   import pynvml  # type: ignore[import]
+[36m(pid=1686197)[0m WARNING:2026-05-24 19:24:27,543:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+
+[36m(TaskRunner pid=1685759)[0m                   'sandbox_fusion': {'max_concurrent': 64,
+[36m(TaskRunner pid=1685759)[0m                                      'memory_limit_mb': 1024,
+[36m(TaskRunner pid=1685759)[0m                                      'url': None},
+[36m(TaskRunner pid=1685759)[0m                   'strategy': 'fsdp',
+[36m(TaskRunner pid=1685759)[0m                   'ulysses_sequence_parallel_size': 1,
+[36m(TaskRunner pid=1685759)[0m                   'use_dynamic_bsz': True},
+[36m(TaskRunner pid=1685759)[0m  'server': {'port': 29500},
+[36m(TaskRunner pid=1685759)[0m  'trainer': {'balance_batch': True,
+[36m(TaskRunner pid=1685759)[0m              'critic_warmup': 0,
+[36m(TaskRunner pid=1685759)[0m              'default_hdfs_dir': None,
+[36m(TaskRunner pid=1685759)[0m              'default_local_dir': './checkpoints/mt_long_20260524_192219',
+[36m(TaskRunner pid=1685759)[0m              'del_local_ckpt_after_load': False,
+[36m(TaskRunner pid=1685759)[0m              'device': 'cuda',
+[36m(TaskRunner pid=1685759)[0m              'esi_redundant_time': 0,
+[36m(TaskRunner pid=1685759)[0m              'experiment_name': 'mt_long_20260524_192219',
+[36m(TaskRunner pid=1685759)[0m              'log_val_generations': 0,
+[36m(TaskRunner pid=1685759)[0m              'logger': ['console', 'wandb'],
+[36m(TaskRunner pid=1685759)[0m              'max_actor_ckpt_to_keep': None,
+[36m(TaskRunner pid=1685759)[0m              'max_critic_ckpt_to_keep': None,
+[36m(TaskRunner pid=1685759)[0m              'n_gpus_per_node': 2,
+[36m(TaskRunner pid=1685759)[0m              'nnodes': 1,
+[36m(TaskRunner pid=1685759)[0m              'project_name': 'rasingan',
+[36m(TaskRunner pid=1685759)[0m              'ray_wait_register_center_timeout': 300,
+[36m(TaskRunner pid=1685759)[0m              'resume_from_path': None,
+[36m(TaskRunner pid=1685759)[0m              'resume_mode': 'auto',
+[36m(TaskRunner pid=1685759)[0m              'rollout_data_dir': './checkpoints/mt_long_20260524_192219/rollout',
+[36m(TaskRunner pid=1685759)[0m              'save_freq': 40,
+[36m(TaskRunner pid=1685759)[0m              'test_freq': 40,
+[36m(TaskRunner pid=1685759)[0m              'total_epochs': 2,
+[36m(TaskRunner pid=1685759)[0m              'total_training_steps': None,
+[36m(TaskRunner pid=1685759)[0m              'use_legacy_worker_impl': 'auto',
+[36m(TaskRunner pid=1685759)[0m              'val_before_train': False,
+[36m(TaskRunner pid=1685759)[0m              'val_only': False,
+[36m(TaskRunner pid=1685759)[0m              'validation_data_dir': './checkpoints/mt_long_20260524_192219/rollout'},
+[36m(TaskRunner pid=1685759)[0m  'transfer_queue': {'enable': False}}
+[36m(TaskRunner pid=1685759)[0m WARNING: val_batch_size is deprecated. Validation datasets are sent to inference engines as a whole batch, which will schedule the memory themselves.
+[36m(TaskRunner pid=1685759)[0m [validate_config] All configuration checks passed successfully!
+[36m(TaskRunner pid=1685759)[0m Using dataset class: RLHFDataset
+[36m(TaskRunner pid=1685759)[0m dataset len: 240
+[36m(TaskRunner pid=1685759)[0m filter dataset len: 240
+[36m(TaskRunner pid=1685759)[0m Using dataset class: RLHFDataset
+[36m(TaskRunner pid=1685759)[0m dataset len: 24
+[36m(TaskRunner pid=1685759)[0m filter dataset len: 24
+[36m(TaskRunner pid=1685759)[0m Size of train dataloader: 30, Size of val dataloader: 2
+[36m(TaskRunner pid=1685759)[0m Total training steps: 60
+[36m(TaskRunner pid=1685759)[0m colocated worker base class <class 'verl.single_controller.base.worker.Worker'>
+[36m(TaskRunner pid=1685759)[0m bind role actor_rollout method chat_completion to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+[36m(TaskRunner pid=1685759)[0m bind role actor_rollout method generate to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+[36m(TaskRunner pid=1685759)[0m bind role actor_rollout method get_zeromq_address to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+[36m(TaskRunner pid=1685759)[0m bind role actor_rollout method sleep to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+[36m(TaskRunner pid=1685759)[0m bind role actor_rollout method wake_up to class <class 'verl.single_controller.ray.base.create_colocated_worker_cls.<locals>.WorkerDict'>
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[36m(WorkerDict pid=1686197)[0m reference model: /home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged
+[36m(WorkerDict pid=1686197)[0m Model config after override: Qwen3Config {
+[36m(WorkerDict pid=1686197)[0m   "architectures": [
+[36m(WorkerDict pid=1686197)[0m     "Qwen3ForCausalLM"
+[36m(WorkerDict pid=1686197)[0m   ],
+[36m(WorkerDict pid=1686197)[0m   "attention_bias": false,
+[36m(WorkerDict pid=1686197)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=1686197)[0m   "dtype": "bfloat16",
+[36m(WorkerDict pid=1686197)[0m   "eos_token_id": 151645,
+[36m(WorkerDict pid=1686197)[0m   "head_dim": 128,
+[36m(WorkerDict pid=1686197)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=1686197)[0m   "hidden_size": 2560,
+[36m(WorkerDict pid=1686197)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=1686197)[0m   "intermediate_size": 9728,
+[36m(WorkerDict pid=1686197)[0m   "layer_types": [
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention"
+[36m(WorkerDict pid=1686197)[0m   ],
+[36m(WorkerDict pid=1686197)[0m   "max_position_embeddings": 262144,
+[36m(WorkerDict pid=1686197)[0m   "max_window_layers": 36,
+[36m(WorkerDict pid=1686197)[0m   "model_type": "qwen3",
+[36m(WorkerDict pid=1686197)[0m   "num_attention_heads": 32,
+[36m(WorkerDict pid=1686197)[0m   "num_hidden_layers": 36,
+[36m(WorkerDict pid=1686197)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=1686197)[0m   "pad_token_id": 151643,
+[36m(WorkerDict pid=1686197)[0m   "rms_norm_eps": 1e-06,
+[36m(WorkerDict pid=1686197)[0m   "rope_scaling": null,[36m(WorkerDict pid=1686197)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1686197)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(pid=1686198)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1686198)[0m   import pynvml  # type: ignore[import]
+[36m(WorkerDict pid=1686198)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 62.79it/s]
+[36m(WorkerDict pid=1686197)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 59.17it/s]
+[36m(WorkerDict pid=1686197)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3ForCausalLM is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1686197)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3Model is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`
+[36m(WorkerDict pid=1686197)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(pid=1686198)[0m WARNING:2026-05-24 19:24:27,538:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+[36m(WorkerDict pid=1686198)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(WorkerDict pid=1686198)[0m Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1686198)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.77s/it]
+[36m(WorkerDict pid=1686198)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.25s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.33s/it]
+[36m(WorkerDict pid=1686198)[0m Flash Attention 2 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen3Model is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", dtype=torch.float16)`[32m [repeated 2x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(WorkerDict pid=1686198)[0m /home/asbahk/EMNLP_FINAL/Rasingan/verl/verl/utils/profiler/config.py:49: UserWarning: Torch profiler tool config is not fully supported now.
+[36m(WorkerDict pid=1686198)[0m   warnings.warn("Torch profiler tool config is not fully supported now.", stacklevel=1)
+[36m(WorkerDict pid=1686197)[0m Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.12s/it]
+[36m(WorkerDict pid=1686197)[0m Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.49s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:07<00:00,  3.59s/it]
+[36m(WorkerDict pid=1686198)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:678: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=1686198)[0m   warnings.warn(
+[36m(pid=1687820)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1687820)[0m   import pynvml  # type: ignore[import]
+[36m(TaskRunner pid=1685759)[0m /home/asbahk/EMNLP_FINAL/Rasingan/verl/verl/utils/profiler/config.py:49: UserWarning: Torch profiler tool config is not fully supported now.[32m [repeated 2x across cluster][0m
+[36m(TaskRunner pid=1685759)[0m   warnings.warn("Torch profiler tool config is not fully supported now.", stacklevel=1)[32m [repeated 2x across cluster][0m
+[36m(pid=1687820)[0m WARNING:2026-05-24 19:25:03,136:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+[36m(WorkerDict pid=1686197)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:678: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+[36m(WorkerDict pid=1686197)[0m   warnings.warn(
+
+[36m(WorkerDict pid=1686197)[0m   "rope_theta": 5000000,
+[36m(WorkerDict pid=1686197)[0m   "sliding_window": null,
+[36m(WorkerDict pid=1686197)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=1686197)[0m   "transformers_version": "4.56.2",
+[36m(WorkerDict pid=1686197)[0m   "use_cache": true,
+[36m(WorkerDict pid=1686197)[0m   "use_sliding_window": false,
+[36m(WorkerDict pid=1686197)[0m   "vocab_size": 151936
+[36m(WorkerDict pid=1686197)[0m }
+[36m(WorkerDict pid=1686197)[0m 
+[36m(WorkerDict pid=1686198)[0m Monkey patch state_dict in AutoModelForCausalLMWithValueHead. 
+[36m(WorkerDict pid=1686198)[0m Monkey patch _flash_attention_forward in transformers.integrations.flash_attention
+[36m(WorkerDict pid=1686198)[0m Skipping monkey patch for Qwen3ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch
+[36m(WorkerDict pid=1686197)[0m Qwen3ForCausalLM contains 4.02B parameters
+[36m(WorkerDict pid=1686197)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f20e575d760>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f20e575d620>, transformer_layer_cls={<class 'transformers.models.qwen3.modeling_qwen3.Qwen3DecoderLayer'>})])
+[36m(WorkerDict pid=1686197)[0m Ref use_remove_padding=True
+[36m(WorkerDict pid=1686197)[0m Ref use_fused_kernels=False
+[36m(WorkerDict pid=1686197)[0m [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[36m(WorkerDict pid=1686197)[0m Model config after override: Qwen3Config {
+[36m(WorkerDict pid=1686197)[0m   "architectures": [
+[36m(WorkerDict pid=1686197)[0m     "Qwen3ForCausalLM"
+[36m(WorkerDict pid=1686197)[0m   ],
+[36m(WorkerDict pid=1686197)[0m   "attention_bias": false,
+[36m(WorkerDict pid=1686197)[0m   "attention_dropout": 0.0,
+[36m(WorkerDict pid=1686197)[0m   "dtype": "bfloat16",
+[36m(WorkerDict pid=1686197)[0m   "eos_token_id": 151645,
+[36m(WorkerDict pid=1686197)[0m   "head_dim": 128,
+[36m(WorkerDict pid=1686197)[0m   "hidden_act": "silu",
+[36m(WorkerDict pid=1686197)[0m   "hidden_size": 2560,
+[36m(WorkerDict pid=1686197)[0m   "initializer_range": 0.02,
+[36m(WorkerDict pid=1686197)[0m   "intermediate_size": 9728,
+[36m(WorkerDict pid=1686197)[0m   "layer_types": [
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention",
+[36m(WorkerDict pid=1686197)[0m     "full_attention"
+[36m(WorkerDict pid=1686197)[0m   ],
+[36m(WorkerDict pid=1686197)[0m   "max_position_embeddings": 262144,
+[36m(WorkerDict pid=1686197)[0m   "max_window_layers": 36,
+[36m(WorkerDict pid=1686197)[0m   "model_type": "qwen3",
+[36m(WorkerDict pid=1686197)[0m   "num_attention_heads": 32,
+[36m(WorkerDict pid=1686197)[0m   "num_hidden_layers": 36,
+[36m(WorkerDict pid=1686197)[0m   "num_key_value_heads": 8,
+[36m(WorkerDict pid=1686197)[0m   "pad_token_id": 151643,
+[36m(WorkerDict pid=1686197)[0m   "rms_norm_eps": 1e-06,
+[36m(WorkerDict pid=1686197)[0m   "rope_scaling": null,
+[36m(WorkerDict pid=1686197)[0m   "rope_theta": 5000000,
+[36m(WorkerDict pid=1686197)[0m   "sliding_window": null,
+[36m(WorkerDict pid=1686197)[0m   "tie_word_embeddings": true,
+[36m(WorkerDict pid=1686197)[0m   "transformers_version": "4.56.2",
+[36m(WorkerDict pid=1686197)[0m   "use_cache": true,
+[36m(WorkerDict pid=1686197)[0m   "use_sliding_window": false,
+[36m(WorkerDict pid=1686197)[0m   "vocab_size": 151936
+[36m(WorkerDict pid=1686197)[0m }
+[36m(WorkerDict pid=1686197)[0m 
+[36m(WorkerDict pid=1686197)[0m Monkey patch state_dict in AutoModelForCausalLMWithValueHead. 
+[36m(WorkerDict pid=1686197)[0m Monkey patch _flash_attention_forward in transformers.integrations.flash_attention
+[36m(WorkerDict pid=1686197)[0m Skipping monkey patch for Qwen3ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch
+[36m(WorkerDict pid=1686198)[0m Monkey patch state_dict in AutoModelForCausalLMWithValueHead. 
+[36m(WorkerDict pid=1686198)[0m Monkey patch _flash_attention_forward in transformers.integrations.flash_attention
+[36m(WorkerDict pid=1686198)[0m Skipping monkey patch for Qwen3ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch
+[36m(WorkerDict pid=1686197)[0m Qwen3ForCausalLM contains 4.02B parameters
+[36m(WorkerDict pid=1686197)[0m wrap_policy: functools.partial(<function _or_policy at 0x7f20e575d760>, policies=[functools.partial(<function transformer_auto_wrap_policy at 0x7f20e575d620>, transformer_layer_cls={<class 'transformers.models.qwen3.modeling_qwen3.Qwen3DecoderLayer'>})])
+[36m(WorkerDict pid=1686197)[0m Total steps: 60, num_warmup_steps: 0
+[36m(WorkerDict pid=1686197)[0m Monkey patch state_dict in AutoModelForCausalLMWithValueHead. 
+[36m(WorkerDict pid=1686197)[0m Monkey patch _flash_attention_forward in transformers.integrations.flash_attention
+[36m(WorkerDict pid=1686197)[0m Skipping monkey patch for Qwen3ForCausalLM as use_fused_kernels is False or fused_kernels_backend is torch
+[36m(WorkerDict pid=1686197)[0m Actor use_remove_padding=True
+[36m(WorkerDict pid=1686197)[0m Actor use_fused_kernels=False
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[36m(WorkerDict pid=1686197)[0m NCCL version 2.27.3+cuda12.9
+[36m(TaskRunner pid=1685759)[0m WARNING 05-24 19:24:58 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+[36m(WorkerDict pid=1686197)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0[32m [repeated 3x across cluster][0m
+[36m(pid=1687820)[0m WARNING 05-24 19:25:05 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+[36m(pid=1687825)[0m WARNING 05-24 19:25:05 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+[36m(vLLMHttpServer pid=1687820)[0m ['serve',[36m(vLLMHttpServer pid=1687820)[0m INFO:2026-05-24 19:25:06,143:vLLMHttpServer, replica_rank: 0, master address: 192.168.3.236, master port: 42917, data parallel master port: 39499
+[36m(vLLMHttpServer pid=1687820)[0m INFO:2026-05-24 19:25:06,149:override_generation_config: {'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'repetition_penalty': 1.0, 'max_new_tokens': 12288}
+[36m(vLLMHttpServer pid=1687820)[0m Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+[36m(vLLMHttpServer pid=1687820)[0m INFO:2026-05-24 19:25:06,169:replica_rank=0, node_rank=0, nnodes=1, get worker zmq addresses: ['ipc:///tmp/verl_vllm_zmq_1686197_asbahk.ipc']
+[36m(vLLMHttpServer pid=1687820)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(pid=1687825)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1687825)[0m   import pynvml  # type: ignore[import]
+[36m(vLLMHttpServer pid=1687820)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(vLLMHttpServer pid=1687820)[0m   import pynvml  # type: ignore[import]
+[36m(vLLMHttpServer pid=1687820)[0m Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+[36m(pid=1687825)[0m WARNING:2026-05-24 19:25:03,274:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+[36m(WorkerDict pid=1686197)[0m [rank0]:W0524 19:25:13.022000 1686197 site-packages/torch/utils/cpp_extension.py:2425] TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+[36m(WorkerDict pid=1686197)[0m [rank0]:W0524 19:25:13.022000 1686197 site-packages/torch/utils/cpp_extension.py:2425] If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'] to specific architectures.
+[36m(vLLMHttpServer pid=1687825)[0m INFO:2026-05-24 19:25:06,407:vLLMHttpServer, replica_rank: 1, master address: 192.168.3.236, master port: 44039, data parallel master port: 41795
+[36m(vLLMHttpServer pid=1687825)[0m INFO:2026-05-24 19:25:06,414:override_generation_config: {'temperature': 1.0, 'top_k': -1, 'top_p': 1, 'repetition_penalty': 1.0, 'max_new_tokens': 12288}
+[36m(vLLMHttpServer pid=1687825)[0m Using blocking ray.get inside async actor. This blocks the event loop. Please use `await` on object ref with asyncio.gather if you want to yield execution to the event loop instead.
+[36m(vLLMHttpServer pid=1687825)[0m INFO:2026-05-24 19:25:06,435:replica_rank=1, node_rank=0, nnodes=1, get worker zmq addresses: ['ipc:///tmp/verl_vllm_zmq_1686198_asbahk.ipc']
+[36m(vLLMHttpServer pid=1687825)[0m `torch_dtype` is deprecated! Use `dtype` instead!
+[36m(vLLMHttpServer pid=1687825)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(vLLMHttpServer pid=1687825)[0m   import pynvml  # type: ignore[import]
+[36m(WorkerDict pid=1686198)[0m 2026-05-24 19:25:23,660 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+[36m(vLLMHttpServer pid=1687825)[0m Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+[36m(WorkerDict pid=1686198)[0m [rank1]:W0524 19:25:13.189000 1686198 site-packages/torch/utils/cpp_extension.py:2425] TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+[36m(WorkerDict pid=1686198)[0m [rank1]:W0524 19:25:13.189000 1686198 site-packages/torch/utils/cpp_extension.py:2425] If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'] to specific architectures.
+[36m(WorkerDict pid=1686198)[0m 2026-05-24 19:25:23,749 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 3/67 [00:00<00:02, 22.84it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 6/67 [00:00<00:02, 23.86it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  13%|█▎        | 9/67 [00:00<00:02, 24.19it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 12/67 [00:00<00:02, 24.00it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 15/67 [00:00<00:02, 23.37it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 18/67 [00:00<00:02, 23.14it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 21/67 [00:00<00:01, 23.50it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 24/67 [00:01<00:01, 23.37it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 27/67 [00:01<00:01, 22.93it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▍     | 30/67 [00:01<00:01, 22.82it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 33/67 [00:01<00:01, 21.93it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▎    | 36/67 [00:01<00:01, 21.85it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 39/67 [00:01<00:01, 21.24it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 42/67 [00:01<00:01, 21.15it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 45/67 [00:02<00:01, 20.81it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 48/67 [00:02<00:00, 20.83it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 51/67 [00:02<00:00, 20.05it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 54/67 [00:02<00:00, 19.77it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:02<00:00, 19.49it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:02<00:00, 20.15it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:02<00:00, 20.34it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:03<00:00, 21.01it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:03<00:00, 21.61it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/67 [00:00<?, ?it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):   4%|▍         | 3/67 [00:00<00:02, 27.46it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):   9%|▉         | 6/67 [00:00<00:02, 28.28it/s]Capturing CUDA graphs (decode, FULL):  13%|█▎        | 9/67 [00:00<00:02, 28.94it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  18%|█▊        | 12/67 [00:00<00:01, 28.93it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  22%|██▏       | 15/67 [00:00<00:01, 29.09it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  28%|██▊       | 19/67 [00:00<00:01, 29.82it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  33%|███▎      | 22/67 [00:00<00:01, 29.86it/s]
+[36m(WorkerDict pid=1686197)[0m 2026-05-24 19:25:24,340 - INFO - autotuner.py:256 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  39%|███▉      | 26/67 [00:00<00:01, 30.21it/s]
+[36m(WorkerDict pid=1686197)[0m 2026-05-24 19:25:24,428 - INFO - autotuner.py:262 - flashinfer.jit: [Autotuner]: Autotuning process ends
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  45%|████▍     | 30/67 [00:01<00:01, 30.04it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  51%|█████     | 34/67 [00:01<00:01, 30.33it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 38/67 [00:01<00:00, 30.28it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 42/67 [00:01<00:00, 30.19it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 46/67 [00:01<00:00, 30.13it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  75%|███████▍  | 50/67 [00:01<00:00, 30.20it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  81%|████████  | 54/67 [00:01<00:00, 29.93it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  85%|████████▌ | 57/67 [00:01<00:00, 29.83it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  91%|█████████ | 61/67 [00:02<00:00, 29.97it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL):  96%|█████████▌| 64/67 [00:02<00:00, 29.55it/s]
+[36m(WorkerDict pid=1686197)[0m Capturing CUDA graphs (decode, FULL): 100%|██████████| 67/67 [00:02<00:00, 29.81it/s]
+[36m(vLLMHttpServer pid=1687820)[0m INFO:2026-05-24 19:25:31,380:Initializing a V1 LLM engine with config: model='/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged', speculative_config=None, tokenizer='/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=14336, download_dir=None, load_format=dummy, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=True, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention","vllm.sparse_attn_indexer"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[36m(pid=1688956)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+[36m(pid=1688956)[0m   import pynvml  # type: ignore[import]
+[36m(TaskRunner pid=1685759)[0m wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from WANDB_API_KEY.
+[36m(TaskRunner pid=1685759)[0m wandb: Currently logged in as: karan21258 (karan912) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+[36m(pid=1688953)[0m WARNING:2026-05-24 19:25:35,168:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+[36m(TaskRunner pid=1685759)[0m wandb: Tracking run with wandb version 0.27.0
+[36m(TaskRunner pid=1685759)[0m wandb: Run data is saved locally in checkpoints/mt_long_20260524_192219/wandb/wandb/run-20260524_192534-onxz6bjp
+[36m(TaskRunner pid=1685759)[0m wandb: Run `wandb offline` to turn off syncing.
+[36m(TaskRunner pid=1685759)[0m wandb: Syncing run mt_long_20260524_192219
+[36m(TaskRunner pid=1685759)[0m wandb: ⭐️ View project at https://wandb.ai/karan912/rasingan
+[36m(TaskRunner pid=1685759)[0m wandb: 🚀 View run at https://wandb.ai/karan912/rasingan/runs/onxz6bjp
+[36m(TaskRunner pid=1685759)[0m wandb: Detected [openai] in use.
+[36m(TaskRunner pid=1685759)[0m wandb: Use W&B Weave for improved LLM call tracing. Install Weave with `pip install weave` then add `import weave` to the top of your script.
+[36m(TaskRunner pid=1685759)[0m wandb: For more information, check out the docs at: https://weave-docs.wandb.ai
+[36m(TaskRunner pid=1685759)[0m Training Progress:   0%|          | 0/60 [00:00<?, ?it/s]
+[36m(pid=1689927)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.[32m [repeated 8x across cluster][0m
+[36m(pid=1689927)[0m   import pynvml  # type: ignore[import][32m [repeated 8x across cluster][0m
+[36m(pid=1688961)[0m WARNING:2026-05-24 19:25:35,392:Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).[32m [repeated 7x across cluster][0m
+[36m(AgentLoopWorker pid=1688955)[0m You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+[36m(pid=1689969)[0m /home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.[32m [repeated 7x across cluster][0m
+[36m(pid=1689969)[0m   import pynvml  # type: ignore[import][32m [repeated 7x across cluster][0m
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:25:56,365:Unclosed client session
+[36m(AgentLoopWorker pid=1688955)[0m client_session: <aiohttp.client.ClientSession object at 0x7f753637c7a0>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:25:56,365:Unclosed connector
+[36m(AgentLoopWorker pid=1688955)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f75360de150>, 296407.380704834)])']
+[36m(AgentLoopWorker pid=1688955)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f753608d460>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:25:56,365:Unclosed client session
+[36m(AgentLoopWorker pid=1688955)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7535f0f800>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:25:56,365:Unclosed connector
+[36m(AgentLoopWorker pid=1688955)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f75360dcc50>, 296405.820938928)])']
+[36m(AgentLoopWorker pid=1688955)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7535f1a8d0>
+[36m(AgentLoopWorker pid=1688954)[0m You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:26:00,822:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b57c9970>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:26:00,822:Unclosed connector[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b55670b0>, 296407.116035504)])'][32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b55a2ff0>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+[36m(AgentLoopWorker pid=1688961)[0m WARNING:2026-05-24 19:29:18,828:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:28:15,196:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7571d57bc0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:28:15,197:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f7571d2af90>, 296542.656186247)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7571d57a10>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m WARNING:2026-05-24 19:29:29,212:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:29:29,277:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688961)[0m WARNING:2026-05-24 19:29:33,258:[therapist] prompt_ids=14467 would overflow max_model_len=14336; early-stopping session (turn=2) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:29:34,778:Unclosed client session
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb4791379e0>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:29:34,779:Unclosed connector
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910ce30>, 296626.18203333)])']
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb479137770>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:29:34,779:Unclosed client session
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb4942ad250>
+[36m(AgentLoopWorker pid=1688960)[0m WARNING:2026-05-24 19:29:30,431:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:29:40,919:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b5516750>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:29:40,919:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5564d10>, 296624.45593408)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b55a1880>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m WARNING:2026-05-24 19:29:46,913:[therapist] prompt_ids=14428 would overflow max_model_len=14336; early-stopping session (turn=3) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688960)[0m You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+[36m(AgentLoopWorker pid=1688960)[0m WARNING:2026-05-24 19:29:47,002:[therapist] prompt_ids=14425 would overflow max_model_len=14336; early-stopping session (turn=5) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:29:48,383:Unclosed client session
+[36m(AgentLoopWorker pid=1688960)[0m client_session: <aiohttp.client.ClientSession object at 0x7fce2bca0a40>
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:29:48,384:Unclosed connector
+[36m(AgentLoopWorker pid=1688960)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fce2b9b23f0>, 296639.833108553)])']
+[36m(AgentLoopWorker pid=1688960)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fce3a529250>
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:29:48,384:Unclosed client session
+[36m(AgentLoopWorker pid=1688960)[0m client_session: <aiohttp.client.ClientSession object at 0x7fce3a90b050>
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:29:47,049:[therapist] prompt_ids=14422 would overflow max_model_len=14336; early-stopping session (turn=5) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688956)[0m You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:29:56,534:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476714620>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:29:56,534:Unclosed connector[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673b7d0>, 296640.578372211)])'][32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f9476761d00>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m WARNING:2026-05-24 19:30:07,302:[therapist] prompt_ids=14473 would overflow max_model_len=14336; early-stopping session (turn=4) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:30:08,918:Unclosed client session
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476762ff0>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:30:08,918:Unclosed connector
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673a090>, 296660.226338773)])']
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f9476781130>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:30:08,918:Unclosed client session
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476715b80>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:30:08,918:Unclosed connector
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673ab10>, 296659.476450822)])']
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f9476783140>
+[36m(AgentLoopWorker pid=1688955)[0m WARNING:2026-05-24 19:30:25,751:[therapist] prompt_ids=14533 would overflow max_model_len=14336; early-stopping session (turn=6) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:30:27,529:Unclosed client session
+[36m(AgentLoopWorker pid=1688955)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7535f0f0b0>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:30:27,530:Unclosed connector
+[36m(AgentLoopWorker pid=1688955)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f75360df110>, 296678.673876162)])']
+[36m(AgentLoopWorker pid=1688955)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7535f0f260>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:30:27,530:Unclosed client session
+[36m(AgentLoopWorker pid=1688955)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7535f0ef60>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:30:27,530:Unclosed connector
+[36m(AgentLoopWorker pid=1688955)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f75360de150>, 296677.664162291)])']
+[36m(AgentLoopWorker pid=1688955)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7535f18620>
+[36m(AgentLoopWorker pid=1688953)[0m You're using a Qwen2TokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:30:33,480:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b5593230>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:30:33,480:Unclosed connector[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5565f70>, 296677.664159818)])'][32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b55a0860>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:30:40,635:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m client_session: <aiohttp.client.ClientSession object at 0x7fa0a8df6420>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:30:40,635:Unclosed connector[32m [repeated 3x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fa09a8a2c30>, 296678.59101555)])'][32m [repeated 3x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fa09a8cb980>[32m [repeated 3x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m WARNING:2026-05-24 19:30:46,341:[therapist] prompt_ids=14512 would overflow max_model_len=14336; early-stopping session (turn=10) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:30:43,829:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7571d57380>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:30:49,743:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:30:52,855:[therapist] prompt_ids=14414 would overflow max_model_len=14336; early-stopping session (turn=11) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:30:50,379:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476714e30>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:31:02,061:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m client_session: <aiohttp.client.ClientSession object at 0x7f757296c830>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:31:09,732:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88d0b15a00>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:31:16,914:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m client_session: <aiohttp.client.ClientSession object at 0x7fce2b9dffe0>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m WARNING:2026-05-24 19:31:17,813:[therapist] prompt_ids=14513 would overflow max_model_len=14336; early-stopping session (turn=15) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:31:24,633:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f8eaf60>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:31:26,385:Unclosed connector
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673b050>, 296730.742796456)])']
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f94767635c0>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:31:26,386:Unclosed connector
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673b290>, 296730.46291121)])']
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f94767809b0>
+
+[36m(vLLMHttpServer pid=1687820)[0m  '/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged',
+[36m(vLLMHttpServer pid=1687820)[0m  '--dtype',
+[36m(vLLMHttpServer pid=1687820)[0m  'bfloat16',
+[36m(vLLMHttpServer pid=1687820)[0m  '--load_format',
+[36m(vLLMHttpServer pid=1687820)[0m  'dummy',
+[36m(vLLMHttpServer pid=1687820)[0m  '--max_model_len',
+[36m(vLLMHttpServer pid=1687820)[0m  '14336',
+[36m(vLLMHttpServer pid=1687820)[0m  '--max_num_seqs',
+[36m(vLLMHttpServer pid=1687820)[0m  '1024',
+[36m(vLLMHttpServer pid=1687820)[0m  '--enable_chunked_prefill',
+[36m(vLLMHttpServer pid=1687820)[0m  '--max_num_batched_tokens',
+[36m(vLLMHttpServer pid=1687820)[0m  '8192',
+[36m(vLLMHttpServer pid=1687820)[0m  '--enable_prefix_caching',
+[36m(vLLMHttpServer pid=1687820)[0m  '--enable_sleep_mode',
+[36m(vLLMHttpServer pid=1687820)[0m  '--disable_custom_all_reduce',
+[36m(vLLMHttpServer pid=1687820)[0m  '--gpu_memory_utilization',
+[36m(vLLMHttpServer pid=1687820)[0m  '0.35',
+[36m(vLLMHttpServer pid=1687820)[0m  '--disable_log_stats',
+[36m(vLLMHttpServer pid=1687820)[0m  '--tensor_parallel_size',
+[36m(vLLMHttpServer pid=1687820)[0m  '1',
+[36m(vLLMHttpServer pid=1687820)[0m  '--seed',
+[36m(vLLMHttpServer pid=1687820)[0m  '0',
+[36m(vLLMHttpServer pid=1687820)[0m  '--override_generation_config',
+[36m(vLLMHttpServer pid=1687820)[0m  '{"temperature": 1.0, "top_k": -1, "top_p": 1, "repetition_penalty": 1.0, '
+[36m(vLLMHttpServer pid=1687820)[0m  '"max_new_tokens": 12288}']
+[36m(vLLMHttpServer pid=1687820)[0m WARNING 05-24 19:25:06 [__init__.py:3036] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: In a Ray actor and can only be spawned
+[36m(vLLMHttpServer pid=1687820)[0m WARNING 05-24 19:25:12 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+[36m(vLLMHttpServer pid=1687825)[0m WARNING 05-24 19:25:06 [__init__.py:3036] We must use the `spawn` multiprocessing start method. Overriding VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/usage/troubleshooting.html#python-multiprocessing for more information. Reasons: In a Ray actor and can only be spawned
+[36m(WorkerDict pid=1686197)[0m WARNING 05-24 19:25:12 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[36m(WorkerDict pid=1686198)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[36m(WorkerDict pid=1686198)[0m All deep_gemm operations loaded successfully!
+[36m(WorkerDict pid=1686198)[0m WARNING 05-24 19:25:13 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development![32m [repeated 2x across cluster][0m
+[36m(WorkerDict pid=1686197)[0m [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0[32m [repeated 6x across cluster][0m
+[36m(vLLMHttpServer pid=1687825)[0m WARNING 05-24 19:25:30 [model.py:1389] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+[36m(WorkerDict pid=1686197)[0m All deep_gemm operations loaded successfully!
+[36m(TaskRunner pid=1685759)[0m AgentLoopManager: ['192.168.3.236:33727', '192.168.3.236:40087']
+[36m(TaskRunner pid=1685759)[0m Checkpoint tracker file does not exist: /home/asbahk/EMNLP_FINAL/Rasingan/verl/./checkpoints/mt_long_20260524_192219/latest_checkpointed_iteration.txt
+[36m(TaskRunner pid=1685759)[0m Training from scratch
+[36m(vLLMHttpServer pid=1687820)[0m WARNING 05-24 19:25:31 [model.py:1389] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+[36m(AgentLoopWorker pid=1688953)[0m WARNING 05-24 19:25:38 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development!
+[36m(TaskRunner pid=1685759)[0m Dumped generations to ./checkpoints/mt_long_20260524_192219/rollout/1.jsonl
+[36m(TaskRunner pid=1685759)[0m step:1 - actor/entropy:1.3502068519592285 - actor/pg_clipfrac:np.float64(0.00015046336557134055) - actor/ppo_kl:np.float64(-5.991732996335486e-05) - actor/pg_clipfrac_lower:np.float64(0.0) - actor/kl_loss:np.float64(0.00022542656734003685) - actor/kl_coef:np.float64(0.01) - actor/pg_loss:np.float64(-0.00045745744137093425) - actor/grad_norm:np.float64(1.2106477618217468) - perf/mfu/actor:np.float64(0.15022084224181764) - perf/max_memory_allocated_gb:np.float64(110.45170068740845) - perf/max_memory_reserved_gb:np.float64(117.875) - perf/cpu_memory_used_gb:np.float64(98.39296340942383) - actor/lr:np.float64(1e-06) - training/global_step:1 - training/epoch:0 - critic/score/mean:0.9873284101486206 - critic/score/max:2.083750009536743 - critic/score/min:-0.40049999952316284 - critic/rewards/mean:0.9873284101486206 - critic/rewards/max:2.083750009536743 - critic/rewards/min:-0.40049999952316284 - critic/advantages/mean:-0.15603478252887726 - critic/advantages/max:1.4179372787475586 - critic/advantages/min:-1.4826085567474365 - critic/returns/mean:-0.15603478252887726 - critic/returns/max:1.4179372787475586 - critic/returns/min:-1.4826085567474365 - response_length/mean:12288.0 - response_length/max:12288.0 - response_length/min:12288.0 - response_length/clip_ratio:1.0 - response_length_non_aborted/mean:12288.0 - response_length_non_aborted/max:12288.0 - response_length_non_aborted/min:12288.0 - response_length_non_aborted/clip_ratio:1.0 - response/aborted_ratio:0.0 - prompt_length/mean:111.0 - prompt_length/max:111.0 - prompt_length/min:111.0 - prompt_length/clip_ratio:0.0 - num_turns/min:np.int32(2) - num_turns/max:np.int32(20) - num_turns/mean:np.float64(14.34375) - timing_s/start_profile:0.0001821490004658699 - timing_s/agent_loop/generate_sequences/min:np.float64(0.0) - timing_s/agent_loop/generate_sequences/max:np.float64(0.0) - timing_s/agent_loop/generate_sequences/mean:np.float64(0.0) - timing_s/agent_loop/tool_calls/min:np.float64(0.0) - timing_s/agent_loop/tool_calls/max:np.float64(0.0) - timing_s/agent_loop/tool_calls/mean:np.float64(0.0) - timing_s/agent_loop/slowest/generate_sequences:np.float64(0.0) - timing_s/agent_loop/slowest/tool_calls:np.float64(0.0) - timing_s/agent_loop/slowest/prompt_length:111 - timing_s/agent_loop/slowest/response_length:12288 - timing_s/gen:351.53647274000105 - timing_s/reward:0.00023632898228242993 - timing_s/old_log_prob:18.437667046964634 - timing_s/ref:21.040826873038895 - timing_s/adv:0.005004397011362016 - timing_s/update_actor:74.48960150196217 - timing_s/dump_rollout_generations:0.11254326003836468 - timing_s/step:465.64069526002277 - timing_s/stop_profile:3.459095023572445e-05 - timing_per_token_ms/adv:1.2612904799182435e-05 - timing_per_token_ms/update_actor:0.18774095063604468 - timing_per_token_ms/ref:0.05303055405939717 - timing_per_token_ms/gen:0.8940034808858263 - perf/total_num_tokens:396768 - perf/time_per_step:465.64069526002277 - perf/throughput:426.04523620775575
+[36m(AgentLoopWorker pid=1688960)[0m WARNING 05-24 19:25:38 [api_server.py:1213] LoRA dynamic loading & unloading is enabled in the API server. This should ONLY be used for local development![32m [repeated 7x across cluster][0m[36m(TaskRunner pid=1685759)[0m Training Progress:   2%|▏         | 1/60 [07:45<7:38:01, 465.79s/it]
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:31:26,386:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476763500>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m WARNING:2026-05-24 19:37:58,558:[therapist] prompt_ids=14549 would overflow max_model_len=14336; early-stopping session (turn=6) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:38:01,695:Unclosed client session
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f700e30>
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:38:01,696:Unclosed connector
+[36m(AgentLoopWorker pid=1688953)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f256f8c5d90>, 297131.481093012)])']
+[36m(AgentLoopWorker pid=1688953)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f256f703830>
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:38:01,696:Unclosed client session
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f702540>
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:38:01,696:Unclosed connector
+[36m(AgentLoopWorker pid=1688953)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f256f8c51f0>, 297129.598921395)])']
+[36m(AgentLoopWorker pid=1688953)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f256f709cd0>
+[36m(AgentLoopWorker pid=1688961)[0m WARNING:2026-05-24 19:37:58,615:[therapist] prompt_ids=14565 would overflow max_model_len=14336; early-stopping session (turn=7) to preserve trajectory faithfulness.[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:38:06,267:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb479144ce0>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:38:06,267:Unclosed connector[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910dbb0>, 297129.852907903)])'][32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb47914d190>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:38:28,932:[therapist] prompt_ids=14510 would overflow max_model_len=14336; early-stopping session (turn=9) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688954)[0m WARNING:2026-05-24 19:38:30,511:[therapist] prompt_ids=14544 would overflow max_model_len=14336; early-stopping session (turn=10) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:38:37,000:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b55a2840>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:38:37,000:Unclosed connector[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5564cb0>, 297161.03237217)])'][32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b22d4860>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m WARNING:2026-05-24 19:39:12,961:[therapist] prompt_ids=14536 would overflow max_model_len=14336; early-stopping session (turn=10) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:39:16,228:Unclosed client session
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476782600>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:39:16,228:Unclosed connector
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f9476738e90>, 297205.889329273)])']
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f9476781130>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:39:16,229:Unclosed client session
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476761c70>
+[36m(AgentLoopWorker pid=1688955)[0m WARNING:2026-05-24 19:39:20,237:[therapist] prompt_ids=14581 would overflow max_model_len=14336; early-stopping session (turn=11) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:39:24,845:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688955)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7535f0f770>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:39:24,845:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688955)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f75360df110>, 297211.721266953)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688955)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7535f24d40>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:39:30,527:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b55a14f0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:39:30,527:Unclosed connector
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5567230>, 297211.150831979)])']
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b22d53a0>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:39:35,987:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb479144c50>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:39:47,397:Unclosed connector
+[36m(AgentLoopWorker pid=1688953)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f256f8c52b0>, 297233.351637279)])']
+[36m(AgentLoopWorker pid=1688953)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f256f700a10>
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:39:47,397:Unclosed connector
+[36m(AgentLoopWorker pid=1688953)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f256f8c69f0>, 297230.807387887)])']
+[36m(AgentLoopWorker pid=1688953)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f256f709be0>
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:39:47,397:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f7039b0>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:39:54,935:Unclosed connector[32m [repeated 5x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5565a90>, 297233.351622958)])'][32m [repeated 5x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b55a0fe0>[32m [repeated 5x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:39:54,935:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b55a3f80>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:39:54,937:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fce2b9b34d0>, 297232.290540975)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fce2b9ec200>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:40:00,521:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m client_session: <aiohttp.client.ClientSession object at 0x7fa09a8dbfb0>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m WARNING:2026-05-24 19:40:06,134:[therapist] prompt_ids=14257 would overflow max_model_len=14336; early-stopping session (turn=18) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:40:04,500:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb4791fb5c0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:40:13,693:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7571d66c90>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:40:19,050:Unclosed client session[32m [repeated 8x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b5593c20>[32m [repeated 8x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:40:24,238:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f8a3860>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:40:30,726:Unclosed client session[32m [repeated 8x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f94767835c0>[32m [repeated 8x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:40:37,306:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476715e20>[32m [repeated 6x across cluster][0m
+[36m(TaskRunner pid=1685759)[0m Training Progress:   3%|▎         | 2/60 [16:44<8:11:50, 508.80s/it]
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:46:07,706:Unclosed client session
+[36m(AgentLoopWorker pid=1688960)[0m client_session: <aiohttp.client.ClientSession object at 0x7fce2b9df500>
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:46:07,706:Unclosed connector
+[36m(AgentLoopWorker pid=1688960)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fce2b9b0ad0>, 297614.275113111)])']
+[36m(AgentLoopWorker pid=1688960)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fce2b9df470>
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:46:07,706:Unclosed client session
+[36m(AgentLoopWorker pid=1688960)[0m client_session: <aiohttp.client.ClientSession object at 0x7fce2b9dfe30>
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:46:07,706:Unclosed connector
+[36m(AgentLoopWorker pid=1688960)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fce2b9b0890>, 297612.693983893)])']
+[36m(AgentLoopWorker pid=1688960)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fce2b9fb170>
+[36m(AgentLoopWorker pid=1688961)[0m WARNING:2026-05-24 19:46:34,672:[therapist] prompt_ids=14553 would overflow max_model_len=14336; early-stopping session (turn=5) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:46:11,956:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7571d57b60>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:46:11,956:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f7571d2b0b0>, 297614.310079219)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7571d71940>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:46:54,535:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:46:37,242:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb479147770>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:46:37,242:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910cfb0>, 297645.700461266)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb47914e120>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:47:07,328:[therapist] prompt_ids=14376 would overflow max_model_len=14336; early-stopping session (turn=6) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:47:10,613:Unclosed client session
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb47914e720>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:47:10,613:Unclosed connector
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910f170>, 297680.215585325)])']
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb47914da30>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:47:10,613:Unclosed client session
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb47914e600>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:47:10,613:Unclosed connector
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910f290>, 297675.364114605)])']
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb47914ca10>
+[36m(AgentLoopWorker pid=1688961)[0m WARNING:2026-05-24 19:47:07,290:[therapist] prompt_ids=14559 would overflow max_model_len=14336; early-stopping session (turn=6) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688956)[0m WARNING:2026-05-24 19:47:26,966:[therapist] prompt_ids=14551 would overflow max_model_len=14336; early-stopping session (turn=5) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:47:12,975:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m client_session: <aiohttp.client.ClientSession object at 0x7fa09a8d9fd0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:47:12,975:Unclosed connector
+[36m(AgentLoopWorker pid=1688957)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fa09a8a1d30>, 297680.254400923)])']
+[36m(AgentLoopWorker pid=1688957)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fa09a8cb4d0>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:47:29,300:Unclosed connector
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673a0f0>, 297699.883285036)])']
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f94767826c0>
+[36m(AgentLoopWorker pid=1688954)[0m WARNING:2026-05-24 19:47:29,717:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688954)[0m WARNING:2026-05-24 19:47:48,688:[therapist] prompt_ids=14429 would overflow max_model_len=14336; early-stopping session (turn=8) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:47:29,300:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476783560>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:47:50,940:Unclosed connector
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5565e50>, 297721.602454545)])']
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b55a0a40>
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:48:18,627:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7571d56e40>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:48:18,628:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f7571d29430>, 297743.533141206)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7571d72d50>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:48:24,366:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476772360>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:48:24,366:Unclosed connector
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f9476739490>, 297746.853708596)])']
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f9476771820>
+[36m(AgentLoopWorker pid=1688955)[0m WARNING:2026-05-24 19:48:35,080:[therapist] prompt_ids=14531 would overflow max_model_len=14336; early-stopping session (turn=15) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:48:39,592:Unclosed client session
+[36m(AgentLoopWorker pid=1688955)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7535f0f8c0>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:48:39,592:Unclosed connector
+[36m(AgentLoopWorker pid=1688955)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f75360dcd10>, 297768.000265989)])']
+[36m(AgentLoopWorker pid=1688955)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7536009550>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:48:39,592:Unclosed client session
+[36m(AgentLoopWorker pid=1688955)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7535f0de80>
+[36m(AgentLoopWorker pid=1688955)[0m ERROR:2026-05-24 19:48:39,592:Unclosed connector
+[36m(AgentLoopWorker pid=1688955)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f75360de150>, 297766.824746588)])']
+[36m(AgentLoopWorker pid=1688955)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f7535f19460>
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:48:46,338:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m client_session: <aiohttp.client.ClientSession object at 0x7fce2bb8cf20>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m ERROR:2026-05-24 19:48:46,339:Unclosed connector[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fce2b9b1df0>, 297766.351720411)])'][32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688960)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fce2b9fa960>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m WARNING:2026-05-24 19:48:53,983:[therapist] prompt_ids=14529 would overflow max_model_len=14336; early-stopping session (turn=16) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:48:51,151:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b55a15b0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:49:00,393:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f94767832f0>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:49:06,841:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m client_session: <aiohttp.client.ClientSession object at 0x7fa0d55a7dd0>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m ERROR:2026-05-24 19:49:13,827:Unclosed client session[32m [repeated 8x across cluster][0m
+[36m(AgentLoopWorker pid=1688958)[0m client_session: <aiohttp.client.ClientSession object at 0x7f7571d56300>[32m [repeated 8x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:49:20,510:Unclosed client session[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f70a720>[32m [repeated 4x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:49:29,397:Unclosed client session[32m [repeated 10x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f8dae40>[32m [repeated 10x across cluster][0m
+[36m(TaskRunner pid=1685759)[0m Training Progress:   5%|▌         | 3/60 [25:43<8:16:17, 522.42s/it]
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:49:33,549:Unclosed client session[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb4942af770>[32m [repeated 6x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:51:38,376:Unclosed connector
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5565550>, 297949.968599672)])']
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b22d5a00>
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:51:38,376:Unclosed connector
+[36m(AgentLoopWorker pid=1688954)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f88b5566990>, 297948.383385893)])']
+[36m(AgentLoopWorker pid=1688954)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f88b23c10a0>
+[36m(AgentLoopWorker pid=1688954)[0m ERROR:2026-05-24 19:51:38,376:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688954)[0m client_session: <aiohttp.client.ClientSession object at 0x7f88b554bb00>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:52:31,538:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910ee10>, 297990.105142671)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb479180a10>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:52:31,538:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb47914f8c0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:52:52,734:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673b1d0>, 298022.328838385)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f9476773500>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:52:52,734:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f94767635c0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:53:08,736:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fa09a8a1970>, 298037.521375476)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fa096ab8410>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m ERROR:2026-05-24 19:53:08,736:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688957)[0m client_session: <aiohttp.client.ClientSession object at 0x7fa09a8c9070>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:53:25,268:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f256f8c5e50>, 298052.559750081)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f256f7bd250>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m ERROR:2026-05-24 19:53:25,268:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688953)[0m client_session: <aiohttp.client.ClientSession object at 0x7f256f70aba0>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688961)[0m WARNING:2026-05-24 19:55:25,873:Combined supervisor call failed: 400, message='Bad Request', url='http://127.0.0.1:8001/v1/chat/completions'
+[36m(AgentLoopWorker pid=1688961)[0m WARNING:2026-05-24 19:55:37,625:[therapist] prompt_ids=14427 would overflow max_model_len=14336; early-stopping session (turn=5) to preserve trajectory faithfulness.
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:55:39,929:Unclosed client session
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb479144d10>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:55:39,929:Unclosed connector
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910f710>, 298190.550938751)])']
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb479144920>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:55:39,930:Unclosed client session
+[36m(AgentLoopWorker pid=1688961)[0m client_session: <aiohttp.client.ClientSession object at 0x7fb479137bf0>
+[36m(AgentLoopWorker pid=1688961)[0m ERROR:2026-05-24 19:55:39,930:Unclosed connector
+[36m(AgentLoopWorker pid=1688961)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7fb47910f470>, 298178.844562633)])']
+[36m(AgentLoopWorker pid=1688961)[0m connector: <aiohttp.connector.TCPConnector object at 0x7fb479180bc0>
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:55:46,858:Unclosed client session[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m client_session: <aiohttp.client.ClientSession object at 0x7f9476772300>[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m ERROR:2026-05-24 19:55:46,858:Unclosed connector[32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m connections: ['deque([(<aiohttp.client_proto.ResponseHandler object at 0x7f947673b350>, 298188.877035708)])'][32m [repeated 2x across cluster][0m
+[36m(AgentLoopWorker pid=1688956)[0m connector: <aiohttp.connector.TCPConnector object at 0x7f9476782900>[32m [repeated 2x across cluster][0m

@@ -83,6 +83,17 @@ class RemoteVLLM:
     Same `chat(messages, ...)` API as SharedVLLM, so it's a drop-in. Use this
     when the supervisor/patient model lives in a separate Python env (different
     vLLM version) and is hosted via `python -m vllm.entrypoints.openai.api_server`.
+
+    `instruct_mode=True` (matches training's verl/.../therapist_agent_loop.py
+    ExternalModelClient instruct_mode=True path, enabled via INSTRUCT_MODE=1)
+    overrides per-call sampling with the Qwen3-Instruct-2507 model-card values
+    (non-thinking): temperature=0.7, top_p=0.8, top_k=20, min_p=0.0,
+    presence_penalty=1.5, repetition_penalty=1.0, AND disables Qwen3 thinking
+    via chat_template_kwargs={"enable_thinking": False}. Default off →
+    callers' temperature/top_p are used (legacy behavior).
+
+    The trained model expects these exact sampling params on every patient +
+    supervisor turn — running eval without them is a real train/eval drift.
     """
 
     def __init__(
@@ -91,10 +102,12 @@ class RemoteVLLM:
         model_name: str,
         api_key: str = "EMPTY",
         timeout: float = 120.0,
+        instruct_mode: bool = False,
     ):
         from openai import OpenAI  # lazy
         self.base_url = base_url.rstrip("/")
         self.model_name = model_name
+        self.instruct_mode = instruct_mode
         self._client = OpenAI(base_url=self.base_url, api_key=api_key, timeout=timeout)
 
     def chat(
@@ -109,11 +122,28 @@ class RemoteVLLM:
             "model": self.model_name,
             "messages": messages,
             "max_tokens": max_tokens,
-            "temperature": temperature,
-            "top_p": top_p,
         }
+        # extra_body carries vLLM-specific knobs that aren't in the OpenAI
+        # API spec (top_k, min_p, repetition_penalty, chat_template_kwargs).
+        extra_body: Dict[str, object] = {}
+        if self.instruct_mode:
+            # Exact override applied by training's ExternalModelClient when
+            # instruct_mode=True (verl/.../therapist_agent_loop.py:174-189).
+            # Caller's temperature/top_p are IGNORED here, matching training.
+            kwargs["temperature"] = 0.7
+            kwargs["top_p"] = 0.8
+            kwargs["presence_penalty"] = 1.5
+            extra_body["top_k"] = 20
+            extra_body["min_p"] = 0.0
+            extra_body["repetition_penalty"] = 1.0
+            extra_body["chat_template_kwargs"] = {"enable_thinking": False}
+        else:
+            kwargs["temperature"] = temperature
+            kwargs["top_p"] = top_p
         if stop:
             kwargs["stop"] = stop
+        if extra_body:
+            kwargs["extra_body"] = extra_body
         resp = self._client.chat.completions.create(**kwargs)
         return (resp.choices[0].message.content or "").strip()
 

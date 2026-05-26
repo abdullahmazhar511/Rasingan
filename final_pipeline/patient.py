@@ -117,7 +117,10 @@ INSTRUCTIONS:
     def generate_response(
         self,
         therapist_message: str,
-        max_tokens: int = 256,
+        # Matches training cmdline (+data.patient_model.max_tokens=192). Eval
+        # used to default to 256 — let the patient ramble longer than training
+        # ever saw, creating a distribution shift on every turn's input.
+        max_tokens: int = 192,
         temperature: float = 0.7,
         transcript: Optional[List[Dict]] = None,
         context_window: int = 12,

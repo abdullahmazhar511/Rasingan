@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_421057_0dc2f5",
+  "timestamp": 1779718437.1943355,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on the provided Reddit post).\n    *   **Situation:** 33-year-old with severe health anxiety, specifically focused on rabies and potential bites. History of unreported cat bite at age 10-11. Recent ER visits for heart issues (gastritis/heartburn). Recent trigger: friend's vaccinated cat touched their covered legs. Obsessive thoughts about the cat dying of rabies, friend texting group chat about it. Obsession over daughter's red dots (suspected bat bite vs. bug bite), despite doctors saying bug bites. Fear of stepping outside. Feeling like \"losing it.\"\n    *   **Task:** Respond authentically as the patient. Express genuine emotions/concerns. Be natural/conversational. Show vulnerability. Maintain consistency with the Reddit post narrative.\n    *   **Current Input:** A therapist initiating the session, offering support and asking what's on the patient's mind.\n    *   **Goal:** Establish the therapeutic connection by sharing the core anxieties described in the prompt.\n\n2.  **Determine the Tone and Voice:**\n    *   **Tone:**",
+      "therapist_response": "I\u2019ve been having these really strange thoughts lately\u2014like, constantly. It\u2019s hard to explain, but just today, when my friend\u2019s cat touched my legs while I was wearing pants, I started thinking about rabies like it was a real possibility. I\u2019ve never been able to shake the idea that I got a bite when I was 10 or 11, and now I\u2019m terrified something like that could happen again. Even though I know cats don\u2019t get rabies that often, it feels like my brain just\u2026 keeps looping back to it. And then I start worrying about my daughter\u2014those red dots on her arms, I keep thinking they\u2019re from a bat bite. Doctors say it\u2019s just a bug, but I don\u2019t believe them. I feel like I\u2019m losing control. It\u2019s not just about the cat or the dots\u2014it\u2019s like I\u2019m afraid of stepping outside, of being exposed to anything. I don\u2019t know if I\u2019m crazy, but I",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-worth, Safety, Functional) and GAD-7 (Core Anxiety, Physical Tension, Irritability).\n        *   Patient Statement: The input provided is labeled \"PRIMARY THERAPIST'S RESPONSE\" but the content is clearly labeled \"THINKING PROCESS: ... Patient's Statement: ...\". Wait, looking closely at the prompt structure.\n        *   *Correction/Clarification:* The prompt says \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\". Then it lists \"PRIMARY THERAPIST'S RESPONSE\" followed by a quote. However, the content of the \"PRIMARY THERAPIST'S RESPONSE\" is actually the *Patient's Statement* (based on the \"THINKING PROCESS\" section which describes a 33-year-old patient with health anxiety).\n        *   *Critical Observation:* There is a major labeling error in the user's prompt. The text under \"PRIMARY THERAPIST'S RESPONSE\" is actually the *Patient's* narrative (e.g., \"Thinking Process: ... Patient's Statement: ...\"). The text says \"I\u2019ve been having these really strange thoughts lately...\". This matches the \"Patient's Statement\" section in the \"Thinking Process\" block.\n        *   *Wait, re-reading the prompt structure:*\n            *   \"PRIMARY THERAPIST'S RESPONSE: [Quote starting with 'I\u2019ve been having these really strange thoughts lately...']\"\n            *   \"SESSION CONTEXT: Middle phase",
+      "timestamp": 1779718230.4050257,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user is role-playing as the *therapist* (based on the initial prompt instructions, I am the patient, but the user's message is actually the therapist speaking to the patient).\n    *   Wait, looking closely at the first turn:\n        *   System Instruction: \"You are a patient in therapy. You are based on the following real Reddit post describing your situation...\"\n        *   User Message 1 (Therapist): \"Hi there, I'm so glad you're here... What\u2019s been on your mind lately that you\u2019d like to talk about today?\"\n        *   User Message 2 (Patient/Me?): The user's second message *looks like* the patient is responding, but the instruction says *I* am the patient.\n        *   Wait, I need to re-evaluate the conversation flow.\n        *   Turn 1 (System/User): System sets up the persona (Patient based on Reddit post). User sends a therapist message.\n        *   Turn 2 (User): The user sends a message that looks like the *patient* continuing the conversation? No, wait.\n        *   Let's",
+      "therapist_response": "It sounds like those thoughts have been following you for a while\u2014especially around the cat, the red dots on your daughter, and the fear of being exposed. It\u2019s not just a fleeting worry; it feels like it\u2019s been living in your mind for years, and now it\u2019s getting louder. That must be incredibly exhausting, and maybe even scary, to carry all of that alone.  \n\nWould it be helpful to explore how that fear has been showing up in your daily life\u2014like when you're outside, or when you\u2019re around animals, or even when you're just sitting quietly?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate the primary therapist's response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Focus Area:** PHQ-9: Safety / Suicidality (Next Priority).\n    *   **Input Data:**\n        *   Patient's State Statement (which appears to be the *therapist's* thinking process in the prompt's \"PATIENT'S STATEMENT\" section, but looking closely at the prompt structure, there's some confusion in the provided text. Let's parse it carefully).\n        *   *Correction/Clarification on Input Data:* The prompt says \"PATIENT'S STATEMENT:\" but the text under it looks like a \"Thinking Process\" analysis of the *user's* input (the therapist's previous message). Wait, no. Let's look at the actual conversation flow described in the prompt's \"User Message 1\" and \"User Message 2\" section which is embedded in the \"PATIENT'S STATEMENT\" block.\n        *   Actually, looking at the \"PATIENT'S STATEMENT\" header: It contains \"Thinking Process: 1. Analyze the Input...\". This looks like a meta-instruction or a copy-paste error in the prompt provided by the user. However, the core instruction is: \"A primary therapist has just responded to a patient.\"\n        *   Wait, I need to look at the *actual* conversation provided in the \"SESSION CONTEXT\" or implied flow.\n        *   *Re-reading the prompt structure:* The prompt says \"You are an experienced senior therapist/clinical supervisor reviewing a therapy session.\" Then it lists the checklist. Then it says \"PATIENT'S STATEMENT:\" followed by a \"Thinking Process\" block that seems to describe the",
+      "timestamp": 1779718297.3408678,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User Role:** The user is acting as the therapist (continuing from the first turn).\n    *   **My Role:** I am the patient (based on the Reddit post profile).\n    *   **Current State:** The therapist is validating my feelings and asking about how these fears manifest in daily life (outside, around animals, sitting quietly).\n    *   **Goal:** Respond authentically as the patient described in the Reddit post. I need to share specific details about my life that align with the anxiety described (fear of stepping outside, checking on the daughter, the cat incident, the ER visits, etc.). I need to show vulnerability and maintain the narrative consistency.\n\n2.  **Review the Reddit Post Narrative:**\n    *   **Age:** 33.\n    *   **History:** Bitten by stray cat at 10-11, didn't tell parents/seek care.\n    *   **Recent Triggers:** Friend's domestic cat touched covered legs (no scratch).\n    *   **Health Anxiety:** ER visits for heart attacks (gastritis/heartburn), convinced of heart blockages.\n    *",
+      "therapist_response": "I\u2019ve been avoiding stepping outside for days\u2014ever since that cat touched my legs. I\u2019d just stand there, frozen, thinking about how the fur might have carried rabies, even though it didn\u2019t scratch me. I\u2019ve started checking my daughter\u2019s arms every few hours, just to see if the red dots are still there. I\u2019ll go to the bathroom and look, or I\u2019ll check the mirror. I don\u2019t even know if they\u2019re real, but I can\u2019t stop thinking they\u2019re from a bat bite.  \n\nAnd the ER visits\u2014last month I went because I thought I had a heart attack. I was so panicked, I thought I had a blockage. I know doctors said it was just acid reflux, but I still feel like something\u2019s wrong. It\u2019s like my body and my mind are telling different stories, and I don\u2019t know which one to trust anymore.  \n\nI don\u2019t know if I\u2019m just overthinking, or if something deeper is going on",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on an Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist (PHQ-9: Mood, Somatic, Cognitive, Safety, Functional; GAD-7: Core, Physical, Irritability).\n        *   Next Priority Area: PHQ-9 Safety / Suicidality (Thoughts of being better off dead/hurting self).\n        *   Patient's Statement: A thinking process log (not actual dialogue) describing the patient's internal state and narrative goals, followed by a \"PRIMARY THERAPIST'S RESPONSE\".\n        *   *Correction/Clarification:* Wait, looking closely at the input structure.\n            *   \"PATIENT'S STATEMENT\" contains a \"Thinking Process\" section (which looks like an AI instruction prompt for me, the patient, but labeled as part of the input) AND the actual \"PRIMARY THERAPIST'S RESPONSE\".\n            *   Actually, re-reading the prompt: \"PATIENT'S STATEMENT\" contains a block labeled \"Thinking Process\" (which seems to be instructions *for* the patient role in a roleplay scenario, likely copied from a prompt engineering example) AND then the actual \"PRIMARY THERAPIST'S RESPONSE\" is provided.\n            *   *Wait, there's a confusion in the input text.* The text under \"PATIENT'S STATEMENT\" starts with \"Thinking Process: 1. Analyze the Input... User Role... My Role...\". This looks like the *prompt instructions* for the patient side, not the actual patient dialogue.\n            *   *However*, the prompt asks me to evaluate the therapist's response based on the *",
+      "timestamp": 1779718367.7362766,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User Role:** The user is continuing to act as the therapist (based on the conversation flow).\n    *   **My Role:** I am the patient (based on the Reddit post provided in the system instructions).\n    *   **Current State:** The patient (me) is sharing specific details about their avoidance behavior (checking arms, not going outside), health anxiety (heart attack ER visit), and the feeling of distrust in their own mind vs. body.\n    *   **Goal:** I need to continue responding *as the patient* to the therapist. Wait, looking at the conversation history...\n    *   **Correction:** In the first turn, the *user* sent a therapist message. In the second turn, the *user* sent a message that looked like the patient continuing the story? No, wait.\n    *   **Let's re-read the conversation carefully.**\n    *   **System Instruction:** \"You are a patient in therapy... based on the following real Reddit post...\"\n    *   **Turn 1 (User):** \"Hi there, I'm so glad you're here... What\u2019s been on your mind lately...?\" (",
+      "therapist_response": "It sounds like your body and mind are carrying a lot of tension\u2014especially with those moments when you\u2019re afraid to go outside or check on your daughter. The way you\u2019re holding onto those red dots, or how you freeze when the cat touches your legs, it feels like your brain is trying to protect you from something real, even if it\u2019s not. And that ER visit\u2014thinking you had a heart attack\u2014must have been terrifying. It\u2019s not just about the fear; it\u2019s about how deeply those thoughts live in you, like they\u2019re part of your body\u2019s language now.  \n\nWould it be helpful to explore what that fear feels like when it comes up\u2014like, what happens in your body, or what kind of thoughts come first?",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718437.1943288,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

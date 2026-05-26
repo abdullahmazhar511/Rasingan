@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_421967_368a93",
+  "timestamp": 1779718432.213324,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient based on a specific Reddit post.\n    *   **Reddit Post Content:** Constant heart palpitations, prescribed Propanolol 10mg, worried about low blood pressure (usually 100/60), fears fainting/dizziness, tried SSRI but felt super faint/near passing out, lost job due to this, feeling driven insane.\n    *   **Task:** Respond authentically as the patient described in the post.\n    *   **Tone:** Genuine, emotional, conversational, vulnerable, open.\n    *   **Current Interaction:** The \"therapist\" (AI) is greeting me and asking how I'm feeling and what brings me in.\n    *   **Constraint:** Maintain consistency with the Reddit post narrative.\n\n2.  **Determine the Patient's State:**\n    *   **Emotional State:** Anxious, scared, frustrated, hopeless (job loss), physically uncomfortable (palpitations, dizziness/faintness).\n    *   **Core Issue:** Heart palpitations affecting quality of life and employment.\n    *   **Specific Concerns:** Medication side effects (",
+      "therapist_response": "I\u2019m really tired, honestly. Like, just\u2026 drained. Every time I try to focus, my heart starts racing like it\u2019s trying to escape my chest. I feel like I\u2019m losing control\u2014like I\u2019m in a movie where nothing makes sense. The doctor gave me propanolol, and it helped a little, but then I started feeling so faint, like I\u2019m standing on the edge of a cliff. I tried the SSRI too, and it just made it worse\u2014my head spun and I nearly passed out. I lost my job because I couldn\u2019t show up to meetings, not because I didn\u2019t want to, but because I\u2019d be shaking and my vision would go out. I don\u2019t know if I\u2019m broken or just\u2026 too much. I just feel like I\u2019m being pulled in a thousand directions. What if I\u2019m not just having anxiety, but something deeper? What if I\u2019m not even supposed to be here? I don\u2019t know. I",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am an experienced senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on the provided Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) and GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Patient Statement: A long narrative describing heart palpitations, Propanolol side effects (fainting), SSRI side effects (fainting), job loss, feelings of being \"broken,\" hopelessness (\"not even supposed to be here\"), and anxiety about the future.\n        *   Therapist Response: The prompt actually says \"PRIMARY THERAPIST'S RESPONSE\" but then provides a block of text that looks like the *Patient's Statement* (the \"Thinking Process\" section describes the patient role, but the text under \"PRIMARY THERAPIST'S RESPONSE\" is actually the patient's narrative). Wait, let me re-read carefully.\n        *   *Correction:* The prompt structure is slightly confusing.\n            *   \"PRIMARY THERAPIST'S RESPONSE\" header is followed by a block of text starting with \"I'm really tired...\".\n            *   \"PATIENT'S STATEMENT\" header is followed by \"Thinking Process...\".\n            *   Usually, in these scenarios, the \"Patient's Statement\" is what the patient says, and the \"Therapist's Response\" is what the therapist says.\n            *   However, looking at the content: \"I'm really tired... my heart starts racing... doctor gave me propanolol... I lost my job...\" This is clearly the *",
+      "timestamp": 1779718223.9948592,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User Role:** The user is acting as the *therapist* or *listener* (based on the prompt instructions \"Respond authentically as someone experiencing the situation described in the Reddit post.\" but the prompt says \"You are a patient in therapy\" and the previous turn was \"Hello, I'm so glad you're here... How are you feeling today? What brings you in for this session?\" followed by the user's response which looks like the *patient* speaking).\n    *   **Correction/Clarification:** Wait, looking at the conversation history:\n        *   System Prompt: \"You are a patient in therapy... Respond authentically as someone experiencing the situation described in the Reddit post.\"\n        *   User Turn 1: \"Hello, I'm so glad you're here. I'm really looking forward to this session and want you to know that whatever you're feeling or thinking, I'm here to listen without judgment. How are you feeling today? What brings you in for this session?\" -> *Wait, this looks like the therapist speaking to the patient.*\n        *   User Turn 2 (Current): The user is now responding *as if",
+      "therapist_response": "It sounds like you\u2019ve been carrying a lot\u2014your body, your mind, and your sense of self all feeling out of balance. The way your heart races and the dizziness, especially with the meds, must feel overwhelming. I can imagine how hard it must be to show up for work when your body is fighting you, and when you lose your job, it\u2019s not just about money\u2014it\u2019s like losing your anchor. You\u2019re not just having symptoms; you\u2019re feeling like something inside you is breaking. That fear of not being \u201csupposed to be here\u201d\u2026 that\u2019s not just anxiety. That\u2019s real. And it\u2019s valid. I\u2019m here with you, and I want to understand more about what this feels like\u2014what you\u2019re noticing, what\u2019s happening when the palpitations start, and what part of this feels most heavy for you. Would it be helpful to explore one of those parts in more depth?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Experienced senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against an Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Patient's Statement: The prompt actually contains a \"Patient's Statement\" section that looks like a \"Thinking Process\" block, but the context implies the *patient* is responding to the therapist. However, looking closely at the provided text:\n            *   System Prompt says: \"You are a patient in therapy... Respond authentically as someone experiencing the situation described in the Reddit post.\" (This seems like a leftover instruction from a different prompt context, as the current task is to evaluate the therapist).\n            *   User Turn 1 (Therapist): \"Hello, I'm so glad you're here... How are you feeling today?...\"\n            *   User Turn 2 (Patient): The text labeled \"PATIENT'S STATEMENT\" actually looks like a meta-commentary or a thinking block (\"Thinking Process: 1. Analyze the Input...\"). *Wait, this is confusing.*\n            *   Let's re-read the input carefully.\n            *   The prompt says: \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\"\n            *   Then it lists the \"PATIENT'S STATEMENT\".\n            *   The \"PATIENT'S STATEMENT\" text provided is: `\"Thinking Process: 1. **Analyze the Input:** ...\"` This looks like *model output*",
+      "timestamp": 1779718293.4998105,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on the Reddit post provided in the system prompt).\n    *   **Context:** Therapy session.\n    *   **Previous Turn:** The user (acting as the therapist) responded to my previous input (which was actually a continuation of the \"Reddit Post\" narrative in the second turn of the conversation). Wait, I need to check the conversation flow carefully.\n    *   **Correction on Conversation Flow:**\n        *   System Prompt: Sets up me as the *Patient* based on the Reddit post.\n        *   User Turn 1: \"Hello, I'm so glad you're here... How are you feeling today? What brings you in for this session?\" (This is the therapist speaking to the patient).\n        *   *Wait, the user's second message in the actual conversation history provided in the prompt is:* \"It sounds like you've been carrying a lot...\" (This looks like the *therapist* responding to the *patient*.)\n        *   *Wait, I am the AI.* The prompt says \"Respond authentically as someone experiencing the situation described in the Reddit post.\"\n        *   *",
+      "therapist_response": "I\u2019m still feeling like I\u2019m floating on air, but not in a good way. It\u2019s like my body is on autopilot and my mind is screaming. The heart palpitations don\u2019t just happen when I\u2019m stressed\u2014they come out of nowhere, like a sudden storm. I\u2019ve started noticing them when I\u2019m sitting still, even in the morning. And when they hit, I can\u2019t breathe, I feel like I\u2019m going to collapse. I don\u2019t know if it\u2019s the medication or something deeper\u2014maybe my body just doesn\u2019t trust me anymore. I keep thinking, *What if I\u2019m not just anxious, but my body is telling me something it can\u2019t say?* I don\u2019t want to feel like I\u2019m failing. I just want to know if I\u2019m really okay, or if I\u2019m just\u2026 broken. Would it be okay to talk about that fear\u2014of being broken\u2014without having to fix it right now?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am a compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate the Primary Therapist's response based on the provided Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist Items (PHQ-9: Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact; GAD-7: Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Primary Therapist's Response (provided in the prompt as \"PRIMARY THERAPIST'S RESPONSE\"). *Correction:* Wait, looking closely at the prompt structure.\n        *   The prompt says \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\"\n        *   However, the \"PRIMARY THERAPIST'S RESPONSE\" text provided is: \"I\u2019m still feeling like I\u2019m floating on air, but not in a good way...\"\n        *   *Wait, this looks like a role reversal in the prompt description.* Let's re-read carefully.\n        *   System Prompt says: \"Respond authentically as someone experiencing the situation described in the Reddit post.\"\n        *   BUT the User Prompt says: \"You are an experienced senior therapist/clinical supervisor reviewing a therapy session. A primary therapist has just responded to a patient... Evaluate whether the therapist is making progress...\"\n        *   The \"PRIMARY THERAPIST'S RESPONSE\" text provided in the User Prompt is actually written *as if it were the patient speaking* (\"I\u2019m still feeling like I\u2019m floating on air...\").\n        *   *Wait, let's look at the \"EVALUATION TASK\".* It asks me to evaluate the *Therapist's* response.\n        *",
+      "timestamp": 1779718361.5892546,
+      "turn": 3
+    },
+    {
+      "patient_message": "The user is asking me to respond as the patient in therapy, based on the Reddit post scenario. However, looking at the conversation history, it seems like there's been some confusion in the turn structure.\n\nLet me re-read the conversation:\n1. System Prompt: Sets me up as the Patient based on Reddit post\n2. User Turn 1: \"Hello, I'm so glad you're here...\" (This appears to be the therapist speaking to the patient)\n3. User Turn 2: The user's second message in the actual conversation is: \"It sounds like you've been carrying a lot...\" (This looks like the therapist responding)\n4. User Turn 3 (Current): \"I'm still feeling like I'm floating on air...\" (This is me responding as the patient)\n\nWait, I need to re-read the actual conversation flow. Looking at the messages:\n\n1. System: Sets up the scenario\n2. User (Turn 1): \"Hello, I'm so glad you're here. I'm really looking forward to this session...\" (Therapist speaking to patient)\n3. User (Turn 2): \"It sounds like you've been carrying a lot...\" (Therapist responding to patient",
+      "therapist_response": "I\u2019m still feeling like I\u2019m floating on air, but not in a good way. It\u2019s like my body is on autopilot and my mind is screaming. The heart palpitations don\u2019t just happen when I\u2019m stressed\u2014they come out of nowhere, like a sudden storm. I\u2019ve started noticing them when I\u2019m sitting still, even in the morning. And when they hit, I can\u2019t breathe, I feel like I\u2019m going to collapse. I don\u2019t know if it\u2019s the medication or something deeper\u2014maybe my body just doesn\u2019t trust me anymore. I keep thinking, *What if I\u2019m not just anxious, but my body is telling me something it can\u2019t say?* I don\u2019t want to feel like I\u2019m failing. I just want to know if I\u2019m really okay, or if I\u2019m just\u2026 broken. Would it be okay to talk about that fear\u2014of being broken\u2014without having to fix it right now?",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718432.2133217,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

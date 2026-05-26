@@ -66,7 +66,10 @@ class Agent1_PrimaryTherapist:
                     "and ask the patient what brings them in today."
                 )},
             ],
-            max_tokens=150,
+            # Matches training's per-turn cap (THERAPIST_PER_TURN_MAX_TOKENS=256
+            # in verl/.../therapist_agent_loop.py). Prevents eval from
+            # generating longer responses than training ever produced.
+            max_tokens=256,
             temperature=0.7,
             top_p=0.9,
         )
@@ -134,7 +137,10 @@ class Agent1_PrimaryTherapist:
 
         response = self.llm.chat(
             messages,
-            max_tokens=200,
+            # Matches training's per-turn cap (THERAPIST_PER_TURN_MAX_TOKENS=256
+            # in verl/.../therapist_agent_loop.py). Prevents eval from
+            # generating longer responses than training ever produced.
+            max_tokens=256,
             temperature=0.7,
             top_p=0.9,
         )

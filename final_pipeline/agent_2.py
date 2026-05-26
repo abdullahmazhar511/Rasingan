@@ -5,6 +5,7 @@ Tracks checklist progress over time for inference sessions.
 """
 
 import json
+import os
 import time
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -103,12 +104,16 @@ class Agent2_SeniorTherapist:
     def update_extraction_status(self, conversation_history: List[Dict], turn_number: int) -> Dict:
         """Mark any pending checklist items the patient just disclosed.
 
-        Simple per-turn judge: look at the *latest patient utterance*, ask the
-        LLM which (if any) of the still-pending items it satisfies, return a
-        JSON list of item names. No evidence quote, no full transcript, no
-        absence-narration handling required — the LLM can only respond with
-        items from the pending list, and anything else is rejected by the
-        substring match.
+        ID-based scheme (matches training's _supervise_turn in
+        verl/.../therapist_agent_loop.py): the supervisor sees the pending
+        items numbered [1], [2], ... and replies with an integer-id JSON
+        array {"covered_ids": [1, 3]}. We map IDs back exactly — no string
+        fuzziness, no paraphrase-induced misses.
+
+        Why: the previous free-text-name scheme was the explicit cause of
+        ir_frac ≈ 0 (4B supervisors paraphrase canonical item names like
+        "Persistent low mood (PHQ-9 item 1)" as "PHQ-9 mood"; substring match
+        against the paraphrase fails and nothing gets marked covered).
 
         Args:
             conversation_history: full session transcript
@@ -125,38 +130,41 @@ class Agent2_SeniorTherapist:
         if not latest_patient:
             return compute_summary(self.extraction_status)
 
-        # Collect pending items as a flat list — that's all the LLM needs to see.
-        pending: List[str] = []
-        item_to_category: Dict[str, str] = {}
+        # Build a numbered list of pending items so the supervisor can return
+        # IDs instead of paraphrased names. id_to_item[i] gives back the
+        # (category, item_key) pair for the supervisor's 1-indexed [i+1].
+        id_to_item: List[tuple] = []
+        pending_block = ""
         for category, data in self.extraction_status.items():
-            for item, status in data["items"].items():
-                if not status["covered"]:
-                    pending.append(item)
-                    item_to_category[item] = category
-        if not pending:
+            cat_pending = [item for item, st in data["items"].items() if not st["covered"]]
+            if not cat_pending:
+                continue
+            pending_block += f"\n{data['name']}:\n"
+            for item in cat_pending:
+                id_to_item.append((category, item))
+                pending_block += f"  [{len(id_to_item)}] {item}\n"
+        if not id_to_item:
             return compute_summary(self.extraction_status)
-
-        pending_block = "\n".join(f"- {it}" for it in pending)
 
         user_prompt = (
             f'PATIENT JUST SAID:\n"{latest_patient}"\n\n'
-            f"PENDING CHECKLIST ITEMS:\n{pending_block}\n\n"
+            f"PENDING CHECKLIST ITEMS (each prefixed with [ID]):\n{pending_block}\n"
             "Which of these items did the patient just disclose in the statement above?\n"
-            "Reply with a JSON array of the exact item strings from the list, e.g.:\n"
-            '  ["Feeling down, depressed, or hopeless"]\n'
-            "If the patient did not disclose any of these items, reply: []"
+            'Reply with JSON: {"covered_ids": [<list of integer IDs from above>]}.\n'
+            'If nothing was disclosed, reply: {"covered_ids": []}\n'
+            "Only return IDs from the list (do not invent new IDs)."
         )
 
         try:
             response_text = self.llm.chat(
                 [
                     {"role": "system", "content": (
-                        "You are a clinical supervisor. Reply with a JSON array of "
-                        "checklist item strings the patient just disclosed. Nothing else."
+                        "You are a clinical supervisor. Respond ONLY in valid JSON "
+                        'of the form {"covered_ids": [<int>...]}. Nothing else.'
                     )},
                     {"role": "user", "content": user_prompt},
                 ],
-                max_tokens=300,
+                max_tokens=128,
                 temperature=0.1,
                 top_p=0.9,
             )
@@ -166,31 +174,209 @@ class Agent2_SeniorTherapist:
             self._save_progress()
             return compute_summary(self.extraction_status)
 
-        # Parse: find the first JSON array in the response.
+        # Parse: first JSON object in the response, pull covered_ids.
         try:
-            start = response_text.find("[")
-            end = response_text.rfind("]") + 1
+            start = response_text.find("{")
+            end = response_text.rfind("}") + 1
             if start >= 0 and end > start:
-                covered_names = json.loads(response_text[start:end])
-                if isinstance(covered_names, list):
-                    for name in covered_names:
-                        if not isinstance(name, str) or not name.strip():
+                result = json.loads(response_text[start:end])
+                raw_ids = result.get("covered_ids", []) if isinstance(result, dict) else []
+                if isinstance(raw_ids, list):
+                    for rid in raw_ids:
+                        try:
+                            idx = int(rid) - 1
+                        except (TypeError, ValueError):
                             continue
-                        # Substring match against pending items (either direction)
-                        n_low = name.lower()
-                        for item in pending:
-                            if item.lower() in n_low or n_low in item.lower():
-                                cat = item_to_category[item]
-                                self.extraction_status[cat]["items"][item]["covered"] = True
-                                self.extraction_status[cat]["items"][item]["turn_covered"] = turn_number
-                                self.extraction_status[cat]["items"][item]["evidence"] = latest_patient
-                                break
+                        if 0 <= idx < len(id_to_item):
+                            cat, item = id_to_item[idx]
+                            self.extraction_status[cat]["items"][item]["covered"] = True
+                            self.extraction_status[cat]["items"][item]["turn_covered"] = turn_number
+                            self.extraction_status[cat]["items"][item]["evidence"] = latest_patient
         except (json.JSONDecodeError, KeyError):
             pass  # Parsing failed → keep current state.
 
         self._save_progress()
         return compute_summary(self.extraction_status)
     
+    # Mirrors training (verl/.../therapist_agent_loop.py:_supervise_turn) —
+    # cap the supervisor's transcript context at the last N exchanges so the
+    # prompt doesn't overflow the patient/supervisor vLLM's max_model_len on
+    # long sessions, AND so train + eval see the same context window when
+    # judging coverage. Training sets SUP_CONVO_TURNS=3 (and exposes the
+    # SUP_CONVO_TURNS env override); eval mirrors that exact value.
+    SUP_CONVO_TURNS = int(os.environ.get("SUP_CONVO_TURNS", "3"))
+
+    # The exact override training applies when the checklist becomes complete
+    # (verl/.../therapist_agent_loop.py:363-371). Reproduced verbatim so that
+    # the trained-model's "wrap up" trigger fires identically in eval.
+    _CHECKLIST_COMPLETE_OVERRIDE = (
+        "[CHECKLIST COMPLETE] Every required information-extraction "
+        "item has been gathered. Do NOT introduce new probes. "
+        "Begin wrapping up the session: briefly summarize what the "
+        "client shared, validate their effort, and close the session "
+        "naturally (e.g., 'Thank you for sharing this with me today. "
+        "Take care, and I'll see you next time.'). End the session "
+        "with clear closing language."
+    )
+
+    def supervise_turn(self, conversation_history: List[Dict], turn_number: int) -> Dict:
+        """One combined supervisor call — matches training's _supervise_turn.
+
+        Returns:
+            {
+              "feedback": str (with [CHECKLIST COMPLETE] override applied if all covered),
+              "raw_feedback": str (pre-override, for logging),
+              "extraction_summary": dict,
+              "checklist_complete": bool,
+              "patient_message": str,  # last patient evidence the supervisor saw
+              "therapist_response": str,
+              "timestamp": float,
+              "turn": int,
+            }
+
+        Does ONE LLM call (vs the prior pair of update_extraction_status +
+        evaluate_response calls). Uses the ID-based numbered scheme so the 4B
+        supervisor can return integer IDs that map back to checklist items
+        exactly (avoids paraphrase-induced misses).
+        """
+        # Identify last therapist + last patient from the FULL transcript
+        # (for the explicit "PATIENT JUST SAID" / "THERAPIST RESPONDED" fields).
+        last_therapist = ""
+        last_patient = ""
+        for msg in reversed(conversation_history):
+            role = msg.get("role")
+            text = (msg.get("message") or msg.get("content") or "").strip()
+            if not text:
+                continue
+            if role == "therapist" and not last_therapist:
+                last_therapist = text
+            elif role == "patient" and not last_patient:
+                last_patient = text
+            if last_therapist and last_patient:
+                break
+
+        # Build pending items as a numbered list (1-indexed IDs).
+        id_to_item: List[tuple] = []
+        pending_block = ""
+        for category, data in self.extraction_status.items():
+            cat_pending = [item for item, st in data["items"].items() if not st["covered"]]
+            if not cat_pending:
+                continue
+            pending_block += f"\n{data['name']}:\n"
+            for item in cat_pending:
+                id_to_item.append((category, item))
+                pending_block += f"  [{len(id_to_item)}] {item}\n"
+        if not pending_block:
+            pending_block = "(all items covered)"
+
+        # Truncate conversation to most recent SUP_CONVO_TURNS exchanges
+        # (matches training's prompt-overflow guard).
+        non_system = [m for m in conversation_history
+                      if m.get("role") in ("patient", "therapist")]
+        recent = non_system[-(2 * self.SUP_CONVO_TURNS):]
+        truncated_prefix = ""
+        if len(non_system) > len(recent):
+            truncated_prefix = (
+                f"[... {len(non_system) - len(recent)} earlier messages omitted "
+                f"for brevity ...]\n"
+            )
+        convo_text = truncated_prefix
+        for msg in recent:
+            label = "Therapist" if msg.get("role") == "therapist" else "Patient"
+            convo_text += f"{label}: {(msg.get('message') or '').strip()}\n"
+
+        next_pri = get_next_priority(self.extraction_status, self.priority_order)
+
+        messages = [
+            {"role": "system",
+             "content": "You are a clinical supervisor. Respond ONLY in valid JSON."},
+            {"role": "user", "content": (
+                f"CONVERSATION SO FAR:\n{convo_text}\n"
+                f"CHECKLIST ITEMS STILL PENDING (each prefixed with [ID]):\n{pending_block}\n"
+                f"NEXT PRIORITY AREA: {next_pri or 'All extraction items covered.'}\n\n"
+                f"PATIENT JUST SAID:\n\"{last_patient}\"\n"
+                f"THERAPIST RESPONDED:\n\"{last_therapist}\"\n\n"
+                "Return JSON with TWO fields:\n"
+                "{\n"
+                "  \"covered_ids\": [<integer IDs from the pending list above that were covered in this exchange>],\n"
+                "  \"feedback\": \"<2-4 short bullet points to coach the next therapist turn>\"\n"
+                "}\n"
+                "If nothing new was covered this turn, use \"covered_ids\": [].\n"
+                "Only return IDs from the pending list (do not invent new IDs)."
+            )},
+        ]
+
+        raw_feedback: Optional[str] = None
+        try:
+            # Sampling matches training (_supervise_turn @ therapist_agent_loop.py:909-914)
+            # exactly: max_tokens=256, temperature=0.2, no top_p (vLLM default 1.0).
+            # Previously eval passed top_p=0.9 which shifted the supervisor's
+            # output distribution vs training and was a hidden source of
+            # train/eval IR divergence.
+            response_text = self.llm.chat(
+                messages,
+                max_tokens=256,
+                temperature=0.2,
+            )
+        except Exception as e:
+            print(f"[supervisor] supervise_turn LLM call failed at turn {turn_number}: "
+                  f"{type(e).__name__}: {str(e)[:200]}", flush=True)
+            response_text = ""
+
+        # Parse the JSON envelope.
+        try:
+            start = response_text.find("{")
+            end = response_text.rfind("}") + 1
+            if start >= 0 and end > start:
+                result = json.loads(response_text[start:end])
+                if isinstance(result, dict):
+                    raw_ids = result.get("covered_ids", [])
+                    if isinstance(raw_ids, list):
+                        for rid in raw_ids:
+                            try:
+                                idx = int(rid) - 1
+                            except (TypeError, ValueError):
+                                continue
+                            if 0 <= idx < len(id_to_item):
+                                cat, item = id_to_item[idx]
+                                self.extraction_status[cat]["items"][item]["covered"] = True
+                                self.extraction_status[cat]["items"][item]["turn_covered"] = turn_number
+                                self.extraction_status[cat]["items"][item]["evidence"] = last_patient
+                    fb = result.get("feedback")
+                    if isinstance(fb, str) and fb.strip():
+                        raw_feedback = fb.strip()
+                    elif isinstance(fb, list):
+                        joined = "\n".join(s for s in fb if isinstance(s, str))
+                        if joined.strip():
+                            raw_feedback = joined.strip()
+        except (json.JSONDecodeError, KeyError):
+            pass  # parsing failure → keep state, raw_feedback stays None
+
+        summary = compute_summary(self.extraction_status)
+        covered = summary.get("covered_items", 0) or 0
+        total = summary.get("total_items", 0) or 0
+        checklist_complete = total > 0 and covered >= total
+
+        # Training's override (verl/.../therapist_agent_loop.py:363): when the
+        # checklist is fully covered, replace the supervisor's organic
+        # feedback with an explicit wrap-up instruction. This is what the
+        # therapist was trained to receive at that point.
+        final_feedback = self._CHECKLIST_COMPLETE_OVERRIDE if checklist_complete else (raw_feedback or "")
+
+        feedback_dict = {
+            "patient_message": last_patient,
+            "therapist_response": last_therapist,
+            "feedback": final_feedback,
+            "raw_feedback": raw_feedback,
+            "extraction_summary": summary,
+            "checklist_complete": checklist_complete,
+            "timestamp": time.time(),
+            "turn": turn_number,
+        }
+        self.feedback_history.append(feedback_dict)
+        self._save_progress()
+        return feedback_dict
+
     def get_evaluation_prompt(self, patient_message: str, therapist_response: str, session_context: str = "") -> str:
         """
         Generate prompt for senior therapist to evaluate Agent 1's response.

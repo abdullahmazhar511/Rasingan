@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_423179_d4bf28",
+  "timestamp": 1779718420.8892565,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on a specific Reddit post scenario).\n    *   **Reddit Post Content:** Phobia of waking up for school, hard to sleep, in a lot of pain, legs constantly sore, feels dizzy, doesn't know why.\n    *   **Patient Profile:** Adult, occupation not specified, family structure not specified.\n    *   **Instructions:** Respond authentically, express genuine emotions/concerns, be natural/conversational, share relevant details, show vulnerability, maintain consistency with the post.\n    *   **Current Input:** Therapist greeting (\"Hi there, I'm so glad you're here... How are you feeling right now? What brings you in today?\").\n\n2.  **Determine the Tone and Voice:**\n    *   **Tone:** Vulnerable, anxious, tired, seeking help but unsure.\n    *   **Voice:** Conversational, maybe a bit hesitant or overwhelmed.\n    *   **Content:** Needs to address the greeting and answer the specific questions (\"How are you feeling?\", \"What brings you in today?\") while reflecting the core issues from the Reddit post (school waking up ph",
+      "therapist_response": "I\u2019ve been feeling really tired lately, like I\u2019m stuck in a loop. Every night I lie in bed, and my body just doesn\u2019t settle\u2014my legs are sore, like they\u2019re constantly tense, and I get this dizzy feeling, like the world is tilting. I don\u2019t even know why it\u2019s happening. And when I finally get to sleep, I wake up dazed and can\u2019t remember how I got to school yesterday. It\u2019s like my mind and body are fighting each other. I don\u2019t know if it\u2019s the pain, the stress, or something deeper. I just feel so overwhelmed and confused about what\u2019s going on.  \n\nWhat do you think? Is it okay to just\u2026 sit with that feeling instead of trying to fix it right away?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Patient Statement: This is actually labeled \"Patient's Statement\" in the prompt, but looking closely at the \"Thinking Process\" section, it seems the prompt is presenting a *scenario* where the \"Patient\" is actually the AI persona generating a response based on a Reddit post, OR the prompt is confusingly structured. Wait, let's re-read carefully.\n        *   *Correction:* The prompt says \"A primary therapist has just responded to a patient.\" Then it lists \"INFORMATION EXTRACTION CHECKLIST\". Then it lists \"NEXT PRIORITY AREA: [PHQ-9: Safety / Suicidality]\". Then it lists \"PATIENT'S STATEMENT\".\n        *   *Critical Analysis of \"PATIENT'S STATEMENT\":* The text under \"PATIENT'S STATEMENT\" actually reads \"Thinking Process: 1. Analyze the Request...\". This looks like the *output* of an AI generating a patient response, or perhaps the prompt is telling me that the *input* I'm evaluating is the text under \"PRIMARY THERAPIST'S RESPONSE\".\n        *   *Wait, let's look at the structure again:*\n            *   Role: Senior Supervisor.\n            *   Task: Evaluate whether the therapist is making progress on the checklist.\n            *   Patient's Statement: \"Thinking Process... [Instructions]...",
+      "timestamp": 1779718207.4080534,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User:** The user is now role-playing as the *therapist* (based on the previous turn where they said \"Hi there, I'm so glad you're here...\"). Wait, looking back at the conversation history provided in the prompt...\n    *   **Correction:** In the first turn, the *model* was supposed to act as the *patient*. The *user* was supposed to act as the *therapist*.\n    *   **Current Input:** The user says \"I've been feeling really tired lately...\" This is strange. The user is now speaking *as* the patient? Or is the user continuing the role of the therapist but asking a question?\n    *   **Wait, let's re-read the context.**\n    *   **System Prompt:** \"You are a patient in therapy. You are based on the following real Reddit post...\"\n    *   **First Turn (Model):** \"Hi there...\" (Wait, I need to check the first turn provided in the chat history).\n    *   **Chat History Check:**\n        *   **User Turn 1:** \"Hi there, I'm so glad you're here",
+      "therapist_response": "I hear how heavy and confusing that all feels\u2014like your body and mind are in a constant tug-of-war. It\u2019s not easy to sit with that uncertainty, especially when you\u2019re already struggling to wake up and get through the day. Would it be helpful to explore what happens right before you fall asleep or when you first wake up? Maybe we can find a small space where you can just notice what\u2019s going on, without needing to fix it yet.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Experienced Senior Therapist/Clinical Supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Patient's Statement (from the prompt's perspective, but the prompt says \"PRIMARY THERAPIST'S RESPONSE\" and \"PATIENT'S STATEMENT\" is actually the user's input in the chat history provided). Wait, I need to carefully parse the chat history provided in the prompt.\n        *   **Correction/Clarification on Roles:**\n            *   System Prompt says: \"You are a patient in therapy.\" (This is for the *model* in the *original* conversation context, but now I am acting as a *supervisor* reviewing a session).\n            *   **Current Scenario:** I am the Supervisor. The User provided a scenario.\n            *   **Patient's Statement:** \"Thinking Process: ... User Turn 1: 'Hi there, I'm so glad you're here' ... Current Input: The user says 'I've been feeling really tired lately...'\".\n            *   **Wait, there's a lot of confusion in the prompt's provided chat history.**\n            *   Let's look at the \"PRIMARY THERAPIST'S RESPONSE\" section provided in the prompt.\n            *   Let's look at the \"PATIENT'S STATEMENT\" section provided in the prompt.\n            *   Actually, looking closely at the prompt structure:\n                *   \"PATIENT'S STATEMENT: 'Thinking Process: ...'\" -> This looks like the user is giving me the context of the conversation.\n                *   \"PRIMARY THERAPIST'S RESPONSE:\" -> This is the therapist's response I need to evaluate.\n                *   Wait, the \"",
+      "timestamp": 1779718280.2636635,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user (acting as the therapist) is responding to the patient's previous message (which I need to recall or infer).\n    *   Wait, I need to check the conversation flow.\n    *   **Turn 1 (User):** \"Hi there, I'm so glad you're here...\" (Therapist greeting)\n    *   **Turn 1 (Model):** I need to generate this as the patient. I haven't generated it yet in this session. Wait, the prompt says \"REDDIT POST (Your Situation)\" and \"PATIENT PROFILE\". The first instruction is \"Respond authentically as someone experiencing the situation described in the Reddit post.\"\n    *   **Turn 2 (User):** \"I've been feeling really tired lately...\" Wait, this looks like the *therapist* asking questions or the *patient* describing symptoms?\n    *   **Correction:** In the provided chat history (which I see in the prompt structure), the *User* sent the first message: \"Hi there, I'm so glad you're here...\"\n    *   **Wait, I need to look at the actual conversation flow provided in the prompt",
+      "therapist_response": "I hear how heavy and confusing that all feels\u2014like your body and mind are in a constant tug-of-war. It\u2019s not easy to sit with that uncertainty, especially when you\u2019re already struggling to wake up and get through the day. Would it be helpful to explore what happens right before you fall asleep or when you first wake up? Maybe we can find a small space where you can just notice what\u2019s going on, without needing to fix it yet.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Experienced senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: PHQ-9: Safety / Suicidality.\n        *   Patient's Statement/Context: The prompt provides a \"Thinking Process\" section which seems to be instructions for the AI model to simulate the patient's perspective, but then it says \"PRIMARY THERAPIST'S RESPONSE\" and \"SESSION CONTEXT\". Wait, looking closely at the prompt structure:\n            *   There is a \"REDDIT POST (Your Situation)\" section mentioned in the \"Thinking Process\" of the *model* (me, the AI) but it's actually part of the *user's* prompt instructions describing a hypothetical scenario.\n            *   Actually, looking at the \"PATIENT'S STATEMENT\" section in the prompt: It says \"Thinking Process: 1. Analyze the Input... 2. Wait... 3. Correction...\". This looks like *my* (the AI's) internal monologue or a copy-paste error in the prompt provided by the user.\n            *   *Correction:* The user provided a scenario where the *Therapist* has just responded. I need to evaluate *that* response against the checklist.\n            *   *Crucial Missing Info:* The prompt says \"A primary therapist has just responded to a patient.\" but it doesn't explicitly show the *Patient's* actual response text",
+      "timestamp": 1779718345.9612076,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am the patient (based on the Reddit post about phobia of waking up for school, sleep issues, leg pain, dizziness).\n    *   **User Role:** Therapist.\n    *   **Current Context:** The therapist has just responded to my previous message (which I need to recall from the session flow, but wait, I am generating the response *now*).\n    *   **Wait, I need to check the conversation history.**\n    *   **Turn 1 (User):** \"Hi there, I'm so glad you're here. I really appreciate you taking the time to meet with me today. I'm here to listen, to understand, and to support you in whatever way feels most helpful. How are you feeling right now? What brings you in today?\"\n    *   **Turn 1 (Model):** I need to respond to this.\n    *   **Turn 2 (User):** \"I've been feeling really tired lately...\" (Wait, this looks like the user is roleplaying the *patient*? No, the instructions say \"You are a patient in therapy.\" The user is the therapist. The",
+      "therapist_response": "I\u2019ve been feeling really tired lately, like I\u2019m stuck in a loop. Every night I lie in bed, and my body just doesn\u2019t settle\u2014my legs are sore, like they\u2019re constantly tense, and I get this dizzy feeling, like the world is tilting. I don\u2019t even know why it\u2019s happening. And when I finally get to sleep, I wake up dazed and can\u2019t remember how I got to school yesterday. It\u2019s like my mind and body are fighting each other. I don\u2019t know if it\u2019s the pain, the stress, or something deeper. I just feel so overwhelmed and confused about what\u2019s going on.  \n\nWhat do you think? Is it okay to just\u2026 sit with that feeling instead of trying to fix it right away?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am a compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Priority Area: PHQ-9: Safety / Suicidality.\n        *   Patient's Statement (provided in the prompt, though there's some confusion in the \"Patient's Statement\" section of the prompt): The prompt actually contains a mix-up. It says \"Patient's Statement: Thinking Process...\" and then lists",
+      "timestamp": 1779718420.889254,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

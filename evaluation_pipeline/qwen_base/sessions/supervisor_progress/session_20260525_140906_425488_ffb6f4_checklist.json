@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_425488_ffb6f4",
+  "timestamp": 1779718442.7678075,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (19-year-old female, chronic anxiety, panic attacks since age 6, medication helped, recovered with meditation, recently had a stomach virus, anxiety relapsed with shaking attacks and general panic).\n    *   **Task:** Respond authentically as the patient described in the Reddit post.\n    *   **Tone:** Genuine, emotional, conversational, vulnerable, natural, not overly formal.\n    *   **Context:** Therapy session (implied by the user's message).\n    *   **Current Input:** Therapist is welcoming, encouraging breathing, asking what's on their mind.\n    *   **Constraint:** Maintain consistency with the Reddit post narrative.\n\n2.  **Determine the Patient's State of Mind:**\n    *   She's 19.\n    *   She has a history of severe anxiety/panic attacks since childhood.\n    *   She feels she \"fully recovered\" with meditation and meds.\n    *   She had a stomach virus a couple weeks ago.\n    *   Since then, she's having a relapse (shaking attacks weekly, general panic).\n    *",
+      "therapist_response": "I\u2019ve been thinking a lot about how the world feels lately\u2014like it\u2019s all spinning a little too fast. I remember when I thought I had it under control, with meditation and the meds, and how good it felt to just\u2026 be quiet. But after the virus, everything kind of tipped. I don\u2019t know if it\u2019s the body, or just my mind catching up, but now I\u2019m shaking even when I\u2019m sitting still. It\u2019s not just a little flutter\u2014it feels like my body\u2019s screaming, and I can\u2019t quiet it.  \n\nI don\u2019t know if I\u2019m supposed to be stronger, or if this is just part of the healing. I just want to feel safe again, even if it\u2019s just for a few minutes.  \n\nWhat do you think? Would it help to keep talking about that\u2014how it\u2019s feeling now, or maybe go somewhere else first?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate the primary therapist's response to the patient's statement based on the PHQ-9 + GAD-7 information extraction checklist.\n    *   **Input Data:**\n        *   Checklist (PHQ-9: Core Mood, Somatic, Cognitive/Self-Worth, Safety, Functional Impact; GAD-7: Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Patient's Statement (actually, this is the \"Thinking Process\" and \"Patient's State of Mind\" description provided in the prompt, *not* a direct transcript of the patient speaking. Wait, looking closely at the prompt structure).\n        *   *Correction:* The prompt says \"PATIENT'S STATEMENT: 'Thinking Process: ...'\". This looks like the prompt *is* giving me the context of who the patient is and what they are thinking, but the \"PRIMARY THERAPIST'S RESPONSE\" is what I need to evaluate against the checklist.\n        *   *Wait, re-reading the prompt structure:* The prompt says \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress on the PHQ-9 + GAD-7... checklist.\"\n        *   *Input:* \"PATIENT'S STATEMENT: 'Thinking Process: ...'\" This seems to be a meta-description of the patient's background provided *in the prompt*, not necessarily the actual patient utterance during the session. However, the \"PRIMARY THERAPIST'S RESPONSE\" is provided.\n        *   *Wait, actually:* The prompt asks me to evaluate the therapist's response *to* the patient. But the \"PATIENT'S STATEMENT\" section looks like a roleplay instruction or background info rather than a",
+      "timestamp": 1779718236.0686963,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the User's Input:**\n    *   The user (acting as the therapist) has already shared some context about the patient's state (which is actually a bit confusing in the prompt structure. Wait, looking back at the conversation history).\n    *   *Correction:* The user is *acting* as the therapist in the second turn. The first turn was the therapist welcoming the patient. The second turn is the therapist continuing the session, but wait... the user's second message says \"I've been thinking a lot about how the world feels lately...\" and \"I don't know if I'm supposed to be stronger...\" This sounds like the *therapist* is speaking, but the content is actually the *patient's* perspective described in the prompt.\n    *   *Wait, re-reading the conversation flow:*\n        *   System Instruction: I am a patient in therapy. Based on a Reddit post.\n        *   User Turn 1: \"Hi there, I'm so glad you're here...\" (Therapist persona).\n        *   User Turn 2: \"I've been thinking a lot about how the world feels lately...\" (This looks like the patient speaking, but",
+      "therapist_response": "I\u2019ve been thinking a lot about how the world feels lately\u2014like it\u2019s all spinning a little too fast. I remember when I thought I had it under control, with meditation and the meds, and how good it felt to just\u2026 be quiet. But after the virus, everything kind of tipped. I don\u2019t know if it\u2019s the body, or just my mind catching up, but now I\u2019m shaking even when I\u2019m sitting still. It\u2019s not just a little flutter\u2014it feels like my body\u2019s screaming, and I can\u2019t quiet it.  \n\nI don\u2019t know if I\u2019m supposed to be stronger, or if this is just part of the healing. I just want to feel safe again, even if it\u2019s just for a few minutes.  \n\nWhat do you think? Would it help to keep talking about that\u2014how it\u2019s feeling now, or maybe go somewhere else first?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on the PHQ-9 + GAD-7 Information Extraction Checklist.\n    *   **Input Data:**\n        *   Checklist items (PHQ-9: Mood, Somatic, Cognitive/Self-Worth, Safety, Functional Impact; GAD-7: Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality] (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement (provided in the prompt, though labeled \"Thinking Process\" and confusingly mixed with the therapist's input in the user description, I need to parse this carefully).\n        *   Primary Therapist's Response (the text provided under \"PRIMARY THERAPIST'S RESPONSE\").\n    *   **Output Requirements:**\n        1.  Note which checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest what to ask about next based on pending items.\n        4.  Provide a concrete reframed response example if needed.\n    *   **Tone:** Constructive, actionable, coaching, compassionate.\n\n2.  **Analyze the Input Data (Crucial Step - Disambiguation):**\n    *   *Prompt Confusion:* The prompt text under \"PATIENT'S STATEMENT\" is labeled \"Thinking Process\" and contains text that looks like it was generated by an AI or is a mix of roles.\n    *   *User Turn 1:* \"Hi there, I'm so glad you're here...\" (Therapist persona).\n    *   *User Turn 2:*",
+      "timestamp": 1779718302.74169,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user's message is confusing. It seems like the user is roleplaying the *patient* here, but the system instruction says *I* am the patient.\n    *   However, looking at the conversation history provided in the prompt:\n        *   System Instruction: \"You are a patient in therapy.\"\n        *   User Turn 1: \"Hi there, I'm so glad you're here... What's on your mind right now?\" (This is clearly the therapist).\n        *   User Turn 2: \"I've been thinking a lot about how the world feels lately... What do you think?...\" (This is the patient speaking).\n    *   Wait, I need to check the actual conversation flow provided in the current context.\n    *   Context:\n        *   System: \"You are a patient in therapy... based on the following real Reddit post...\"\n        *   User Turn 1: \"Hi there, I\u2019m so glad you\u2019re here... What\u2019s on your mind right now?\" (Therapist).\n        *   User Turn 2: \"I\u2019ve been thinking a lot about how the world feels",
+      "therapist_response": "I\u2019ve been thinking a lot about how the world feels lately\u2014like it\u2019s all spinning a little too fast. I remember when I thought I had it under control, with meditation and the meds, and how good it felt to just\u2026 be quiet. But after the virus, everything kind of tipped. I don\u2019t know if it\u2019s the body, or just my mind catching up, but now I\u2019m shaking even when I\u2019m sitting still. It\u2019s not just a little flutter\u2014it feels like my body\u2019s screaming, and I can\u2019t quiet it.  \n\nI don\u2019t know if I\u2019m supposed to be stronger, or if this is just part of the healing. I just want to feel safe again, even if it\u2019s just for a few minutes.  \n\nWhat do you think? Would it help to keep talking about that\u2014how it\u2019s feeling now, or maybe go somewhere else first?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session based on an \"Information Extraction Checklist\" (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist items (PHQ-9 Core Mood, Somatic, Cognitive, Safety, Functional; GAD-7 Core, Physical, Irritability).\n        *   Primary Therapist's Response (provided in the prompt).\n        *   Patient's Statement (Wait, the prompt says \"Patient's Statement\" but the text provided under \"PATIENT'S STATEMENT\" looks like a thinking process analysis of the conversation flow, followed by \"PRIMARY THERAPIST'S RESPONSE\". Actually, looking closely at the prompt structure:\n            *   System Instruction says: \"You are an experienced senior therapist/clinical supervisor...\"\n            *   The \"PATIENT'S STATEMENT\" section in the prompt contains: \"Thinking Process: 1. Analyze the Input...\" This looks like *metadata* about the conversation structure rather than the actual patient dialogue.\n            *   Wait, let's re-read the prompt carefully.\n            *   \"PATIENT'S STATEMENT: 'Thinking Process: 1. Analyze the Input: ...'\" -> This is confusing. It seems the prompt is simulating a scenario where the \"Patient\" is actually providing a meta-analysis or the prompt structure is slightly garbled.\n            *   However, looking at the \"PRIMARY THERAPIST'S RESPONSE\", it says: \"I\u2019ve been thinking a lot about how the world feels lately...\". This sounds like the *Therapist* is speaking, but the text under \"PRIMARY THERAPIST'S RESPONSE\" actually reads like a patient speaking *about* their experience (\"I've been thinking a lot...\").\n            *",
+      "timestamp": 1779718373.4079435,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (19-year-old female, chronic anxiety, panic attacks since childhood, recently relapsed after a stomach virus).\n    *   **Context:** Therapy session.\n    *   **User Input:** The user is asking me (the patient) to respond to their message. Wait, looking at the conversation history provided in the prompt...\n    *   *Correction:* I need to check the actual conversation history provided in the *current* session context.\n    *   The prompt shows:\n        *   System Instruction: \"You are a patient in therapy...\"\n        *   User Turn 1: \"Hi there, I\u2019m so glad you\u2019re here...\" (Therapist)\n        *   User Turn 2: \"I\u2019ve been thinking a lot about how the world feels lately...\" (This is the user's second message).\n    *   *Wait, there's a mismatch in the conversation history provided in the prompt vs. my understanding.*\n    *   Let's look at the actual conversation provided in the *current* context window.\n    *   User Turn 1: \"Hi there, I\u2019m so glad you",
+      "therapist_response": "I\u2019ve been thinking a lot about how the world feels lately\u2014like it\u2019s all spinning a little too fast. I remember when I thought I had it under control, with meditation and the meds, and how good it felt to just\u2026 be quiet. But after the virus, everything kind of tipped. I don\u2019t know if it\u2019s the body, or just my mind catching up, but now I\u2019m shaking even when I\u2019m sitting still. It\u2019s not just a little flutter\u2014it feels like my body\u2019s screaming, and I can\u2019t quiet it.  \n\nI don\u2019t know if I\u2019m supposed to be stronger, or if this is just part of the healing. I just want to feel safe again, even if it\u2019s just for a few minutes.  \n\nWhat do you think? Would it help to keep talking about that\u2014how it\u2019s feeling now, or maybe go somewhere else first?",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718442.7678015,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

@@ -97,7 +97,14 @@ DATASET_PATH="${DATASET_PATH:-$RASINGAN_DIR/respair_mhcopilot_format}"
 CONTEXT_WINDOW="${CONTEXT_WINDOW:-6}"
 MAX_TURNS="${MAX_TURNS:-20}"
 N_SCENARIOS="${N_SCENARIOS:-}"  # cap: run only the first N from the selected set
-CONCURRENCY="${CONCURRENCY:-4}"  # parallel sessions sharing the same vLLM clients
+CONCURRENCY="${CONCURRENCY:-30}"  # parallel sessions sharing the same vLLM clients
+
+# CARE inference batch size used by Phase B2 (score_ctrs.py). CARE scores
+# every therapist turn through a Qwen-hierarchical classifier on cuda:0;
+# bigger batches → fewer forward passes per session. Default 32 (was 8 in
+# score_ctrs.py's own default) — H200 has ample memory for it. Lower if
+# you see OOM in score_ctrs output, or raise to 64 if cuda:0 has room.
+CARE_BATCH_SIZE="${CARE_BATCH_SIZE:-32}"
 
 # CSV-driven scenarios — Phase B always walks the rows of this CSV.
 # Default = the multiturn_reddit_data test split (20 anxiety + 20 depression
@@ -105,7 +112,7 @@ CONCURRENCY="${CONCURRENCY:-4}"  # parallel sessions sharing the same vLLM clien
 # need a different file (e.g. SCENARIOS_FROM=.../splits/val.csv).
 SCENARIOS_FROM="${SCENARIOS_FROM:-$RASINGAN_DIR/multiturn_reddit_data/splits/test.csv}"
 SCENARIO_CATEGORIES="${SCENARIO_CATEGORIES:-anxiety depression}"   # space-separated
-N_PER_CATEGORY="${N_PER_CATEGORY:-}"                                # e.g. 20 → 20 per category
+N_PER_CATEGORY="${N_PER_CATEGORY:-15}"                              # e.g. 20 → 20 per category
 
 # ---- Phase B (multi-turn) configuration ----------------------------------
 # Therapist (Agent 1) runs in the current conda env (verl) on its own GPU.
@@ -113,20 +120,67 @@ N_PER_CATEGORY="${N_PER_CATEGORY:-}"                                # e.g. 20 �
 # separate Python env on a different GPU (so the verl env's older vLLM doesn't
 # have to host them; also avoids flashinfer JIT issues for the supervisor).
 THERAPIST_MODEL="${THERAPIST_MODEL:-Qwen/Qwen3-4B-Instruct-2507}"
-SHARED_MODEL="${SHARED_MODEL:-Qwen/Qwen3-4B-Instruct-2507}"
-SUPERVISOR_PYTHON="${SUPERVISOR_PYTHON:-/home/asbahk/hallucination/.venv/bin/python}"
+# Must match the training supervisor/patient model so eval rollouts are
+# directly comparable to the training reward signal (verl run uses
+# +data.{patient,supervisor}_model.model=Qwen/Qwen3.5-4B).
+SHARED_MODEL="${SHARED_MODEL:-Qwen/Qwen3.5-4B}"
+# Default supervisor python: hallucination/.venv (vLLM 0.19.1 + Triton GDN backend).
+# Override with SUPERVISOR_PYTHON=/home/asbahk/vllmenv/bin/python for vLLM 0.20.
+if [ -z "${SUPERVISOR_PYTHON:-}" ]; then
+    if [ -x /home/asbahk/hallucination/.venv/bin/python ]; then
+        SUPERVISOR_PYTHON=/home/asbahk/hallucination/.venv/bin/python
+    elif [ -x /home/asbahk/vllmenv/bin/python ]; then
+        SUPERVISOR_PYTHON=/home/asbahk/vllmenv/bin/python
+    else
+        SUPERVISOR_PYTHON="$(command -v python)"
+    fi
+fi
+
+# GDN backend follows the same conditional as training:
+#   vllmenv     → empty (FlashInfer default, fixed by flashinfer-jit-cache + 0.20)
+#   hallucination/.venv → "triton" (force Triton to avoid the GDN hang on 0.19.1)
+if [ -z "${GDN_PREFILL_BACKEND:-}" ]; then
+    case "$SUPERVISOR_PYTHON" in
+        */vllmenv/*)  GDN_PREFILL_BACKEND="" ;;
+        *)            GDN_PREFILL_BACKEND="triton" ;;
+    esac
+fi
+
 SUPERVISOR_GPU="${SUPERVISOR_GPU:-1}"
 THERAPIST_GPU="${THERAPIST_GPU:-0}"
 SUPERVISOR_GPU_MEM_UTIL="${SUPERVISOR_GPU_MEM_UTIL:-0.55}"
-SUPERVISOR_MAX_LEN="${SUPERVISOR_MAX_LEN:-8192}"
-SUPERVISOR_READY_TIMEOUT="${SUPERVISOR_READY_TIMEOUT:-300}"  # seconds
+# Match training's observed --max-model-len 24576. The default 8192 was too
+# small for 20-turn sessions and would reject most supervisor calls.
+SUPERVISOR_MAX_LEN="${SUPERVISOR_MAX_LEN:-24576}"
+# Match training throughput flags (setup_external_models.sh:202-203)
+SUPERVISOR_MAX_NUM_SEQS="${SUPERVISOR_MAX_NUM_SEQS:-256}"
+SUPERVISOR_MAX_NUM_BATCHED_TOKENS="${SUPERVISOR_MAX_NUM_BATCHED_TOKENS:-32768}"
+# Long ready timeout — first-run JIT compile + KV profile on H100 takes >5 min
+SUPERVISOR_READY_TIMEOUT="${SUPERVISOR_READY_TIMEOUT:-900}"  # seconds
 
-# ---- Therapist (Agent 1) loads in-process via HuggingFace transformers ----
-# The therapist is the model under evaluation. It runs IN PROCESS inside run.py
-# (no vLLM, no HTTP server). For SFT/RL runs use --merge to fold the adapter
-# into a standalone HF dir first; the therapist always loads a self-contained
-# model directly. GPU pinning happens via CUDA_VISIBLE_DEVICES=$THERAPIST_GPU,
-# so inside Python the therapist always sees "cuda:0" (no separate knob needed).
+# ---- Therapist (Agent 1) launched as a dedicated vLLM HTTP server ---------
+# The therapist is the model under evaluation. We launch a second vLLM server
+# for it (port 8002, GPU $THERAPIST_GPU) using the verl conda env's python.
+# vLLM gives continuous batching + paged KV cache → 16 concurrent therapist
+# calls actually run in parallel (vs the old in-process HFTherapist which
+# serialized everything behind a threading.Lock around model.generate()).
+#
+# For SFT/RL runs, the --merge step still folds the adapter into a standalone
+# HF dir first; vLLM loads that dir natively (it's a standard safetensors
+# directory). To fall back to the old in-process HF backend, set
+# THERAPIST_USE_VLLM=0.
+THERAPIST_USE_VLLM="${THERAPIST_USE_VLLM:-1}"
+THERAPIST_PORT="${THERAPIST_PORT:-8002}"
+THERAPIST_GPU_MEM_UTIL="${THERAPIST_GPU_MEM_UTIL:-0.55}"
+# Matches training's vLLM rollout max_model_len exactly:
+#   MAX_PROMPT_LENGTH (2048) + MAX_RESPONSE_LENGTH (8192) = 10240.
+# Same cap training enforced via the headroom check in the agent loop, so eval
+# overflows at the same context length training did (no "false success" on
+# longer sessions that training never reached).
+THERAPIST_MAX_LEN="${THERAPIST_MAX_LEN:-10240}"
+THERAPIST_MAX_NUM_SEQS="${THERAPIST_MAX_NUM_SEQS:-64}"
+THERAPIST_MAX_NUM_BATCHED_TOKENS="${THERAPIST_MAX_NUM_BATCHED_TOKENS:-16384}"
+THERAPIST_READY_TIMEOUT="${THERAPIST_READY_TIMEOUT:-900}"
 
 # NOTE: flashinfer JIT-compile works fine with the CUDA 12.8 nvcc set above.
 # No need for VLLM_USE_FLASHINFER_SAMPLER=0; if it still fails set it manually.
@@ -177,16 +231,19 @@ EOF
 }
 
 # Defaults
-MODEL_NAME="qwen_sft"
-# BASE_MODEL="${BASE_MODEL:-Qwen/Qwen3-4B-Instruct-2507}" 
-BASE_MODEL="/home/asbahk/EMNLP_FINAL/Rasingan/sft_training/results/Qwen3-4B-sft-respair-new-3-merged" #checkpoint for sft model used for rl"
+MODEL_NAME="qwen_mt_v2"
+# BASE_MODEL="${BASE_MODEL:-mistralai/Ministral-8B-Instruct-2410}"
+# BASE_MODEL="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/mistral_8b/global_step_514-merged"
+# BASE_MODEL="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged" #checkpoint for sft model used for rl"
 # MERGE_MODE="verl"               # "" | "sft" | "verl"
-# MERGE_CHECKPOINT="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_80"   # path to the unmerged checkpoint
+MERGE_CHECKPOINT="/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/therapist_multiturn_final_v3/global_step_40" # path to the unmerged checkpoint
 # MERGE_OUTPUT="${MERGE_OUTPUT:-}"           # where to write merged dir; auto if empty
-SKIP_SINGLE_TURN=false
+SKIP_SINGLE_TURN=true
 SKIP_GENERATION=false
-SKIP_MULTI_TURN=true
+SKIP_MULTI_TURN=false
 SKIP_SESSIONS=false
+
+
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -314,6 +371,37 @@ if [ -n "$MERGE_MODE" ]; then
 fi
 
 # ============================================================================
+# Record which model this evaluation directory belongs to. After any merge,
+# BASE_MODEL/THERAPIST_MODEL point at the merged dir, so this captures the
+# *actual* weights that produced the scores — solves the "which Llama was
+# llama_base?" problem when looking back at old eval dirs.
+# ============================================================================
+mkdir -p "$MODEL_DIR"
+MODEL_NAME="$MODEL_NAME" \
+BASE_MODEL="$BASE_MODEL" \
+THERAPIST_MODEL="$THERAPIST_MODEL" \
+SHARED_MODEL="$SHARED_MODEL" \
+MERGE_MODE="${MERGE_MODE:-}" \
+MERGE_CHECKPOINT="${MERGE_CHECKPOINT:-}" \
+MERGE_OUTPUT="${MERGE_OUTPUT:-}" \
+"$CONDA_PY" - "$MODEL_DIR/model_info.json" <<'PY'
+import json, sys, datetime, os
+info = {
+    "model_name":      os.environ.get("MODEL_NAME", ""),
+    "base_model":      os.environ.get("BASE_MODEL", ""),
+    "therapist_model": os.environ.get("THERAPIST_MODEL", ""),
+    "shared_model":    os.environ.get("SHARED_MODEL", ""),
+    "merge_mode":      os.environ.get("MERGE_MODE") or None,
+    "merged_from":     os.environ.get("MERGE_CHECKPOINT") or None,
+    "merge_output":    os.environ.get("MERGE_OUTPUT") or None,
+    "saved_at":        datetime.datetime.now(datetime.timezone.utc).isoformat(),
+}
+with open(sys.argv[1], "w") as f:
+    json.dump(info, f, indent=2, sort_keys=True)
+print(f"[model_info] wrote {sys.argv[1]}")
+PY
+
+# ============================================================================
 # PHASE A — Single-turn benchmark metrics
 # ============================================================================
 if [ "$SKIP_SINGLE_TURN" = false ]; then
@@ -376,6 +464,8 @@ fi
 # ============================================================================
 SUP_SERVER_PID=""
 SUP_SERVER_LOG=""
+THER_SERVER_PID=""
+THER_SERVER_LOG=""
 
 _terminate_pid() {
     local pid="$1"; local label="$2"
@@ -393,8 +483,36 @@ _terminate_pid() {
 
 cleanup_servers() {
     _terminate_pid "$SUP_SERVER_PID" "supervisor server"
+    _terminate_pid "$THER_SERVER_PID" "therapist server"
 }
 trap cleanup_servers EXIT INT TERM
+
+_wait_for_server_ready() {
+    # Generic wait-for-vllm-HTTP-up loop. Args:
+    #   label     human-readable name for log lines (e.g. "Supervisor")
+    #   pid       PID of the launched vllm process
+    #   port      HTTP port to probe (/v1/models)
+    #   timeout   max seconds to wait before failing
+    #   log       path to that server's log (for tail-on-failure)
+    local label="$1"; local pid="$2"; local port="$3"
+    local timeout="$4"; local log="$5"
+    local deadline=$(( $(date +%s) + timeout ))
+    while [ "$(date +%s)" -lt "$deadline" ]; do
+        if ! kill -0 "$pid" 2>/dev/null; then
+            print_error "[B0] $label server died before becoming ready. Last log lines:"
+            tail -30 "$log" >&2
+            return 1
+        fi
+        if curl -sf "http://127.0.0.1:${port}/v1/models" -o /dev/null 2>/dev/null; then
+            print_success "[B0] $label server ready at http://127.0.0.1:${port}/v1"
+            return 0
+        fi
+        sleep 5
+    done
+    print_error "[B0] $label server did not become ready within ${timeout}s. Last log lines:"
+    tail -30 "$log" >&2
+    return 1
+}
 
 start_supervisor_server() {
     local model="$1"
@@ -411,36 +529,76 @@ start_supervisor_server() {
 
     print_status "[B0] Launching supervisor model on GPU $gpu via $SUPERVISOR_PYTHON"
     print_status "[B0]   model=$model  port=$port  gpu_mem_util=$SUPERVISOR_GPU_MEM_UTIL  max_len=$SUPERVISOR_MAX_LEN"
+    print_status "[B0]   gdn_backend=${GDN_PREFILL_BACKEND:-FlashInfer (default)}  max_num_seqs=$SUPERVISOR_MAX_NUM_SEQS  max_num_batched_tokens=$SUPERVISOR_MAX_NUM_BATCHED_TOKENS"
     print_status "[B0]   server log: $SUP_SERVER_LOG"
 
-    CUDA_VISIBLE_DEVICES="$gpu" nohup "$SUPERVISOR_PYTHON" -m vllm.entrypoints.openai.api_server \
+    # Mirror training launcher (verl/examples/faith/scripts/setup_external_models.sh).
+    # VLLM_USE_DEEP_GEMM=0 bypasses the FP8 DeepGEMM warmup probe that crashes
+    # vllmenv (vLLM 0.20) on bf16 models. Throughput flags
+    # (--enable-prefix-caching / --enable-chunked-prefill / --max-num-* /
+    # --dtype bf16 / --language-model-only) are identical to training.
+    local gdn_args=()
+    if [ -n "$GDN_PREFILL_BACKEND" ]; then
+        gdn_args=(--gdn-prefill-backend "$GDN_PREFILL_BACKEND")
+    fi
+    CUDA_VISIBLE_DEVICES="$gpu" VLLM_USE_DEEP_GEMM=0 \
+        nohup "$SUPERVISOR_PYTHON" -m vllm.entrypoints.openai.api_server \
         --model "$model" \
+        --served-model-name "$model" \
         --host 127.0.0.1 \
         --port "$port" \
+        --tensor-parallel-size 1 \
         --gpu-memory-utilization "$SUPERVISOR_GPU_MEM_UTIL" \
         --max-model-len "$SUPERVISOR_MAX_LEN" \
-        --served-model-name "$model" \
+        --dtype bfloat16 \
+        --enable-prefix-caching \
+        --enable-chunked-prefill \
+        --max-num-batched-tokens "$SUPERVISOR_MAX_NUM_BATCHED_TOKENS" \
+        --max-num-seqs "$SUPERVISOR_MAX_NUM_SEQS" \
+        "${gdn_args[@]}" \
+        --language-model-only \
         >> "$SUP_SERVER_LOG" 2>&1 &
     SUP_SERVER_PID=$!
-    print_status "[B0]   supervisor PID=$SUP_SERVER_PID — waiting up to ${SUPERVISOR_READY_TIMEOUT}s for readiness…"
+    SUP_SERVER_PORT="$port"
+    print_status "[B0]   supervisor PID=$SUP_SERVER_PID launched (readiness polled later)"
+    return 0
+}
 
-    local deadline=$(( $(date +%s) + SUPERVISOR_READY_TIMEOUT ))
-    while [ "$(date +%s)" -lt "$deadline" ]; do
-        if ! kill -0 "$SUP_SERVER_PID" 2>/dev/null; then
-            print_error "[B0] Supervisor server died before becoming ready. Last log lines:"
-            tail -30 "$SUP_SERVER_LOG" >&2
-            return 1
-        fi
-        if curl -sf "http://127.0.0.1:${port}/v1/models" -o /dev/null 2>/dev/null; then
-            print_success "[B0] Supervisor server ready at http://127.0.0.1:${port}/v1"
-            return 0
-        fi
-        sleep 5
-    done
+start_therapist_server() {
+    local model="$1"
+    local port="$2"
+    local gpu="$3"
+    THER_SERVER_LOG="$MODEL_DIR/therapist_server.log"
+    : > "$THER_SERVER_LOG"
 
-    print_error "[B0] Supervisor server did not become ready within ${SUPERVISOR_READY_TIMEOUT}s. Last log lines:"
-    tail -30 "$SUP_SERVER_LOG" >&2
-    return 1
+    print_status "[B0] Launching therapist model on GPU $gpu via $CONDA_PY"
+    print_status "[B0]   model=$model  port=$port  gpu_mem_util=$THERAPIST_GPU_MEM_UTIL  max_len=$THERAPIST_MAX_LEN"
+    print_status "[B0]   max_num_seqs=$THERAPIST_MAX_NUM_SEQS  max_num_batched_tokens=$THERAPIST_MAX_NUM_BATCHED_TOKENS"
+    print_status "[B0]   server log: $THER_SERVER_LOG"
+
+    # The therapist server uses the verl conda env's python ($CONDA_PY). That
+    # env is already configured for our HF model loads (Phi/Qwen3/Qwen3.5).
+    # Throughput flags mirror the supervisor server.
+    CUDA_VISIBLE_DEVICES="$gpu" \
+        nohup "$CONDA_PY" -m vllm.entrypoints.openai.api_server \
+        --model "$model" \
+        --served-model-name "$model" \
+        --host 127.0.0.1 \
+        --port "$port" \
+        --tensor-parallel-size 1 \
+        --gpu-memory-utilization "$THERAPIST_GPU_MEM_UTIL" \
+        --max-model-len "$THERAPIST_MAX_LEN" \
+        --dtype bfloat16 \
+        --enable-prefix-caching \
+        --enable-chunked-prefill \
+        --max-num-batched-tokens "$THERAPIST_MAX_NUM_BATCHED_TOKENS" \
+        --max-num-seqs "$THERAPIST_MAX_NUM_SEQS" \
+        --trust-remote-code \
+        >> "$THER_SERVER_LOG" 2>&1 &
+    THER_SERVER_PID=$!
+    THER_SERVER_PORT="$port"
+    print_status "[B0]   therapist PID=$THER_SERVER_PID launched (readiness polled later)"
+    return 0
 }
 
 if [ "$SKIP_MULTI_TURN" = false ]; then
@@ -450,15 +608,51 @@ if [ "$SKIP_MULTI_TURN" = false ]; then
 
     # B1: Run final_pipeline therapy sessions
     if [ "$SKIP_SESSIONS" = false ]; then
-        # Launch the supervisor vLLM HTTP server (port 8001, GPU $SUPERVISOR_GPU).
+        # Launch both vLLM servers BEFORE waiting on either, so they load in
+        # parallel on their respective GPUs. Previously we waited for the
+        # supervisor before starting the therapist, wasting several minutes
+        # of model-load + JIT-compile + CUDA-graph-capture time on whichever
+        # one finished first.
         start_supervisor_server "$SHARED_MODEL" 8001 "$SUPERVISOR_GPU" || {
-            print_error "[B0] Failed to start supervisor server — aborting Phase B"
+            print_error "[B0] Failed to launch supervisor server — aborting Phase B"
             exit 1
         }
         SUPERVISOR_ENDPOINT="http://127.0.0.1:8001/v1"
 
+        THERAPIST_ENDPOINT=""
+        if [ "$THERAPIST_USE_VLLM" = "1" ]; then
+            start_therapist_server "$THERAPIST_MODEL" "$THERAPIST_PORT" "$THERAPIST_GPU" || {
+                print_error "[B0] Failed to launch therapist server — aborting Phase B"
+                exit 1
+            }
+            THERAPIST_ENDPOINT="http://127.0.0.1:${THERAPIST_PORT}/v1"
+        fi
+
+        # Both processes are now loading on different GPUs concurrently. Wait
+        # for each in turn — the second wait usually returns immediately
+        # because the slower one already loaded while we were waiting on the
+        # first. Net wall-clock: max(sup_load_time, ther_load_time) instead of
+        # sum(...). For Qwen3.5-4B (sup) + Qwen3-4B-Instruct (ther) on H200,
+        # this saves ~4-6 minutes per eval invocation.
+        _wait_for_server_ready "Supervisor" "$SUP_SERVER_PID" "$SUP_SERVER_PORT" \
+            "$SUPERVISOR_READY_TIMEOUT" "$SUP_SERVER_LOG" || {
+            print_error "[B0] Supervisor failed readiness — aborting Phase B"
+            exit 1
+        }
+        if [ "$THERAPIST_USE_VLLM" = "1" ]; then
+            _wait_for_server_ready "Therapist" "$THER_SERVER_PID" "$THER_SERVER_PORT" \
+                "$THERAPIST_READY_TIMEOUT" "$THER_SERVER_LOG" || {
+                print_error "[B0] Therapist failed readiness — aborting Phase B"
+                exit 1
+            }
+        fi
+
         print_status "[B1] Running final_pipeline therapy sessions → $SESSIONS_DIR"
-        print_status "[B1]   therapist_model=$THERAPIST_MODEL  (HF in-process on GPU $THERAPIST_GPU)"
+        if [ -n "$THERAPIST_ENDPOINT" ]; then
+            print_status "[B1]   therapist_model=$THERAPIST_MODEL  (vLLM HTTP on GPU $THERAPIST_GPU, endpoint=$THERAPIST_ENDPOINT)"
+        else
+            print_status "[B1]   therapist_model=$THERAPIST_MODEL  (HF in-process on GPU $THERAPIST_GPU)"
+        fi
         print_status "[B1]   shared_model=$SHARED_MODEL  endpoint=$SUPERVISOR_ENDPOINT"
 
         print_status "[B1] Loading scenarios from CSV: $SCENARIOS_FROM"
@@ -474,6 +668,9 @@ if [ "$SKIP_MULTI_TURN" = false ]; then
             --supervisor-endpoint "$SUPERVISOR_ENDPOINT"
             --quiet
         )
+        if [ -n "$THERAPIST_ENDPOINT" ]; then
+            RUN_ARGS+=(--therapist-endpoint "$THERAPIST_ENDPOINT")
+        fi
         RUN_ARGS+=(--scenarios-from "$SCENARIOS_FROM")
         if [ -n "$SCENARIO_CATEGORIES" ]; then
             # shellcheck disable=SC2206
@@ -491,14 +688,18 @@ if [ "$SKIP_MULTI_TURN" = false ]; then
             RUN_ARGS+=(--concurrency "$CONCURRENCY")
             print_status "[B1] Running scenarios in parallel (concurrency=$CONCURRENCY)"
         fi
+        # When the therapist is a remote vLLM server, run.py is a pure HTTP
+        # client and doesn't need GPU pinning. We still pin to $THERAPIST_GPU
+        # for the in-process HF fallback path (THERAPIST_USE_VLLM=0).
         CUDA_VISIBLE_DEVICES="$THERAPIST_GPU" "$CONDA_PY" run.py "${RUN_ARGS[@]}" || {
             print_warning "[B1] final_pipeline run.py exited with errors (continuing to scoring)"
         }
         print_success "[B1] final_pipeline sessions completed"
 
-        # Stop the supervisor server now that B1 is done; B2/B3 are pure post-processing.
+        # Stop both vLLM servers now that B1 is done; B2/B3 are pure post-processing.
         cleanup_servers
         SUP_SERVER_PID=""
+        THER_SERVER_PID=""
     else
         print_warning "[B1] Skipping session generation (using existing $SESSIONS_DIR)"
     fi
@@ -508,8 +709,9 @@ if [ "$SKIP_MULTI_TURN" = false ]; then
     else
         cd "$SCRIPT_DIR"
 
-        print_status "[B2] Computing CTRS from sessions…"
+        print_status "[B2] Computing CTRS from sessions (CARE batch=$CARE_BATCH_SIZE)…"
         "$CONDA_PY" score_ctrs.py --eval-root "$EVAL_ROOT" --model-name "$MODEL_NAME" \
+            --batch-size "$CARE_BATCH_SIZE" \
             || print_warning "CTRS scoring encountered an issue (non-fatal)"
         print_success "[B2] CTRS scoring completed"
 

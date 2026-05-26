@@ -8,9 +8,29 @@
 set -euo pipefail
 
 # ---- knobs (override via env) ----------------------------------------------
-MODEL_PATH="${MODEL_PATH:-/home/asbahk/EMNLP_FINAL/Rasingan/sft_training/results/Qwen3-4B-sft-respair-new-3-merged}"
-EXP_NAME="${EXP_NAME:-}"         # empty → run_multiturn.sh picks therapist_multiturn_<ts>
-OUTPUT_PATH="${OUTPUT_PATH:-}"   # empty → run_multiturn.sh picks ./checkpoints/<EXP_NAME>
+MODEL_PATH="${MODEL_PATH:-/home/asbahk/EMNLP_FINAL/Rasingan/verl/checkpoints/qwen_3_v3/global_step_514-merged}"
+EXP_NAME="${EXP_NAME:-therapist_multiturn_final_v3}"               # empty → run_multiturn.sh picks therapist_multiturn_<ts>
+OUTPUT_PATH="${OUTPUT_PATH:-}"         # empty → run_multiturn.sh picks ./checkpoints/<EXP_NAME>
+RESUME_FROM_PATH="${RESUME_FROM_PATH:-}"   # empty → auto-pick latest in SAVE_PATH
+# Multi-turn reward is automatically IR + CTRS-P (computed from the full
+# session transcript at end of rollout) — see _compute_multiturn_reward in
+# verl/.../faith.py. EMB_REWARD_WEIGHT only applies to single-turn runs.
+
+# Multi-turn rollout shape — bigger = more realistic sessions but slower steps.
+MAX_THERAPY_TURNS="${MAX_THERAPY_TURNS:-20}"
+
+# Limit number of conversations used (stratified per category). Default
+# subsamples to keep training tractable: 240 train (120 anxiety + 120 dep),
+# 25 val. Set to 0 or unset to disable.
+TRAIN_LIMIT="${TRAIN_LIMIT:-240}"
+VAL_LIMIT="${VAL_LIMIT:-25}"
+
+# Qwen3 instruct (non-thinking) sampling for the shared patient+supervisor
+# model. Default ON (recommended for Qwen3 instruct variants — disables
+# thinking-mode prefix). Set INSTRUCT_MODE=0 to fall back to caller-supplied
+# temperature/top_p.
+INSTRUCT_MODE="${INSTRUCT_MODE:-1}"
+
 SERVER_URL="http://127.0.0.1:8000/health"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -64,14 +84,21 @@ else
 fi
 
 echo "[2/3] Building multi-turn dataset parquets from reddit splits…"
-( cd "$VERL_DIR" && "$CONDA_PY" "$PREPROCESS_SCRIPT" )
+PREPROCESS_ARGS=()
+[ -n "${TRAIN_LIMIT:-}" ] && [ "$TRAIN_LIMIT" != "0" ] && PREPROCESS_ARGS+=(--train-limit "$TRAIN_LIMIT")
+[ -n "${VAL_LIMIT:-}"   ] && [ "$VAL_LIMIT"   != "0" ] && PREPROCESS_ARGS+=(--val-limit   "$VAL_LIMIT")
+echo "  train_limit=${TRAIN_LIMIT:-(all)}  val_limit=${VAL_LIMIT:-(all)}"
+( cd "$VERL_DIR" && "$CONDA_PY" "$PREPROCESS_SCRIPT" "${PREPROCESS_ARGS[@]}" )
 
 echo "[3/3] Starting multi-turn VERL training…"
-export MODEL_PATH OUTPUT_PATH EXP_NAME
+export MODEL_PATH OUTPUT_PATH EXP_NAME MAX_THERAPY_TURNS INSTRUCT_MODE TOTAL_EPOCHS RESUME_FROM_PATH
 export CARE_SERVER_URL="${SERVER_URL%/health}"
 echo "  MODEL_PATH=$MODEL_PATH"
 echo "  EXP_NAME=${EXP_NAME:-(auto)}"
 echo "  OUTPUT_PATH=${OUTPUT_PATH:-(auto)}"
+echo "  MAX_THERAPY_TURNS=$MAX_THERAPY_TURNS"
+echo "  INSTRUCT_MODE=$INSTRUCT_MODE  (Qwen3 non-thinking sampling for patient+supervisor)"
+echo "  REWARD=IR + CTRS-P  (session-level, from supervisor checklist + CARE on therapist turns)"
 echo "  CARE_SERVER_URL=$CARE_SERVER_URL"
 ( cd "$VERL_DIR" && bash "$RUN_MULTI_TURN_SCRIPT" )
 

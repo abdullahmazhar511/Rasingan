@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_420433_c3b144",
+  "timestamp": 1779718445.8749168,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on a specific Reddit post).\n    *   **Situation:** Experiencing relentless anxiety since a panic attack a week ago. Symptoms include throwing up, can't eat, can't relax. Feeling suicidal (\"It's making me want to die\").\n    *   **Tone:** Authentic, emotional, conversational, vulnerable, natural.\n    *   **Context:** Therapy session (first meeting).\n    *   **Input:** Therapist introduces themselves, establishes safety, and asks what brings them in/what's on their mind.\n    *   **Constraints:** Don't be overly formal, show vulnerability, maintain consistency with the Reddit post narrative.\n\n2.  **Determine the Patient's State:**\n    *   They are likely overwhelmed, scared, and desperate for help.\n    *   They just had a panic attack recently.\n    *   Physical symptoms are prominent (nausea, vomiting, inability to eat).\n    *   Emotional state includes hopelessness and suicidal ideation (\"want to die\").\n    *   They might be hesitant to open up immediately due to shame or fear, but the therapist",
+      "therapist_response": "I hear that\u2014this sounds incredibly heavy, and I want you to know that it\u2019s completely okay to feel this way. The panic attack you had a week ago must have felt overwhelming, and it\u2019s not surprising that your body and mind are still reacting so strongly. I\u2019m here with you, not to fix it all right away, but to just be with you in this.  \n\nWhat part of this feels most real or urgent for you right now?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety, Functional) + GAD-7 (Core, Physical, Irritability).\n        *   Next Priority Area: PHQ-9: Safety / Suicidality.\n        *   Patient's Statement (from a thinking process/narrative): Experiencing relentless anxiety since a panic attack, physical symptoms (vomiting, can't eat), suicidal ideation (\"It's making me want to die\"), first meeting context.\n        *   Primary Therapist's Response: Empathetic validation (\"I hear that\u2014this sounds incredibly heavy...\"), normalizing (\"completely okay to feel this way\"), acknowledging the panic attack, offering presence (\"I'm here with you\"), asking an open-ended question (\"What part of this feels most real or urgent for you right now?\").\n        *   Session Context: Middle phase - exploring and intervening.\n    *   **Output Requirements:**\n        1.  Note which checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest next steps based on pending items (specifically focusing on Safety/Suicidality).\n        4.  Provide a concrete reframed response example.\n    *   **Tone:** Constructive, actionable, coaching, compassionate.\n\n2.  **Evaluate the Therapist's Response:**\n    *   *Content:* The therapist validates the patient's experience, acknowledges the panic attack, normalizes feelings, and offers presence. The closing question is open-ended",
+      "timestamp": 1779718238.9997268,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User Role:** Therapist (continuing the session).\n    *   **Therapist's Message:** Validates the patient's feelings, acknowledges the heaviness of the situation, references the panic attack a week ago, emphasizes safety and presence (\"not to fix it all right away\"), and asks a specific question: \"What part of this feels most real or urgent for you right now?\"\n    *   **Goal:** Respond as the patient described in the Reddit post.\n\n2.  **Review the Patient Profile & Situation:**\n    *   **Name:** Patient.\n    *   **Age:** Adult.\n    *   **Occupation:** Not specified.\n    *   **Situation:** Panic attack a week ago -> relentless anxiety since then.\n    *   **Symptoms:** Throwing up a lot, can't eat, can't relax.\n    *   **Emotional State:** Desperate, suicidal ideation (\"It's making me want to die\"), feeling hopeless.\n    *   **Tone:** Vulnerable, raw, honest.\n\n3.  **Determine the Patient's Response:**\n    *   The therapist is",
+      "therapist_response": "I don\u2019t know how to fix it, but I\u2019m scared to be alone with this. The vomiting and not being able to eat\u2014it feels like my body is shutting down. And the thought of just\u2026 not coming back\u2026 it\u2019s not just a thought. It\u2019s like I\u2019m sitting in a room where the walls are closing in, and I can\u2019t breathe. That part\u2014feeling like I might not make it through the night\u2014feels real. I don\u2019t know how to stop it.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist (PHQ-9 & GAD-7 items).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality] (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement (Provided in the \"Patient's Statement\" section, though it's actually a mix of \"Thinking Process\" and a description of what the patient *should* say based on a Reddit post context, but the prompt asks me to evaluate the *Therapist's Response* to a *Patient's Statement*. Wait, looking closely at the prompt structure).\n        *   *Correction on Input Data:* The prompt contains a section labeled \"PATIENT'S STATEMENT\" but it actually looks like a \"Thinking Process\" and a description of the patient profile *before* the therapist's actual response. Then there is a \"PRIMARY THERAPIST'S RESPONSE\".\n        *   *Crucial Observation:* The \"PATIENT'S STATEMENT\" section provided in the prompt is actually a *meta-description* of a hypothetical scenario (including a \"Thinking Process\" of what the therapist should do, and a description of the patient's situation). It ends with \"The therapist is\" and then cuts off. Then there is the \"PRIMARY THERAPIST'S RESPONSE\".\n        *   *Wait, re-reading the prompt carefully:*\n            *   \"PATIENT'S STATEMENT: 'Thinking Process: 1. Analyze the Input...' ... 'The therapist is'\"\n            *   This looks like a copy-paste error in",
+      "timestamp": 1779718306.2302494,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User Role:** Patient (continuing the session).\n    *   **Patient's Message:** Expresses helplessness (\"I don't know how to fix it\"), fear of isolation (\"scared to be alone with this\"), physical symptoms (\"vomiting and not being able to eat\", \"body is shutting down\"), suicidal ideation (\"thought of just\u2026 not coming back\", \"walls are closing in\", \"can't breathe\"), hopelessness about the night ahead (\"feeling like I might not make it through the night\").\n    *   **Context:** Therapy session, continuing the conversation established in the previous turn.\n    *   **Goal:** Respond as the therapist (since I am now acting as the therapist based on the previous turn's context? Wait, let me re-check the instructions).\n\n    *   **Correction on Role:** The *first* prompt instructed me to be the **Patient**.\n    *   **The Conversation Flow:**\n        *   Turn 1 (User): Therapist greeting (\"Hello, I'm so glad you're here...\").\n        *   Turn 2 (Model): I need to respond as the **Patient** to the",
+      "therapist_response": "I\u2019m hearing you, and it\u2019s so clear how much this is weighing on you. The way you\u2019re describing the body shutting down and the fear of not making it through the night\u2014it\u2019s not just anxiety; it feels like something deeper is trying to tell you that you\u2019re not safe right now.  \n\nWould it be helpful to talk about what you\u2019re feeling right now, or if there\u2019s something specific you\u2019d like to explore first?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety, Functional) and GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority: PHQ-9 Safety/Suicidality (\"Thoughts that you would be better off dead, or of hurting yourself\").\n        *   Patient's Statement (provided in the \"Thinking Process\" section of the prompt, which seems to be the patient's internal monologue/context description rather than a direct quote from the session, but the prompt says \"Patient's Statement\" then lists a \"Thinking Process\" which describes the patient's message). Wait, looking closely at the prompt structure:\n            *   \"PATIENT'S STATEMENT:\" header is followed by a \"Thinking Process\" block. This looks like the prompt is giving me the context of the patient's previous input *as if* it were the patient's statement, or perhaps it's the model's internal thought process about the patient's statement.\n            *   *Correction:* The prompt says \"PATIENT'S STATEMENT:\" then lists \"Thinking Process: 1. Analyze the Input...\". This is confusing. It looks like the prompt *is* the context description. The actual Patient's Message content is embedded in the \"Thinking Process\" section (e.g., \"Expresses helplessness... suicidal ideation...\").\n            *   *Wait, re-reading the prompt structure:* The prompt asks me to evaluate the *Therapist's Response* to the *Patient's Statement*. The \"Patient's Statement",
+      "timestamp": 1779718376.3270924,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   **User Role:** Therapist (continuing the session).\n    *   **Therapist's Message:** Validates the patient's experience, acknowledges the depth of the suffering (\"not just anxiety; feels like something deeper\"), offers a choice (\"talk about what you're feeling\" or \"explore something specific\").\n    *   **Goal:** Respond as the **Patient** (based on the system instructions: \"Respond authentically as someone experiencing the situation described in the Reddit post\").\n    *   **Patient's Current State:** Overwhelmed, physically ill (vomiting, can't eat), mentally exhausted, suicidal ideation (\"want to die\", \"might not make it through the night\"), feels trapped (\"walls are closing in\").\n    *   **Tone:** Vulnerable, raw, honest, potentially hesitant or overwhelmed.\n\n2.  **Review the Patient Profile & Instructions:**\n    *   **Name:** Patient.\n    *   **Situation:** Panic attack a week ago -> relentless anxiety.\n    *   **Symptoms:** Throwing up, can't eat, can't relax.\n    *   **Emotion:** Despair,",
+      "therapist_response": "I don\u2019t know if I can handle it much longer. The nausea is still there, and I can\u2019t even sit still without feeling like I\u2019m going to throw up again. And the thought of not making it through the night\u2014it\u2019s not just a thought. It\u2019s like I\u2019m stuck in a room with no door, and I can\u2019t breathe. I just want someone to say, \u201cYou\u2019re not alone,\u201d and maybe that would help.",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718445.8749137,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_426098_5eef2b",
+  "timestamp": 1779718455.7797985,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient based on a specific Reddit post.\n    *   **Situation:** 21-year-old woman, takes THC edibles regularly (20-50mg), recently stopped due to anxiety about health risks (heart attack/stroke stats), wants to ease back in but is spiraling/worried. Had a hospital visit recently for anxiety attack, heart was normal.\n    *   **Task:** Respond authentically as the patient in therapy.\n    *   **Tone:** Genuine, emotional, concerned, natural/conversational, vulnerable, consistent with the post.\n    *   **Input:** The therapist is opening the session, asking how I'm feeling and what brings me in.\n\n2.  **Determine the Response Goal:**\n    *   Acknowledge the therapist's presence and support.\n    *   Express current feelings (anxiety, fear, relief to talk).\n    *   Address the core issue: THC edibles, health statistics, anxiety spiraling.\n    *   Show vulnerability about the hospital visit and the fear of heart attack/stroke.\n    *   Maintain the 21-year-old female",
+      "therapist_response": "I\u2019m really grateful you\u2019re here\u2014this feels like a big step, honestly. I\u2019ve been carrying a lot of worry lately, especially about my heart. The thought of having a heart attack or stroke just from taking THC edibles has been looping in my head nonstop. I remember when I went to the hospital last time\u2014I was so scared, but the doctors said my heart was fine. Still, it felt like a wake-up call. I keep thinking, *What if I\u2019m not imagining it?* I\u2019m not sure if I can trust my body to handle the edibles anymore, but I also feel like I can\u2019t just stop completely\u2014there\u2019s this pull to go back in, but it makes me panic. I just want to feel safe, and maybe find a way through this without hurting myself.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on the PHQ-9 + GAD-7 information extraction checklist.\n    *   **Input Data:**\n        *   Checklist items (PHQ-9 & GAD-7 specific items).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality] (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement (Thinking Process/Persona): The input describes the *patient's internal state* and the *task* for the AI (to respond as the patient). However, the *Primary Therapist's Response* provided is actually written *as the patient* (\"Thinking Process... Determine the Response Goal... Respond authentically as the patient...\"). Wait, let me re-read carefully.\n        *   **Correction:** The prompt says \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\". Then it lists \"PATIENT'S STATEMENT\" which actually looks like a *thinking process* of the patient (or an AI simulation of the patient's internal monologue based on a Reddit post). However, under \"PRIMARY THERAPIST'S RESPONSE\", the text says: \"I\u2019m really grateful you\u2019re here... The thought of having a heart attack... I keep thinking, *What if I\u2019m not imagining it?*... I just want to feel safe, and maybe find a way through this without hurting myself.\"\n        *   **CRITICAL ISSUE:** The \"PRIMARY THERAPIST'S RESPONSE\" text provided in the prompt is written in the **first person (\"I\")** and expresses the patient's symptoms and feelings (\"The thought of having a heart attack...\", \"I keep thinking",
+      "timestamp": 1779718249.2334223,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user (acting as the therapist) has actually provided a response that looks like the *patient* speaking to the therapist in the previous turn, but wait.\n    *   *Correction:* Looking closely at the prompt structure.\n    *   System Instruction: \"You are a patient in therapy. You are based on the following real Reddit post...\"\n    *   User Message: \"Hi there, I'm so glad you're here...\" (This was the first turn).\n    *   *Wait, I need to check the conversation history.*\n    *   Turn 1 (User): \"Hi there, I'm so glad you're here... How are you feeling right now? What brings you in today?\"\n    *   Turn 1 (Me): I need to generate the *first* response as the patient.\n    *   *Wait, looking at the provided conversation history in the prompt:*\n    *   The prompt includes \"REDDIT POST\", \"PATIENT PROFILE\", \"INSTRUCTIONS\".\n    *   Then there is a \"User\" message: \"Hi there, I'm so glad you're here...\"\n    *   *",
+      "therapist_response": "I\u2019m really glad you\u2019re here\u2014this feels like a big step, honestly. I\u2019ve been carrying a lot of worry lately, especially about my heart. The thought of having a heart attack or stroke just from taking THC edibles has been looping in my head nonstop. I remember when I went to the hospital last time\u2014I was so scared, but the doctors said my heart was fine. Still, it feels like a wake-up call. I keep thinking, *What if I\u2019m not imagining it?* I\u2019m not sure if I can trust my body to handle the edibles anymore, but I also feel like I can\u2019t just stop completely\u2014there\u2019s this pull to go back in, but it makes me panic. I just want to feel safe, and maybe find a way through this without hurting myself.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist (PHQ-9 & GAD-7 items).\n        *   Patient's Statement (Wait, there's a confusion in the prompt structure. The prompt says \"PRIMARY THERAPIST'S RESPONSE\" but the text under \"PATIENT'S STATEMENT\" header looks like a patient's narrative about anxiety/heart attack/THC. However, the prompt *also* includes a \"User\" message section in the description that seems to indicate a conversation history. Let's look closer at the \"PRIMARY THERAPIST'S RESPONSE\" section.)\n        *   *Correction/Clarification:* The prompt actually labels the text under \"PATIENT'S STATEMENT\" as \"Thinking Process...\". This looks like an artifact or a copy-paste error in the prompt provided to me. However, looking at the \"PRIMARY THERAPIST'S RESPONSE\" section, it reads: \"I\u2019m really glad you\u2019re here\u2014this feels like a big step, honestly. I\u2019ve been carrying a lot of worry lately, especially about my heart...\"\n        *   *Wait, let's re-read the prompt carefully.*\n        *   The prompt says: \"PRIMARY THERAPIST'S RESPONSE: 'I\u2019m really glad you\u2019re here\u2014this feels like a big step, honestly...'\"\n        *   Then it says: \"EVALUATION TASK... Note which extraction checklist items were addressed in this exchange\".\n        *   *Crucial Discrepancy:* The text under \"PRIMARY THERAPIST'S RESPONSE\" is written from the perspective of someone *expressing worry about their heart/",
+      "timestamp": 1779718313.950756,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on the Reddit post provided).\n    *   **Situation:** 21-year-old woman, uses THC edibles (20-50mg), stopped due to anxiety about heart attack/stroke stats, wants to ease back in but is spiraling, had a hospital visit recently for anxiety (heart normal).\n    *   **Current Input:** The user (acting as the therapist) is speaking to the patient. Wait, looking at the conversation flow provided in the prompt.\n    *   *Correction:* The prompt provided a conversation turn where the *User* sent a message that looks like the *Therapist* asking questions (\"Hi there, I'm so glad you're here...\").\n    *   *Wait, I need to look at the actual conversation history provided in the prompt.*\n    *   The prompt starts with System Instructions.\n    *   Then there is a \"User\" message: \"Hi there, I'm so glad you're here. I really appreciate you taking the time to meet with me today... How are you feeling right now? What brings you in today?\"\n    *   *Wait",
+      "therapist_response": "I\u2019m really glad you\u2019re here\u2014this feels like a big step, honestly. I\u2019ve been carrying a lot of worry lately, especially about my heart. The thought of having a heart attack or stroke just from taking THC edibles has been looping in my head nonstop. I remember when I went to the hospital last time\u2014I was so scared, but the doctors said my heart was fine. Still, it feels like a wake-up call. I keep thinking, *What if I\u2019m not imagining it?* I\u2019m not sure if I can trust my body to handle the edibles anymore, but I also feel like I can\u2019t just stop completely\u2014there\u2019s this pull to go back in, but it makes me panic. I just want to feel safe, and maybe find a way through this without hurting myself.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on the PHQ-9 + GAD-7 Information Extraction Checklist.\n    *   **Input Data:**\n        *   Checklist items (PHQ-9 and GAD-7 specific items).\n        *   Next Priority Area: PHQ-9: Safety / Suicidality.\n        *   Patient's Statement (Wait, I need to look closely at the provided text).\n        *   *Correction/Clarification:* The prompt text is a bit confusingly structured. It says \"PATIENT'S STATEMENT:\" but then provides a \"Thinking Process\" block that looks like an AI analysis of a Reddit post, followed by a \"PRIMARY THERAPIST'S RESPONSE\".\n        *   *Wait, let's re-read the \"User\" message section in the prompt description.*\n        *   Actually, looking at the very beginning of the prompt: \"You are an experienced senior therapist/clinical supervisor reviewing a therapy session. A primary therapist has just responded to a patient. Your job is to evaluate...\"\n        *   Then there is a section labeled \"PATIENT'S STATEMENT:\" but the content under it says \"Thinking Process: 1. Analyze the Request...\". This looks like the *User* (the AI simulation) pasted a prompt or a log that includes the *Therapist's* input in the \"PATIENT'S STATEMENT\" label by mistake, or perhaps the prompt is asking me to evaluate the *Therapist's* response to a *Patient* who said something, but the text under \"PATIENT'S STATEMENT\" is actually the *Therapist's* response labeled incorrectly?\n        *   Let's look at the \"PRIMARY THERAPIST'S RESPONSE\" section.",
+      "timestamp": 1779718386.3743892,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user (acting as the therapist) has sent a message that looks like the *patient* speaking to the therapist? No, wait.\n    *   Let's look at the conversation flow again.\n    *   System Instructions: \"You are a patient in therapy.\"\n    *   User Turn 1: \"Hi there, I'm so glad you're here... How are you feeling right now? What brings you in today?\" (This is clearly the therapist speaking to the patient).\n    *   User Turn 2 (Current): \"I\u2019m really glad you\u2019re here\u2014this feels like a big step, honestly. I\u2019ve been carrying a lot of worry lately, especially about my heart... I remember when I went to the hospital last time... I keep thinking, *What if I\u2019m not imagining it?*...\"\n    *   *Wait, this is confusing.* The current User message *reads* like the patient speaking to the therapist. Why is the user sending the patient's response?\n    *   *Hypothesis:* The user is roleplaying the therapist, but they might have pasted a response *from* the patient (perhaps from",
+      "therapist_response": "I\u2019m really glad you\u2019re here\u2014this feels like a big step, honestly. I\u2019ve been carrying a lot of worry lately, especially about my heart. The thought of having a heart attack or stroke just from taking THC edibles has been looping in my head nonstop. I remember when I went to the hospital last time\u2014I was so scared, but the doctors said my heart was fine. Still, it feels like a wake-up call. I keep thinking, *What if I\u2019m not imagining it?* I\u2019m not sure if I can trust my body to handle the edibles anymore, but I also feel like I can\u2019t just stop completely\u2014there\u2019s this pull to go back in, but it makes me panic. I just want to feel safe, and maybe find a way through this without hurting myself.",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718455.7797832,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

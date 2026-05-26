@@ -88,7 +88,10 @@ def compute_ctrs_from_values(values: Dict[str, np.ndarray]) -> Dict:
 def _extract_therapist_pairs(transcript: List[Dict]) -> List[Tuple[str, str, int]]:
     """Return [(context, utterance, turn_number), ...] for every therapist message.
 
-    Context is the prior transcript joined as "Role: message\n…".
+    Matches training: verl/experimental/reward/reward_loop/faith.py::_extract_therapist_pairs.
+    Only patient + therapist messages are included in the context window; system /
+    supervisor / other roles are dropped (otherwise CARE sees a different prompt
+    here than during the rollout reward).
     """
     pairs = []
     history_lines: List[str] = []
@@ -98,9 +101,12 @@ def _extract_therapist_pairs(transcript: List[Dict]) -> List[Tuple[str, str, int
         if not msg:
             continue
         if role == "therapist":
-            context = "\n".join(history_lines).strip()
+            context = "\n".join(history_lines)
             pairs.append((context, msg, entry.get("turn", len(pairs))))
-        history_lines.append(f"{'Therapist' if role == 'therapist' else 'Patient'}: {msg}")
+            history_lines.append(f"Therapist: {msg}")
+        elif role == "patient":
+            history_lines.append(f"Patient: {msg}")
+        # ignore system / supervisor / other roles — matches training
     return pairs
 
 
@@ -113,8 +119,11 @@ def _care_for_session(care_model: CareModel, transcript: List[Dict],
     utterances = [p[1] for p in pairs]
     turns = [p[2] for p in pairs]
 
+    # include_analysis=True matches training (faith.py CareRewardLoopManager._care_batch_argmax).
+    # return_expected stays False → argmax integer labels in {-2,-1,0,1,2}, which
+    # CTRS-P is defined on (per faith.py:443).
     results = care_model.batch_predict(contexts, utterances,
-                                       batch_size=batch_size, include_analysis=False)
+                                       batch_size=batch_size, include_analysis=True)
 
     rows = []
     for turn, utt, res in zip(turns, utterances, results):
@@ -141,7 +150,11 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
 
     conv_results: Dict[str, Dict] = {}
     session_categories: Dict[str, Optional[str]] = {}
+    skipped: Dict[str, int] = {}
     print(f"[{model_name}] Scoring {len(session_files)} sessions via CARE → CTRS")
+
+    def _bump(reason: str) -> None:
+        skipped[reason] = skipped.get(reason, 0) + 1
 
     for path in tqdm(session_files, desc=f"[{model_name}] CTRS", unit="session"):
         sid = os.path.splitext(os.path.basename(path))[0].replace("session_", "")
@@ -150,25 +163,39 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
                 data = json.load(f)
         except (json.JSONDecodeError, OSError) as e:
             print(f"  [{sid}] skipped (read error: {e})")
+            _bump("read_error")
             continue
 
         transcript = data.get("transcript", [])
         # Scenario category (e.g. anxiety / depression) for per-category aggregation
         session_categories[sid] = (data.get("metadata") or {}).get("category")
-        cache_path = os.path.join(care_cache_dir, f"{sid}.csv")
+        # Cache key includes a content fingerprint of the therapist turns so that
+        # re-running B1 with a different therapist (same --model-name) does NOT
+        # silently reuse stale CARE scores from a previous rollout.
+        ther_msgs = "\n".join(
+            (e.get("message") or "").strip()
+            for e in transcript if e.get("role") == "therapist"
+        )
+        import hashlib
+        fp = hashlib.sha1(ther_msgs.encode("utf-8")).hexdigest()[:10] if ther_msgs else "empty"
+        cache_path = os.path.join(care_cache_dir, f"{sid}.{fp}.csv")
         if os.path.exists(cache_path):
             df = pd.read_csv(cache_path)
         else:
             df = _care_for_session(care_model, transcript, batch_size)
             if df is None or df.empty:
                 print(f"  [{sid}] no therapist turns, skipped")
+                _bump("no_therapist_turns")
                 continue
             df.to_csv(cache_path, index=False)
 
         values = {abbr: pd.to_numeric(df[abbr], errors="coerce").dropna().values
                   for abbr in ABBREV_ORDER if abbr in df.columns}
-        if any(len(v) == 0 for v in values.values()) or len(values) < len(ABBREV_ORDER):
-            print(f"  [{sid}] missing CARE dimensions, skipped")
+        missing_cols = [a for a in ABBREV_ORDER if a not in df.columns]
+        empty_cols = [a for a, v in values.items() if len(v) == 0]
+        if missing_cols or empty_cols:
+            print(f"  [{sid}] missing CARE dimensions (cols_missing={missing_cols} cols_empty={empty_cols}), skipped")
+            _bump("missing_care_dims")
             continue
 
         res = compute_ctrs_from_values(values)
@@ -214,6 +241,7 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
         "model_name": model_name,
         "sessions_dir": sessions_dir,
         "n_sessions": len(conv_results),
+        "n_sessions_skipped": skipped,
         "aggregate": agg,
         "by_scenario_category": by_scn,
         "per_session": conv_results,
@@ -225,6 +253,8 @@ def score_model(model_name: str, sessions_dir: str, output_dir: str,
 
     print(f"\n{'=' * 60}\n  {model_name}\n{'=' * 60}")
     print(f"Sessions scored: {len(conv_results)}")
+    if skipped:
+        print(f"Sessions skipped: " + ", ".join(f"{k}={v}" for k, v in skipped.items()))
     print(f"Mean CTRS-P: {agg['avg_CTRS_P']:.4f} ± {agg['std_CTRS_P']:.4f}")
     print(f"  Understanding:                 {agg['avg_Understanding_score']:.4f}")
     print(f"  Interpersonal Effectiveness:   {agg['avg_Interpersonal_Effectiveness_score']:.4f}")

@@ -51,6 +51,8 @@ def calculate_metrics(model_name, eval_root):
         "rougeL": round(rouge_results['rougeL'], 4),
         "meteor": round(meteor_results['meteor'], 4),
         "bleu": round(bleu_results['bleu'], 4),
+        "bertscore_precision": round(np.mean(bert_results['precision']), 4),
+        "bertscore_recall": round(np.mean(bert_results['recall']), 4),
         "bertscore_f1": round(np.mean(bert_results['f1']), 4)
     }
     

@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_426624_8f451f",
+  "timestamp": 1779718422.2386086,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on a specific Reddit post).\n    *   **Reddit Post Content:** Taking fluoxetine again, experiencing weird full-body anxiety sensations while eating (wave of anxiety, makes eating hard/enjoyment harder), thinks it's related to past eating anxiety, thought meds would stop it but haven't, unsure how to get rid of it.\n    *   **Patient Profile:** Adult, occupation not specified, family not specified.\n    *   **Task:** Respond authentically as the patient, expressing genuine emotions/concerns, being natural/conversational, sharing relevant details, showing vulnerability, maintaining consistency with the Reddit post narrative.\n    *   **Current Input:** A therapist greeting, establishing safety, asking what's on my mind.\n    *   **Goal:** Start the session by sharing the core issue described in the Reddit post.\n\n2.  **Determine the Tone and Voice:**\n    *   **Tone:** Vulnerable, slightly anxious, hopeful but struggling, conversational, intimate (since it's therapy).\n    *   **Voice:** First-person (\"I\"), casual but meaningful.\n    *   **Content:**",
+      "therapist_response": "I\u2019ve been thinking a lot about the anxiety I get when I eat\u2014especially now that I\u2019m back on fluoxetine. It\u2019s not just a small spike; it\u2019s like a wave comes over me, full-body, tight and shaky, like I\u2019m suddenly scared I\u2019ll lose control. I used to think the medication would calm that down, especially since I struggled with eating anxiety before. But it hasn\u2019t helped much. I\u2019m not sure if it\u2019s the meds, or if I\u2019m just still carrying that old fear. I feel kind of stuck\u2014like I\u2019m trying to eat normally, but every bite feels like it\u2019s triggering something I can\u2019t quite name. I guess I just want to know if there\u2019s a way to get past this, without making it worse.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate the Primary Therapist's response to the Patient's input based on the PHQ-9 + GAD-7 Information Extraction Checklist.\n    *   **Input Data:**\n        *   Checklist (PHQ-9: Core Mood, Somatic, Cognitive, Safety, Functional; GAD-7: Core Anxiety, Physical Tension, Irritability).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality].\n        *   Patient's Statement: A \"Thinking Process\" description of a Reddit post scenario, followed by a \"PRIMARY THERAPIST'S RESPONSE\" (Wait, looking closely at the prompt structure).\n        *   *Correction:* The prompt says \"A primary therapist has just responded to a patient.\" Then it lists \"PATIENT'S STATEMENT\" and \"PRIMARY THERAPIST'S RESPONSE\".\n        *   *Wait, re-reading the \"PATIENT'S STATEMENT\" section:* It actually looks like a prompt instruction for an AI roleplay (\"Task: Respond authentically as the patient...\"). However, under \"PRIMARY THERAPIST'S RESPONSE\", there is text that says \"I\u2019ve been thinking a lot about the anxiety I get when I eat...\".\n        *   *Critical Observation:* The text labeled \"PRIMARY THERAPIST'S RESPONSE\" is actually written in the *first person* (\"I've been thinking...\"). Usually, a therapist *asks* the patient. The patient *says* \"Thinking Process...\". Wait, let's look at the \"Patient's Statement\" section again. It says \"Task: Respond authentically as the patient... Current Input: A therapist greeting...\". This implies the *Patient* is supposed to have said something, but the text provided under",
+      "timestamp": 1779718212.267165,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user has provided a response that *looks* like it's coming from the therapist (based on the previous turn), but actually, it seems the user is roleplaying *as* the patient now, or they are providing the patient's narrative directly in a new turn.\n    *   Wait, looking closely at the conversation flow:\n        *   System Instruction: \"You are a patient in therapy. You are based on the following real Reddit post describing your situation...\"\n        *   User Turn 1: \"Hi there, I'm so glad you're here... What\u2019s been on your heart or mind lately that you\u2019d like to talk about today?\" (This looks like the *therapist* speaking to the *patient*).\n        *   My Turn 1 (Model): I need to respond as the *patient*.\n        *   User Turn 2: \"I\u2019ve been thinking a lot about the anxiety I get when I eat\u2014especially now that I\u2019m back on fluoxetine...\" (Wait, this input looks like the *patient* speaking, but it was sent by the user).\n        *   Correction: In the actual conversation flow provided in",
+      "therapist_response": "It sounds like you're carrying a lot of tension around eating, even with the medication\u2014like that wave of anxiety isn\u2019t just physical, but tied to something deeper, maybe old fears about control or safety. I wonder if it\u2019s possible that the body is still holding on to those early experiences, even if you didn\u2019t realize it. Is there a particular moment or feeling from the past that stands out when that anxiety shows up?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific checklist (PHQ-9 + GAD-7) and provide constructive feedback.\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: PHQ-9: Safety / Suicidality.\n        *   Patient's Statement: The prompt is a bit confusing regarding the \"Patient's Statement\" section. It contains a \"Thinking Process\" section that seems to be meta-commentary from the system or user about the conversation flow, followed by a \"PRIMARY THERAPIST'S RESPONSE\" section. Wait, looking closer at the prompt structure provided by the user:\n            *   There is a section labeled \"PATIENT'S STATEMENT\" but the content under it is actually a \"Thinking Process\" block that looks like meta-analysis of the conversation flow, followed by \"PRIMARY THERAPIST'S RESPONSE\".\n            *   Actually, re-reading the prompt: \"PATIENT'S STATEMENT: 'Thinking Process: ...'\" This looks like a copy-paste error in the prompt provided to me (the AI), where the user pasted the *system instructions* or *internal monologue* into the \"Patient's Statement\" field.\n            *   *Correction:* I need to look at the actual \"Patient's Statement\" provided in the prompt text. The text under \"PATIENT'S STATEMENT\" starts with \"Thinking Process: 1. Analyze the Input...\". This is clearly not patient speech. It looks like the prompt itself is malformed or",
+      "timestamp": 1779718283.0246074,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user is responding to my previous message (which I need to generate).\n    *   Wait, I need to check the conversation history again.\n    *   Turn 1 (User): \"Hi there, I'm so glad you're here... What\u2019s been on your heart or mind lately that you\u2019d like to talk about today?\" (This is the therapist).\n    *   Turn 1 (Model): I need to respond as the patient to this.\n    *   Turn 2 (User): \"It sounds like you're carrying a lot of tension around eating... Is there a particular moment or feeling from the past that stands out when that anxiety shows up?\"\n    *   **CRITICAL REALIZATION:** I am the Model. I need to generate the response to Turn 2.\n    *   **Wait, looking at the actual conversation history provided in the prompt:**\n        *   System Instruction: \"You are a patient in therapy... Respond authentically...\"\n        *   User Turn 1: \"Hi there, I'm so glad you're here... What\u2019s been on your heart or mind lately that you\u2019d like to talk about",
+      "therapist_response": "Yeah, I remember one time when I was really stressed about a meal\u2014like, I was trying to eat something simple, just a salad, but suddenly I felt like I was going to panic, like my stomach would flip or I\u2019d start shaking. It wasn\u2019t just nerves\u2014I felt like I was losing control, like I might eat too much or not enough, and that fear stuck with me. I think that moment kind of set a pattern, even after I started therapy and got the meds. It\u2019s like the body still remembers that feeling, even if I don\u2019t fully understand why.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on a specific checklist (PHQ-9 + GAD-7 information extraction).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality] (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement (Wait, looking at the prompt structure, there seems to be some confusion in the prompt's \"Conversation History\" vs. the actual input provided for evaluation).\n        *   *Correction/Clarification:* The prompt says \"PRIMARY THERAPIST'S RESPONSE:\" followed by the text about the meal/stress. This text is labeled as the *Therapist's Response*. However, the System Instruction says \"You are a patient in therapy... Respond authentically...\" but the *Evaluation Task* says \"You are an experienced senior therapist/clinical supervisor reviewing a therapy session.\"\n        *   *Crucial Discrepancy:* The prompt contains conflicting instructions.\n            *   Top Instruction: \"You are an experienced senior therapist/clinical supervisor reviewing a therapy session.\"\n            *   System Instruction (hidden): \"You are a patient in therapy...\" (This seems to be a leftover from a different prompt template or a mistake in the prompt construction).\n            *   Actual Input to Evaluate: \"PRIMARY THERAPIST'S RESPONSE: 'Yeah, I remember one time when I was really stressed about a meal...'\"\n            *",
+      "timestamp": 1779718349.655975,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user (playing the role of the patient) is sharing a specific memory/anxiety trigger related to eating (a salad, feeling like losing control, stomach flipping, shaking).\n    *   Wait, I need to re-evaluate the roles.\n    *   **System Instruction:** \"You are a patient in therapy. You are based on the following real Reddit post describing your situation...\"\n    *   **User Turn 1:** \"Hi there, I'm so glad you're here... What\u2019s been on your heart or mind lately that you\u2019d like to talk about today?\" (This is the *therapist* speaking to me).\n    *   **My Turn 1:** I should have responded as the patient, sharing my story from the Reddit post (fluoxetine, eating anxiety, wave of anxiety, meds not helping).\n    *   **User Turn 2:** \"It sounds like you're carrying a lot of tension around eating...\" (This looks like the *therapist* responding to my Turn 1).\n    *   **User Turn 3 (Current Input):** \"Yeah, I remember one time when I was really stressed about a meal",
+      "therapist_response": "That memory really stands out\u2014feeling like your body was reacting before your mind could catch up. It\u2019s not just about the meal itself, is it? It feels like that moment was a turning point where you started to believe you couldn\u2019t trust your own body to handle food safely. Is that part of it\u2014the idea that eating is a risk, not just a need?",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718422.2386057,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

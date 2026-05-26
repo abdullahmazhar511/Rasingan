@@ -44,6 +44,92 @@ CARE_LABELS = [
 CARE_LABEL_MIN = -2.0
 CARE_LABEL_MAX = 2.0
 
+# Hybrid reward: total = (1 - EMB_WEIGHT) * care_reward + EMB_WEIGHT * emb_reward.
+# Embedding similarity gives a continuous, classifier-independent gradient
+# that fills in regions where the quantized CARE reward is locally flat.
+# Override via env var EMB_REWARD_WEIGHT (e.g. 0.4 for 60/40 CARE/embedding).
+EMB_REWARD_WEIGHT = float(os.environ.get("EMB_REWARD_WEIGHT", "0.5"))
+
+
+# ============================================================================
+# Multi-turn reward = IR coverage + CTRS-P (Cognitive Therapy Rating Scale).
+#
+# When the agent loop produces a multi-turn rollout it puts the full
+# conversation + checklist state into AgentLoopOutput.extra_fields, which the
+# trainer surfaces as data_item.non_tensor_batch["tool_extra_fields"] and
+# merges into extra_info. We detect that case here and switch to a
+# session-level reward instead of single-utterance CARE distance.
+#
+# Mapping (matches scores/score_ctrs.py exactly, applied to argmax CARE scores
+# per therapist turn):
+#   Understanding (U)              = mean(AL, RF)  per turn
+#   Interpersonal Effectiveness    = mean(WE, NJ)  per turn
+#   Collaboration (C)              = RA            per turn
+#   Technical Appropriateness (TA) = SA            per turn
+# Per-construct score_k = Q_k - F_k + 0.5 * SP_k, where
+#   Q_k  = mean(values over therapist turns)
+#   F_k  = rate(values <= 0)
+#   SP_k = rate(values == 2)
+# CTRS-P = 0.35*U + 0.25*IE + 0.20*C + 0.20*TA   (range ~ [-1, 2.5])
+# IR     = fraction of 17-item PHQ-9+GAD-7 checklist covered, in [0, 1].
+# Total reward = IR + CTRS_P  (user spec).
+# ============================================================================
+CARE_ABBREV = {
+    "Non-Judgmental Language":     "NJ",
+    "Warmth and Encouragement":    "WE",
+    "Respect for Autonomy":        "RA",
+    "Active Listening":            "AL",
+    "Reflecting Feelings":         "RF",
+    "Situational Appropriateness": "SA",
+}
+
+
+def _construct_score(values):
+    """Compute Q - F + 0.5*SP for a vector of per-turn values."""
+    import statistics as _st
+    if not values:
+        return 0.0, 0.0, 0.0, 0.0
+    n = len(values)
+    Q  = sum(values) / n
+    F  = sum(1 for v in values if v <= 0) / n
+    SP = sum(1 for v in values if v == 2) / n
+    return Q, F, SP, Q - F + 0.5 * SP
+
+
+def _ctrs_p_from_per_turn(per_turn):
+    """per_turn: list of dicts {NJ, WE, RA, AL, RF, SA}. Returns (CTRS_P, sub_scores)."""
+    if not per_turn:
+        return 0.0, {"U": 0.0, "IE": 0.0, "C": 0.0, "TA": 0.0}
+    U_vals  = [(t["AL"] + t["RF"]) / 2.0 for t in per_turn]
+    IE_vals = [(t["WE"] + t["NJ"]) / 2.0 for t in per_turn]
+    C_vals  = [t["RA"] for t in per_turn]
+    TA_vals = [t["SA"] for t in per_turn]
+    _, _, _, U_s  = _construct_score(U_vals)
+    _, _, _, IE_s = _construct_score(IE_vals)
+    _, _, _, C_s  = _construct_score(C_vals)
+    _, _, _, TA_s = _construct_score(TA_vals)
+    ctrs_p = 0.35 * U_s + 0.25 * IE_s + 0.20 * C_s + 0.20 * TA_s
+    return ctrs_p, {"U": U_s, "IE": IE_s, "C": C_s, "TA": TA_s}
+
+
+def _extract_therapist_pairs(conversation):
+    """From a list of {role, content} dicts, return [(context_str, therapist_utt), ...]
+    for each assistant turn; context_str is the prior turns formatted as
+    'Patient: ...\\nTherapist: ...\\n...' (consistent with score_ctrs.py)."""
+    pairs = []
+    history = []
+    for msg in conversation:
+        role = msg.get("role")
+        content = (msg.get("content") or "").strip()
+        if role == "assistant":
+            ctx = "\n".join(history) if history else ""
+            pairs.append((ctx, content))
+            history.append(f"Therapist: {content}")
+        elif role == "user":
+            history.append(f"Patient: {content}")
+        # ignore system / other roles in the context window
+    return pairs
+
 
 class AsyncTokenBucket:
     """Async token bucket for rate limiting with variable token consumption.
@@ -335,8 +421,210 @@ class CareRewardLoopManager(RewardLoopManagerBase):
             .rstrip("/")
         )
 
-    async def _get_server_predictions(self, context: str, utterance: str) -> dict:
-        """Get predictions from the server for all 6 CARE labels."""
+    async def _care_batch_argmax(self, contexts, utterances):
+        """One round-trip to /batch_predict, returning argmax integers per item.
+
+        Returns a list of dicts keyed by CARE abbreviation
+        ({NJ, WE, RA, AL, RF, SA}). Falls back to all-zeros on server error.
+        """
+        if not utterances:
+            return []
+        try:
+            url = f"{self.care_server_url}/batch_predict"
+            response = await self.loop.run_in_executor(
+                None,
+                lambda: requests.post(
+                    url,
+                    json={
+                        "contexts": contexts,
+                        "utterances": utterances,
+                        "batch_size": 8,
+                        "include_analysis": True,
+                        # argmax (return_expected omitted/False) — CTRS-P is
+                        # defined on integer labels.
+                    },
+                    timeout=120,
+                )
+            )
+            response.raise_for_status()
+            preds = response.json().get("predictions", [])
+            # Convert full-name keys -> abbreviated for downstream code.
+            out = []
+            for p in preds:
+                out.append({CARE_ABBREV[k]: float(v) for k, v in p.items() if k in CARE_ABBREV})
+            return out
+        except Exception as e:
+            logger.error(f"Error calling /batch_predict at {self.care_server_url}: {e}")
+            return [{"NJ": 0.0, "WE": 0.0, "RA": 0.0, "AL": 0.0, "RF": 0.0, "SA": 0.0}
+                    for _ in utterances]
+
+    # Phrases the agent loop's _should_end_session recognises as a natural
+    # session close. Kept in sync with final_pipeline/shared_config.py.
+    _CLOSING_PHRASES = (
+        "see you next time", "take care", "good luck",
+        "until next week", "same time next", "goodbye", "farewell",
+    )
+
+    @staticmethod
+    def _ended_with_closing(conversation):
+        """Return True iff the LAST therapist turn contains closing language.
+
+        Used to gate the saved-turns part of the early-finish bonus: we only
+        want to pay out for sessions that wrap up *gracefully*, not sessions
+        that ended because they ran out of token budget (or otherwise
+        terminated mid-thought).
+        """
+        if not conversation:
+            return False
+        last_asst = None
+        for msg in reversed(conversation):
+            if msg.get("role") == "assistant":
+                last_asst = (msg.get("content") or "").lower()
+                break
+        if not last_asst:
+            return False
+        return any(p in last_asst for p in CareRewardLoopManager._CLOSING_PHRASES)
+
+    async def _compute_multiturn_reward(self, conversation, extraction_summary,
+                                        max_turns=None, supervisor_signaled_complete=False):
+        """Multi-turn reward = IR coverage + CTRS-P + early-finish bonus.
+
+        Args:
+            conversation: list of {role, content} dicts from the agent loop.
+            extraction_summary: dict with at least 'overall_pct' (0-100), and
+                ideally 'covered_items' / 'total_items'.
+            max_turns: turn budget the agent loop was configured with. Used to
+                compute the early-finish bonus. If None, no bonus is awarded.
+            supervisor_signaled_complete: True if the supervisor emitted the
+                [SESSION_COMPLETE] token during the rollout.
+
+        Returns:
+            (reward, ir_frac, ctrs_p, sub_scores_dict, n_turns, early_bonus)
+        """
+        # IR coverage fraction in [0, 1].
+        try:
+            ir_frac = float(extraction_summary.get("overall_pct", 0.0)) / 100.0
+        except Exception:
+            ir_frac = 0.0
+        ir_frac = max(0.0, min(1.0, ir_frac))
+
+        # "Checklist complete" — prefer the exact integer comparison when
+        # available (handles floating-point rounding from overall_pct).
+        covered = extraction_summary.get("covered_items")
+        total = extraction_summary.get("total_items")
+        if isinstance(covered, (int, float)) and isinstance(total, (int, float)) and total > 0:
+            checklist_complete = covered >= total
+        else:
+            checklist_complete = ir_frac >= 0.999
+
+        # Score every therapist turn through CARE in a single batch call.
+        pairs = _extract_therapist_pairs(conversation or [])
+        if not pairs:
+            return ir_frac + 0.0, ir_frac, 0.0, {"U": 0.0, "IE": 0.0, "C": 0.0, "TA": 0.0}, 0, 0.0
+
+        contexts   = [c for c, _ in pairs]
+        utterances = [u for _, u in pairs]
+        per_turn   = await self._care_batch_argmax(contexts, utterances)
+        ctrs_p, sub = _ctrs_p_from_per_turn(per_turn)
+
+        n_turns = len(per_turn)
+
+        # Early-finish bonus: reward fully covering the checklist with turns
+        # to spare. The saved-turns scaling is GATED on the last therapist
+        # turn ending the session with closing language — otherwise PPO will
+        # exploit the bonus by writing longer per-turn responses that exhaust
+        # the response_length budget at fewer turns and terminate
+        # mid-thought (observed in long-run step 9). The small
+        # SUPERVISOR_SIGNAL_BONUS still fires on coverage alone, so we
+        # continue to reward reaching ir=1.0 even without a clean close.
+        # 0.5 → 0.3: the 17-item checklist (vs the prior 27-item taxonomy) is
+        # more reachable in a 20-turn session, so the early-finish bonus fires
+        # on more rollouts. Halving prevents the bonus from dominating
+        # advantages and pushing the model to rush through items at the
+        # expense of Collaboration (which regressed from -0.45 → -0.60 in v3).
+        EARLY_FINISH_MAX_BONUS = 0.3
+        SUPERVISOR_SIGNAL_BONUS = 0.1
+        early_bonus = 0.0
+        ended_with_closing = self._ended_with_closing(conversation)
+        if checklist_complete and isinstance(max_turns, (int, float)) and max_turns > 0:
+            if ended_with_closing:
+                saved_frac = max(0.0, (float(max_turns) - n_turns) / float(max_turns))
+                early_bonus = EARLY_FINISH_MAX_BONUS * saved_frac
+            if supervisor_signaled_complete:
+                early_bonus += SUPERVISOR_SIGNAL_BONUS
+
+        # === Shaping fix #1: boost IR weight ==============================
+        # Old reward: 1.0 * ir_frac + ctrs_p. IR ∈ [0,1] vs CTRS_P ∈ ~[-1, 2.5]
+        # → CTRS_P dominated and RL abandoned probing (qwen_mt_v1 regressed
+        # IR 61% → 12%). Bumping IR's coefficient evens the magnitudes and
+        # makes asking PHQ-9/GAD-7 questions worth more than maxing CARE's
+        # Technical-Appropriateness via reflective boilerplate.
+        # 2.0 → 2.2: with the swap to the stricter PHQ-9+GAD-7 17-item
+        # checklist (was 27 items of fuzzier categories), ir_frac will run
+        # lower per-rollout. A modest bump maintains roughly the same IR-vs-
+        # CTRS contribution ratio (~1.5–2×) that worked in v3, without
+        # over-weighting IR enough to crush Collaboration.
+        IR_WEIGHT = 2.2
+
+        # === Shaping fix #3: repetition penalty ===========================
+        # qwen_mt_v1 collapsed to a fixed-point "Well, it seems like you're..."
+        # boilerplate (T18 ≡ T19 verbatim in sampled sessions). Penalize high
+        # token-Jaccard overlap between consecutive therapist turns so the
+        # policy can't copy itself for free reward.
+        # 0.25 → 0.35: the 17-item PHQ-9+GAD-7 checklist tempts the model to
+        # rattle off items as a drill ("Have you had X? Have you had Y?").
+        # Stronger Jaccard penalty discourages the boilerplate prober pattern
+        # while still permitting natural follow-ups (threshold stays at 0.6).
+        REP_PENALTY_MAX = 0.35
+        REP_PENALTY_THRESHOLD = 0.6
+        rep_penalty = 0.0
+        therapist_msgs = [
+            (m.get("content") or "").strip()
+            for m in (conversation or [])
+            if m.get("role") == "assistant"
+        ]
+        for prev, curr in zip(therapist_msgs, therapist_msgs[1:]):
+            p_toks = set(prev.split())
+            c_toks = set(curr.split())
+            union = p_toks | c_toks
+            if not union:
+                continue
+            jaccard = len(p_toks & c_toks) / len(union)
+            if jaccard > REP_PENALTY_THRESHOLD:
+                rep_penalty += REP_PENALTY_MAX * (jaccard - REP_PENALTY_THRESHOLD) / (1.0 - REP_PENALTY_THRESHOLD)
+
+        reward = IR_WEIGHT * ir_frac + ctrs_p + early_bonus - rep_penalty
+        return reward, ir_frac, ctrs_p, sub, n_turns, early_bonus
+
+    async def _get_embedding_sim(self, text_a: str, text_b: str) -> float:
+        """Cosine similarity between MiniLM embeddings of two responses.
+
+        Returns a scalar in [-1, 1]. Used as the continuous component of the
+        hybrid reward; resilient to server errors (returns 0.0 on failure).
+        """
+        try:
+            url = f"{self.care_server_url}/embedding_sim"
+            response = await self.loop.run_in_executor(
+                None,
+                lambda: requests.post(
+                    url,
+                    json={"text_a": text_a, "text_b": text_b},
+                    timeout=30,
+                ),
+            )
+            response.raise_for_status()
+            return float(response.json().get("cosine", 0.0))
+        except Exception as e:
+            logger.error(f"Error calling /embedding_sim at {self.care_server_url}: {e}")
+            return 0.0
+
+    async def _get_server_predictions(self, context: str, utterance: str) -> tuple[dict, dict]:
+        """Get CARE predictions from the server.
+
+        Returns (expected, argmax) — both come from the same forward pass:
+            expected: E[label] = sum_c p_c * c   (continuous, used for reward)
+            argmax:  argmax_c logits             (integer, used for logging/eval parity)
+        """
         try:
             predict_url = f"{self.care_server_url}/predict"
             response = await self.loop.run_in_executor(
@@ -346,18 +634,21 @@ class CareRewardLoopManager(RewardLoopManagerBase):
                     json={
                         "context": context,
                         "utterance": utterance,
-                        "include_analysis": True
+                        "include_analysis": True,
+                        "return_expected": True,
                     },
                     timeout=60
                 )
             )
             response.raise_for_status()
             result = response.json()
-            predictions = result.get("predictions", {})
-            return predictions
+            expected = result.get("predictions", {})
+            argmax   = result.get("predictions_argmax") or expected  # fallback
+            return expected, argmax
         except Exception as e:
             logger.error(f"Error calling server at {self.care_server_url}: {e}")
-            return {label: 0.0 for label in CARE_LABELS}
+            zeros = {label: 0.0 for label in CARE_LABELS}
+            return zeros, zeros
 
     def _extract_reference_response(
         self, data_item, extra_info: dict, ground_truth_payload
@@ -391,38 +682,52 @@ class CareRewardLoopManager(RewardLoopManagerBase):
 
         return None
 
-    async def _compute_six_dim_reward(self, response_str: str, context: str, reference_response: str) -> float:
-        """Compute reward from CARE distance between model response and reference response."""
-        try:
-            # Get CARE predictions for model response and reference response.
-            predictions = await self._get_server_predictions(context, response_str)
-            reference_predictions = await self._get_server_predictions(context, reference_response)
-            
-            # Calculate per-label squared errors across the 6 CARE dimensions.
-            losses = []
-            for label in CARE_LABELS:
-                pred_val = float(predictions.get(label, 0.0))
-                truth_val = float(reference_predictions.get(label, 0.0))
-                
-                # Squared difference for this label (component of L2 norm)
-                loss = (pred_val - truth_val) ** 2
-                losses.append(loss)
-            
-            # Use bound-aware normalization for reward scaling.
-            # With CARE labels in [-2, 2], max per-dim absolute error is 4,
-            # so normalized_l2_norm (RMSE-style) is in [0, 4].
-            raw_l2_norm = math.sqrt(sum(losses)) if losses else 0.0
-            normalized_l2_norm = math.sqrt(sum(losses) / len(losses)) if losses else 0.0
+    async def _compute_six_dim_reward(self, response_str: str, context: str, reference_response: str):
+        """Compute hybrid reward = CARE-based + embedding-cosine-based.
 
-            # Use a tighter denominator to increase reward spread for RL.
+        Returns (reward, l2_norm, raw_l2_norm, l2_norm_argmax, raw_l2_norm_argmax,
+                 care_reward, emb_reward, emb_sim):
+            reward = (1 - EMB_REWARD_WEIGHT) * care_reward + EMB_REWARD_WEIGHT * emb_reward
+            care_reward uses expected-value CARE L2 (smooth).
+            emb_reward = (cosine + 1)/2 in [0, 1] from MiniLM embedding sim.
+            *_argmax mirror CARE metrics via argmax integers for eval parity.
+        """
+        try:
+            # Issue CARE prediction calls and embedding-sim call concurrently.
+            pred_task = asyncio.create_task(self._get_server_predictions(context, response_str))
+            ref_task  = asyncio.create_task(self._get_server_predictions(context, reference_response))
+            emb_task  = asyncio.create_task(self._get_embedding_sim(response_str, reference_response))
+
+            pred_exp, pred_arg = await pred_task
+            ref_exp,  ref_arg  = await ref_task
+            emb_sim            = await emb_task
+
+            def _l2(p, r):
+                losses = [(float(p.get(l, 0.0)) - float(r.get(l, 0.0))) ** 2 for l in CARE_LABELS]
+                raw = math.sqrt(sum(losses)) if losses else 0.0
+                norm = math.sqrt(sum(losses) / len(losses)) if losses else 0.0
+                return raw, norm
+
+            raw_l2_norm,        normalized_l2_norm        = _l2(pred_exp, ref_exp)
+            raw_l2_norm_argmax, normalized_l2_norm_argmax = _l2(pred_arg, ref_arg)
+
+            # CARE component (smooth expected-value L2 → [0, 1] reward).
             reward_scale = (CARE_LABEL_MAX - CARE_LABEL_MIN) / 1.5
-            reward = 1.0 - (normalized_l2_norm / reward_scale)
-            reward = max(0.0, min(1.0, reward))
-            return reward, normalized_l2_norm, raw_l2_norm
-        
+            care_reward = 1.0 - (normalized_l2_norm / reward_scale)
+            care_reward = max(0.0, min(1.0, care_reward))
+
+            # Embedding component: cosine in [-1, 1] → reward in [0, 1].
+            emb_reward = max(0.0, min(1.0, (emb_sim + 1.0) / 2.0))
+
+            reward = (1.0 - EMB_REWARD_WEIGHT) * care_reward + EMB_REWARD_WEIGHT * emb_reward
+
+            return (reward, normalized_l2_norm, raw_l2_norm,
+                    normalized_l2_norm_argmax, raw_l2_norm_argmax,
+                    care_reward, emb_reward, emb_sim)
+
         except Exception as e:
             logger.error(f"Error computing 6D reward: {e}")
-            return 0.0, 0.0, 0.0
+            return 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
 
     async def _compute_reward(
         self, data_source: str, solution_str: str, ground_truth: str, extra_info: dict
@@ -481,19 +786,69 @@ class CareRewardLoopManager(RewardLoopManagerBase):
 
         async with self._semaphore:
             try:
-                # Compute single reward value (averaged across 6 CARE dimensions)
-                context = str(extra_info.get("context", ""))
-                reference_response = self._extract_reference_response(data_item, extra_info, ground_truth)
-                if not reference_response:
-                    raise ValueError("Missing reference response text for CARE ground truth scoring")
+                # Multi-turn rollouts inject 'conversation' + 'extraction_summary'
+                # via the agent loop's extra_fields. When both are present, use
+                # the session-level IR + CTRS-P reward; otherwise fall back to
+                # single-utterance CARE distance.
+                conversation = extra_info.get("conversation", None)
+                extraction_summary = extra_info.get("extraction_summary", None)
 
-                reward_score, l2_norm, raw_l2_norm = await asyncio.wait_for(
-                    self._compute_six_dim_reward(response_str, context, reference_response),
-                    timeout=self.timeout,
-                )
-                reward_extra_info["l2_norm"] = l2_norm
-                reward_extra_info["raw_l2_norm"] = raw_l2_norm
-                reward_extra_info["method"] = "care_vs_care_reference"
+                if conversation and extraction_summary:
+                    max_turns = extra_info.get("max_therapy_turns", None)
+                    supervisor_done = bool(extra_info.get("supervisor_signaled_complete", False))
+                    sup_failures = int(extra_info.get("supervisor_failures", 0))
+                    sup_calls = int(extra_info.get("supervisor_calls", 0))
+                    (reward_score, ir_frac, ctrs_p,
+                     sub, n_turns, early_bonus) = await asyncio.wait_for(
+                        self._compute_multiturn_reward(
+                            conversation, extraction_summary,
+                            max_turns=max_turns,
+                            supervisor_signaled_complete=supervisor_done,
+                        ),
+                        timeout=self.timeout,
+                    )
+                    # Shaping fix #4: explicit supervisor-failure malus.
+                    # Without this, sessions that overflowed the supervisor's
+                    # context received no IR penalty → model learned to let
+                    # sessions run long so the supervisor blanked.
+                    SUP_FAILURE_MALUS = 0.05    # per failed supervisor call
+                    sup_malus = SUP_FAILURE_MALUS * sup_failures
+                    reward_score = reward_score - sup_malus
+
+                    reward_extra_info["ir_frac"]       = ir_frac
+                    reward_extra_info["ctrs_p"]        = ctrs_p
+                    reward_extra_info["ctrs_U_score"]  = sub["U"]
+                    reward_extra_info["ctrs_IE_score"] = sub["IE"]
+                    reward_extra_info["ctrs_C_score"]  = sub["C"]
+                    reward_extra_info["ctrs_TA_score"] = sub["TA"]
+                    reward_extra_info["n_therapist_turns"] = float(n_turns)
+                    reward_extra_info["early_finish_bonus"] = float(early_bonus)
+                    reward_extra_info["supervisor_signaled_complete"] = float(supervisor_done)
+                    reward_extra_info["supervisor_failures"] = float(sup_failures)
+                    reward_extra_info["supervisor_calls"] = float(sup_calls)
+                    reward_extra_info["supervisor_malus"] = float(sup_malus)
+                    reward_extra_info["method"] = "ir_plus_ctrs_p"
+                else:
+                    # Single-turn CARE distance + embedding similarity hybrid.
+                    context = str(extra_info.get("context", ""))
+                    reference_response = self._extract_reference_response(data_item, extra_info, ground_truth)
+                    if not reference_response:
+                        raise ValueError("Missing reference response text for CARE ground truth scoring")
+
+                    (reward_score, l2_norm, raw_l2_norm,
+                     l2_norm_argmax, raw_l2_norm_argmax,
+                     care_reward, emb_reward, emb_sim) = await asyncio.wait_for(
+                        self._compute_six_dim_reward(response_str, context, reference_response),
+                        timeout=self.timeout,
+                    )
+                    reward_extra_info["l2_norm"] = l2_norm
+                    reward_extra_info["raw_l2_norm"] = raw_l2_norm
+                    reward_extra_info["l2_norm_argmax"] = l2_norm_argmax
+                    reward_extra_info["raw_l2_norm_argmax"] = raw_l2_norm_argmax
+                    reward_extra_info["care_reward"] = care_reward
+                    reward_extra_info["emb_reward"] = emb_reward
+                    reward_extra_info["emb_sim"] = emb_sim
+                    reward_extra_info["method"] = "care_plus_embedding"
 
             except asyncio.TimeoutError:
                 logger.warning(

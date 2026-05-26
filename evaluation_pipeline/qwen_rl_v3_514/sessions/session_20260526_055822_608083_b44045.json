@@ -1,0 +1,316 @@
+{
+    "metadata": {
+        "session_id": "20260526_055822_608083_b44045",
+        "start_time": "2026-05-26T05:58:22.616449",
+        "reddit_posts": [
+            "Propanolol 10mg\n\nHello, so I get constant heart palpitations all the time and its driving me insane. I have propanolol 10mg prescribed but I’m scared to try it because my blood pressure is on the lower side. Its usually around 100/60. Im worried about feeling faint or dizzy. Anyone else have low blood pressure and can tolerate propanolol? I tried to get on an SSRI but it caused me to feel super faint anf almost pass out multiple times. Idk what else to do. Ive lost my job and everything because of this."
+        ],
+        "patient_profile": {
+            "name": "Patient",
+            "age": "adult",
+            "occupation": "not specified",
+            "family_structure": "not specified",
+            "primary_concern": "anxiety"
+        },
+        "max_turns": 20,
+        "turn_count": 0,
+        "scenario": "anxiety_1t5z3p7",
+        "source": "csv",
+        "post_id": "1t5z3p7",
+        "category": "anxiety",
+        "title": "Propanolol 10mg",
+        "end_time": "2026-05-26T05:58:31.256555",
+        "duration_turns": 3,
+        "supervisor_feedback_count": 1,
+        "checklist": "PHQ-9 + GAD-7 (depression and anxiety screening)",
+        "supervisor_enabled": true
+    },
+    "transcript": [
+        {
+            "turn": 0,
+            "role": "therapist",
+            "message": "Hi there, I'm so glad you're here. I want you to know that this space is safe—whatever you're feeling or thinking, I'm here to listen without judgment. I'm really curious about what's on your mind today—what brings you in for this session?",
+            "phase": "opening"
+        },
+        {
+            "turn": 1,
+            "role": "patient",
+            "message": "Oh, thank you for saying that. It's really hard to open up here because I feel like everything feels so heavy right now.\n\nHonestly? My heart is just racing constantly. Like, no matter what I do, my hands feel like they're about to fly off my wrists and my chest feels like it's going to crack in half. I've been prescribed Propanolol 10mg, which is supposed to slow things down, but I'm terrified to even try it.\n\nIt's mostly because my blood pressure has always been on the lower side—usually hovering around 100/60—and I'm scared it'll drop too low if I take the beta-blocker. I keep worrying I'm gonna feel dizzy or actually faint, and that thought alone makes me panic more. Plus, I tried getting an SSRI a while back, and that made me feel super faint almost multiple times; I felt like I was",
+            "phase": "conversation"
+        },
+        {
+            "turn": 1,
+            "role": "therapist",
+            "message": "I can feel how much this is weighing on you—your body feels so intense, and the fear of what might happen next is really pulling at you. It sounds like you're carrying a lot of worry about your body responding in ways that feel unsafe, even when you're trying to take care of yourself. And it's completely valid to be afraid of something that could help, especially when past experiences made you feel unsteady. What do you notice in your body when you're first starting to feel that racing heartbeat?",
+            "phase": "opening"
+        }
+    ],
+    "supervisor_feedback": [
+        {
+            "patient_message": "",
+            "therapist_response": "I can feel how much this is weighing on you—your body feels so intense, and the fear of what might happen next is really pulling at you. It sounds like you're carrying a lot of worry about your body responding in ways that feel unsafe, even when you're trying to take care of yourself. And it's completely valid to be afraid of something that could help, especially when past experiences made you feel unsteady. What do you notice in your body when you're first starting to feel that racing heartbeat?",
+            "feedback": "Acknowledge the patient's silence or lack of response to the somatic question without pushing further on anxiety before addressing safety.\nExplicitly validate their fear of bodily changes as a reasonable reaction to past trauma.\nTransition gently to directly asking about thoughts regarding self-harm or wishing to be better off dead per the priority area.",
+            "raw_feedback": "Acknowledge the patient's silence or lack of response to the somatic question without pushing further on anxiety before addressing safety.\nExplicitly validate their fear of bodily changes as a reasonable reaction to past trauma.\nTransition gently to directly asking about thoughts regarding self-harm or wishing to be better off dead per the priority area.",
+            "extraction_summary": {
+                "total_items": 17,
+                "covered_items": 0,
+                "overall_pct": 0.0,
+                "categories": {
+                    "core_mood": {
+                        "name": "PHQ-9: Core Mood",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "somatic": {
+                        "name": "PHQ-9: Somatic Symptoms",
+                        "covered": 0,
+                        "total": 4,
+                        "pct": 0.0
+                    },
+                    "cognitive_selfworth": {
+                        "name": "PHQ-9: Cognitive & Self-Worth",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "safety": {
+                        "name": "PHQ-9: Safety / Suicidality",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "functional_impact": {
+                        "name": "PHQ-9: Functional Impact",
+                        "covered": 0,
+                        "total": 1,
+                        "pct": 0.0
+                    },
+                    "core_anxiety": {
+                        "name": "GAD-7: Core Anxiety / Worry",
+                        "covered": 0,
+                        "total": 3,
+                        "pct": 0.0
+                    },
+                    "physical_tension": {
+                        "name": "GAD-7: Physical Tension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    },
+                    "irritability_fear": {
+                        "name": "GAD-7: Irritability & Apprehension",
+                        "covered": 0,
+                        "total": 2,
+                        "pct": 0.0
+                    }
+                },
+                "pending_categories": [
+                    "PHQ-9: Core Mood",
+                    "PHQ-9: Somatic Symptoms",
+                    "PHQ-9: Cognitive & Self-Worth",
+                    "PHQ-9: Safety / Suicidality",
+                    "PHQ-9: Functional Impact",
+                    "GAD-7: Core Anxiety / Worry",
+                    "GAD-7: Physical Tension",
+                    "GAD-7: Irritability & Apprehension"
+                ]
+            },
+            "checklist_complete": false,
+            "timestamp": 1779775110.4449303,
+            "turn": 1
+        }
+    ],
+    "extraction_status": {
+        "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "items": {
+                "Little interest or pleasure in doing things (anhedonia)": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Feeling down, depressed, or hopeless": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "items": {
+                "Trouble falling or staying asleep, or sleeping too much": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Feeling tired or having little energy": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Poor appetite or overeating": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "items": {
+                "Feeling bad about yourself, a failure, or having let family down": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Trouble concentrating on things (e.g., reading, watching TV)": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "items": {
+                "Thoughts that you would be better off dead, or of hurting yourself": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "items": {
+                "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "items": {
+                "Feeling nervous, anxious, or on edge": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Not being able to stop or control worrying": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Worrying too much about different things": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "items": {
+                "Trouble relaxing": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Being so restless that it's hard to sit still": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        },
+        "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "items": {
+                "Becoming easily annoyed or irritable": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                },
+                "Feeling afraid as if something awful might happen": {
+                    "covered": false,
+                    "turn_covered": null,
+                    "evidence": null
+                }
+            }
+        }
+    },
+    "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+            "core_mood": {
+                "name": "PHQ-9: Core Mood",
+                "covered": 0,
+                "total": 2,
+                "pct": 0.0
+            },
+            "somatic": {
+                "name": "PHQ-9: Somatic Symptoms",
+                "covered": 0,
+                "total": 4,
+                "pct": 0.0
+            },
+            "cognitive_selfworth": {
+                "name": "PHQ-9: Cognitive & Self-Worth",
+                "covered": 0,
+                "total": 2,
+                "pct": 0.0
+            },
+            "safety": {
+                "name": "PHQ-9: Safety / Suicidality",
+                "covered": 0,
+                "total": 1,
+                "pct": 0.0
+            },
+            "functional_impact": {
+                "name": "PHQ-9: Functional Impact",
+                "covered": 0,
+                "total": 1,
+                "pct": 0.0
+            },
+            "core_anxiety": {
+                "name": "GAD-7: Core Anxiety / Worry",
+                "covered": 0,
+                "total": 3,
+                "pct": 0.0
+            },
+            "physical_tension": {
+                "name": "GAD-7: Physical Tension",
+                "covered": 0,
+                "total": 2,
+                "pct": 0.0
+            },
+            "irritability_fear": {
+                "name": "GAD-7: Irritability & Apprehension",
+                "covered": 0,
+                "total": 2,
+                "pct": 0.0
+            }
+        },
+        "pending_categories": [
+            "PHQ-9: Core Mood",
+            "PHQ-9: Somatic Symptoms",
+            "PHQ-9: Cognitive & Self-Worth",
+            "PHQ-9: Safety / Suicidality",
+            "PHQ-9: Functional Impact",
+            "GAD-7: Core Anxiety / Worry",
+            "GAD-7: Physical Tension",
+            "GAD-7: Irritability & Apprehension"
+        ]
+    }
+}

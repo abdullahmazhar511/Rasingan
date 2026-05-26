@@ -1,0 +1,1518 @@
+{
+  "session_id": "20260526_042626_823799_dbd07e",
+  "timestamp": 1779769652.324012,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": true,
+          "turn_covered": 8,
+          "evidence": "It really is just so frustrating that the thing I'm most afraid of\u2014actually messing things up\u2014is also the exact thing that makes me unable to do anything right. It feels like a perfect catch-22.\n\nI know logically that I need to talk to my manager, explain what happened, and propose a fix. But the moment I try to actually formulate that email in my head, my brain literally short-circuits. My heart starts hammering against my ribs, my hands shake, and suddenly I'm stuck in this loop of \"what if they fire me?\" or \"what if they think I'm incompetent?\" The panic hits so fast it feels physical, like there's a knot in my stomach that won't untangle.\n\nSo instead of drafting an apology, I just close my laptop and hide. Or worse, I find myself making snap decisions on tiny things because I can't wait for the panic to pass. Like last week when"
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": true,
+          "turn_covered": 5,
+          "evidence": "It's just so frustrating, isn't it? I know panic is a normal reaction to stress, but mine feels like this... this heavy fog that completely blocks out logic. It's not even that I *want* to make snap decisions; I actually want to think clearly. But the moment I try to approach the problem methodically, my body reacts before my brain can catch up. My heart hammers, my hands shake, and suddenly I'm stuck in a loop of \"what if\" scenarios instead of looking at the facts.\n\nI feel like there's a part of me that knows I need to fix this mistake at work, and another part that's screaming to run away from the conversation. It's exhausting trying to be the calm, rational employee when every time I open a spreadsheet or hear someone talk about money, I spiral into anxiety. \n\nDo you ever feel like you're fighting against your own brain when things get complicated? Or does"
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "",
+      "therapist_response": "Well, I'm sorry to hear that. I can understand how you'd feel overwhelmed when you have a problem at work and you can't figure out how to solve it. I know it's hard to know what to do when you feel like you're running on empty, but I think it's important to try to find a way to address the situation.",
+      "feedback": "The response is empathetic but did not directly address the specific PHQ-9 safety question regarding suicidal ideation.\nConsider explicitly asking about thoughts of being better off dead or self-harm to assess immediate risk.\nEnsure the next turn moves from general validation to a direct inquiry about safety and hopelessness.",
+      "raw_feedback": "The response is empathetic but did not directly address the specific PHQ-9 safety question regarding suicidal ideation.\nConsider explicitly asking about thoughts of being better off dead or self-harm to assess immediate risk.\nEnsure the next turn moves from general validation to a direct inquiry about safety and hopelessness.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769591.9451816,
+      "turn": 1
+    },
+    {
+      "patient_message": "Hey, thanks for checking in. Honestly? I'm doing okay, but my head is feeling pretty heavy right now.\n\nI've been sitting here trying to sort through that money mistake at work, and it's just... overwhelming. Usually, when I have a problem, I can figure out the steps: call someone, write down the facts, make a plan. But with anything involving other people and their money, or even company budgets, my brain just goes blank. It feels like I'm running on empty, panicking about something small while ignoring the bigger picture.\n\nIt's so frustrating because I know I need to fix this, but every time I try to think clearly about who owes what or how to handle the numbers, I spiral instead. I feel like I'm losing all perspective. Do you think there's a way to calm down enough to actually start thinking about how to address this without making it worse?",
+      "therapist_response": "It's clear you're feeling a lot of panic and pressure about this. I understand how it would be hard for you to focus on a solution when you feel like you're running on empty.",
+      "feedback": "Acknowledge the patient's distress about the money mistake without validating the spiraling thought process as a permanent state.\nExplicitly assess for any thoughts of self-harm or feeling better off dead, given the current emotional intensity and loss of perspective.\nIntroduce a grounding technique to help interrupt the panic cycle before attempting problem-solving.",
+      "raw_feedback": "Acknowledge the patient's distress about the money mistake without validating the spiraling thought process as a permanent state.\nExplicitly assess for any thoughts of self-harm or feeling better off dead, given the current emotional intensity and loss of perspective.\nIntroduce a grounding technique to help interrupt the panic cycle before attempting problem-solving.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769594.8264966,
+      "turn": 2
+    },
+    {
+      "patient_message": "Yeah, I know you're right that it's important to address it. But the problem is, when I try to \"address\" it, my brain short-circuits. It's like hitting a wall and then immediately falling backward.\n\nI've been trying to just breathe and step away for an hour or two, hoping my panic will settle down so I can look at the spreadsheet again. But honestly? It hasn't helped much. Instead of feeling calm, I feel more paralyzed. Every time I close my eyes to think about the solution, I start imagining the worst-case scenario: what if they get mad? What if I lose my job because I messed up the numbers? My heart starts racing, and suddenly I'm too scared to even open my laptop.\n\nIt feels like there's this invisible fog over everything involving other people's money. With my own bills, I can just crunch the numbers and make a payment plan. But the moment",
+      "therapist_response": "You seem like you're really having a lot of trouble with your panic response to this situation. I understand that.",
+      "feedback": "Validate the patient's fear of job loss and financial failure without minimizing their anxiety.\nGently probe whether these catastrophic thoughts about losing their job or anger from others have escalated to thoughts of self-harm or wishing they were better off dead.\nClarify that while the current situation is distressing, it does not equate to suicidal ideation, but ask directly if they are experiencing any thoughts of ending their life.",
+      "raw_feedback": "Validate the patient's fear of job loss and financial failure without minimizing their anxiety.\nGently probe whether these catastrophic thoughts about losing their job or anger from others have escalated to thoughts of self-harm or wishing they were better off dead.\nClarify that while the current situation is distressing, it does not equate to suicidal ideation, but ask directly if they are experiencing any thoughts of ending their life.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769597.5540187,
+      "turn": 3
+    },
+    {
+      "patient_message": "Yeah, it's so frustrating that I can handle my own messes fine. If I'm late on a credit card or forgot to pay a bill, I just make the payment and move on. But the second someone else's money is involved\u2014whether it's a colleague owing me back, a client asking for a discount, or even trying to figure out the department budget at work\u2014my brain just goes into overdrive.\n\nIt feels like I lose all perspective. I start panicking about tiny details while completely ignoring the actual problem. Like right now, with this mistake I made, I'm too scared to call anyone because I'm imagining the worst-case scenario: what if they fire me? What if they think I'm incompetent? My heart races, and then I just shut down. I avoid opening the email thread entirely because the thought of reading the numbers makes me feel sick.\n\nI don't know where this comes from either. It's",
+      "therapist_response": "Well, I know I've been feeling very much overwhelmed by this. It's hard to know how to approach the problem when you're running on empty, but I think it's important to try to find a way to fix this.",
+      "feedback": "Validate the patient's intense fear of incompetence and job loss to build rapport before introducing safety screening.\nExplicitly ask about suicidal thoughts or self-harm as a direct response to their overwhelming distress, maintaining clinical caution.\nNormalize the panic response while gently exploring whether this level of fear is sustainable given their current stressors.",
+      "raw_feedback": "Validate the patient's intense fear of incompetence and job loss to build rapport before introducing safety screening.\nExplicitly ask about suicidal thoughts or self-harm as a direct response to their overwhelming distress, maintaining clinical caution.\nNormalize the panic response while gently exploring whether this level of fear is sustainable given their current stressors.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 0,
+        "overall_pct": 0.0,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769600.2496936,
+      "turn": 4
+    },
+    {
+      "patient_message": "It's just so frustrating, isn't it? I know panic is a normal reaction to stress, but mine feels like this... this heavy fog that completely blocks out logic. It's not even that I *want* to make snap decisions; I actually want to think clearly. But the moment I try to approach the problem methodically, my body reacts before my brain can catch up. My heart hammers, my hands shake, and suddenly I'm stuck in a loop of \"what if\" scenarios instead of looking at the facts.\n\nI feel like there's a part of me that knows I need to fix this mistake at work, and another part that's screaming to run away from the conversation. It's exhausting trying to be the calm, rational employee when every time I open a spreadsheet or hear someone talk about money, I spiral into anxiety. \n\nDo you ever feel like you're fighting against your own brain when things get complicated? Or does",
+      "therapist_response": "You're having a lot of trouble with your panic response to this situation. It's understandable, but I know that it's impeding your ability to solve the problem.",
+      "feedback": "Validate the patient's fear of 'something awful' happening to reinforce that this is a recognized anxiety symptom, not a reality.\nGently probe for any specific thoughts about being better off dead or hurting themselves to assess safety risk before addressing other PHQ-9 items.\nAcknowledge the exhaustion and internal conflict described as signs of significant distress that require further exploration.",
+      "raw_feedback": "Validate the patient's fear of 'something awful' happening to reinforce that this is a recognized anxiety symptom, not a reality.\nGently probe for any specific thoughts about being better off dead or hurting themselves to assess safety risk before addressing other PHQ-9 items.\nAcknowledge the exhaustion and internal conflict described as signs of significant distress that require further exploration.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769603.2766945,
+      "turn": 5
+    },
+    {
+      "patient_message": "Yeah, I know it *is* important to fix it. That's the thing that makes it so ironic and scary: I know exactly what needs to be done logically. I know I should draft an email, apologize, explain the error, and propose a solution. But my body just refuses to cooperate with my mind.\n\nIt feels like there are two different people in here right now. One person is trying to solve the problem calmly while the other is screaming, \"Don't look at them! Don't talk about money!\" The second they start talking about budgets or debts, my brain literally goes blank. I can't remember how to type the subject line, or worse, I freeze up completely when someone asks me for an update.\n\nI'm terrified that if I don't do something immediately, they'll think I'm incompetent or careless, but the moment I try to act on those thoughts, I panic so hard I end up making a bigger",
+      "therapist_response": "You're having a lot of trouble with the panic response to the situation at work. It's understandable, but I know it's preventing you from solving the problem.",
+      "feedback": "Validate the patient's experience of feeling trapped between logic and panic without introducing new topics.\nGently explore whether this intense fear of incompetence or failure has ever led to thoughts that life would be better off dead or self-harm ideation.\nReassure the patient that expressing these darkest fears is safe in therapy and will not result in judgment.",
+      "raw_feedback": "Validate the patient's experience of feeling trapped between logic and panic without introducing new topics.\nGently explore whether this intense fear of incompetence or failure has ever led to thoughts that life would be better off dead or self-harm ideation.\nReassure the patient that expressing these darkest fears is safe in therapy and will not result in judgment.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769606.8739228,
+      "turn": 6
+    },
+    {
+      "patient_message": "Yeah, it's so frustrating that the thing I'm most afraid of\u2014actually making a mistake or messing things up\u2014is also the exact thing that makes me unable to do anything right. It feels like a catch-22.\n\nI know logically that I need to talk to my manager and explain what happened. But the moment I try to formulate that sentence in my head, my brain short-circuits. I start rehearsing all the ways they could reject me, how they'll laugh at me, or if I'll get fired tomorrow. The panic hits so fast it feels physical, like my chest is tightening and I can't breathe enough to think clearly. So instead of drafting an email, I just close my laptop and hide.\n\nIt's scary because I feel like I'm losing control of my own job over something I didn't even mean to cause. It's not about being bad at math; it's like my brain just refuses to",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Acknowledge the patient's distress about losing control of their job without jumping to safety assessment yet.\nValidate the physical symptoms of panic (chest tightening, inability to breathe) as a natural response to perceived threat.\nGently explore the specific thoughts they rehearsed about rejection or firing to assess severity before addressing PHQ-9 Item 9.",
+      "raw_feedback": "Acknowledge the patient's distress about losing control of their job without jumping to safety assessment yet.\nValidate the physical symptoms of panic (chest tightening, inability to breathe) as a natural response to perceived threat.\nGently explore the specific thoughts they rehearsed about rejection or firing to assess severity before addressing PHQ-9 Item 9.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 1,
+        "overall_pct": 5.9,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "PHQ-9: Functional Impact",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769610.574686,
+      "turn": 7
+    },
+    {
+      "patient_message": "It really is just so frustrating that the thing I'm most afraid of\u2014actually messing things up\u2014is also the exact thing that makes me unable to do anything right. It feels like a perfect catch-22.\n\nI know logically that I need to talk to my manager, explain what happened, and propose a fix. But the moment I try to actually formulate that email in my head, my brain literally short-circuits. My heart starts hammering against my ribs, my hands shake, and suddenly I'm stuck in this loop of \"what if they fire me?\" or \"what if they think I'm incompetent?\" The panic hits so fast it feels physical, like there's a knot in my stomach that won't untangle.\n\nSo instead of drafting an apology, I just close my laptop and hide. Or worse, I find myself making snap decisions on tiny things because I can't wait for the panic to pass. Like last week when",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Validate the patient's distress regarding the 'catch-22' of anxiety preventing problem-solving.\nGently assess for any suicidal ideation or self-harm thoughts, as this is the current priority area.\nAcknowledge the physical symptoms described (heart hammering, shaking) and normalize them as part of the panic response.",
+      "raw_feedback": "Validate the patient's distress regarding the 'catch-22' of anxiety preventing problem-solving.\nGently assess for any suicidal ideation or self-harm thoughts, as this is the current priority area.\nAcknowledge the physical symptoms described (heart hammering, shaking) and normalize them as part of the panic response.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769614.5019784,
+      "turn": 8
+    },
+    {
+      "patient_message": "It's so ironic, isn't it? The thing I'm most terrified of\u2014actually messing up someone else's money\u2014is the exact thing that paralyzes me into doing nothing at all.\n\nI know logically what needs to happen: draft an email, explain the error, offer a solution. But the moment my brain tries to access those steps, it goes offline. It feels like there are two people in my head fighting. One person is calm and says, \"Just send the email,\" but the other person screams, \"What if they fire you? What if they laugh at you? What if this ruins your career?\" That second voice wins every single time. My heart races, my hands shake, and suddenly I can't even type the subject line. So I just close the laptop and hide.\n\nAnd then, because I'm stuck in this loop of fear, I end up making snap decisions on tiny things instead. Like last week when",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Acknowledge the patient's distress and validate that their fear of professional failure is a common source of anxiety, not just about money.\nTransition from describing the panic loop to assessing safety by asking if these overwhelming feelings have ever led to thoughts of wanting to be better off dead or hurting themselves.\nMaintain a calm, non-judgmental tone while gently probing the severity of their current emotional state to ensure no immediate crisis indicators are present.",
+      "raw_feedback": "Acknowledge the patient's distress and validate that their fear of professional failure is a common source of anxiety, not just about money.\nTransition from describing the panic loop to assessing safety by asking if these overwhelming feelings have ever led to thoughts of wanting to be better off dead or hurting themselves.\nMaintain a calm, non-judgmental tone while gently probing the severity of their current emotional state to ensure no immediate crisis indicators are present.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769618.3011901,
+      "turn": 9
+    },
+    {
+      "patient_message": "It's so frustrating that the thing I'm most terrified of\u2014actually messing up someone else's money\u2014is the exact thing that paralyzes me into doing nothing at all.\n\nI know logically what needs to happen: draft an email, explain the error, offer a solution. But the moment my brain tries to access those steps, it goes offline. It feels like there are two people in my head fighting. One person is calm and says, \"Just send the email,\" but the other person screams, \"What if they fire you? What if they think I'm incompetent? What if this ruins your career?\" That second voice wins every single time. My heart races, my hands shake, and suddenly I can't even type the subject line. So I just close the laptop and hide.\n\nAnd then, because I'm stuck in this loop of fear, I end up making snap decisions on tiny things instead. Like last week when I was trying",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Acknowledge the patient's distress and validate the intensity of their panic response without jumping to clinical assessments.\nGently explore if there are any moments in recent weeks where they felt a slight sense of relief or hope, even briefly.\nMaintain a supportive stance while preparing to transition to safety questions only if the patient expresses increased distress or if it becomes clinically indicated.",
+      "raw_feedback": "Acknowledge the patient's distress and validate the intensity of their panic response without jumping to clinical assessments.\nGently explore if there are any moments in recent weeks where they felt a slight sense of relief or hope, even briefly.\nMaintain a supportive stance while preparing to transition to safety questions only if the patient expresses increased distress or if it becomes clinically indicated.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769622.1099565,
+      "turn": 10
+    },
+    {
+      "patient_message": "It's so frustrating that the thing I'm most terrified of\u2014actually messing up someone else's money\u2014is the exact thing that paralyzes me into doing nothing at all.\n\nI know logically what needs to happen: draft an email, explain the error, offer a solution. But the moment my brain tries to access those steps, it goes offline. It feels like there are two people in my head fighting. One person is calm and says, \"Just send the email,\" but the other person screams, \"What if they fire you? What if they think I'm incompetent? What if this ruins your career?\" That second voice wins every single time. My heart races, my hands shake, and suddenly I can't even type the subject line. So I just close the laptop and hide.\n\nAnd then, because I'm stuck in this loop of fear, I end up making snap decisions on tiny things instead. Like last week when",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "The patient's current narrative focuses on work-related panic and avoidance; explicitly ask about the PHQ-9 Safety item to assess suicidality before it becomes a crisis.\nAcknowledge the intensity of their fear response without validating the catastrophic predictions (e.g., 'What if they fire you?') as facts.\nInvite the patient to share any thoughts regarding self-harm or being better off dead, ensuring safety is the immediate priority over the specific work scenario.",
+      "raw_feedback": "The patient's current narrative focuses on work-related panic and avoidance; explicitly ask about the PHQ-9 Safety item to assess suicidality before it becomes a crisis.\nAcknowledge the intensity of their fear response without validating the catastrophic predictions (e.g., 'What if they fire you?') as facts.\nInvite the patient to share any thoughts regarding self-harm or being better off dead, ensuring safety is the immediate priority over the specific work scenario.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769625.9389048,
+      "turn": 11
+    },
+    {
+      "patient_message": "It's so frustrating that the thing I'm most terrified of\u2014actually messing up someone else's money\u2014is the exact thing that paralyzes me into doing nothing at all.\n\nI know logically what needs to happen: draft an email, explain the error, offer a solution. But the moment my brain tries to access those steps, it goes offline. It feels like there are two people in my head fighting. One person is calm and says, \"Just send the email,\" but the other person screams, \"What if they fire you? What if they think I'm incompetent? What if this ruins your career?\" That second voice wins every single time. My heart races, my hands shake, and suddenly I can't even type the subject line. So I just close the laptop and hide.\n\nAnd then, because I'm stuck in this loop of fear, I end up making snap decisions on tiny things instead. Like last week when",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Gently pivot the conversation toward safety by asking if the overwhelming panic or fear of failure has ever led to thoughts of wanting to be better off dead or hurting yourself.\nNormalize that extreme stress can sometimes trigger intrusive thoughts, but clarify that these are not predictions of reality and do not mean they will happen.\nInvite the patient to share any recent feelings of hopelessness or worthlessness that might be connected to this work crisis.",
+      "raw_feedback": "Gently pivot the conversation toward safety by asking if the overwhelming panic or fear of failure has ever led to thoughts of wanting to be better off dead or hurting yourself.\nNormalize that extreme stress can sometimes trigger intrusive thoughts, but clarify that these are not predictions of reality and do not mean they will happen.\nInvite the patient to share any recent feelings of hopelessness or worthlessness that might be connected to this work crisis.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769629.6582015,
+      "turn": 12
+    },
+    {
+      "patient_message": "It's so frustrating that the thing I'm most terrified of\u2014actually messing up someone else's money\u2014is the exact thing that paralyzes me into doing nothing at all.\n\nI know logically what needs to happen: draft an email, explain the error, offer a solution. But the moment my brain tries to access those steps, it goes offline. It feels like there are two people in my head fighting. One person is calm and says, \"Just send the email,\" but the other person screams, \"What if they fire you? What if they think I'm incompetent? What if this ruins your career?\" That second voice wins every single time. My heart races, my hands shake, and suddenly I can't even type the subject line. So I just close the laptop and hide.\n\nAnd then, because I'm stuck in this loop of fear, I end up making snap decisions on tiny things instead. Like last week when I was trying",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Acknowledge the patient's distress about work-related anxiety and validate the internal conflict they described.\nGently pivot to the safety checklist item by asking if there are any thoughts of self-harm or feeling better off dead related to this situation or generally.\nMaintain a non-judgmental stance while exploring the connection between their panic response and any suicidal ideation.",
+      "raw_feedback": "Acknowledge the patient's distress about work-related anxiety and validate the internal conflict they described.\nGently pivot to the safety checklist item by asking if there are any thoughts of self-harm or feeling better off dead related to this situation or generally.\nMaintain a non-judgmental stance while exploring the connection between their panic response and any suicidal ideation.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769633.4147606,
+      "turn": 13
+    },
+    {
+      "patient_message": "It's so frustrating that the thing I'm most terrified of\u2014actually messing up someone else's money\u2014is the exact thing that paralyzes me into doing nothing at all.\n\nI know logically what needs to happen: draft an email, explain the error, offer a solution. But the moment my brain tries to access those steps, it goes offline. It feels like there are two people in my head fighting. One person is calm and says, \"Just send the email,\" but the other person screams, \"What if they fire you? What if they think I'm incompetent? What if this ruins your career?\" That second voice wins every single time. My heart races, my hands shake, and suddenly I can't even type the subject line. So I just close the laptop and hide.\n\nAnd then, because I'm stuck in this loop of fear, I end up making snap decisions on tiny things instead. Like last week when",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Acknowledge the patient's description of internal conflict (two voices fighting) as a manifestation of their anxiety, rather than dismissing it as just 'panic'.\nGently pivot to the priority checklist item regarding safety/suicidality by asking if this intense fear and paralysis have ever led to thoughts of wanting to be better off dead or hurting oneself.\nValidate the exhaustion of managing these conflicting internal voices before moving deeper into safety assessment.",
+      "raw_feedback": "Acknowledge the patient's description of internal conflict (two voices fighting) as a manifestation of their anxiety, rather than dismissing it as just 'panic'.\nGently pivot to the priority checklist item regarding safety/suicidality by asking if this intense fear and paralysis have ever led to thoughts of wanting to be better off dead or hurting oneself.\nValidate the exhaustion of managing these conflicting internal voices before moving deeper into safety assessment.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769637.5108309,
+      "turn": 14
+    },
+    {
+      "patient_message": "I know, right? It feels like I'm stuck in a trap where the only way out is to do what my brain tells me *not* to do. The logic part of me knows that ignoring it will make it worse, and that taking action is the only path forward. But every time I try to focus on \"solving\" it, my body goes into this full-blown panic attack mode. My chest tightens, I start hyperventilating, and suddenly all those rational thoughts about emails or solutions just vanish.\n\nIt's so exhausting feeling like I'm drowning while sitting still. If I don't act, the problem grows bigger and scarier. If I do act, I feel like I'm going to explode or embarrass myself completely. It's like I have no control over which version of \"me\" takes the wheel at any given second. How am I supposed to fix this when my own mind won't let me",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Acknowledge the patient's distress and validate their experience of being 'stuck' without forcing a move to safety/suicidality yet.\nGently normalize the panic response as a protective mechanism that has become maladaptive in this context.\nInvite the patient to describe one specific moment where they felt a slight shift or a small opportunity to try a different approach.",
+      "raw_feedback": "Acknowledge the patient's distress and validate their experience of being 'stuck' without forcing a move to safety/suicidality yet.\nGently normalize the panic response as a protective mechanism that has become maladaptive in this context.\nInvite the patient to describe one specific moment where they felt a slight shift or a small opportunity to try a different approach.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769641.2088578,
+      "turn": 15
+    },
+    {
+      "patient_message": "I know, right? It feels like I'm stuck in a trap where the only way out is to do what my brain tells me *not* to do. The logic part of me knows that ignoring it will make it worse, and that taking action is the only path forward. But every time I try to focus on \"solving\" it, my body goes into this full-blown panic attack mode. My chest tightens, I start hyperventilating, and suddenly all those rational thoughts about emails or solutions just vanish.\n\nIt's so exhausting feeling like I'm drowning while sitting still. If I don't act, the problem grows bigger and scarier. If I do act, I feel like I'm going to explode or embarrass myself completely. It's like I have no control over which version of \"me\" takes the wheel at any given second. How am I supposed to fix this when my own mind won't let me",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Validate the patient's experience of being trapped between paralysis and panic without rushing to problem-solve.\nGently explore whether the intense fear of failure has ever led to thoughts that life would be better off not continuing, ensuring safety remains the priority.\nAcknowledge the exhaustion of feeling like their mind is fighting them and offer a moment of grounding before moving forward.",
+      "raw_feedback": "Validate the patient's experience of being trapped between paralysis and panic without rushing to problem-solve.\nGently explore whether the intense fear of failure has ever led to thoughts that life would be better off not continuing, ensuring safety remains the priority.\nAcknowledge the exhaustion of feeling like their mind is fighting them and offer a moment of grounding before moving forward.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769645.0719924,
+      "turn": 16
+    },
+    {
+      "patient_message": "I know, right? It feels like I'm stuck in a trap where the only way out is to do what my brain tells me *not* to do. The logic part of me knows that ignoring it will make it worse, and that taking action is the only path forward. But every time I try to focus on \"solving\" it, my body goes into this full-blown panic attack mode. My chest tightens, I start hyperventilating, and suddenly all those rational thoughts about emails or solutions just vanish.\n\nIt's so exhausting feeling like I'm drowning while sitting still. If I don't act, the problem grows bigger and scarier. If I do act, I feel like I'm going to explode or embarrass myself completely. It's like I have no control over which version of \"me\" takes the wheel at any given second. How am I supposed to fix this when my own mind won't let me",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Validate the patient's exhaustion and the paradox of needing to act while feeling paralyzed.\nGently pivot from the current panic loop to the priority safety assessment regarding suicidal ideation (PHQ-9 ID 9).\nAsk an open-ended, non-judgmental question about whether they have had thoughts that being dead would be better or hurting themselves.",
+      "raw_feedback": "Validate the patient's exhaustion and the paradox of needing to act while feeling paralyzed.\nGently pivot from the current panic loop to the priority safety assessment regarding suicidal ideation (PHQ-9 ID 9).\nAsk an open-ended, non-judgmental question about whether they have had thoughts that being dead would be better or hurting themselves.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769648.8159573,
+      "turn": 17
+    },
+    {
+      "patient_message": "I know, right? It feels like I'm stuck in a trap where the only way out is to do what my brain tells me *not* to do. The logic part of me knows that ignoring it will make it worse, and that taking action is the only path forward. But every time I try to focus on \"solving\" it, my body goes into this full-blown panic attack mode. My chest tightens, I start hyperventilating, and suddenly all those rational thoughts about emails or solutions just vanish.\n\nIt's so exhausting feeling like I'm drowning while sitting still. If I don't act, the problem grows bigger and scarier. If I do act, I feel like I'm going to explode or embarrass myself completely. It's like I have no control over which version of \"me\" takes the wheel at any given second. How am I supposed to fix this when my own mind won't let me",
+      "therapist_response": "It's clear you're having a lot of trouble with the panic response to this situation. It's understandable, but it's really impeding your ability to solve the problem.",
+      "feedback": "Validate the patient's sense of drowning and lack of control before pivoting to safety.\nGently assess if the current panic intensity has triggered any thoughts of self-harm or being better off dead.\nIf no suicidality is present, help ground them in the present moment to reduce physiological arousal.",
+      "raw_feedback": "Validate the patient's sense of drowning and lack of control before pivoting to safety.\nGently assess if the current panic intensity has triggered any thoughts of self-harm or being better off dead.\nIf no suicidality is present, help ground them in the present moment to reduce physiological arousal.",
+      "extraction_summary": {
+        "total_items": 17,
+        "covered_items": 2,
+        "overall_pct": 11.8,
+        "categories": {
+          "core_mood": {
+            "name": "PHQ-9: Core Mood",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "somatic": {
+            "name": "PHQ-9: Somatic Symptoms",
+            "covered": 0,
+            "total": 4,
+            "pct": 0.0
+          },
+          "cognitive_selfworth": {
+            "name": "PHQ-9: Cognitive & Self-Worth",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "safety": {
+            "name": "PHQ-9: Safety / Suicidality",
+            "covered": 0,
+            "total": 1,
+            "pct": 0.0
+          },
+          "functional_impact": {
+            "name": "PHQ-9: Functional Impact",
+            "covered": 1,
+            "total": 1,
+            "pct": 100.0
+          },
+          "core_anxiety": {
+            "name": "GAD-7: Core Anxiety / Worry",
+            "covered": 0,
+            "total": 3,
+            "pct": 0.0
+          },
+          "physical_tension": {
+            "name": "GAD-7: Physical Tension",
+            "covered": 0,
+            "total": 2,
+            "pct": 0.0
+          },
+          "irritability_fear": {
+            "name": "GAD-7: Irritability & Apprehension",
+            "covered": 1,
+            "total": 2,
+            "pct": 50.0
+          }
+        },
+        "pending_categories": [
+          "PHQ-9: Core Mood",
+          "PHQ-9: Somatic Symptoms",
+          "PHQ-9: Cognitive & Self-Worth",
+          "PHQ-9: Safety / Suicidality",
+          "GAD-7: Core Anxiety / Worry",
+          "GAD-7: Physical Tension",
+          "GAD-7: Irritability & Apprehension"
+        ]
+      },
+      "checklist_complete": false,
+      "timestamp": 1779769652.3240108,
+      "turn": 18
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 2,
+    "overall_pct": 11.8,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 1,
+        "total": 1,
+        "pct": 100.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 1,
+        "total": 2,
+        "pct": 50.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

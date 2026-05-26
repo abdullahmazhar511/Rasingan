@@ -1,0 +1,189 @@
+[0;32m==================================[0m
+[0;32mChecking Dependencies[0m
+[0;32m==================================[0m
+[0;32m✅ Python 3 found: Python 3.12.13[0m
+[0;32m✅ NVIDIA CUDA found[0m
+NVIDIA H200 NVL
+NVIDIA H200 NVL
+[0;32m✅ Required Python packages installed[0m
+[0;32m==================================[0m
+[0;32mStarting Production Server (with Gunicorn)[0m
+[0;32m==================================[0m
+[1;33mℹ️  Server will start on http://0.0.0.0:8000[0m
+[1;33mℹ️  Workers: 1 (for single GPU)[0m
+/home/asbahk/miniconda3/envs/verl/lib/python3.12/site-packages/torch/cuda/__init__.py:63: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.8.0+cu128).
+INFO:     Started server process [2774654]
+INFO:     Waiting for application startup.
+INFO:app:Loading Care Model...
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:00<00:01,  1.36it/s]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:01<00:00,  1.39it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:01<00:00,  2.05it/s]
+INFO:sentence_transformers.base.model:Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+INFO:app:Model loaded successfully!
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+Loading model weights...
+INFO:     127.0.0.1:43752 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37772 - "GET /health HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.59it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.59it/s]
+INFO:     127.0.0.1:59786 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 39.93it/s]
+INFO:     127.0.0.1:60006 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 30.97it/s]
+INFO:     127.0.0.1:60022 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 37.31it/s]
+INFO:     127.0.0.1:42496 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 25.90it/s]
+INFO:     127.0.0.1:34148 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 16.06it/s]
+INFO:     127.0.0.1:33348 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 36.75it/s]
+INFO:     127.0.0.1:37906 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 37.63it/s]
+INFO:     127.0.0.1:37914 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 46.90it/s]
+INFO:     127.0.0.1:37916 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 75.61it/s]
+INFO:     127.0.0.1:37912 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 39.39it/s]
+INFO:     127.0.0.1:37928 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 45.32it/s]
+INFO:     127.0.0.1:37940 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 69.15it/s]
+INFO:     127.0.0.1:37948 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 54.64it/s]
+INFO:     127.0.0.1:37950 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 42.39it/s]
+INFO:     127.0.0.1:37952 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 74.02it/s]
+INFO:     127.0.0.1:37964 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 73.73it/s]
+INFO:     127.0.0.1:37980 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 55.89it/s]
+INFO:     127.0.0.1:37992 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 92.20it/s]
+INFO:     127.0.0.1:38006 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 59.47it/s]
+INFO:     127.0.0.1:38022 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 66.44it/s]
+INFO:     127.0.0.1:38032 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 59.13it/s]
+INFO:     127.0.0.1:38034 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 113.75it/s]
+INFO:     127.0.0.1:38048 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 106.14it/s]
+INFO:     127.0.0.1:38052 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.06it/s]
+INFO:     127.0.0.1:38054 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 91.32it/s]
+INFO:     127.0.0.1:38064 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 27.20it/s]
+INFO:     127.0.0.1:47364 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 46.07it/s]
+INFO:     127.0.0.1:43988 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 42.31it/s]
+INFO:     127.0.0.1:40944 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 55.55it/s]
+INFO:     127.0.0.1:49932 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 42.58it/s]
+INFO:     127.0.0.1:49934 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 39.33it/s]
+INFO:     127.0.0.1:46054 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 30.58it/s]
+INFO:     127.0.0.1:43588 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 82.00it/s]
+INFO:     127.0.0.1:36458 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 27.48it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 2.32 GiB is free. Including non-PyTorch memory, this process has 12.79 GiB memory in use. Process 2776105 has 44.94 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 618.86 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:56870 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 14.68it/s]
+INFO:     127.0.0.1:46964 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 16.28it/s]
+INFO:     127.0.0.1:49924 - "POST /batch_predict HTTP/1.1" 200 OK
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 39.15it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 2.32 GiB is free. Including non-PyTorch memory, this process has 12.79 GiB memory in use. Process 2776105 has 44.94 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 618.86 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40660 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 20.71it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 136.00 MiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 13.35 GiB is allocated by PyTorch, and 605.03 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:48348 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 44.15it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:39976 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:39978 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:39984 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.58it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.58it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40000 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.00it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.00it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40016 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40024 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40034 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.81it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.81it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40042 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.61it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.61it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40050 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.63it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40054 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40062 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.18it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.18it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40068 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40082 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.27it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.27it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40094 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40100 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40106 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.70it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.70it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40120 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.10it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.10it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:40128 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.12it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.12it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:51008 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.87it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.86it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 136.00 MiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 13.35 GiB is allocated by PyTorch, and 605.03 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:51022 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.78it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.78it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:43424 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.64it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.64it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:54964 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:54980 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.37it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.37it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:47872 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 41.72it/s]
+ERROR:app:Batch prediction error: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 139.80 GiB of which 104.81 MiB is free. Including non-PyTorch memory, this process has 14.60 GiB memory in use. Process 2776105 has 45.36 GiB memory in use. Process 2786546 has 79.67 GiB memory in use. Of the allocated memory 11.53 GiB is allocated by PyTorch, and 2.41 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+INFO:     127.0.0.1:44024 - "POST /batch_predict HTTP/1.1" 500 Internal Server Error
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:app:Model cleanup complete
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2774654]

@@ -7,6 +7,7 @@ and Agent 2 (Senior Therapist Supervisor).
 import json
 import time
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from pathlib import Path
@@ -86,9 +87,22 @@ class TherapyPipeline:
         # Patient + Supervisor share ONE vLLM client (in-process or RemoteVLLM
         # when a supervisor_endpoint URL is supplied — the latter lets the
         # supervisor model run in another Python env).
+        #
+        # instruct_mode mirrors training (verl/.../therapist_agent_loop.py)
+        # ExternalModelClient(instruct_mode=True): sets sampling to the
+        # Qwen3-Instruct-2507 model-card values AND disables Qwen3 thinking
+        # via chat_template_kwargs. Train run used INSTRUCT_MODE=1 (see
+        # scripts/train_multiturn.log:18). Eval defaults the same; override
+        # with EVAL_INSTRUCT_MODE=0 for legacy sampling.
+        import os as _os
         self.supervisor_endpoint = supervisor_endpoint
+        _instruct = _os.environ.get("EVAL_INSTRUCT_MODE", "1").strip().lower() not in ("0", "false", "no", "off")
         if supervisor_endpoint:
-            shared_llm = RemoteVLLM(base_url=supervisor_endpoint, model_name=shared_model)
+            shared_llm = RemoteVLLM(
+                base_url=supervisor_endpoint,
+                model_name=shared_model,
+                instruct_mode=_instruct,
+            )
         else:
             shared_llm = get_shared_vllm(shared_model)
 
@@ -161,86 +175,132 @@ class TherapyPipeline:
         
         time.sleep(0.5)  # Small delay to avoid rate limiting
         
-        # Main conversation loop. tqdm shows progress in quiet mode; disabled
-        # in verbose mode where per-turn prints already provide narration.
-        last_feedback = None  # Track supervisor feedback for next turn
+        # Main conversation loop — restructured to match training
+        # (verl/.../therapist_agent_loop.py): therapist-first inside each
+        # iteration, with the NEXT patient response and the CURRENT supervisor
+        # call running in parallel. The supervisor therefore sees the PRIOR
+        # patient turn as evidence (not the current one), giving the same
+        # one-turn-lag in extraction as training did.
+        #
+        # Pre-loop: generate the very first patient response (in reply to the
+        # opening). Inside the loop, each iteration k:
+        #   1. therapist_k = respond(patient_k, feedback_{k-1})
+        #   2. if not last turn: parallel(patient_{k+1}, supervisor_k)
+        #       — supervisor_k snapshot contains [..., patient_k, therapist_k]
+        #         BUT we strip patient_k from the snapshot so the supervisor's
+        #         "PATIENT JUST SAID" is patient_{k-1}, matching training.
+        #
+        # tqdm shows progress in quiet mode; disabled in verbose mode.
+        last_feedback = None
+        sup_pool = ThreadPoolExecutor(max_workers=2) if enable_supervisor else None
+
+        # First patient response (responds to the opening). Generated up-front
+        # so the loop can flip to therapist-first.
+        patient_response = self.patient.generate_response(
+            therapist_opening, transcript=self.session_transcript,
+        )
+        if verbose:
+            print(f"[PATIENT]: {patient_response}\n")
+        # The patient turn is appended INSIDE the loop body (at iter k=1) so
+        # transcript ordering stays [opening, patient_1, therapist_1, ...].
+        prior_patient_msg = patient_response
+
         turn_bar = tqdm(
-            range(1, self.max_turns + 1),
+            range(1, self.max_turns),
             desc=f"{self.session_id} turns",
             unit="turn",
             disable=verbose,
             leave=False,
         )
-        for turn in turn_bar:
-            if verbose:
-                print(f"\n--- Turn {turn} ---")
-            
-            # Patient responds — pass the full session transcript so the patient stays consistent.
-            latest_therapist = therapist_opening if turn == 1 else therapist_response
-            patient_response = self.patient.generate_response(
-                latest_therapist,
-                transcript=self.session_transcript,
-            )
-            if verbose:
-                print(f"[PATIENT]: {patient_response}\n")
-            
-            self.session_transcript.append({
-                "turn": turn,
-                "role": "patient",
-                "message": patient_response,
-                "phase": "conversation"
-            })
-            
-            time.sleep(0.5)
-            
-            # Therapist responds (with supervisor feedback from previous turn).
-            # The patient's just-spoken turn is already appended to session_transcript above,
-            # so passing it gives the therapist full bilateral conversation history.
-            session_phase = self._get_session_phase(turn)
-            therapist_response = self.therapist.respond_to_patient(
-                patient_response, session_phase,
-                supervisor_feedback=last_feedback,
-                transcript=self.session_transcript,
-            )
-            
-            if verbose:
-                print(f"[THERAPIST]: {therapist_response}")
-            
-            self.session_transcript.append({
-                "turn": turn,
-                "role": "therapist",
-                "message": therapist_response,
-                "phase": session_phase
-            })
-            
-            # Supervisor provides feedback (used by therapist in next turn)
-            last_feedback = None
-            if enable_supervisor:
-                # Update extraction checklist based on conversation so far
-                self.supervisor.update_extraction_status(
-                    self.session_transcript, turn_number=turn
-                )
-                
-                feedback = self.supervisor.evaluate_response(
-                    patient_response, 
-                    therapist_response,
-                    session_context=self._get_session_context(),
-                    turn_number=turn
-                )
-                
-                self.supervisor_feedback.append(feedback)
-                last_feedback = feedback.get("feedback")
-                
-                if enable_suggestions and verbose:
-                    print(f"\n[SUPERVISOR FEEDBACK]:\n{feedback['feedback']}\n")
-            
-            time.sleep(0.5)
-            
-            # Check for natural session ending
-            if self._should_end_session(therapist_response):
+        try:
+            for turn in turn_bar:
                 if verbose:
-                    print("\n[Session naturally concluding]")
-                break
+                    print(f"\n--- Turn {turn} ---")
+
+                # Append THIS turn's patient (generated in the previous iter,
+                # or pre-loop for turn 1).
+                self.session_transcript.append({
+                    "turn": turn,
+                    "role": "patient",
+                    "message": prior_patient_msg,
+                    "phase": "conversation",
+                })
+
+                # Therapist responds to the just-appended patient using the
+                # supervisor feedback from the previous turn.
+                session_phase = self._get_session_phase(turn)
+                therapist_response = self.therapist.respond_to_patient(
+                    prior_patient_msg, session_phase,
+                    supervisor_feedback=last_feedback,
+                    transcript=self.session_transcript,
+                )
+                if verbose:
+                    print(f"[THERAPIST]: {therapist_response}")
+                self.session_transcript.append({
+                    "turn": turn,
+                    "role": "therapist",
+                    "message": therapist_response,
+                    "phase": session_phase,
+                })
+
+                # Last in-loop iteration: no further patient or supervisor.
+                # Matches training's `if turn_idx < max_turns - 1` guard.
+                is_last_iter = (turn == self.max_turns - 1)
+                if is_last_iter:
+                    if self._should_end_session(therapist_response) and verbose:
+                        print("\n[Session naturally concluding]")
+                    break
+
+                # Snapshot for the supervisor that EXCLUDES the just-appended
+                # patient — so "PATIENT JUST SAID" surfaces patient_{k-1}, as
+                # in training where patient_k is being generated concurrently.
+                # session_transcript order at this moment:
+                #   [..., patient_{k-1}, therapist_{k-1}, patient_k, therapist_k]
+                # Drop the patient_k entry (index -2) to construct the view.
+                sup_snapshot = self.session_transcript[:-2] + self.session_transcript[-1:]
+
+                # Parallel: next patient generation + supervisor for this turn.
+                patient_future = sup_pool.submit(
+                    self.patient.generate_response,
+                    therapist_response,
+                    transcript=list(self.session_transcript),
+                ) if sup_pool else None
+                sup_future = sup_pool.submit(
+                    self.supervisor.supervise_turn,
+                    sup_snapshot, turn,
+                ) if (sup_pool and enable_supervisor) else None
+
+                # Sync fallback if pool not in use.
+                if patient_future is None:
+                    next_patient_msg = self.patient.generate_response(
+                        therapist_response, transcript=list(self.session_transcript),
+                    )
+                else:
+                    next_patient_msg = patient_future.result()
+
+                if sup_future is not None:
+                    sup_result = sup_future.result()
+                    self.supervisor_feedback.append(sup_result)
+                    last_feedback = sup_result.get("feedback") or None
+                    if enable_suggestions and verbose:
+                        print(f"\n[SUPERVISOR FEEDBACK]:\n{last_feedback}\n")
+                else:
+                    last_feedback = None
+
+                prior_patient_msg = next_patient_msg
+                if verbose:
+                    print(f"[PATIENT]: {next_patient_msg}\n")
+
+                # Natural-ending check on therapist response (post-supervisor
+                # so the closing-language check still runs after wrap-up
+                # override has had a chance to fire).
+                if self._should_end_session(therapist_response):
+                    if verbose:
+                        print("\n[Session naturally concluding]")
+                    break
+        finally:
+            if sup_pool is not None:
+                sup_pool.shutdown(wait=False)
         
         # Save session
         session_results = self._save_session()

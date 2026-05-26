@@ -524,6 +524,17 @@ Examples:
              "Lets the supervisor model run in a different Python env from the therapist."
     )
 
+    parser.add_argument(
+        "--therapist-endpoint",
+        type=str,
+        default=None,
+        help="If set, route Agent 1 (therapist) through a remote vLLM OpenAI-compatible "
+             "server at this URL (e.g. http://127.0.0.1:8002/v1) instead of loading the HF "
+             "model in-process. Use this for ~5-10x faster therapist generation via "
+             "vLLM continuous batching. --therapist-model must match what the server "
+             "registered as --served-model-name."
+    )
+
     args = parser.parse_args()
     
     # Handle list scenarios
@@ -577,12 +588,24 @@ Examples:
         print(f"[info] limiting to first {len(scenarios)} scenario(s): {names}")
 
     # ---- Load the therapist (Agent 1) ONCE for the whole run ---------------
-    # Done explicitly here so the load is a visible step (not hidden behind a
-    # lazy cache inside the first scenario) and errors are caught early.
-    # GPU pinning is the caller's job (CUDA_VISIBLE_DEVICES) — from inside this
-    # process the only visible GPU is always cuda:0, so we hardcode it.
-    print(f"[therapist] loading HF model '{args.therapist_model}'")
-    therapist_llm = HFTherapist(model_path=args.therapist_model, device="cuda:0")
+    # Two backends:
+    #   (a) --therapist-endpoint set → RemoteVLLM (HTTP client to an external
+    #       vLLM OpenAI server). Continuous batching => parallel sessions
+    #       actually parallelize. ~5-10x faster than HFTherapist.
+    #   (b) otherwise → HFTherapist in-process (transformers.generate). Has
+    #       a per-process lock so concurrent sessions serialize on it.
+    if args.therapist_endpoint:
+        from shared_vllm import RemoteVLLM  # local import to avoid HF-only paths
+        endpoint = args.therapist_endpoint.rstrip("/")
+        if not endpoint.endswith("/v1"):
+            endpoint = endpoint + "/v1"
+        print(f"[therapist] using remote vLLM at {endpoint}  model='{args.therapist_model}'")
+        therapist_llm = RemoteVLLM(base_url=endpoint, model_name=args.therapist_model)
+    else:
+        # GPU pinning is the caller's job (CUDA_VISIBLE_DEVICES) — from inside this
+        # process the only visible GPU is always cuda:0, so we hardcode it.
+        print(f"[therapist] loading HF model in-process '{args.therapist_model}'")
+        therapist_llm = HFTherapist(model_path=args.therapist_model, device="cuda:0")
     print("[therapist] ready.")
 
     run_many_scenarios(

@@ -7,8 +7,8 @@
 set -euo pipefail
 
 # ---- knobs (override via env) ----------------------------------------------
-MODEL_PATH="${MODEL_PATH:-/home/asbahk/EMNLP_FINAL/Rasingan/sft_training/results/Qwen3-4B-sft-respair-new-3-merged}"
-EXP_NAME="qwen_3_v2"         # empty → run_single_turn.sh picks qwen_3_v1_<ts>
+MODEL_PATH="${MODEL_PATH:-/home/asbahk/EMNLP_FINAL/Rasingan/sft_training/results/Phi-4-mini-instruct-sft-respair-20260524_133550/checkpoint-425-merged}"
+EXP_NAME="phi4"         # empty → run_single_turn.sh picks mistral_8b_<ts>
 OUTPUT_PATH="${OUTPUT_PATH:-}"   # empty → run_single_turn.sh picks ./checkpoints/<EXP_NAME>
 DATA_CONTEXT_WINDOW="${DATA_CONTEXT_WINDOW:-6}"
 SERVER_URL="http://127.0.0.1:8000/health"

@@ -1,0 +1,338 @@
+{
+  "session_id": "20260525_135401_810362_07ef85",
+  "timestamp": 1779717414.2150211,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on a Reddit post).\n    *   **Reddit Post Content:** \"How to stop constant anxiety. A week or so ago I had a panic attack, since then my anxiety has been relentless. Throwing up a lot, cant eat, relax anything..please help. Its making me.want to die\"\n    *   **Patient Profile:** Adult, occupation unknown, family structure unknown.\n    *   **Name:** The prompt addresses me as \"Carly\". However, the profile says \"Name: Patient\". I need to decide whether to use \"Carly\" or \"Patient\". The prompt instruction says \"Respond authentically as someone experiencing the situation described in the Reddit post.\" The user address is \"Hi Carly\". This suggests the user (the therapist) is addressing me as Carly. I should probably adopt the persona of the person in the Reddit post, but the name \"Carly\" is given by the user. Wait, the prompt instructions say \"Name: Patient\". But the user says \"Hi Carly\". This is a slight contradiction. Usually, in roleplay, if the user calls me a specific name, I should acknowledge it if",
+      "therapist_response": "Hi Carly, how are you doing today?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Experienced senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Priority Area: [PHQ-9: Safety / Suicidality].\n        *   Patient's Statement: A Reddit post excerpt (\"How to stop constant anxiety... Its making me.want to die\"). This indicates the patient *has* disclosed suicidal ideation (SI) implicitly in the text, but the prompt asks me to evaluate the *therapist's response* to a hypothetical interaction where the patient says this. Wait, looking closely at the input structure.\n        *   *Correction/Clarification:* The input says \"PATIENT'S STATEMENT: [Thinking Process... Reddit Post Content...]\". It seems the \"Patient's Statement\" provided is actually a *prompt description* of the patient's situation, not a direct quote from the session. However, the user says \"Hi Carly\" in the prompt instructions (\"The prompt addresses me as 'Carly'\"). Wait, let's re-read the \"Patient's Statement\" section carefully.\n        *   \"PATIENT'S STATEMENT: **Thinking Process:** 1. **Analyze the Request:** ... Patient Profile... Name: The prompt addresses me as \"Carly\"...\"\n        *   *Critical Realization:* This looks like a meta-prompt where the \"Patient's Statement\" is actually the *content* of a roleplay scenario or a description of the patient's history,",
+      "timestamp": 1779717254.13596,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient based on a specific Reddit post (anxiety, panic attack, physical symptoms, suicidal ideation).\n    *   **User:** Acting as a therapist or listener.\n    *   **User's Address:** \"Hi Carly\".\n    *   **Constraint:** Respond authentically as the patient described in the Reddit post. Express genuine emotions, concerns, vulnerability. Be natural and conversational.\n    *   **Constraint:** Maintain consistency with the Reddit post narrative.\n    *   **Conflict:** The Reddit post says \"Name: Patient\", but the user calls me \"Carly\". I should probably adopt the persona of the person in the post. Since the user addressed me as Carly, I should likely respond as if my name is Carly or just acknowledge the greeting without necessarily confirming the name if it feels off, but usually, in roleplay, if the user sets the name, I should accept it to maintain flow. However, the system instruction says \"Name: Patient\". This is a bit tricky. Let's look at the instruction again: \"Respond authentically as someone experiencing the situation described in the Reddit post.\" The Reddit post doesn't mention a",
+      "therapist_response": "Hi, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against an Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist items (PHQ-9 & GAD-7 specific items).\n        *   Next Priority Area: PHQ-9 Safety/Suicidality (\"Thoughts that you would be better off dead, or of hurting yourself\").\n        *   Patient's Statement: The prompt actually contains a \"Patient's Statement\" section that looks like a system instruction or a meta-description of a Reddit post scenario (\"Thinking Process: 1. Analyze the Request...\"). It seems the user pasted the *instructions* for the patient roleplay rather than the actual patient dialogue. However, looking closely at the text provided under \"PATIENT'S STATEMENT:\", it reads: `\"Thinking Process: ... Name: Patient ... User's Address: 'Hi Carly' ... Constraint: Respond authentically as the patient described in the Reddit post...\"`\n        *   *Correction/Interpretation:* This is a bit confusing. The \"PATIENT'S STATEMENT\" section actually contains the *instructions* for how the patient *should* behave (based on a Reddit post scenario), rather than the actual text the patient said to the therapist in *this specific session*. It looks like the prompt is asking me to evaluate the therapist's response *given* that the patient *has* stated something about suicidal ideation (implied by the priority area and the context of the Reddit post instructions mentioning \"suicidal ideation\").\n        *   *Wait, let's re-read carefully:* The prompt says \"PATIENT'S STATEMENT: [Content]\". The content is *not* a patient statement. It's a meta-instruction block describing",
+      "timestamp": 1779717261.7072377,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   User (Therapist): \"Hi, I'm doing well, thanks for asking. How have things been?\"\n    *   Context: The user is addressing me as \"Carly\" (from the previous turn, though the previous turn was actually the *system* instruction setup where I was supposed to be the patient, but the user actually said \"Hi Carly\" in the first turn, and now they are continuing that conversation).\n    *   Wait, I need to check the conversation history.\n    *   Turn 1 (System): Provided instructions and Reddit post.\n    *   Turn 1 (User): \"Hi Carly, how are you doing today?\"\n    *   Turn 1 (Model): I need to generate the response. *Wait, I am currently generating the response.*\n    *   Turn 2 (User): \"Hi, I'm doing well, thanks for asking. How have things been?\"\n    *   *Correction:* I am looking at the conversation history provided in the prompt. The prompt shows:\n        *   System Instructions.\n        *   User Message 1: \"Hi Carly, how are you doing",
+      "therapist_response": "Hi, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response based on an Information Extraction Checklist (PHQ-9 + GAD-7) regarding a specific patient session.\n    *   **Input Data:**\n        *   Checklist items (PHQ-9 & GAD-7).\n        *   Next Priority Area: PHQ-9 Safety/Suicidality.\n        *   Patient's Statement (Wait, the prompt says \"PATIENT'S STATEMENT\" but then lists a \"Thinking Process\" and \"User (Therapist)\" dialogue. There seems to be a confusion in the prompt's provided context vs. the actual scenario described).\n        *   *Correction on Context:* Looking closely at the prompt structure:\n            *   System Instructions say I am the supervisor.\n            *   There is a section labeled \"PATIENT'S STATEMENT\" but it contains a \"Thinking Process\" about analyzing the input where the User is addressed as \"Carly\".\n            *   *Wait, this is a roleplay confusion.* The prompt provided *to me* (the AI) includes a messy \"Conversation History\" section that looks like it was generated by an AI or is a meta-description of a roleplay.\n            *   *Crucial Realization:* The prompt text says \"PRIMARY THERAPIST'S RESPONSE: 'Hi, I'm doing well, thanks for asking. How have things been?'\"\n            *   And it says \"PATIENT'S STATEMENT: 'Thinking Process: ... User (Therapist): \"Hi, I'm doing well, thanks for asking. How have things been?\"'\".\n            *   This is extremely confusing. It looks like the prompt *itself* contains a meta-commentary about a conversation that isn't quite right.",
+      "timestamp": 1779717269.272861,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   User: \"Hi, I'm doing well, thanks for asking. How have things been?\"\n    *   Context: I am roleplaying as the patient described in the Reddit post (anxiety, panic attack, physical symptoms, suicidal ideation). The user is addressing me as \"Carly\" (from the previous turn in the conversation flow, though the prompt shows the user said \"Hi Carly\" in the first message).\n    *   Current State: The user is asking about my well-being after greeting me.\n    *   Persona: Anxious, struggling with panic attacks, physical symptoms (nausea, inability to eat), feeling hopeless (\"making me want to die\"), recent panic attack a week ago.\n    *   Goal: Respond authentically, showing vulnerability and consistency with the Reddit post narrative.\n\n2.  **Determine the Tone and Content:**\n    *   **Tone:** Vulnerable, tired, anxious, perhaps a bit defensive or hesitant. Not overly formal.\n    *   **Content:** Acknowledge the user's greeting, describe the current state (struggling with anxiety, panic attack aftermath), mention physical symptoms (nause",
+      "therapist_response": "Hi, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on an Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) and GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Priority Area: PHQ-9 Safety / Suicidality.\n        *   Patient's Statement: The input provided is actually a *thinking process* from the AI (the patient roleplay) or a meta-description of the patient's internal state, not the actual dialogue transcript. Wait, looking closely at the \"PATIENT'S STATEMENT\" section: It says \"Thinking Process: ... User: 'Hi, I'm doing well...'\" and then describes the persona. It seems the \"Patient's Statement\" is actually a *description* of the patient's state or a previous turn, but the \"PRIMARY THERAPIST'S RESPONSE\" says: \"Hi, I'm doing well, thanks for asking. How have things been?\"\n        *   *Correction/Clarification:* There seems to be a confusion in the prompt's structure. The \"Patient's Statement\" section describes a *Thinking Process* of an AI roleplaying the patient, but the actual text under \"PRIMARY THERAPIST'S RESPONSE\" is identical to the user greeting mentioned in the thinking process (\"Hi, I'm doing well, thanks for asking. How have things been?\").\n        *   *Critical Observation:* The therapist's response is \"Hi, I'm doing well, thanks for asking. How have things been?\" This is actually the *User's* greeting in the",
+      "timestamp": 1779717276.833458,
+      "turn": 4
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient based on a Reddit post (anxiety, panic attack, physical symptoms, suicidal ideation).\n    *   **User:** Acting as a therapist/listener.\n    *   **Context:** The user greeted me as \"Carly\" in the first turn (which I need to acknowledge or just respond to the greeting). The current turn is the user asking \"How have things been?\"\n    *   **Constraints:** Respond authentically, express genuine emotions, be natural/conversational, show vulnerability, maintain consistency with the Reddit post narrative (panic attack a week ago, relentless anxiety, vomiting, can't eat, suicidal thoughts).\n    *   **Name:** The user called me \"Carly\". The system instruction said \"Name: Patient\". I will adopt the persona of the person in the Reddit post and accept the name \"Carly\" to maintain the roleplay flow, as the user established it.\n    *   **Current State:** The user is checking in. I need to describe my state based on the post.\n\n2.  **Determine the Response:**\n    *   **Acknowledge the greeting:** Thank them or respond",
+      "therapist_response": "Hi Carly, how are you doing today?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Senior Therapist/Clinical Supervisor.\n    *   **Task:** Evaluate a therapy session based on an Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety, Functional) and GAD-7 (Core Anxiety, Physical Tension, Irritability).\n        *   Priority Area: PHQ-9 Safety/Suicidality.\n        *   Patient's Statement: \"Thinking Process... 1. Analyze the Request... 2. Determine the Response...\" (Wait, this looks like the *model's internal thought process* or the *patient's simulated input* based on a prompt engineering scenario).\n        *   *Correction/Clarification:* The input labeled \"PATIENT'S STATEMENT\" is actually a meta-description of a roleplay scenario (Reddit post context). It describes the patient's background (anxiety, panic attack, suicidal thoughts) and constraints (respond authentically, express emotions, etc.). It *is not* a direct quote from the patient. It looks like a system instruction or a prompt description wrapped in the \"Patient's Statement\" label.\n        *   *Wait, looking closer:* The \"PATIENT'S STATEMENT\" section contains a \"Thinking Process\" block that looks like an AI's internal monologue (\"Analyze the Request\", \"Determine the Response\", \"Name: Patient\"). This suggests the input provided is actually a *meta-prompt* or a *scenario description* rather than a direct transcript of a patient speaking.\n        *   *However*, the \"PRIMARY THERAPIST'S RESPONSE\" is \"Hi Carly, how are you doing today?\".\n        *   *The Goal:* I need to evaluate the therapist",
+      "timestamp": 1779717284.1629384,
+      "turn": 5
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is asking \"Hi Carly, how are you doing today?\" This is the first turn of the conversation after the system instructions. I need to respond as the patient described in the Reddit post (anxiety, panic attack, physical symptoms, suicidal ideation). The user is addressing me as \"Carly\".\n\n2.  **Review the Persona:**\n    *   **Situation:** Had a panic attack a week or so ago. Since then, anxiety has been relentless.\n    *   **Symptoms:** Throwing up a lot, can't eat, can't relax.\n    *   **Emotional State:** Wants to die (suicidal ideation mentioned), desperate for help.\n    *   **Tone:** Vulnerable, anxious, distressed, conversational, not formal.\n    *   **Name:** The user calls me \"Carly\". I will accept this name for the roleplay to feel natural.\n\n3.  **Drafting the Response:**\n    *   *Greeting:* Acknowledge the greeting.\n    *   *Current State:* Be honest about the anxiety. It's been a week.\n    *   *Physical Symptoms",
+      "therapist_response": "Hi Carly, how are you doing today?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist items (PHQ-9 & GAD-7 specific items).\n        *   Priority Area: [PHQ-9: Safety / Suicidality].\n        *   Patient's Statement: This is actually the *system's internal thinking* about the roleplay, but the prompt says \"PATIENT'S STATEMENT: 'Thinking Process: 1. Analyze the Input...'\". Wait, looking closely at the prompt structure.\n        *   The prompt says \"PATIENT'S STATEMENT: 'Thinking Process: ...'\". This looks like a meta-prompt error or a very specific roleplay setup where the \"Patient\" is actually an AI simulating a patient based on a Reddit post persona description. However, the *actual* text under \"PATIENT'S STATEMENT\" is the *system's internal thought process* about how to roleplay, not the patient speaking to the therapist.\n        *   *Correction/Refinement:* Let's look at the \"PRIMARY THERAPIST'S RESPONSE\": \"Hi Carly, how are you doing today?\"\n        *   *Wait, there's a confusion in the prompt structure.* The prompt says \"A primary therapist has just responded to a patient.\" Then it gives \"PATIENT'S STATEMENT\" which contains the *system's thinking process* about the roleplay (Step 1: Analyze Input... Step 2: Review Persona...).\n        *   *Hypothesis:* The prompt is likely a test case where the \"Patient's Statement\" is actually the *AI's internal monologue* describing what the patient *would* say,",
+      "timestamp": 1779717291.6187778,
+      "turn": 6
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is greeting me as \"Carly\" and asking how I am doing today. This is the first turn of the actual conversation (after the system instructions).\n2.  **Review Persona:** I am the patient from the Reddit post.\n    *   **Situation:** Panic attack a week ago, anxiety is relentless since then.\n    *   **Physical Symptoms:** Throwing up a lot, can't eat, can't relax.\n    *   **Emotional State:** Desperate, feeling like \"it's making me want to die\", seeking help.\n    *   **Tone:** Vulnerable, anxious, conversational, authentic.\n    *   **Name:** The user calls me \"Carly\". I will use this name to stay consistent with the user's address.\n3.  **Determine Response Goal:** Respond authentically as someone in this state of distress. Show the impact of the panic attack and the constant anxiety. Be honest but not overly dramatic, just genuine.\n4.  **Drafting:**\n    *   Acknowledge the greeting.\n    *   State honestly that I'm struggling.\n    *   Mention the timeline",
+      "therapist_response": "Hi, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on an Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: PHQ-9 Safety/Suicidality.\n        *   Patient's Statement: This is actually a *thinking process* provided by the user (simulating the patient's internal monologue or perhaps the AI's persona description?). Wait, looking closely at the input: \"PATIENT'S STATEMENT: 'Thinking Process: 1. Analyze the Input...'\"\n        *   *Correction/Clarification:* The input labeled \"PATIENT'S STATEMENT\" is actually a *meta-text* describing the AI's persona (the patient from a Reddit post) and the situation. It looks like the user pasted the \"system prompt\" or \"character definition\" for the patient *instead* of the actual patient dialogue. However, looking at the \"PRIMARY THERAPIST'S RESPONSE\", it's a standard greeting.\n        *   *Critical Interpretation:* The prompt says \"PATIENT'S STATEMENT\" but then provides a \"Thinking Process\" that describes *how* the AI should respond if it were the patient. This is confusing. Let's look at the context. The user is asking me to evaluate the therapist's response. The \"PATIENT'S STATEMENT\" section seems to contain instructions for *me* (the AI) on how to roleplay the patient, OR it's a copy-paste error from the user",
+      "timestamp": 1779717299.3695278,
+      "turn": 7
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is asking \"Hi, I'm doing well, thanks for asking. How have things been?\" This is the second turn in the conversation flow (the first turn was the system instruction setup, then the user said \"Hi Carly, how are you doing today?\", and now the user is saying \"Hi, I'm doing well, thanks for asking. How have things been?\"). Wait, looking at the conversation history provided in the prompt...\n    *   Actually, looking at the conversation history in the prompt, the first user message is \"Hi Carly, how are you doing today?\".\n    *   Then the second user message is \"Hi, I'm doing well, thanks for asking. How have things been?\".\n    *   Wait, I need to check the actual conversation history provided in the `user` block.\n    *   The `user` block says: \"Hi, I'm doing well, thanks for asking. How have things been?\"\n    *   This implies the previous turn (Turn 1) was likely \"Hi Carly, how are you doing today?\" based on the pattern of the prompt's first user message in the thought block examples, but looking at",
+      "therapist_response": "Hi, I'm doing well, thanks for asking. How have things been?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on an INFORMATION EXTRACTION CHECKLIST (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Patient's Statement: \"Hi, I'm doing well, thanks for asking. How have things been?\" (This looks like a patient response, but the prompt says \"PRIMARY THERAPIST'S RESPONSE\" is the same text. Wait, let me re-read the prompt structure carefully).\n        *   *Correction:* Looking at the prompt text:\n            *   `USER` block contains: \"Thinking Process: 1. Analyze the Input... [Long meta-analysis of conversation history]... PRIMARY THERAPIST'S RESPONSE: 'Hi, I'm doing well, thanks for asking. How have things been?'\"\n            *   Actually, the prompt is a bit garbled in the `user` block provided. It seems like there's a mix of instructions, meta-thinking, and the actual data.\n            *   Let's parse the actual data provided for evaluation:\n                *   **Patient's Statement:** \"Thinking Process: 1. Analyze the Input... [etc]...\" -> This looks like the `user` block is actually a meta-prompt describing the scenario, but the specific interaction to evaluate is labeled \"PRIMARY THERAPIST'S RESPONSE: 'Hi, I'm doing well, thanks for asking. How have things been?'\"\n                *   Wait, there is a contradiction in the prompt text provided.\n                *   Under `PATIENT'S STATEMENT`: It says \"Thinking Process: 1. **Analyze the Input:** The user is asking 'Hi, I'm doing well, thanks for asking. How have things been?'...\" This looks like an",
+      "timestamp": 1779717306.8390691,
+      "turn": 8
+    },
+    {
+      "patient_message": "The user is asking me how things have been going, and they're being gentle about it. I need to respond authentically as the anxious patient described in the Reddit post - someone who had a panic attack a week ago and is now struggling with relentless anxiety, physical symptoms like nausea/vomiting, inability to eat, and feelings of hopelessness.\n\nI should be vulnerable and honest about my current state while staying consistent with the Reddit post narrative. I need to show the weight of what I'm experiencing without being overly dramatic or formal.\n\nLet me write a response that captures:\n- The ongoing anxiety since the panic attack\n- Physical symptoms (nausea, can't eat)\n- The emotional toll\n- The feeling of wanting to die (as mentioned in the post)\n- A conversational, vulnerable tone\n</think>\n\nHonestly? Not really good. Honestly, it's been a week since that panic attack and it's been... I don't even know what to say. Every day feels like a battle.\n\nI'm always on edge, like my chest is always tight. I've been throwing up a lot lately, and I just can't get down to eat anything. Even when I try to relax, I feel like something is going to",
+      "therapist_response": "Okay, so you've been having a lot of anxiety, it's been a week since you had a panic attack, and it's been really difficult for you. You're always on edge, you feel like your chest is always tight, you're vomiting, and you can't eat. That's been very distressing for you.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a primary therapist's response to a patient based on an INFORMATION EXTRACTION CHECKLIST (PHQ-9 + GAD-7).\n    *   **Focus Area:** PHQ-9: Safety / Suicidality (Thoughts that you would be better off dead, or of hurting yourself).\n    *   **Patient Context:** Described as anxious, had a panic attack a week ago, physical symptoms (nausea/vomiting, inability to eat), feelings of hopelessness, and explicitly mentioned \"the feeling of wanting to die\" in the internal monologue instructions (though the actual patient text provided cuts off before fully stating it, the internal prompt says \"The feeling of wanting to die (as mentioned in the post)\").\n    *   **Therapist's Response:** \"Okay, so you've been having a lot of anxiety, it's been a week since you had a panic attack, and it's been really difficult for you. You're always on edge, you feel like your chest is always tight, you're vomiting, and you can't eat. That's been very distressing for you.\"\n    *   **Output Requirements:**\n        1.  Note which extraction checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest next questions based on pending items (especially Safety).\n        4.  Provide a concrete reframed response example if needed.\n        5.  Tone: Coaching, constructive, compassionate.\n\n2.  **Analyze the Patient's Statement (Input):**\n    *   *Text:* \"Honestly? Not really good... week since that panic attack... on edge... chest is always tight... throwing up a lot lately, and I just",
+      "timestamp": 1779717315.9943209,
+      "turn": 9
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is summarizing my situation back to me (\"Okay, so you've been having a lot of anxiety...\"). This looks like a therapist or listener checking in and reflecting what they've heard. I need to respond as the patient, acknowledging their understanding but also continuing to express the depth of my distress and vulnerability. I shouldn't just agree; I should share more about how I feel about it or how it impacts me day-to-day.\n\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly).\n    *   **Situation:** Post-panic attack anxiety, relentless, physical symptoms (vomiting, can't eat), suicidal ideation (\"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed but engaging.\n    *   **Goal:** Maintain consistency with the Reddit post narrative. Show openness.\n\n3.  **Determine Response Strategy:**\n    *   Acknowledge their summary (it's helpful).\n    *   Express the emotional weight of the situation (the \"wanting to die\" part from the post).\n    *   Talk about the physical toll (can't eat",
+      "therapist_response": "You're always on edge, you feel like your chest is always tight, you're vomiting, and you can't eat. That's been very distressing for you.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Patient's Statement (Context): A thinking process description of a patient named Carly. She has anxiety, panic attacks, physical symptoms (vomiting, can't eat), and suicidal ideation (\"making me want to die\"). She is in a session (closing phase).\n        *   Primary Therapist's Response: \"You're always on edge, you feel like your chest is always tight, you're vomiting, and you can't eat. That's been very distressing for you.\"\n        *   Session Context: Closing phase.\n    *   **Output Requirements:**\n        1.  Note which checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest next questions based on pending items.\n        4.  Provide a concrete reframed response example if needed.\n    *   **Tone:** Constructive, actionable, coaching, compassionate.\n    *   **Priority Area:** PHQ-9: Safety / Suicidality.\n\n2.  **Evaluate the Therapist's Response against the Checklist:**\n    *   *Therapist Response:* \"You're always on edge, you feel like your chest is always tight, you're vomiting, and you can't eat. That's been very distressing for you.\"\n    *   *Checklist Items",
+      "timestamp": 1779717324.0842156,
+      "turn": 10
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is summarizing the symptoms I mentioned in my previous turn (\"You're always on edge, you feel like your chest is always tight, you're vomiting, and you can't eat. That's been very distressing for you.\"). This is likely the therapist or listener reflecting back to ensure understanding and showing empathy.\n\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) based on the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, vomiting, can't eat, suicidal ideation (\"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond to the reflection. Acknowledge the difficulty, perhaps add more detail about the emotional impact or the feeling of isolation, and maintain the narrative consistency (the desperation, the physical symptoms).\n\n3.  **Determine Response Strategy:**\n    *   Acknowledge the empathy and the reflection.\n    *   Express the emotional toll (the \"want to die\" part is crucial here).\n    *   Maybe mention the fear of the future or the inability",
+      "therapist_response": "It's been very distressing for you. You've been feeling like this way, it's always on edge, always feeling like your chest is always tight, vomiting, can't eat. And you feel like it's been very distressing for you.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on an INFORMATION EXTRACTION CHECKLIST (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: Specific items for PHQ-9 (Mood, Somatic, Cognitive, Safety, Functional) and GAD-7 (Core, Physical, Irritability).\n        *   Next Priority: PHQ-9 Safety / Suicidality.\n        *   Patient's Statement: A summary of the patient's (Carly's) state (panic, anxiety, physical symptoms, suicidal ideation \"making me want to die\").\n        *   Primary Therapist's Response: \"It's been very distressing for you. You've been feeling like this way, it's always on edge, always feeling like your chest is always tight, vomiting, can't eat. And you feel like it's been very distressing for you.\"\n        *   Session Context: Closing phase.\n    *   **Output Requirements:**\n        1.  Note which checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest next questions based on pending items.\n        4.  Provide a concrete reframed response example.\n    *   **Tone:** Constructive, actionable, coaching-oriented, compassionate.\n\n2.  **Evaluate the Primary Therapist's Response:**\n    *   *Content:* The therapist reflects back the patient's reported symptoms (on edge, chest tight, vomiting, can't eat) and labels the experience as \"distressing.\"\n    *   *Checklist Coverage:*\n        *   PHQ-9 Core Mood (Down/Hopeless): Not explicitly addressed.\n        *",
+      "timestamp": 1779717332.7953691,
+      "turn": 11
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is reiterating the summary of my symptoms and feelings (\"It's been very distressing for you. You've been feeling like this way...\"). This seems like a continuation of the therapeutic dialogue where the listener is reflecting back to validate and understand.\n\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) based on the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, vomiting, can't eat, suicidal ideation (\"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically to the listener's summary. I need to show that I feel heard but still overwhelmed. I should acknowledge the distress they mentioned and perhaps elaborate on the emotional weight or the impact on my daily life, keeping the narrative consistent with the original Reddit post (the desperation, the physical symptoms, the thought of wanting to die).\n\n3.  **Determine Response Strategy:**\n    *   Acknowledge the empathy.\n    *   Express the overwhelming nature of the situation.\n    *   Reiterate the physical",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific PHQ-9 + GAD-7 Information Extraction Checklist.\n    *   **Input Data:**\n        *   Patient's Statement (actually a \"Thinking Process\" and \"Goal\" description, but the core content is a reflection of the patient's state: distress, anxiety, physical symptoms, vomiting, can't eat, suicidal ideation). *Correction:* The prompt says \"PATIENT'S STATEMENT\" but the text provided looks like an AI thought process or a roleplay prompt description rather than actual patient dialogue. However, looking closely at the text: \"Thinking Process: 1. Analyze the Input... Review Persona & Constraints... Goal: Respond authentically...\". This looks like a meta-prompt or a description of what the patient *should* be saying, but the actual patient content is embedded in the \"Situation\" section (\"Panic attack a week ago...\").\n        *   *Wait, re-reading carefully:* The section labeled \"PATIENT'S STATEMENT\" actually contains a \"Thinking Process\" block, followed by \"Review Persona\", \"Situation\", \"Tone\", \"Goal\". This is not a transcript of the patient speaking to the therapist. It looks like the user pasted a prompt they used to generate a patient response, or they are confused about the input format.\n        *   *Hypothesis:* The user wants me to evaluate the *Therapist's Response* (\"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\") based on the *context* provided in the \"PATIENT'S STATEMENT\" section (which describes the patient's situation: suicidal ideation, vomiting,",
+      "timestamp": 1779717340.6930752,
+      "turn": 12
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is continuing to summarize and reflect back the patient's situation (\"You feel like it's been very distressing for you...\"). This is likely a therapist or supportive listener trying to validate and understand the patient's experience.\n\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) from the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond naturally to the listener's summary. I need to show that I'm overwhelmed but also trying to communicate my pain. I should not be defensive but rather open and honest about how bad it is. I need to incorporate the specific details from the Reddit post (the vomiting, the can't eat, the \"want to die\" feeling) while maintaining the flow of conversation.\n\n3.  **Determine Response Strategy:**\n    *   Acknowledge the listener's effort to understand.\n    *",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Focus Area:** PHQ-9: Safety / Suicidality (Thoughts that you would be better off dead, or of hurting yourself).\n    *   **Input Data:**\n        *   Patient's Statement (Context/Thinking Process): Indicates the patient (Carly) is distressed, had a panic attack, has physical symptoms (vomiting, chest tightness, can't eat), and explicitly mentioned \"making me want to die.\"\n        *   Primary Therapist's Response: \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n        *   Session Context: Closing phase.\n    *   **Output Requirements:**\n        1.  Note which extraction checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest what to ask next based on pending items.\n        4.  Provide a concrete reframed response example.\n    *   **Tone:** Constructive, actionable, compassionate, coaching-oriented.\n\n2.  **Evaluate the Session against the Checklist:**\n    *   **PHQ-9 Core Mood:** Addressed? \"Distressing\" covers the negative mood but isn't specific enough for \"down/depressed/hopeless\" vs \"distressing.\"\n    *   **PHQ-9 Somatic:** Addressed? \"Chest tight, vomiting, can't eat\" covers Sleep/Energy/Appetite/Psychomotor partially.\n    *   **PHQ-9 Cognitive:** Addressed? No.",
+      "timestamp": 1779717348.119576,
+      "turn": 13
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is summarizing the patient's symptoms and feelings (\"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"). This is a reflection back to the patient, likely from a therapist or supportive listener.\n\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) based on the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically as someone experiencing the situation described. Express genuine emotions, concerns, and worries. Be natural and conversational. Show vulnerability and openness.\n    *   **Constraint:** I need to stay in character. The user is asking me to respond as the patient. The previous turns in this specific session (as per the prompt structure) seem to be a dialogue where the user is acting as the listener/ther",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: PHQ-9: Safety / Suicidality (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement/Context: The prompt actually provides a \"Thinking Process\" block which looks like *another AI* (or a user) trying to simulate a patient response or summarize the situation, but then there's a \"PRIMARY THERAPIST'S RESPONSE\" which is actually a reflection back to the patient.\n        *   Wait, I need to look closely at the \"Patient's Statement\" section. It says: \"Thinking Process: 1. Analyze the Input... 2. Review Persona...\". This looks like the *prompt* describing the patient's background/context rather than the actual patient dialogue. The actual *Patient's Statement* provided in the text is actually a meta-description of the session context (Panic attack, vomiting, chest tightness, \"making me want to die\").\n        *   However, the \"PRIMARY THERAPIST'S RESPONSE\" is: \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n        *   *Correction/Clarification:* The prompt says \"A primary therapist has just responded to a patient.\" Then it gives \"",
+      "timestamp": 1779717356.0284188,
+      "turn": 14
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is summarizing the patient's symptoms and feelings (\"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"). This is likely a therapist or supportive listener reflecting back to ensure understanding and empathy.\n\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) from the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically as someone experiencing the situation described. Express genuine emotions, concerns, and worries. Be natural and conversational. Show vulnerability and openness.\n    *   **Constraint:** I need to stay in character. The user is asking me to respond as the patient. The previous turns in this specific session (as per the prompt structure) seem to be a dialogue where the user is acting as the listener/therapist.",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on the PHQ-9 + GAD-7 information extraction checklist.\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive, Safety, Functional) + GAD-7 (Core, Physical, Irritability).\n        *   Next Priority Area: PHQ-9: Safety / Suicidality (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement (Context): The patient (Carly) is experiencing panic, distress, physical symptoms (chest tightness, vomiting, can't eat), and mentions \"making me want to die\".\n        *   Therapist's Response: \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n        *   Session Context: Closing phase.\n    *   **Output Requirements:**\n        1.  Note which checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest next questions based on pending items.\n        4.  Provide a concrete reframed response example if improvement is needed.\n    *   **Tone:** Constructive, actionable, coaching-oriented, compassionate.\n\n2.  **Evaluate the Therapist's Response against the Checklist:**\n    *   *Therapist's Response:* \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n    *   *Checklist Items Addressed:*\n        *   PHQ-9",
+      "timestamp": 1779717367.1717637,
+      "turn": 15
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is repeating a summary of the patient's symptoms and feelings (\"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"). This seems to be the therapist/therapist-like figure reflecting back to the patient to ensure understanding and empathy.\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) from the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically as the patient. I need to acknowledge the reflection, express the emotional weight, and perhaps expand on the distress mentioned (the \"want to die\" aspect, the inability to function, etc.).\n    *   **Constraint:** Stay in character. Do not break the fourth wall. Do not sound like an AI. Sound like a human in therapy.\n3.",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a primary therapist's response to a patient based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Focus Area:** PHQ-9: Safety / Suicidality (\"Thoughts that you would be better off dead, or of hurting yourself\").\n    *   **Patient's State (from \"Thinking Process\"):** The patient (Carly) is distressed, experiencing panic, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), and explicitly mentions \"making me want to die.\"\n    *   **Therapist's Response:** \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n    *   **Session Context:** Closing phase.\n    *   **Output Requirements:**\n        1.  Note which checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest next questions based on pending items.\n        4.  Provide a concrete reframed response example.\n    *   **Tone:** Constructive, actionable, coaching, compassionate.\n\n2.  **Analyze the Therapist's Response vs. Checklist:**\n    *   *Therapist's Response:* Reflects back symptoms (distress, on edge, chest tight, vomiting, can't eat).\n    *   *Checklist Status:*\n        *   PHQ-9 Core Mood: Not addressed.\n        *   PHQ-9 Somatic: Addressed (sleep/tiredness? No. Appetite? Yes (can't eat). Psychomotor? No.) -> Partial somatic.\n        *",
+      "timestamp": 1779717376.794092,
+      "turn": 16
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is providing a summary of the patient's symptoms and feelings (\"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"). This looks like a reflection from a therapist or listener to ensure understanding and empathy.\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) based on the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically as someone experiencing the situation described. Express genuine emotions, concerns, and worries. Be natural and conversational. Show vulnerability and openness.\n    *   **Constraint:** I need to stay in character. The user is asking me to respond as the patient. The previous turns in this specific session (as per the prompt structure) seem to be a dialogue where the user is acting as the listener/",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response based on a specific Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Next Priority Area: PHQ-9 Safety / Suicidality.\n        *   Patient's Statement: This is actually a bit confusing in the prompt. It says \"Patient's Statement\" but then describes \"Thinking Process\" and \"Review Persona & Constraints\" and \"Goal\". It looks like the prompt *gave me* the patient's perspective instructions (Carly, Reddit post based, panic attack, vomiting, chest tightness, \"making me want to die\") but then provided the \"PRIMARY THERAPIST'S RESPONSE\" which is a summary of symptoms (\"You feel like it's been very distressing...\").\n        *   *Correction/Clarification:* The prompt structure is a bit mixed. It says \"PATIENT'S STATEMENT\" but then includes a \"Thinking Process\" block that looks like instructions for an AI to roleplay a patient. However, the \"PRIMARY THERAPIST'S RESPONSE\" is the actual text to evaluate: \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n        *   *Context:* This is the *Therapist's Response* to the patient. The prompt asks me to evaluate whether the therapist is making progress on the checklist *based on this exchange*.\n        *   *",
+      "timestamp": 1779717386.1089373,
+      "turn": 17
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is summarizing the patient's symptoms and feelings (\"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"). This looks like a reflection from a therapist or listener to ensure understanding and empathy.\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) based on the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically as someone experiencing the situation described. Express genuine emotions, concerns, and worries. Be natural and conversational. Show vulnerability and openness.\n    *   **Constraint:** I need to stay in character. The user is asking me to respond as the patient. The previous turns in this specific session (as per the prompt structure) seem to be a dialogue where the user is acting as the listener/therapist",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response during a therapy session based on a specific checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Patient Statement: The prompt actually contains a \"Thinking Process\" section that describes the *patient's* internal state (Carly) and the situation (panic attack, distress, physical symptoms, suicidal ideation \"making me want to die\"). However, the actual *Patient's Statement* provided in the prompt is missing. Instead, there's a \"Thinking Process\" block that looks like instructions for an AI to *be* the patient. Wait, looking closely at the input:\n            *   \"PATIENT'S STATEMENT:\" is followed by \"Thinking Process: ...\". This is confusing. It seems the prompt *is* the instructions for an AI to roleplay the patient, but the evaluation task is for the *therapist's* response.\n            *   Actually, re-reading the prompt structure: \"PRIMARY THERAPIST'S RESPONSE: 'You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.'\"\n            *   Wait, the text under \"PATIENT'S STATEMENT:\" is actually a meta-instruction block (\"Thinking Process... Role: Patient... Goal: Respond authentically...\"). This looks like the user pasted the *prompt* they would give to an AI to generate the patient's side, but then asked *me",
+      "timestamp": 1779717395.2530208,
+      "turn": 18
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is providing a summary of the patient's symptoms and feelings (\"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"). This looks like a reflection from a therapist or listener to ensure understanding and empathy.\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) based on the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically as someone experiencing the situation described. Express genuine emotions, concerns, and worries. Be natural and conversational. Show vulnerability and openness.\n    *   **Constraint:** I need to stay in character. The user is asking me to respond as the patient. The previous turns in this specific session (as per the prompt structure) seem to be a dialogue where the user is acting as the listener/",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapist's response based on a specific INFORMATION EXTRACTION CHECKLIST (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: PHQ-9 (Core Mood, Somatic, Cognitive/Self-Worth, Safety/Suicidality, Functional Impact) + GAD-7 (Core Anxiety, Physical Tension, Irritability/Apprehension).\n        *   Patient Statement: Actually, the input says \"PATIENT'S STATEMENT\" but describes a \"Thinking Process\" and \"Goal: Respond authentically as someone experiencing the situation described.\" This looks like a prompt *for* an AI to generate patient text, or perhaps the \"Patient's Statement\" provided is actually the *Therapist's* summary of the patient, or the \"Patient's Statement\" is missing/ambiguous.\n        *   *Correction/Clarification:* Looking closely at the \"PATIENT'S STATEMENT\" section: It says \"Thinking Process: 1. Analyze the Input... 2. Review Persona... 3. Tone... 4. Constraint...\". This looks like *metadata* or instructions for an AI, not actual patient dialogue. However, the \"PRIMARY THERAPIST'S RESPONSE\" is: \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n        *   *Context:* This looks like a case where the therapist is summarizing/reflecting back the patient's feelings/symptoms. The prompt asks me to evaluate whether the therapist is making progress on the *information extraction checklist*.\n        *   *Critical Observation:* The \"Patient's Statement\" section provided in the prompt is actually",
+      "timestamp": 1779717404.414882,
+      "turn": 19
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:** The user is repeating the same prompt multiple times, which seems to be a test or a mistake in the conversation flow. The user's message is: \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\" This is a summary of the patient's condition, likely from a therapist or listener perspective.\n2.  **Review Persona & Constraints:**\n    *   **Role:** Patient (Carly) based on the Reddit post.\n    *   **Situation:** Panic attack a week ago, relentless anxiety, physical symptoms (vomiting, chest tightness, can't eat), emotional state (despair, \"making me want to die\").\n    *   **Tone:** Vulnerable, conversational, distressed, authentic.\n    *   **Goal:** Respond authentically as someone experiencing the situation described. Express genuine emotions, concerns, and worries. Be natural and conversational. Show vulnerability and openness.\n    *   **Constraint:** I need to stay in character. The user is asking me to respond as the patient. The previous turns in this specific session (as",
+      "therapist_response": "You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session response against an Information Extraction Checklist (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Checklist: Specific items for PHQ-9 (Mood, Somatic, Cognitive, Safety, Functional) and GAD-7 (Core, Physical, Irritability).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality] (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement: This is actually a \"Thinking Process\" from an AI model trying to act as the patient (Carly) based on a Reddit post context, *but* the prompt says \"PRIMARY THERAPIST'S RESPONSE\" is provided below. Wait, looking closely at the input structure.\n        *   *Correction/Clarification:* The input provided under \"PATIENT'S STATEMENT\" is actually labeled \"Thinking Process\" and describes a scenario where the *user* (who is supposed to be the patient Carly based on a Reddit post context) is asking the AI to respond *as the patient*. However, the section labeled \"PRIMARY THERAPIST'S RESPONSE\" says: \"You feel like it's been very distressing for you. You're always on edge, always feeling like your chest is always tight, vomiting, can't eat.\"\n        *   *Critical Observation:* The \"Primary Therapist's Response\" provided in the prompt is actually phrased as a *reflection* or *summary* (\"You feel like...\"). It sounds like the therapist is summarizing the patient's experience back to them (reflection), rather than asking an open-ended question or extracting specific data points.\n        *   *Wait, re-",
+      "timestamp": 1779717414.2150185,
+      "turn": 20
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}

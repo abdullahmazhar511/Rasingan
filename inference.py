@@ -37,6 +37,8 @@ CONFIG = {
 LABEL_TO_IDX = {-2: 0, -1: 1, 0: 2, 1: 3, 2: 4}
 IDX_TO_LABEL = {0: -2, 1: -1, 2: 0, 3: 1, 4: 2}
 NUM_CLASSES = 5
+# Used by return_expected=True path: E[label] = sum(p_c * c).
+LABEL_VALUES = torch.tensor([-2.0, -1.0, 0.0, 1.0, 2.0])
 CARE_LABELS=[
     "Non-Judgmental Language", "Warmth and Encouragement", 
     "Respect for Autonomy", "Active Listening", 
@@ -300,22 +302,29 @@ class CareModel:
 
         return results
 
-    def predict(self, context, utterance, include_analysis=True):
+    def predict(self, context, utterance, include_analysis=True, return_expected=False):
         """
         Single sample inference with optional analysis.
+
+        Args:
+            return_expected: If False (default), each CARE dim is an integer in
+                {-2,-1,0,1,2} via argmax — matches dataset annotations, use
+                for eval. If True, each CARE dim is the expected value
+                E[label] = sum_c p_c * c over the softmaxed class
+                distribution — continuous in [-2, 2], use for RL reward.
         """
         if include_analysis:
             analysis = self.get_analysis(context, utterance)
         else:
             analysis = ""
-            
+
         text_input = (
             f"Context:\n{context}\n"
             f"Therapist: \"{utterance}\"\n"
             f"Analysis:\n{analysis}\n"
             "Classify the clinical traits."
         )
-        
+
         tokenized_input = self.tokenizer(
             text_input,
             max_length=self.max_length,
@@ -323,38 +332,44 @@ class CareModel:
             truncation=True,
             return_tensors="pt"
         ).to(device)
-        
+
         with torch.no_grad():
             output = self.model(
                 input_ids=tokenized_input.input_ids,
                 attention_mask=tokenized_input.attention_mask
             )
-            logits = output["logits"]
-            preds = torch.argmax(logits, dim=2)
-            preds_idx = preds.cpu().numpy()
-        
-        # Convert predictions to labels
-        preds_real = np.vectorize(IDX_TO_LABEL.get)(preds_idx)
-        
-        # Return predictions with labels
+            logits = output["logits"]               # (1, 6, 5)
+            preds_idx = torch.argmax(logits, dim=2).cpu().numpy()
+            preds_argmax = np.vectorize(IDX_TO_LABEL.get)(preds_idx)
+            if return_expected:
+                probs = torch.softmax(logits, dim=-1)
+                vals = LABEL_VALUES.to(probs.device)
+                preds_expected = (probs * vals).sum(dim=-1).cpu().numpy()
+
+        # Primary result = expected when requested, else argmax.
         result = {}
         for i, label in enumerate(CARE_LABELS):
-            result[label] = preds_real[0][i].item()
-        
+            if return_expected:
+                result[label] = float(preds_expected[0][i])
+            else:
+                result[label] = float(preds_argmax[0][i])
+
+        if return_expected:
+            # Also return argmax for downstream logging (free from same forward pass).
+            argmax_dict = {label: float(preds_argmax[0][i]) for i, label in enumerate(CARE_LABELS)}
+            return {"expected": result, "argmax": argmax_dict}
         return result
     
-    def batch_predict(self, contexts, utterances, batch_size=8, include_analysis=True):
+    def batch_predict(self, contexts, utterances, batch_size=8, include_analysis=True, return_expected=False):
         """
         Batch inference for fast processing of multiple samples.
-        
+
         Args:
             contexts: List of context strings
             utterances: List of utterance strings
             batch_size: Number of samples to process at once
             include_analysis: Whether to include analysis (slower but more accurate)
-        
-        Returns:
-            List of prediction dictionaries
+            return_expected: See predict() — argmax integer vs E[label] float.
         """
         assert len(contexts) == len(utterances), "contexts and utterances must have same length"
         
@@ -400,19 +415,23 @@ class CareModel:
                     input_ids=tokenized_batch.input_ids,
                     attention_mask=tokenized_batch.attention_mask
                 )
-                logits = output["logits"]
-                preds = torch.argmax(logits, dim=2)
-                preds_batch = preds.cpu().numpy()
-            
-            # Convert predictions to labels
-            preds_real = np.vectorize(IDX_TO_LABEL.get)(preds_batch)
-            
+                logits = output["logits"]               # (B, 6, 5)
+                preds_batch = torch.argmax(logits, dim=2).cpu().numpy()
+                preds_argmax = np.vectorize(IDX_TO_LABEL.get)(preds_batch)
+                if return_expected:
+                    probs = torch.softmax(logits, dim=-1)
+                    vals = LABEL_VALUES.to(probs.device)
+                    preds_expected = (probs * vals).sum(dim=-1).cpu().numpy()
+
             # Build results for this batch
             for i in range(len(batch_inputs)):
-                result = {}
-                for j, label in enumerate(CARE_LABELS):
-                    result[label] = preds_real[i][j].item()
-                all_results.append(result)
+                if return_expected:
+                    expected = {label: float(preds_expected[i][j]) for j, label in enumerate(CARE_LABELS)}
+                    argmax   = {label: float(preds_argmax[i][j])   for j, label in enumerate(CARE_LABELS)}
+                    all_results.append({"expected": expected, "argmax": argmax})
+                else:
+                    result = {label: float(preds_argmax[i][j]) for j, label in enumerate(CARE_LABELS)}
+                    all_results.append(result)
             
             # Clear cache to avoid OOM
             torch.cuda.empty_cache()

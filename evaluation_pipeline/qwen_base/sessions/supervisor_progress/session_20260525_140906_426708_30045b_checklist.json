@@ -1,0 +1,226 @@
+{
+  "session_id": "20260525_140906_426708_30045b",
+  "timestamp": 1779718426.4267642,
+  "extraction_status": {
+    "core_mood": {
+      "name": "PHQ-9: Core Mood",
+      "items": {
+        "Little interest or pleasure in doing things (anhedonia)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling down, depressed, or hopeless": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "somatic": {
+      "name": "PHQ-9: Somatic Symptoms",
+      "items": {
+        "Trouble falling or staying asleep, or sleeping too much": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling tired or having little energy": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Poor appetite or overeating": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Moving or speaking slowly, or being fidgety/restless (psychomotor change)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "cognitive_selfworth": {
+      "name": "PHQ-9: Cognitive & Self-Worth",
+      "items": {
+        "Feeling bad about yourself, a failure, or having let family down": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Trouble concentrating on things (e.g., reading, watching TV)": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "safety": {
+      "name": "PHQ-9: Safety / Suicidality",
+      "items": {
+        "Thoughts that you would be better off dead, or of hurting yourself": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "functional_impact": {
+      "name": "PHQ-9: Functional Impact",
+      "items": {
+        "Difficulty doing work, home tasks, or getting along with others due to these problems": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "core_anxiety": {
+      "name": "GAD-7: Core Anxiety / Worry",
+      "items": {
+        "Feeling nervous, anxious, or on edge": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Not being able to stop or control worrying": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Worrying too much about different things": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "physical_tension": {
+      "name": "GAD-7: Physical Tension",
+      "items": {
+        "Trouble relaxing": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Being so restless that it's hard to sit still": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    },
+    "irritability_fear": {
+      "name": "GAD-7: Irritability & Apprehension",
+      "items": {
+        "Becoming easily annoyed or irritable": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        },
+        "Feeling afraid as if something awful might happen": {
+          "covered": false,
+          "turn_covered": null,
+          "evidence": null
+        }
+      }
+    }
+  },
+  "feedback_history": [
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Patient (based on the provided Reddit post).\n    *   **Situation:** 19-year-old, diagnosed with depression (5 years), ADHD & Autism (4 months). Unmedicated for 5 years (until recently as an adult). Currently medicated but not fully effective yet. History of academic struggles (failed high school, held back, homeschooled online for 4 years doing \"nothing\"). Wants to become a vet or doctor but feels hopeless. Feels \"bedrot\", numb, tired, jealous of peers. Family is skeptical/unhelpful. Lost friends, broke, fired from a job briefly. Feels worthless and wishes they were never born.\n    *   **Task:** Respond authentically as this patient in therapy. Express genuine emotions, concerns, worries. Be natural and conversational. Show vulnerability.\n    *   **Current Input:** The therapist is introducing themselves, establishing safety, and asking \"What brings you in today?\"\n\n2.  **Determine the Tone and Voice:**\n    *   **Tone:** Vulnerable, tired, overwhelmed, hopeful but doubtful, raw.\n    *   **Voice:**",
+      "therapist_response": "I don\u2019t know how to start, honestly. It feels like everything\u2019s just\u2026 floating. Like I\u2019m underwater and I can\u2019t remember how to swim. I keep thinking about how much I want to help animals or people\u2014maybe even be a doctor\u2014but it feels like I\u2019m already broken, and no matter what I do, I\u2019m just gonna keep falling behind.  \n\nI don\u2019t know if I\u2019m even capable of trying anymore. I\u2019ve lost so many people, and I feel like I don\u2019t deserve to be part of anything real. I just\u2026 sit here and watch the world move and feel like I\u2019m standing still. I don\u2019t even know if I\u2019m supposed to be here.  \n\nWhat if I\u2019m not meant to be okay? What if I just\u2026 stay like this?  \n\nI guess I\u2019m here because I need to feel seen. Not fixed. Just\u2026 seen.",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am a compassionate senior therapist/clinical supervisor.\n    *   **Task:** Evaluate the Primary Therapist's response to a Patient's statement (which is actually a \"Thinking Process\" + \"Patient's Statement\" description in the prompt, but looking closely, the prompt structure is a bit mixed).\n    *   **Wait, let's clarify the input:**\n        *   The prompt says \"A primary therapist has just responded to a patient.\"\n        *   Then it lists an \"INFORMATION EXTRACTION CHECKLIST\" (PHQ-9 + GAD-7).\n        *   Then it lists \"NEXT PRIORITY AREA: [PHQ-9: Safety / Suicidality]\".\n        *   Then it lists \"PATIENT'S STATEMENT\".\n        *   *Correction:* The \"PATIENT'S STATEMENT\" section actually contains a \"Thinking Process\" (meta-data about the patient persona) AND the actual \"Patient's Statement\" (the quote starting with \"I don't know how to start...\").\n        *   *Wait, looking closer at the \"PRIMARY THERAPIST'S RESPONSE\":*\n        *   The text labeled \"PRIMARY THERAPIST'S RESPONSE\" starts with: \"I don't know how to start, honestly. It feels like everything\u2019s just\u2026 floating...\"\n        *   This looks like the *Patient* is speaking in the section labeled \"PRIMARY THERAPIST'S RESPONSE\".\n        *   The text labeled \"PATIENT'S STATEMENT\" contains the \"Thinking Process\" about the patient (19-year-old, diagnosed with depression, ADHD & Autism, etc.) AND then the actual dialogue.\n        *   Actually, reading the prompt structure again:\n            *   \"PATIENT'S STATEMENT: 'Thinking Process: ... [Patient Persona Info] ... Current",
+      "timestamp": 1779718217.8553905,
+      "turn": 1
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the User's Input (as the Patient):**\n    *   The user is roleplaying as the patient described in the Reddit post.\n    *   They are expressing deep feelings of hopelessness, worthlessness, and paralysis (\"floating,\" \"underwater,\" \"can't swim\").\n    *   They mention their goals (vet, doctor) but feel incapable due to their condition (\"broken,\" \"falling behind\").\n    *   They express loneliness (\"lost so many people,\" \"don't deserve to be part of anything real\").\n    *   They feel stuck (\"sit here and watch the world move\").\n    *   They have existential doubts (\"What if I'm not meant to be okay?\").\n    *   They state their reason for being in therapy: \"I need to feel seen. Not fixed.\"\n\n2.  **Determine the Goal:**\n    *   I need to respond *as the therapist* (based on the prompt instructions: \"Respond authentically as someone experiencing the situation described in the Reddit post.\" Wait, let me re-read the system instructions carefully).\n    *   **System Instruction:** \"You are a patient in therapy. You are based on the following",
+      "therapist_response": "I hear how heavy that feels\u2014like you're carrying a whole ocean of silence inside you, and you don\u2019t even know how to reach the surface. It\u2019s okay to not know where to start. To feel like you\u2019re just floating, like you\u2019re not moving, like you don\u2019t belong.  \n\nAnd it\u2019s so brave of you to say you want to be a vet or a doctor\u2014not because you think you\u2019ll fix everything, but because somewhere deep down, you still believe you can *help*. That\u2019s not weakness. That\u2019s hope. And even if it feels far away right now, that hope is still there.  \n\nWould it be helpful to explore that a little more\u2014how that desire to help still lives in you, even when everything else feels so heavy?",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Experienced Senior Therapist/Clinical Supervisor.\n    *   **Task:** Evaluate a therapist's response to a patient based on the PHQ-9 + GAD-7 Information Extraction Checklist.\n    *   **Input Data:**\n        *   Checklist (PHQ-9 & GAD-7 items).\n        *   Next Priority Area: [PHQ-9: Safety / Suicidality] (Thoughts that you would be better off dead, or of hurting yourself).\n        *   Patient's Statement (Thinking Process provided in the prompt, but the actual *Patient's Statement* for the session is implied to be the content of the \"Thinking Process\" section, which describes the patient's feelings of hopelessness, worthlessness, paralysis, etc. However, looking closely at the prompt structure: \"PATIENT'S STATEMENT: 'Thinking Process: ...'\". This is slightly confusing. Usually, a patient statement is direct speech. Here, the prompt provides a meta-description of the patient's internal state (\"Thinking Process\") and then asks me to evaluate the therapist's response to that. I need to treat the content within the \"Thinking Process\" section as the patient's expressed concerns/feelings in the session.)\n        *   Primary Therapist's Response: A supportive, validating response acknowledging the \"ocean of silence,\" validating the goal (vet/doctor), and offering to explore the hope.\n    *   **Output Requirements:**\n        1.  Note which extraction checklist items were addressed.\n        2.  Identify 1-2 strengths.\n        3.  Suggest next steps based on pending extraction items.\n        4.  Provide a concrete reframed response example.\n    *   **Tone:** Compassionate, constructive, actionable, coaching-focused.\n\n2.  **Evaluate",
+      "timestamp": 1779718287.6964812,
+      "turn": 2
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am the *Patient* (based on the Reddit post provided in the system instructions).\n    *   **Context:** I am in therapy with a therapist (who just responded to my previous input).\n    *   **User Input:** The user (acting as the therapist) just validated my feelings (\"carrying a whole ocean of silence\"), acknowledged my goals (vet/doctor), and asked if I want to explore that desire to help more.\n    *   **Task:** Respond authentically as the patient described in the Reddit post.\n    *   **Constraints:** Express genuine emotions, concerns, worries. Be natural and conversational. Share relevant details from the Reddit post. Show vulnerability. Maintain consistency with the narrative (depression, ADHD, autism, history of failure, family pressure, feeling numb/broke).\n\n2.  **Review the Patient Profile (Reddit Post):**\n    *   **Age:** 19.\n    *   **Diagnoses:** Depression (5 years), ADHD & Autism (4 months).\n    *   **Medication:** Recently started meds, not fully working yet (numb/tired).",
+      "therapist_response": "Yeah\u2026 I don\u2019t know if I can really *feel* it yet. My body feels like it\u2019s on mute\u2014numb, tired, like I\u2019ve been running on fumes for years. Even when I think about animals, it\u2019s like I can\u2019t really *see* them, just\u2026 shadows.  \n\nI remember when I was little, I used to draw animals and write stories about them\u2014like I thought I\u2019d grow up and save them. But now, when I look at a dog or a bird, I just\u2026 don\u2019t feel anything. It\u2019s like my heart stopped being a place where anything could grow.  \n\nAnd the meds? I\u2019m not sure they\u2019re helping much. I feel like I\u2019m just sitting in a fog. I don\u2019t know if I can even *try* to help, not because I don\u2019t want to\u2014but because I feel like I\u2019m already failing at being human.  \n\nBut\u2026 maybe that\u2019s the point. Maybe if I",
+      "feedback": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** I am an experienced senior therapist/clinical supervisor.\n    *   **Task:** Evaluate a therapy session based on a provided INFORMATION EXTRACTION CHECKLIST (PHQ-9 + GAD-7).\n    *   **Input Data:**\n        *   Patient's Statement (Thinking Process/Profile/Reddit Post context): This is actually a meta-description of the *Patient's* internal state and the scenario. Wait, looking closely at the prompt structure:\n            *   The prompt says \"A primary therapist has just responded to a patient. Your job is to evaluate whether the therapist is making progress...\"\n            *   However, the input labeled \"PATIENT'S STATEMENT\" actually contains a \"Thinking Process\" section that describes the *Patient* (me, the AI acting as the patient) responding to a therapist. But wait, the prompt says \"PRIMARY THERAPIST'S RESPONSE: 'Yeah\u2026 I don't know if I can really *feel* it yet...'\".\n            *   *Correction/Clarification:* There seems to be a mix-up in the prompt structure provided by the user.\n                *   The prompt header says: \"A primary therapist has just responded to a patient.\"\n                *   The section \"PATIENT'S STATEMENT\" contains a \"Thinking Process\" block describing the *Patient's* perspective (Reddit post context, 19yo, depression, ADHD, autism, meds, etc.) and then cuts off mid-sentence (\"But\u2026 maybe that's the point. Maybe if I\").\n                *   The section \"PRIMARY THERAPIST'S RESPONSE\" contains the therapist's last message (\"Yeah\u2026 I don't know if I can really *feel* it yet...\").\n            *   *Wait, let's re-read carefully.*\n            *   \"PATIENT'S STATEMENT: [Thinking Process",
+      "timestamp": 1779718355.6351864,
+      "turn": 3
+    },
+    {
+      "patient_message": "Thinking Process:\n\n1.  **Analyze the Input:**\n    *   The user (acting as the patient) is continuing the roleplay.\n    *   They are describing their current state: numbness, fatigue, dissociation (\"body feels like it's on mute\").\n    *   They mention a specific childhood interest (drawing animals, writing stories) which contrasts with their current inability to feel anything (\"shadows\").\n    *   They express doubt about the medication (\"sitting in a fog\").\n    *   They express deep self-criticism (\"failing at being human\").\n    *   They end with a sentence fragment (\"But\u2026 maybe that's the point. Maybe if I\"). This indicates they are about to say something significant or are hesitating.\n\n2.  **Determine the Goal:**\n    *   I need to complete the thought or respond naturally to the fragment.\n    *   I need to maintain the persona of the patient (19-year-old, depressed, ADHD, autistic, struggling with purpose, feeling hopeless but seeking connection).\n    *   I need to show vulnerability and consistency with the Reddit post narrative.\n    *   I need to respond to the therapist's previous validation (which was",
+      "therapist_response": "But\u2026 maybe that's the point. Maybe if I just stop trying to feel everything right away, and just *be* with it\u2014without fixing it, without pretending\u2014I can start to remember what it feels like to care.  \n\nNot like a hero. Not like someone who saves animals or people. Just\u2026 like someone who sees them, and doesn\u2019t run away.  \n\nAnd if that\u2019s all I can do, maybe that\u2019s enough.",
+      "feedback": "[supervisor unavailable: APIConnectionError]",
+      "timestamp": 1779718426.4267626,
+      "turn": 4
+    }
+  ],
+  "extraction_summary": {
+    "total_items": 17,
+    "covered_items": 0,
+    "overall_pct": 0.0,
+    "categories": {
+      "core_mood": {
+        "name": "PHQ-9: Core Mood",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "somatic": {
+        "name": "PHQ-9: Somatic Symptoms",
+        "covered": 0,
+        "total": 4,
+        "pct": 0.0
+      },
+      "cognitive_selfworth": {
+        "name": "PHQ-9: Cognitive & Self-Worth",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "safety": {
+        "name": "PHQ-9: Safety / Suicidality",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "functional_impact": {
+        "name": "PHQ-9: Functional Impact",
+        "covered": 0,
+        "total": 1,
+        "pct": 0.0
+      },
+      "core_anxiety": {
+        "name": "GAD-7: Core Anxiety / Worry",
+        "covered": 0,
+        "total": 3,
+        "pct": 0.0
+      },
+      "physical_tension": {
+        "name": "GAD-7: Physical Tension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      },
+      "irritability_fear": {
+        "name": "GAD-7: Irritability & Apprehension",
+        "covered": 0,
+        "total": 2,
+        "pct": 0.0
+      }
+    },
+    "pending_categories": [
+      "PHQ-9: Core Mood",
+      "PHQ-9: Somatic Symptoms",
+      "PHQ-9: Cognitive & Self-Worth",
+      "PHQ-9: Safety / Suicidality",
+      "PHQ-9: Functional Impact",
+      "GAD-7: Core Anxiety / Worry",
+      "GAD-7: Physical Tension",
+      "GAD-7: Irritability & Apprehension"
+    ]
+  }
+}
